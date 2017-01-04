@@ -2,7 +2,7 @@
 
 baseurl = "http://example.org/"
 languageCode = "en-us"
-title = "John Doe Resume"
+title = "陈霈霖个人简历 - 游戏开发、前端开发、DevOps"
 theme = "hugo-orbit-theme"
 googleAnalytics = "UA-XXXXXXX-Y"
 
@@ -15,7 +15,7 @@ disable404 = true
 
 # Meta
     description = "Hugo Responsive Resume/CV Theme for Developers"
-    author = "Pavel Kanyshev"
+    author = "Kanyshev"
 
 # Theme styles
 
@@ -30,8 +30,8 @@ disable404 = true
 
     # Profile section
     [params.profile]
-        name = "John Doe"
-        tagline = "Full Stack Developer"
+        name = "陈霈霖"
+        tagline = """西山居工程师"""
         avatar = "profile.png"
 
     # Contact section
@@ -39,86 +39,115 @@ disable404 = true
         enable = true
 
         [[params.contact.list]]
+        class = "company"
+        icon = "fa-home"
+        url = "http://xishanju.com"
+        title = "现职金山西山居"
+
+        [[params.contact.list]]
+        class = "time"
+        icon = "fa-calendar"
+        url = "https://github.com/mr-kelly"
+        title = "5年职业生涯经验"
+
+        [[params.contact.list]]
         class = "email"
         icon = "fa-envelope"
-        url = "mailto: yourname@email.com"
-        title = "john.doe@website.com"
+        url = "mailto: 23110388@qq.com"
+        title = "23110388@qq.com"
 
         [[params.contact.list]]
         class = "phone"
         icon = "fa-phone"
-        url = "tel:+1234567890"
-        title = "+1234567890"
+        url = "tel:+86 186 8818 0270"
+        title = "+86 186 8818 0270"
+
+        # [[params.contact.list]]
+        # class = "website"
+        # icon = "fa-globe"
+        # url = "//portfoliosite.com"
+        # title = "portfoliosite.com"
+
+        # [[params.contact.list]]
+        # class = "linkedin"
+        # icon = "fa-linkedin"
+        # url = "//linkedin.com/in/johndoe"
+        # title = "linkedin.com/in/johndoe"
 
         [[params.contact.list]]
-        class = "website"
+        class = "qq"
+        icon = "fa-qq"
+        url = "#"
+        title = "23110388"
+
+        [[params.contact.list]]
+        class = "zhihu"
         icon = "fa-globe"
-        url = "//portfoliosite.com"
-        title = "portfoliosite.com"
+        url = "https://www.zhihu.com/people/mrkelly"
+        title = "知乎"
 
         [[params.contact.list]]
-        class = "linkedin"
-        icon = "fa-linkedin"
-        url = "//linkedin.com/in/johndoe"
-        title = "linkedin.com/in/johndoe"
+        class = "jianshu"
+        icon = "fa-globe"
+        url = "http://www.jianshu.com/users/674f1a626944"
+        title = "简书"
 
         [[params.contact.list]]
         class = "github"
         icon = "fa-github"
-        url = "//github.com/username"
-        title = "github.com/username"
+        url = "//github.com/mr-kelly"
+        title = "github.com/mr-kelly"
 
-        [[params.contact.list]]
-        class = "twitter"
-        icon = "fa-twitter"
-        url = "//twitter.com/username"
-        title = "@twittername"
 
     # Education section
     [params.education]
         enable = true
-        title = "Education"
+        title = "教育经历"
 
         [[params.education.list]]
-        degree = "MSc in Computer Science"
-        college = "University of London"
-        dates = "2006 - 2010"
+        degree = "金融学"
+        college = "北京师范大学珠海分校"
+        dates = "2008 - 2012"
 
-        [[params.education.list]]
-        degree = "BSc in Applied Mathematics"
-        college = "Bristol University"
-        dates = "2007 - 2011"
+
+        # [[params.education.list]]
+        # degree = "BSc in Applied Mathematics"
+        # college = "Bristol University"
+        # dates = "2007 - 2011"
 
     # Languages section
     [params.languages]
         enable = true
-        title = "Languages"
+        title = "语言能力"
 
         [[params.languages.list]]
-        language = "English"
-        level = "Native"
+        language = "英语"
+        level = "流利"
 
         [[params.languages.list]]
-        language = "French"
-        level = "Professional"
+        language = "国语"
+        level = "流利"
 
         [[params.languages.list]]
-        language = "Russian"
-        level = "Professional"
+        language = "粤语"
+        level = "母语"
 
     # Interests section
     [params.interests]
         enable = true
-        title = "Interests"
+        title = "兴趣"
 
         [[params.interests.list]]
-        interest = "Climbing"
+        interest = "篮球"
 
         [[params.interests.list]]
-        interest = "Snowboarding"
+        interest = "健身"
 
         [[params.interests.list]]
-        interest = "Cooking"
+        interest = "美食"
+
+        [[params.interests.list]]
+        interest = "数码时尚"
 
 # Main body sections
 
@@ -128,94 +157,156 @@ disable404 = true
     [params.summary]
         enable = true
         icon = "fa-user"
-        title = "Career Profile"
-        summary = "**Summarise your career here** lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu."
+        title = "自我介绍"
+        summary = """
+小学时代意外学习**VB**和发布**Dreamweaver**个人主页；中学时代鼓捣**Discuz**和**Wordpress**、运营校园社区；大学时代众人眼中的技术哥（类似现在说的**Web全栈**、野生程序员），做技术咨询做设计做视频做文案做PPT做服务器运维，使用过**PHP、Python、Java**等多个主流框架做过各种Web项目、微博应用。
+\n\n
+职场进入游戏行业，Unity3D游戏开发5年经验。承担过多个大型网络游戏前后端的核心功能和框架开发，承担过项目主程从0到1的技术开发和进度管理工作。近年技术主要涉猎游戏开发（**Unity3D、C/Lua、NodeJS**服务端等）、前端开发（**Angular.js、Vue.js、Gulp、Webpack**等）、DevOps（**Jenkins、Rundeck、Redmine、Ansible**、iOS/Android编译构建、版本管理等等），有线上应用的专利点申请。
+\n\n
+狂热工具党，追求工作自动化，梦想通过技术让人类生活更高效更有趣；尊重开源、支持开源，有积极参与多个GitHub开源项目。
+\n\n
+性格逗逼，自信，形象良好，有决策和演讲能力；爱好广泛，热爱生活，热爱体育运动，三分球有40%+命中率。
+\n\n
+视技术如潮流，喜欢研究新的解决方案、新技术，对新产品有很强的猎奇心。个人将编程开发当成一门艺术而非技术，崇尚极简主义。
+        """
 
     # Experiences section
     [params.experiences]
         enable = true
         icon = "fa-briefcase"
-        title = "Experiences"
+        title = "工作经历"
 
         [[params.jobs.list]]
-        position = "Lead Developer"
-        dates = "2015 - Present"
-        company = "Startup Hubs, San Francisco"
-        details = "**Describe your role here** lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo.\n\n Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+        position = "游戏软件工程师"
+        dates = "2015 - 至今"
+        company = "珠海, 金山西山居"
+        details = """- **DevOps研发运维**相关技术平台的搭建和推行
+- **版本管理**及版本规范的制定，多语言国际化功能;
+- **游戏开发**, iOS/Android插件开发等底层功能
+- 制定**热更新方案**,设计并实现补丁式热更新,可以热更任意功能,包括编译型代码在内的所有代码.
+- 游戏**性能优化**，开发各种项目辅助工具
+- 应用前端开发(**Vue.js**)设计运维平台"""
 
         [[params.jobs.list]]
-        position = "Senior Software Engineer"
-        dates = "2014 - 2015"
-        company = "Google, London"
-        details = "**Describe your role here** lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem."
+        position = "项目主程"
+        dates = "2013 - 2015"
+        company = "珠海, 宇宙盒子"
+        details = """- 创业型公司，**项目进度管理、版本管理**，推行迭代开发推动团队，并制定工作流手册。
+- 推行“**工具先行**”的思想：策划填表工具，工作室微程序，美术资源同步器，运维自动化等；
+- 使用**Redmine+Jenkins/Hudson+Ansible**搭建 “开发-集成-部署” 的开发运维一体化
+- 手机游戏开发，服务器与客户端架构设计 ( 服务器**NodeJS Pomelo** + 客户端**Unity3D[C#]**)
+- 运营管理平台的开发(**Angular.js**)
+        """
 
         [[params.jobs.list]]
-        position = "UI Developer"
+        position = "Unity游戏开发工程师"
         dates = "2012 - 2014"
-        company = "Amazon, London"
-        details = "**Describe your role here** lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem."
+        company = "珠海, 星辉天拓游戏"
+        details = """- 珠海西山居系创业团队，MMORPG大型网游，核心功能开发，使用C++/Lua/C#/Unity3D引擎,
+- 参与游戏客户端架构搭建，参与客户端与服务器逻辑核心模块的开发
+- 开发Unity的周边工具，包括技能编辑器两个、UI编辑器、资源打包工具、导图式AI编辑器, 技能编辑器, 场景编辑器, 产品化打包器等美术、策划辅助工具；
+- 手机端内存优化、模块性能优化，解决性能瓶颈.
+- 自行开发游戏客户端部分重要UI控件，包括点阵字体、文字控件、多行文字控件、按钮、加载条等等；改进EZ GUI插件，使UI能适应网游分辨率改变等；
+        """
+
+
+        [[params.jobs.list]]
+        position = "实习生, Web开发, iOS开发"
+        dates = "2011 - 2012"
+        company = "珠海, 金山西山居"
+        details = """- 使用PHP/Wordpress/CodeIgnitor框架开发**西山居官网**和**招聘网**，包括**美术设计**与开发。
+- 手游**策划**，并承担部分程序工作，Cocos2d-iOS开发卡牌游戏
+- 使用PHP开发**JSON REST API**服务器"""
 
     # Projects section
-    [params.projects]
-        enable = true
-        icon = "fa-archive"
-        title = "Projects"
-        intro = "**You can list your side projects or open source libraries in this section.** Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et ligula in nunc bibendum fringilla a eu lectus"
-
-        [[params.projects.list]]
-        title = "Hugrid"
-        url = "https://github.com/aerohub/hugrid"
-        tagline = "Grid theme for Hugo. It's a kind of boilerplate to perform anyone or anything quickly. Portfolio, collection, bookmarks, contacts and so on"
-
-        [[params.projects.list]]
-        title = "Simple FAQ Theme for Hugo"
-        url = "https://github.com/aerohub/hugo-faq-theme"
-        tagline = "Simple FAQ Theme for Hugo. You may use this theme for building very simple FAQs or note lists."
-
-        [[params.projects.list]]
-        title = "Hugo Identity"
-        url = "https://github.com/aerohub/hugo-identity-theme"
-        tagline = "Little profile/card-style template for Hugo."
-
-        [[params.projects.list]]
-        title = "Orbit"
-        url = "https://github.com/aerohub/hugo-orbit-theme"
-        tagline = "Hugo Resume/CV Theme for Developers."
-
-        [[params.projects.list]]
-        title = "Me"
-        url = "https://github.com/aerohub/hugo-me-theme"
-        tagline = "A simple responsive Hugo theme for personal site."
+    # [params.projects]
+    #     enable = true
+    #     icon = "fa-archive"
+    #     title = "Projects"
+    #     intro = "**You can list your side projects or open source libraries in this section.** Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et ligula in nunc bibendum fringilla a eu lectus"
+    #
+    #     [[params.projects.list]]
+    #     title = "Hugrid"
+    #     url = "https://github.com/aerohub/hugrid"
+    #     tagline = "Grid theme for Hugo. It's a kind of boilerplate to perform anyone or anything quickly. Portfolio, collection, bookmarks, contacts and so on"
+    #
+    #     [[params.projects.list]]
+    #     title = "Simple FAQ Theme for Hugo"
+    #     url = "https://github.com/aerohub/hugo-faq-theme"
+    #     tagline = "Simple FAQ Theme for Hugo. You may use this theme for building very simple FAQs or note lists."
+    #
+    #     [[params.projects.list]]
+    #     title = "Hugo Identity"
+    #     url = "https://github.com/aerohub/hugo-identity-theme"
+    #     tagline = "Little profile/card-style template for Hugo."
+    #
+    #     [[params.projects.list]]
+    #     title = "Orbit"
+    #     url = "https://github.com/aerohub/hugo-orbit-theme"
+    #     tagline = "Hugo Resume/CV Theme for Developers."
+    #
+    #     [[params.projects.list]]
+    #     title = "Me"
+    #     url = "https://github.com/aerohub/hugo-me-theme"
+    #     tagline = "A simple responsive Hugo theme for personal site."
 
     # Skills section
     [params.skills]
         enable = true
         icon = "fa-rocket"
-        title = "Skills & Proficiency"
+        title = "技能自评"
+
+        [[params.skills.list]]
+        skill = "Unity3D"
+        level = "85%"
+
+        [[params.skills.list]]
+        skill = "C# & Mono"
+        level = "90%"
+
+        [[params.skills.list]]
+        skill = "Java"
+        level = "70%"
 
         [[params.skills.list]]
         skill = "Python & Django"
-        level = "98%"
-                
-        [[params.skills.list]]
-        skill = "Javascript & jQuery"
-        level = "98%"
+        level = "70%"
 
         [[params.skills.list]]
-        skill = "Angular"
-        level = "95%"
+        skill = "PHP & CI,TP"
+        level = "72%"
 
         [[params.skills.list]]
-        skill = "HTML5 & CSS"
-        level = "95%"
+        skill = "C / C++"
+        level = "60%"
 
         [[params.skills.list]]
-        skill = "Ruby on Rails"
+        skill = "JavaScript & NodeJS"
         level = "75%"
 
         [[params.skills.list]]
-        skill = "Sketch & Photoshop"
+        skill = "Vue.js"
+        level = "73%"
+
+        [[params.skills.list]]
+        skill = "Angular.js"
         level = "60%"
+
+        [[params.skills.list]]
+        skill = "Go Lang"
+        level = "50%"
+
+        [[params.skills.list]]
+        skill = "MongoDB"
+        level = "49%"
+
+        [[params.skills.list]]
+        skill = "DevOps"
+        level = "80%"
+
+        [[params.skills.list]]
+        skill = "Illustrator & Photoshop"
+        level = "52%"
 
     # Footer section
 
@@ -223,8 +314,8 @@ disable404 = true
     # Please keep the original attribution link when using for your own project.
     # If you'd like to use the template without the attribution,
     # you can check out other license options via template author's website: themes.3rdwavemedia.com
-    # 
+    #
     # As for Hugo port you may rewrite the "Ported for..." line with setting your name below.
 
     [params.footer]
-        copyright = ""
+        copyright = "mr-kelly (chenpeilin)"
