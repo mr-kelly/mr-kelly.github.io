@@ -1,7 +1,7 @@
 # Page settings
 
-baseurl = "http://example.org/"
-languageCode = "en-us"
+baseurl = "https://mr-kelly.github.io/"
+languageCode = "zh-cn"
 title = "陈霈霖个人简历 - 游戏开发、前端开发、DevOps"
 theme = "hugo-orbit-theme"
 googleAnalytics = "UA-XXXXXXX-Y"
@@ -31,7 +31,7 @@ disable404 = true
     # Profile section
     [params.profile]
         name = "陈霈霖"
-        tagline = """西山居工程师"""
+        tagline = """西山居软件工程师"""
         avatar = "profile.png"
 
     # Contact section
@@ -211,7 +211,7 @@ disable404 = true
 
 
         [[params.jobs.list]]
-        position = "实习生, Web开发, iOS开发"
+        position = "实习生, Web开发, iOS手游开发"
         dates = "2011 - 2012"
         company = "珠海, 金山西山居"
         details = """- 使用PHP/Wordpress/CodeIgnitor框架开发**西山居官网**和**招聘网**，包括**美术设计**与开发。
