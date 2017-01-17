@@ -163,11 +163,11 @@ disable404 = true
         enable = true
         icon = "fa-user"
         title = "自我介绍"
-        summary = """兴趣入行，5年Unity游戏开发、Web全栈开发经验，常见编程语言均有项目经验；
+        summary = """兴趣入行，有Unity游戏开发、Web全栈开发经验，常见编程语言均有项目经验；
 \n\n
 对互联网产品有强烈的猎奇心和优秀的学习能力；
 \n\n
-创业公司呆过，做过项目管理；设计公司呆过，做过平面设计；
+创业团队呆过，做过项目管理；设计团队呆过，做过平面设计；
 \n\n
 能胜任游戏开发、前端开发、DevOps相关工作。
 \n\n
@@ -276,12 +276,24 @@ disable404 = true
         title = "技能自评"
 
         [[params.skills.list]]
+        skill = "C# & Mono"
+        level = "90%"
+
+        [[params.skills.list]]
         skill = "Unity3D"
         level = "85%"
 
         [[params.skills.list]]
-        skill = "C# & Mono"
-        level = "90%"
+        skill = "JavaScript & NodeJS"
+        level = "75%"
+
+        [[params.skills.list]]
+        skill = "Vue.js"
+        level = "73%"
+
+        [[params.skills.list]]
+        skill = "PHP & CI,TP"
+        level = "73%"
 
         [[params.skills.list]]
         skill = "Java"
@@ -292,20 +304,8 @@ disable404 = true
         level = "70%"
 
         [[params.skills.list]]
-        skill = "PHP & CI,TP"
-        level = "72%"
-
-        [[params.skills.list]]
         skill = "C / C++"
         level = "60%"
-
-        [[params.skills.list]]
-        skill = "JavaScript & NodeJS"
-        level = "75%"
-
-        [[params.skills.list]]
-        skill = "Vue.js"
-        level = "73%"
 
         [[params.skills.list]]
         skill = "Angular.js"
@@ -321,7 +321,7 @@ disable404 = true
 
         [[params.skills.list]]
         skill = "DevOps"
-        level = "80%"
+        level = "78%"
 
         [[params.skills.list]]
         skill = "Illustrator & Photoshop"
