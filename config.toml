@@ -99,10 +99,22 @@ disable404 = true
         title = "杂作"
 
         [[params.contact.list]]
+        class = "instagram"
+        icon = "fa-instagram"
+        url = "https://www.instagram.com/mrkelly6/"
+        title = "Instagram"
+
+        [[params.contact.list]]
+        class = "facebook"
+        icon = "fa-facebook"
+        url = "https://www.facebook.com/mrkelly.chan"
+        title = "Facebook"
+
+        [[params.contact.list]]
         class = "github"
         icon = "fa-github"
         url = "//github.com/mr-kelly"
-        title = "github.com/mr-kelly"
+        title = "github/mr-kelly"
 
 
     # Education section
@@ -169,7 +181,7 @@ disable404 = true
 \n\n
 创业团队呆过，做过项目管理；设计团队呆过，做过平面设计；
 \n\n
-能胜任游戏开发、前端开发、DevOps相关工作。
+擅长游戏开发、前端开发、DevOps相关工作。
 \n\n
         """
     # Summary section
