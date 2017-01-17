@@ -159,12 +159,25 @@ disable404 = true
 
     # You may use markdown in summary, details and intro fields. But don't overdose, it's resume!:)
 
-    # Summary section
     [params.summary]
         enable = true
         icon = "fa-user"
         title = "自我介绍"
-        summary = """
+        summary = """兴趣入行，5年Unity游戏开发、Web全栈开发经验，常见编程语言均有项目经验；
+\n\n
+对互联网产品有强烈的猎奇心和优秀的学习能力；
+\n\n
+创业公司呆过，做过项目管理；设计公司呆过，做过平面设计；
+\n\n
+能胜任游戏开发、前端开发、DevOps相关工作。
+\n\n
+        """
+    # Summary section
+    [params.story]
+        enable = true
+        icon = "fa-user"
+        title = "我的故事"
+        story = """
 小学时代意外学习**VB**和发布**Dreamweaver**个人主页；中学时代鼓捣**Discuz**和**Wordpress**、运营校园社区；大学时代众人眼中的技术哥（类似现在说的**Web全栈**、野生程序员），做技术咨询做设计做视频做文案做PPT做服务器运维，使用过**PHP、Python、Java**等多个主流框架做过各种Web项目、微博应用。
 \n\n
 职场进入游戏行业，Unity3D游戏开发5年经验。承担过多个大型网络游戏前后端的核心功能和框架开发，承担过项目主程从0到1的技术开发和进度管理工作。近年技术主要涉猎游戏开发（**Unity3D、C/Lua、NodeJS**服务端等）、前端开发（**Angular.js、Vue.js、Gulp、Webpack**等）、DevOps（**Jenkins、Rundeck、Redmine、Ansible**、iOS/Android编译构建、版本管理等等），有线上应用的专利点申请。

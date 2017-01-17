@@ -23,16 +23,19 @@
     {{ partial "projects.html" . }}
     {{ end }}
 
+    {{ if .Site.Params.story.enable }}
+	{{ partial "story.html" . }}
+    {{ end }}
+
     {{ if .Site.Params.skills.enable }}
 	{{ partial "skills.html" . }}
     {{ end }}
-	
+
 	</div><!--//main-body-->
     </div>
-    
+
 	{{ partial "footer.html" . }}
 
     {{ partial "scripts.html" . }}
 </body>
-</html> 
-
+</html>
