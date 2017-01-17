@@ -1,7 +1,7 @@
 # Page settings
 
-baseurl = "http://example.org/"
-languageCode = "en-us"
+baseurl = "//mr-kelly.github.io/"
+languageCode = "zh-cn"
 title = "陈霈霖个人简历 - 游戏开发、前端开发、DevOps"
 theme = "hugo-orbit-theme"
 googleAnalytics = "UA-XXXXXXX-Y"
@@ -31,7 +31,7 @@ disable404 = true
     # Profile section
     [params.profile]
         name = "陈霈霖"
-        tagline = """西山居工程师"""
+        tagline = """西山居软件工程师"""
         avatar = "profile.png"
 
     # Contact section
@@ -91,6 +91,12 @@ disable404 = true
         icon = "fa-globe"
         url = "http://www.jianshu.com/users/674f1a626944"
         title = "简书"
+
+        [[params.contact.list]]
+        class = "profolio"
+        icon = "fa-globe"
+        url = "http://huaban.com/boards/7374/"
+        title = "杂作"
 
         [[params.contact.list]]
         class = "github"
@@ -163,7 +169,7 @@ disable404 = true
 \n\n
 职场进入游戏行业，Unity3D游戏开发5年经验。承担过多个大型网络游戏前后端的核心功能和框架开发，承担过项目主程从0到1的技术开发和进度管理工作。近年技术主要涉猎游戏开发（**Unity3D、C/Lua、NodeJS**服务端等）、前端开发（**Angular.js、Vue.js、Gulp、Webpack**等）、DevOps（**Jenkins、Rundeck、Redmine、Ansible**、iOS/Android编译构建、版本管理等等），有线上应用的专利点申请。
 \n\n
-狂热工具党，追求工作自动化，梦想通过技术让人类生活更高效更有趣；尊重开源、支持开源，有积极参与多个GitHub开源项目。
+狂热工具党，追求工作自动化；对“高效能IT组织”有浓厚的兴趣，推行开发运维一体化并在项目开发中取得成效，有效降低人员成本与时间成本。尊重开源、支持开源，有积极参与多个GitHub开源项目。
 \n\n
 性格逗逼，自信，形象良好，有决策和演讲能力；爱好广泛，热爱生活，热爱体育运动，三分球有40%+命中率。
 \n\n
@@ -211,7 +217,7 @@ disable404 = true
 
 
         [[params.jobs.list]]
-        position = "实习生, Web开发, iOS开发"
+        position = "实习生, Web开发, iOS手游开发"
         dates = "2011 - 2012"
         company = "珠海, 金山西山居"
         details = """- 使用PHP/Wordpress/CodeIgnitor框架开发**西山居官网**和**招聘网**，包括**美术设计**与开发。
