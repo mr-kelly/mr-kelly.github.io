@@ -1,2 +1,323 @@
-<h2>公众号: 商学院毕业的程序员</h2>
-<img src="wx.jpg" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kelly — Full-Stack Polyglot & Serial Founder</title>
+  <meta name="description" content="Hong Kong ↔ San Francisco. Full-Stack Polyglot. Serial Founder. Building AGI tools that make powerful AI accessible to everyone.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d1117;
+      --bg2: #161b22;
+      --bg3: #21262d;
+      --border: #30363d;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --accent: #58a6ff;
+      --accent2: #3fb950;
+      --accent3: #f78166;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 48px 0 40px;
+    }
+    .hero { display: flex; gap: 32px; align-items: flex-start; flex-wrap: wrap; }
+    .avatar {
+      width: 96px; height: 96px; border-radius: 50%;
+      border: 2px solid var(--border); flex-shrink: 0;
+    }
+    .hero-text h1 { font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+    .hero-text .tagline { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+    .hero-text .tagline span { margin-right: 16px; }
+    .quote {
+      background: var(--bg2);
+      border-left: 3px solid var(--accent);
+      padding: 10px 16px;
+      border-radius: 0 6px 6px 0;
+      color: var(--muted);
+      font-style: italic;
+      font-size: 14px;
+      margin-top: 12px;
+      max-width: 560px;
+    }
+
+    /* Badges */
+    .badges { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 4px; padding: 3px 8px;
+      font-size: 12px; color: var(--muted);
+    }
+    .badge.tool { border-color: var(--accent); color: var(--accent); }
+
+    /* Sections */
+    section { padding: 36px 0; border-bottom: 1px solid var(--border); }
+    section:last-child { border-bottom: none; }
+    h2 {
+      font-size: 16px; font-weight: 600;
+      color: var(--muted); text-transform: uppercase;
+      letter-spacing: .08em; margin-bottom: 20px;
+    }
+
+    /* Projects grid */
+    .projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+    .card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 8px; padding: 16px;
+      transition: border-color .15s;
+    }
+    .card:hover { border-color: var(--accent); }
+    .card-title { font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+    .card-title a { color: var(--text); }
+    .card-title a:hover { color: var(--accent); text-decoration: none; }
+    .card-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+    .card-emoji { margin-right: 6px; }
+
+    /* Research */
+    .research-item { margin-bottom: 16px; }
+    .research-item h3 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+    .research-item p { font-size: 13px; color: var(--muted); }
+
+    /* What I'm doing */
+    .doing-list { list-style: none; }
+    .doing-list li {
+      padding: 8px 0; border-bottom: 1px solid var(--border);
+      font-size: 14px; display: flex; gap: 10px;
+    }
+    .doing-list li:last-child { border-bottom: none; }
+    .doing-list .icon { flex-shrink: 0; }
+
+    /* Recognition */
+    .recognition { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+    .rec-item {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 6px; padding: 12px 14px;
+      font-size: 13px; color: var(--muted);
+    }
+
+    /* Connect */
+    .connect-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+    .connect-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 6px; padding: 8px 14px;
+      font-size: 13px; color: var(--text);
+      transition: border-color .15s;
+    }
+    .connect-link:hover { border-color: var(--accent); text-decoration: none; color: var(--accent); }
+
+    /* Stats */
+    .stats { display: flex; flex-wrap: wrap; gap: 12px; }
+    .stats img { border-radius: 6px; max-width: 100%; height: auto; }
+
+    /* Footer */
+    footer {
+      padding: 24px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      .hero { flex-direction: column; }
+      .projects { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <div class="hero">
+      <img class="avatar" src="assets/images/profile.png" alt="Kelly">
+      <div class="hero-text">
+        <h1>Hi, I'm Kelly 👋</h1>
+        <div class="tagline">
+          <span>📍 Hong Kong ↔ San Francisco</span>
+          <span>💻 Full-Stack Polyglot</span>
+          <span>🚀 Serial Founder</span>
+        </div>
+        <div class="badges">
+          <span class="badge">JavaScript</span><span class="badge">TypeScript</span><span class="badge">Python</span>
+          <span class="badge">Java</span><span class="badge">C#</span><span class="badge">C++</span>
+          <span class="badge">Go</span><span class="badge">Rust</span><span class="badge">PHP</span>
+          <span class="badge">Lua</span><span class="badge">React</span><span class="badge">Vue.js</span>
+          <span class="badge">Node.js</span><span class="badge">Docker</span><span class="badge">Unity</span>
+        </div>
+        <div class="badges">
+          <span class="badge tool">Claude</span><span class="badge tool">GitHub Copilot</span>
+          <span class="badge tool">Cursor</span><span class="badge tool">Codex</span>
+          <span class="badge tool">Kiro</span><span class="badge tool">OpenCode</span>
+        </div>
+        <div class="quote">
+          Coding Agent is Eating The World. Making powerful AGI accessible to everyone — applying Coding Agents to simplify every industry.
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="card">
+        <div class="card-title"><span class="card-emoji">🐳</span><a href="https://sandock.ai" target="_blank">Sandock</a></div>
+        <div class="card-desc">Sandbox in Dockers for AI Agents — 100% POSIX-compatible sandbox supporting full Claude Code execution</div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-emoji">🎯</span><a href="https://productready.dev" target="_blank">ProductReady</a></div>
+        <div class="card-desc">Production-ready Next.js boilerplate with native AI Agent, MCP, and enterprise features</div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-emoji">🤖</span><a href="https://aitable.ai" target="_blank">AITable.ai</a></div>
+        <div class="card-desc">AI-powered workflow automation with visual database connecting 6,000+ apps (10,000+ customers)</div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-emoji">📊</span><a href="https://vika.cn" target="_blank">Vika</a></div>
+        <div class="card-desc">Chinese version of APITable with 1M+ users — AI-powered visual database and collaboration platform</div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-emoji">🚀</span><a href="https://github.com/apitable/apitable" target="_blank">APITable</a></div>
+        <div class="card-desc">API-oriented low-code platform for building collaborative apps (15k+ ⭐)</div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-emoji">🦄</span><a href="https://bika.ai" target="_blank">Bika.ai</a></div>
+        <div class="card-desc">AI team messenger for agentic workflows — chat with multiple agents to get work done</div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-emoji">📬</span><a href="https://maildrone.ai" target="_blank">MailDrone</a></div>
+        <div class="card-desc">AI-powered email marketing with unlimited contacts and pay-per-send pricing (1000+ users)</div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-emoji">📊</span><a href="https://npschimp.com" target="_blank">NPSChimp</a></div>
+        <div class="card-desc">The simplest NPS survey tool for growing products and SaaS teams</div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-emoji">📰</span><a href="https://geodrone.app" target="_blank">GeoDrone</a></div>
+        <div class="card-desc">Turn one topic into a fully-optimized SEO article</div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-emoji">👁️</span><a href="https://previewfile.dev" target="_blank">PreviewFile</a></div>
+        <div class="card-desc">Guard your files with effortless previews</div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-emoji">💾</span><a href="https://lastbackup.dev" target="_blank">LastBackup</a></div>
+        <div class="card-desc">Modern database backup solution for PostgreSQL, MySQL, MongoDB with web interface</div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-emoji">🛠️</span><a href="https://github.com/toolsdk-ai/toolsdk-mcp-registry" target="_blank">ToolSDK MCP Registry</a></div>
+        <div class="card-desc">Awesome MCP Servers and Packages Registry with OAuth2.1 support (161 ⭐)</div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-emoji">🌍</span><a href="https://github.com/gaia-agent/gaia-agent" target="_blank">GAIA Agent</a></div>
+        <div class="card-desc">GAIA-benchmark-ready super agent built on AI SDK v6 ToolLoopAgent</div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="card-emoji">🎮</span><a href="https://github.com/mr-kelly/KSFramework" target="_blank">KSFramework</a></div>
+        <div class="card-desc">Unity3D Framework with hot reload support (1.8k ⭐)</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Research</h2>
+    <div class="research-item">
+      <h3>📄 File-Augmented Retrieval: Making Every File Readable to Coding Agents via Persistent .meta Sidecars</h3>
+      <p>A file-time augmentation paradigm that outperforms RAG (82.6% vs 58.7% accuracy) with zero infrastructure</p>
+      <p style="margin-top:6px"><a href="https://zenodo.org/records/18657244" target="_blank">Zenodo</a> · <a href="https://mr-kelly.github.io/research/File-Augmented%20Retrieval%20-%20Making%20Every%20File%20Readable%20to%20Coding%20Agents%20via%20Persistent%20.meta%20Sidecars.pdf" target="_blank">PDF</a></p>
+    </div>
+    <div class="research-item">
+      <h3>📄 Coding Agent is All You Need: Don't Build Agents, Redirect Them</h3>
+      <p>Transforming coding agents into domain experts via Markdown templates, reducing development effort by ~300x</p>
+      <p style="margin-top:6px"><a href="https://zenodo.org/records/18670665" target="_blank">Zenodo</a> · <a href="https://mr-kelly.github.io/research/Coding%20Agent%20is%20All%20You%20Need%20-%20Don't%20Build%20Agents%2C%20Redirect%20Them.pdf" target="_blank">PDF</a></p>
+    </div>
+    <div class="research-item">
+      <h3>📄 Magic Folder: A Filesystem-Level Abstraction for Human-Executable AI Applications</h3>
+      <p>MFP transforms AI-generated project directories into typed, human-facing artifacts through marker files and runtime-specific handlers</p>
+      <p style="margin-top:6px"><a href="https://mr-kelly.github.io/research/Magic%20Folder%20-%20A%20Filesystem-Level%20Abstraction%20for%20Human-Executable%20AI%20Applications.pdf" target="_blank">PDF</a></p>
+    </div>
+    <div class="research-item">
+      <h3>📄 SIR-T2V: From Agent Pipeline to Editable Project</h3>
+      <p>AI should output editable project files, not final rendered artifacts — reduces human correction cost by 4.7× and completes a 30-second ad in ~6 minutes</p>
+      <p style="margin-top:6px"><a href="https://mr-kelly.github.io/research/SIR-T2V%20-%20From%20Agent%20Pipeline%20to%20Editable%20Project.pdf" target="_blank">PDF</a></p>
+    </div>
+  </section>
+
+  <section>
+    <h2>What I'm Doing</h2>
+    <ul class="doing-list">
+      <li><span class="icon">🤖</span><span><strong>Building AGI tools</strong> — Creating Coding Agents that make complex AI systems accessible to everyone</span></li>
+      <li><span class="icon">🌍</span><span><strong>Democratizing AI</strong> — Shipping tools and platforms that put powerful AI capabilities in everyone's hands</span></li>
+      <li><span class="icon">🔬</span><span><strong>Researching post-AGI organizations</strong> — Exploring how AI will transform human collaboration and management structures</span></li>
+      <li><span class="icon">⚡</span><span><strong>Shipping across the stack</strong> — Production experience with JavaScript/TypeScript, Python, C#, C++, Rust, Go, Java, PHP, Lua, and Objective-C++</span></li>
+      <li><span class="icon">🛠️</span><span><strong>AI-native workflow</strong> — Building with Claude Code, GitHub Copilot CLI, Kiro-cli, and Codex daily</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Recognition</h2>
+    <div class="recognition">
+      <div class="rec-item">🌟 <strong>15k+ GitHub stars</strong> on APITable — Leading open-source Airtable alternative</div>
+      <div class="rec-item">🎮 <strong>1k+ GitHub stars</strong> on KSFramework — Popular Unity3D hot reload framework</div>
+      <div class="rec-item">👔 <strong>Scaled to 200+ people</strong> — Led Internet Business Unit as GM</div>
+      <div class="rec-item">🎓 <strong>Self-taught engineer</strong> — Finance major turned developer, no formal CS degree</div>
+      <div class="rec-item">💰 <strong>Raised tens of millions</strong> — Successfully closed significant VC funding rounds</div>
+      <div class="rec-item">🏗️ <strong>Full-stack polyglot</strong> — Shipped production code in 10+ languages</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>GitHub Activity</h2>
+    <div class="stats">
+      <img src="https://ghchart.rshah.org/mr-kelly" alt="GitHub Contribution Graph">
+      <img src="https://awesome-github-stats.azurewebsites.net/user-stats/mr-kelly?cardType=level&preferLogin=false" alt="GitHub Stats">
+    </div>
+  </section>
+
+  <section>
+    <h2>Connect</h2>
+    <div class="connect-grid">
+      <a class="connect-link" href="https://twitter.com/kellypeilinchan" target="_blank">𝕏 Twitter</a>
+      <a class="connect-link" href="https://www.linkedin.com/in/kellypeilinchan/" target="_blank">💼 LinkedIn</a>
+      <a class="connect-link" href="https://medium.com/@mrkelly" target="_blank">✍️ Medium</a>
+      <a class="connect-link" href="https://www.youtube.com/channel/UCOtfknBLF6OBlX0LqIkR4xw" target="_blank">▶️ YouTube</a>
+      <a class="connect-link" href="https://github.com/mr-kelly" target="_blank">🐙 GitHub</a>
+      <a class="connect-link" href="https://www.facebook.com/kellypeilinchan" target="_blank">📘 Facebook</a>
+      <a class="connect-link" href="https://www.instagram.com/kellypeilinchan/" target="_blank">📸 Instagram</a>
+      <a class="connect-link" href="mailto:kelly@vikadata.com">📧 kelly@vikadata.com</a>
+      <a class="connect-link" href="https://cal.com/mrkelly" target="_blank">📅 Schedule a call</a>
+    </div>
+    <p style="margin-top:14px; font-size:13px; color:var(--muted);">💬 WeChat: <strong>mrkelly</strong></p>
+    <blockquote style="margin-top:20px; padding:12px 16px; background:var(--bg2); border-left:3px solid var(--accent2); border-radius:0 6px 6px 0; font-style:italic; color:var(--muted); font-size:14px;">
+      "KISS (Keep It Simple and Stupid) is always the hardest part" — Simplicity is the ultimate sophistication in the age of AI.
+    </blockquote>
+  </section>
+
+</div>
+
+<footer>
+  <div class="container">
+    © 2026 Kelly · <a href="https://github.com/mr-kelly">github.com/mr-kelly</a>
+  </div>
+</footer>
+
+</body>
+</html>
