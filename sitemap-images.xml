@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://mr-kelly.github.io/resume/</loc>
+    <image:image>
+      <image:loc>https://mr-kelly.github.io/resume/kelly-chan-portrait.webp</image:loc>
+      <image:title>Kelly Chan professional portrait</image:title>
+      <image:caption>Professional portrait of Kelly Chan, founder of Buda, Vika and AITable</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mr-kelly.github.io/events/</loc>
+    <image:image>
+      <image:loc>https://mr-kelly.github.io/events/media/global-sources-panel.webp</image:loc>
+      <image:title>Kelly Chan at Global Sources Summit</image:title>
+      <image:caption>Kelly Chan speaking about digital employees and AI agents in Hong Kong</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://mr-kelly.github.io/events/media/global-sources-stage.webp</image:loc>
+      <image:title>Global Sources Summit founder panel</image:title>
+      <image:caption>Founder panel discussing the evolution of digital employees</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://mr-kelly.github.io/events/media/global-sources-audience.webp</image:loc>
+      <image:title>Global Sources Summit audience</image:title>
+      <image:caption>Audience at the Global Sources Summit in Hong Kong</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://mr-kelly.github.io/events/media/ai-agents-stage.webp</image:loc>
+      <image:title>Kelly Chan presenting AI agents</image:title>
+      <image:caption>Kelly Chan presenting a live AI agents session in Hong Kong</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://mr-kelly.github.io/events/media/ai-agents-demo.webp</image:loc>
+      <image:title>Live AI agent workflow demonstration</image:title>
+      <image:caption>A real AI agent workflow demonstrated live without slides</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://mr-kelly.github.io/events/media/ai-agents-audience.webp</image:loc>
+      <image:title>Hong Kong AI agents event audience</image:title>
+      <image:caption>More than 500 attendees at the Hong Kong AI agents session</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://mr-kelly.github.io/events/media/techcrunch-disrupt-2025.webp</image:loc>
+      <image:title>Kelly Chan at TechCrunch Disrupt 2025</image:title>
+      <image:caption>Kelly Chan at TechCrunch Disrupt 2025 in San Francisco</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://mr-kelly.github.io/events/media/amcham-hr-conference-1.webp</image:loc>
+      <image:title>Kelly Chan at AmCham Shanghai HR Conference</image:title>
+      <image:caption>Kelly Chan speaking about the AI future of AITable</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://mr-kelly.github.io/events/media/amcham-hr-conference-2.webp</image:loc>
+      <image:title>AI Future of AITable presentation</image:title>
+      <image:caption>Presentation at the American Chamber of Commerce Shanghai HR Conference</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://mr-kelly.github.io/events/media/saastr-annual-2023.webp</image:loc>
+      <image:title>Kelly Chan at SaaStr Annual 2023</image:title>
+      <image:caption>Kelly Chan at SaaStr Annual 2023 in San Francisco</image:caption>
+    </image:image>
+  </url>
+</urlset>
