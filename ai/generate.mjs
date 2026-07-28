@@ -10,21 +10,21 @@ const pages = {
     output: "index.html",
     canonical: "https://mr-kelly.github.io/ai/",
     title: "Kelly AI Deployment Service｜企业 AI 落地服务",
-    description: "从 AI 理念导入、团队实战，到数字员工、企业 AI 数据中台与品牌 Agent 落地。查看 Kelly AI Deployment Service 服务与参考报价。",
-    nav: ["服务报价", "落地路径", "技术底座", "联系"],
+    description: "企业 AI 落地、Vibe Coding 培训与项目陪跑，覆盖数字员工、企业 AI 资产中枢与品牌 Agent。查看服务与参考报价。",
+    nav: ["服务报价", "Vibe Coding", "落地路径", "技术底座", "联系"],
     eyebrow: "企业 AI 落地服务",
-    lead: "从理念导入、团队实战，到数字员工、企业数据中台与品牌 Agent，把 AI 从认知带进真实业务。",
+    lead: "从理念导入、Vibe Coding 实战，到数字员工、企业 AI 资产中枢与品牌 Agent，把 AI 从认知带进真实业务。",
     heroPrimary: "查看服务报价",
     heroSecondary: "联系 Kelly",
     stages: [
       ["建立认知", "让管理层与团队理解 AI 和 Agents 公司"],
       ["完成实战", "亲手完成一次 Agent 练习"],
       ["进入业务", "把 Agent、数据和工作流放进真实场景"],
-      ["形成资产", "持续复用企业数据、知识与流程"]
+      ["形成资产", "持续复用企业数据、知识、Skills 与应用"]
     ],
     serviceLabel: "服务菜单",
     serviceTitle: "从一次课程，到一套可运行的 AI 能力",
-    serviceIntro: "可以从培训或工作坊开始，也可以直接从一个 Agent、一套数据工作台或企业品牌小程序开始。以下为客户参考报价。",
+    serviceIntro: "可以从培训、Vibe Coding 工作坊或项目陪跑开始，也可以直接落地 Agent、AI 资产中枢或企业品牌小程序。以下为客户参考报价。",
     headers: ["类别", "服务", "核心交付", "形式 / 时长", "服务报价"],
     mobileLabels: ["类别", "服务", "交付", "形式", "报价"],
     services: [
@@ -32,12 +32,28 @@ const pages = {
       ["training", "启蒙", "Agents 公司理念导入", "故事化演讲，理解 AI 的重要性与 Agents 公司的最终图景", "线下主题演讲", "人民币 15,000 元 / 场"],
       ["build", "实战", "Agents 公司搭建实战工作坊", "手把手完成一次 Agent 实战，让团队从理解走向操作", "线下 3 小时", "人民币 25,000 元 / 场"],
       ["training", "定制", "企业 AI 定制工作坊", "围绕行业、岗位和业务目标设计专属落地课程", "线下 1–3 天", "人民币 30,000–150,000 元 / 项目"],
-      ["build", "落地", "AI 数字员工 / Agents 公司搭建", "基于 Buda AI：1 个 Agent、1 条核心工作流、培训与 1 个月维护起", "定制交付", "国内人民币 12,000 元起 / 海外 US$2,000 起"],
-      ["data", "数据", "企业 AI 数据中台", "数据整理、清洗、结构和权限设计，形成企业数据工作台", "项目制", "人民币 12,000 元起 / 按项目报价"],
+      ["coding", "编程", "Vibe Coding 企业实战工作坊", "使用真实业务题，从需求拆解到完成一个可运行、可继续迭代的产品", "线下 1 天", "人民币 30,000 元 / 场"],
+      ["coding", "陪跑", "Vibe Coding 项目陪跑", "围绕客户项目提供需求、架构、代码审查、测试、部署和迭代指导，代码与成果归客户", "线上 4 周", "人民币 49,999 元起 / 期"],
+      ["coding", "顾问", "Vibe Coding 工程顾问", "针对复杂系统、遗留代码或关键上线提供技术方案、风险审查与工程决策支持", "月度或项目制", "人民币 60,000 元起 / 月"],
+      ["build", "落地", "AI 数字员工 / Agents 公司搭建", "按业务场景组合 Codex、OpenClaw、Buda AI 等 Agent 工具与平台，交付 1 个数字员工、1 条核心工作流、团队培训与 1 个月运营维护起", "定制交付", "国内人民币 12,000 元起 / 海外 US$2,000 起"],
+      ["data", "资产", "企业 AI 资产中枢", "搭建企业 AI 资产库，统一沉淀企业数据、知识库、Agent Skills 与 AI Apps；通过 Agent 提交、人工审核、权限、版本和审计治理，让每份产出可信、可追溯、可复用", "项目制", "人民币 12,000 元起 / 按项目报价"],
       ["platform", "模型", "国际大模型中转服务（MoonRouter）", "统一使用 GPT、Claude、Gemini，无需自行处理海外账号与支付采购", "在线充值，按量使用", "官方 API 价格 5 折"],
       ["brand", "品牌", "企业品牌专属 Agent 小程序", "企业品牌微信 Agent 小程序，用于培训、内部服务或会员式对外服务", "品牌定制", "人民币 99,999 元起"]
     ],
     finePrint: "以上人民币报价均为未税价。线下服务的差旅食宿视项目情况另行确认；最终范围、周期、报价和验收标准以正式报价单或合同为准。",
+    vibeLabel: "Vibe Coding 服务",
+    vibeTitle: "不只把原型做出来，更把软件做成能交付的产品",
+    vibeIntro: "Vibe Coding 降低了写代码的门槛，但需求边界、系统架构、测试、安全和上线质量仍需要工程判断。Kelly 将 AI 编程方法与大型软件经验结合，帮助个人和团队把想法推进到真实可用。",
+    vibeProof: [
+      ["百万行级", "企业软件研发与交付经验"],
+      ["多种产品形态", "游戏、App、小程序、大型网游与大型企业软件"],
+      ["完整交付链路", "需求、架构、开发、测试、部署与迭代"]
+    ],
+    vibeOffers: [
+      ["01", "企业实战工作坊", "适合需要统一方法的产品、技术与业务团队", "用一个真实业务题完成从需求描述、Agent 协作到可运行产品的全过程。", ["团队共用的 Vibe Coding 工作流", "一个现场完成的可运行成果", "代码质量、安全与上线检查清单"], "1 天｜人民币 30,000 元 / 场"],
+      ["02", "4 周项目陪跑", "适合已有想法、原型或在建项目的团队", "团队主导开发，Kelly 在关键节点拆需求、定架构、审代码、处理难题并带领上线。", ["每周项目推进与技术评审", "架构、测试、部署与文档指导", "代码和项目成果由客户完整保有"], "4 周｜人民币 49,999 元起 / 期"],
+      ["03", "复杂项目工程顾问", "适合遗留系统、关键集成或高风险上线", "在 AI 生成代码之外补足资深工程判断，识别系统边界、技术债与交付风险。", ["技术方案与架构评审", "关键代码、性能与安全审查", "疑难问题与工程决策支持"], "人民币 60,000 元起 / 月" ]
+    ],
     journeyLabel: "交付方法",
     journeyTitle: "先确认一个能验收的目标，再扩展",
     journeyIntro: "定制项目不从功能清单开始，而是从业务目标、负责人、数据和验收结果开始。",
@@ -53,13 +69,13 @@ const pages = {
     foundationIntro: "项目按业务目标选择技术组合。Buda AI、Busabase、Vika、MoonRouter 和小小 Agent 是实现交付的基础，而不是沟通的起点。",
     foundations: [
       ["Buda AI", "搭建、管理和运行 AI 数字员工与 Agents 公司。"],
-      ["Busabase + Vika", "整理、清洗和结构化管理企业数据，形成数据工作台。"],
+      ["Busabase + Vika", "承载智能数据库、知识库、Agent Skills 与 AI Apps；Agent 提交、人工审核，沉淀可信、可追溯、可复用的企业 AI 资产。"],
       ["MoonRouter", "统一使用 GPT、Claude、Gemini 等国际大模型。"],
       ["小小 Agent", "形成带企业品牌的微信 Agent 小程序和服务入口。"]
     ],
     profileTitle: "Kelly 陈霈霖",
     profileRole: "Kelly AI Deployment Service",
-    profileText: "Buda、Vika 与 AITable 创始人，前喜茶创始 CTO。长期从产品、技术与组织视角推动 AI、企业软件和数字化能力进入真实业务。",
+    profileText: "Buda、Vika 与 AITable 创始人，前喜茶创始 CTO。拥有百万行级企业软件研发与交付经验，做过游戏、App、小程序、大型网游与大型企业软件。",
     commercialLabel: "商务说明",
     commercialTitle: "范围透明，按结果推进",
     commercialItems: [
@@ -69,7 +85,7 @@ const pages = {
       "客户可从一个最小场景开始，验证后再扩展。"
     ],
     contactTitle: "从一个具体场景开始",
-    contactText: "告诉 Kelly 你的业务目标、团队情况和希望 AI 改变的流程，我们会先判断适合培训、工作坊还是直接落地。",
+    contactText: "告诉 Kelly 你的业务目标、团队情况，以及已有想法、原型或代码现状，我们会先判断适合培训、Vibe Coding 陪跑还是直接落地。",
     phoneLabel: "电话 18688180270",
     wechatLabel: "复制微信 23110388",
     copiedLabel: "微信号已复制：23110388",
@@ -81,21 +97,21 @@ const pages = {
     output: "en/index.html",
     canonical: "https://mr-kelly.github.io/ai/en/",
     title: "Kelly AI Deployment Service | Enterprise AI Enablement",
-    description: "Enterprise AI training, hands-on workshops, AI employees, data workspaces, model access, and branded Agent mini-programs by Kelly AI Deployment Service.",
-    nav: ["Services", "Delivery", "Technology", "Contact"],
+    description: "Enterprise AI deployment, Vibe Coding training and project coaching, AI employees, AI asset hubs, and branded Agent experiences by Kelly.",
+    nav: ["Services", "Vibe Coding", "Delivery", "Technology", "Contact"],
     eyebrow: "Enterprise AI enablement",
-    lead: "Move from AI awareness and team practice to AI employees, enterprise data workspaces, and branded Agent experiences in real operations.",
+    lead: "Move from AI awareness and Vibe Coding practice to AI employees, enterprise AI asset hubs, and branded Agent experiences in real operations.",
     heroPrimary: "View services & pricing",
     heroSecondary: "Contact Kelly",
     stages: [
       ["Align", "Give leaders and teams a shared AI operating picture"],
       ["Practice", "Complete a hands-on Agent exercise"],
       ["Deploy", "Put Agents, data, and workflows into real operations"],
-      ["Compound", "Reuse company data, knowledge, and processes"]
+      ["Compound", "Reuse company data, knowledge, Skills, and applications"]
     ],
     serviceLabel: "Service menu",
     serviceTitle: "Start with one session or build a lasting AI capability",
-    serviceIntro: "Begin with training or a workshop, or start directly with an Agent, a data workspace, or a branded mini-program. Prices below are customer reference prices.",
+    serviceIntro: "Begin with training, a Vibe Coding workshop, or project coaching, or deploy an Agent, AI asset hub, or branded mini-program. Prices below are for reference.",
     headers: ["Type", "Service", "Core delivery", "Format / duration", "Price"],
     mobileLabels: ["Type", "Service", "Delivery", "Format", "Price"],
     services: [
@@ -103,12 +119,28 @@ const pages = {
       ["training", "Vision", "Agents Company Introduction", "Story-led keynote on why AI matters and what an Agents company can become", "On-site keynote", "RMB 15,000 / session"],
       ["build", "Practice", "Agents Company Hands-on Workshop", "Guided Agent build that moves a team from understanding to operation", "On-site, 3 hours", "RMB 25,000 / session"],
       ["training", "Custom", "Enterprise AI Custom Workshop", "A tailored program around the company's industry, roles, and operating goals", "On-site, 1–3 days", "RMB 30,000–150,000 / project"],
-      ["build", "Deploy", "AI Employees / Agents Company Build", "Built on Buda AI: from 1 Agent, 1 core workflow, enablement, and 1 month of maintenance", "Custom delivery", "RMB 12,000+ domestic / US$2,000+ overseas"],
-      ["data", "Data", "Enterprise AI Data Hub", "Data organization, cleaning, structure, and access design for an AI-ready workspace", "Project-based", "RMB 12,000+ / scoped quote"],
+      ["coding", "Coding", "Vibe Coding Team Workshop", "Use a real business challenge to move from requirements to a working product the team can keep improving", "On-site, 1 day", "RMB 30,000 / session"],
+      ["coding", "Coaching", "Vibe Coding Project Coaching", "Requirements, architecture, code review, testing, deployment, and iteration guidance around the client's project; the client owns the code and output", "Online, 4 weeks", "RMB 49,999+ / engagement"],
+      ["coding", "Advisory", "Vibe Coding Engineering Advisory", "Technical planning, risk review, and engineering decisions for complex systems, legacy code, or critical releases", "Monthly or project-based", "RMB 60,000+ / month"],
+      ["build", "Deploy", "AI Employees / Agents Company Build", "Combine Codex, OpenClaw, Buda AI, and other Agent tools for the business scenario; deliver 1 AI employee, 1 core workflow, team enablement, and 1 month of operational support", "Custom delivery", "RMB 12,000+ domestic / US$2,000+ overseas"],
+      ["data", "Assets", "Enterprise AI Asset Hub", "Build an enterprise AI asset library for data, knowledge bases, Agent Skills, and AI Apps; use Agent submissions, human review, permissions, versioning, and audit trails to keep every output trusted, traceable, and reusable", "Project-based", "RMB 12,000+ / scoped quote"],
       ["platform", "Models", "International Model Access (MoonRouter)", "Unified GPT, Claude, and Gemini access without managing overseas vendor accounts and payments", "Online credit, usage-based", "50% of official API pricing"],
       ["brand", "Brand", "Branded Enterprise Agent Mini Program", "A branded WeChat Agent mini program for training, internal service, or member-facing delivery", "Custom build", "RMB 99,999+"]
     ],
     finePrint: "RMB prices exclude tax. Travel and accommodation for on-site delivery may be quoted separately. Final scope, schedule, fees, and acceptance criteria are governed by the formal quotation or contract.",
+    vibeLabel: "Vibe Coding services",
+    vibeTitle: "Go beyond a working prototype to software that can actually ship",
+    vibeIntro: "Vibe Coding lowers the barrier to writing code, but requirements, architecture, testing, security, and release quality still demand engineering judgment. Kelly combines AI-assisted development with large-scale software experience to help people and teams turn ideas into dependable products.",
+    vibeProof: [
+      ["Million-line scale", "Enterprise software engineering and delivery experience"],
+      ["Across product types", "Games, apps, mini programs, large-scale online games, and enterprise software"],
+      ["End-to-end delivery", "Requirements, architecture, development, testing, deployment, and iteration"]
+    ],
+    vibeOffers: [
+      ["01", "Team workshop", "For product, engineering, and business teams adopting a shared method", "Use one real business challenge to practice the full path from requirements and Agent collaboration to a working product.", ["A shared Vibe Coding workflow", "One working outcome built during the session", "Code quality, security, and release checklists"], "1 day | RMB 30,000 / session"],
+      ["02", "Four-week project coaching", "For teams with an idea, prototype, or active build", "The team owns development while Kelly guides requirements, architecture, reviews, hard problems, and release at critical points.", ["Weekly delivery and technical reviews", "Architecture, testing, deployment, and documentation guidance", "The client retains all code and project output"], "4 weeks | RMB 49,999+ / engagement"],
+      ["03", "Complex-project advisory", "For legacy systems, critical integrations, or high-risk releases", "Add senior engineering judgment beyond AI-generated code to expose system boundaries, technical debt, and delivery risk.", ["Technical plan and architecture review", "Critical code, performance, and security review", "Complex debugging and engineering decisions"], "RMB 60,000+ / month"]
+    ],
     journeyLabel: "Delivery method",
     journeyTitle: "Define one measurable outcome, then expand",
     journeyIntro: "Custom engagements start with the business objective, accountable owner, data, and acceptance criteria rather than a speculative feature list.",
@@ -124,13 +156,13 @@ const pages = {
     foundationIntro: "Each engagement uses the combination that fits the business objective. Buda AI, Busabase, Vika, MoonRouter, and Xiaoxiao Agent are delivery foundations rather than products every client must buy.",
     foundations: [
       ["Buda AI", "Builds, manages, and runs AI employees and Agents companies."],
-      ["Busabase + Vika", "Organizes, cleans, and structures enterprise data into a working data hub."],
+      ["Busabase + Vika", "Houses intelligent databases, knowledge bases, Agent Skills, and AI Apps; Agent submissions and human review create trusted, traceable, reusable enterprise AI assets."],
       ["MoonRouter", "Provides unified access to GPT, Claude, Gemini, and other international models."],
       ["Xiaoxiao Agent", "Creates a branded WeChat Agent mini program and service entry point."]
     ],
     profileTitle: "Kelly Peilin Chan",
     profileRole: "Kelly AI Deployment Service",
-    profileText: "Founder of Buda, Vika, and AITable, and former founding CTO of HEYTEA. Kelly works across product, technology, and organization design to bring AI and enterprise software into real operations.",
+    profileText: "Founder of Buda, Vika, and AITable, and former founding CTO of HEYTEA. Kelly has built and delivered million-line-scale enterprise software across games, apps, mini programs, large online games, and complex enterprise systems.",
     commercialLabel: "Commercial notes",
     commercialTitle: "Transparent scope, outcome-led delivery",
     commercialItems: [
@@ -140,7 +172,7 @@ const pages = {
       "Clients can start with one minimum viable scenario and expand after validation."
     ],
     contactTitle: "Start with one specific workflow",
-    contactText: "Share the business objective, team context, and workflow you want AI to improve. We will first determine whether training, a workshop, or direct implementation is the right starting point.",
+    contactText: "Share the business objective, team context, and the current state of your idea, prototype, or code. We will determine whether training, Vibe Coding coaching, or direct implementation is the right starting point.",
     phoneLabel: "Call +86 186 8818 0270",
     wechatLabel: "Copy WeChat 23110388",
     copiedLabel: "WeChat copied: 23110388",
@@ -152,21 +184,21 @@ const pages = {
     output: "zh-hk/index.html",
     canonical: "https://mr-kelly.github.io/ai/zh-hk/",
     title: "Kelly AI Deployment Service｜企業 AI 落地服務",
-    description: "從 AI 理念導入、團隊實戰，到數碼員工、企業 AI 數據中台與品牌 Agent 落地。查看 Kelly AI Deployment Service 服務與參考報價。",
-    nav: ["服務報價", "落地路徑", "技術底座", "聯絡"],
+    description: "企業 AI 落地、Vibe Coding 培訓與項目陪跑，涵蓋數碼員工、企業 AI 資產中樞與品牌 Agent。查看服務與參考報價。",
+    nav: ["服務報價", "Vibe Coding", "落地路徑", "技術底座", "聯絡"],
     eyebrow: "企業 AI 落地服務",
-    lead: "從理念導入、團隊實戰，到數碼員工、企業數據中台與品牌 Agent，把 AI 從認知帶進真實業務。",
+    lead: "從理念導入、Vibe Coding 實戰，到數碼員工、企業 AI 資產中樞與品牌 Agent，把 AI 從認知帶進真實業務。",
     heroPrimary: "查看服務報價",
     heroSecondary: "聯絡 Kelly",
     stages: [
       ["建立認知", "讓管理層與團隊理解 AI 和 Agents 公司"],
       ["完成實戰", "親手完成一次 Agent 練習"],
       ["進入業務", "把 Agent、數據和工作流程放進真實場景"],
-      ["形成資產", "持續重用企業數據、知識與流程"]
+      ["形成資產", "持續重用企業數據、知識、Skills 與應用"]
     ],
     serviceLabel: "服務菜單",
     serviceTitle: "從一次課程，到一套可運行的 AI 能力",
-    serviceIntro: "可以從培訓或工作坊開始，也可以直接從一個 Agent、一套數據工作台或企業品牌小程式開始。以下為客戶參考報價。",
+    serviceIntro: "可以從培訓、Vibe Coding 工作坊或項目陪跑開始，也可以直接落地 Agent、AI 資產中樞或企業品牌小程式。以下為客戶參考報價。",
     headers: ["類別", "服務", "核心交付", "形式 / 時長", "服務報價"],
     mobileLabels: ["類別", "服務", "交付", "形式", "報價"],
     services: [
@@ -174,12 +206,28 @@ const pages = {
       ["training", "啟蒙", "Agents 公司理念導入", "故事化演講，理解 AI 的重要性與 Agents 公司的最終圖景", "線下主題演講", "人民幣 15,000 元 / 場"],
       ["build", "實戰", "Agents 公司搭建實戰工作坊", "手把手完成一次 Agent 實戰，讓團隊從理解走向操作", "線下 3 小時", "人民幣 25,000 元 / 場"],
       ["training", "定制", "企業 AI 定制工作坊", "圍繞行業、崗位和業務目標設計專屬落地課程", "線下 1–3 天", "人民幣 30,000–150,000 元 / 項目"],
-      ["build", "落地", "AI 數碼員工 / Agents 公司搭建", "基於 Buda AI：1 個 Agent、1 條核心工作流程、培訓與 1 個月維護起", "定制交付", "國內人民幣 12,000 元起 / 海外 US$2,000 起"],
-      ["data", "數據", "企業 AI 數據中台", "數據整理、清洗、結構和權限設計，形成企業數據工作台", "項目制", "人民幣 12,000 元起 / 按項目報價"],
+      ["coding", "編程", "Vibe Coding 企業實戰工作坊", "使用真實業務題，從需求拆解到完成一個可運行、可繼續迭代的產品", "線下 1 天", "人民幣 30,000 元 / 場"],
+      ["coding", "陪跑", "Vibe Coding 項目陪跑", "圍繞客戶項目提供需求、架構、代碼審查、測試、部署和迭代指導，代碼與成果歸客戶", "網上 4 週", "人民幣 49,999 元起 / 期"],
+      ["coding", "顧問", "Vibe Coding 工程顧問", "針對複雜系統、遺留代碼或關鍵上線提供技術方案、風險審查與工程決策支援", "月度或項目制", "人民幣 60,000 元起 / 月"],
+      ["build", "落地", "AI 數碼員工 / Agents 公司搭建", "按業務場景組合 Codex、OpenClaw、Buda AI 等 Agent 工具與平台，交付 1 個數碼員工、1 條核心工作流程、團隊培訓與 1 個月營運維護起", "定制交付", "國內人民幣 12,000 元起 / 海外 US$2,000 起"],
+      ["data", "資產", "企業 AI 資產中樞", "搭建企業 AI 資產庫，統一沉澱企業數據、知識庫、Agent Skills 與 AI Apps；通過 Agent 提交、人工審核、權限、版本和審計治理，讓每份產出可信、可追溯、可重用", "項目制", "人民幣 12,000 元起 / 按項目報價"],
       ["platform", "模型", "國際大模型中轉服務（MoonRouter）", "統一使用 GPT、Claude、Gemini，毋須自行處理海外帳戶與付款採購", "網上充值，按量使用", "官方 API 價格 5 折"],
       ["brand", "品牌", "企業品牌專屬 Agent 小程式", "企業品牌微信 Agent 小程式，用於培訓、內部服務或會員式對外服務", "品牌定制", "人民幣 99,999 元起"]
     ],
     finePrint: "以上人民幣報價均為未稅價。線下服務的差旅住宿視項目情況另行確認；最終範圍、週期、報價和驗收標準以正式報價單或合約為準。",
+    vibeLabel: "Vibe Coding 服務",
+    vibeTitle: "不只把原型做出來，更把軟件做成能交付的產品",
+    vibeIntro: "Vibe Coding 降低了寫代碼的門檻，但需求邊界、系統架構、測試、安全和上線質量仍需要工程判斷。Kelly 將 AI 編程方法與大型軟件經驗結合，幫助個人和團隊把想法推進到真實可用。",
+    vibeProof: [
+      ["百萬行級", "企業軟件研發與交付經驗"],
+      ["多種產品形態", "遊戲、App、小程式、大型網遊與大型企業軟件"],
+      ["完整交付鏈路", "需求、架構、開發、測試、部署與迭代"]
+    ],
+    vibeOffers: [
+      ["01", "企業實戰工作坊", "適合需要統一方法的產品、技術與業務團隊", "用一個真實業務題完成從需求描述、Agent 協作到可運行產品的全過程。", ["團隊共用的 Vibe Coding 工作流程", "一個現場完成的可運行成果", "代碼質量、安全與上線檢查清單"], "1 天｜人民幣 30,000 元 / 場"],
+      ["02", "4 週項目陪跑", "適合已有想法、原型或在建項目的團隊", "團隊主導開發，Kelly 在關鍵節點拆需求、定架構、審代碼、處理難題並帶領上線。", ["每週項目推進與技術評審", "架構、測試、部署與文檔指導", "代碼和項目成果由客戶完整保有"], "4 週｜人民幣 49,999 元起 / 期"],
+      ["03", "複雜項目工程顧問", "適合遺留系統、關鍵整合或高風險上線", "在 AI 生成代碼之外補足資深工程判斷，識別系統邊界、技術債與交付風險。", ["技術方案與架構評審", "關鍵代碼、效能與安全審查", "疑難問題與工程決策支援"], "人民幣 60,000 元起 / 月"]
+    ],
     journeyLabel: "交付方法",
     journeyTitle: "先確認一個可驗收的目標，再擴展",
     journeyIntro: "定制項目不從功能清單開始，而是從業務目標、負責人、數據和驗收結果開始。",
@@ -195,13 +243,13 @@ const pages = {
     foundationIntro: "項目按業務目標選擇技術組合。Buda AI、Busabase、Vika、MoonRouter 和小小 Agent 是實現交付的基礎，而不是溝通的起點。",
     foundations: [
       ["Buda AI", "搭建、管理和運行 AI 數碼員工與 Agents 公司。"],
-      ["Busabase + Vika", "整理、清洗和結構化管理企業數據，形成數據工作台。"],
+      ["Busabase + Vika", "承載智能數據庫、知識庫、Agent Skills 與 AI Apps；Agent 提交、人工審核，沉澱可信、可追溯、可重用的企業 AI 資產。"],
       ["MoonRouter", "統一使用 GPT、Claude、Gemini 等國際大模型。"],
       ["小小 Agent", "形成帶企業品牌的微信 Agent 小程式和服務入口。"]
     ],
     profileTitle: "Kelly 陳霈霖",
     profileRole: "Kelly AI Deployment Service",
-    profileText: "Buda、Vika 與 AITable 創辦人，前喜茶創始 CTO。長期從產品、技術與組織視角推動 AI、企業軟件和數碼化能力進入真實業務。",
+    profileText: "Buda、Vika 與 AITable 創辦人，前喜茶創始 CTO。擁有百萬行級企業軟件研發與交付經驗，做過遊戲、App、小程式、大型網遊與大型企業軟件。",
     commercialLabel: "商務說明",
     commercialTitle: "範圍透明，按結果推進",
     commercialItems: [
@@ -211,7 +259,7 @@ const pages = {
       "客戶可從一個最小場景開始，驗證後再擴展。"
     ],
     contactTitle: "從一個具體場景開始",
-    contactText: "告訴 Kelly 你的業務目標、團隊情況和希望 AI 改變的流程，我們會先判斷適合培訓、工作坊還是直接落地。",
+    contactText: "告訴 Kelly 你的業務目標、團隊情況，以及已有想法、原型或代碼現狀，我們會先判斷適合培訓、Vibe Coding 陪跑還是直接落地。",
     phoneLabel: "電話 18688180270",
     wechatLabel: "複製微信 23110388",
     copiedLabel: "微信號已複製：23110388",
@@ -265,7 +313,18 @@ function renderPage(lang, page) {
               <li><strong>${title}</strong><span>${text}</span></li>`).join("");
 
   const commercialItems = page.commercialItems.map((item) => `<li>${item}</li>`).join("");
-  const navIds = ["services", "delivery", "foundation", "contact"];
+  const vibeProof = page.vibeProof.map(([title, text]) => `
+          <div class="vibe-proof-item"><strong>${title}</strong><span>${text}</span></div>`).join("");
+  const vibeOffers = page.vibeOffers.map(([number, title, audience, text, points, meta]) => `
+          <article class="vibe-offer">
+            <span class="vibe-offer-number">${number}</span>
+            <h3>${title}</h3>
+            <p class="vibe-audience">${audience}</p>
+            <p>${text}</p>
+            <ul>${points.map((point) => `<li>${point}</li>`).join("")}</ul>
+            <p class="vibe-meta">${meta}</p>
+          </article>`).join("");
+  const navIds = ["services", "vibe-coding", "delivery", "foundation", "contact"];
   const nav = page.nav.map((label, index) => `<a href="#${navIds[index]}">${label}</a>`).join("");
   const alternates = alternateLinks.map(([hreflang, href]) => `  <link rel="alternate" hreflang="${hreflang}" href="${href}">`).join("\n");
   const structuredData = JSON.stringify({
@@ -283,8 +342,9 @@ function renderPage(lang, page) {
     serviceType: [
       "Enterprise AI Training",
       "AI Agent Workshop",
+      "Vibe Coding Training and Project Coaching",
       "AI Employee Implementation",
-      "Enterprise AI Data Hub",
+      "Enterprise AI Asset Hub",
       "Branded Agent Mini Program"
     ]
   }).replaceAll("<", "\\u003c");
@@ -310,7 +370,7 @@ function renderPage(lang, page) {
   <link rel="canonical" href="${page.canonical}">
 ${alternates}
   <link rel="icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/ai/styles.css?v=20260726">
+  <link rel="stylesheet" href="/ai/styles.css?v=20260729">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Kelly AI Deployment Service">
   <meta property="og:title" content="${page.title}">
@@ -365,12 +425,35 @@ ${alternates}
         </div>
         <div class="service-table-wrap">
           <table class="service-table">
+            <colgroup>
+              <col class="service-col-category">
+              <col class="service-col-name">
+              <col class="service-col-delivery">
+              <col class="service-col-format">
+              <col class="service-col-price">
+            </colgroup>
             <thead><tr>${page.headers.map((header) => `<th scope="col">${header}</th>`).join("")}</tr></thead>
             <tbody>${serviceRows}
             </tbody>
           </table>
         </div>
         <p class="fine-print">${page.finePrint}</p>
+      </div>
+    </section>
+
+    <section class="section section-vibe" id="vibe-coding">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-label">${page.vibeLabel}</p>
+            <h2>${page.vibeTitle}</h2>
+          </div>
+          <p class="section-intro">${page.vibeIntro}</p>
+        </div>
+        <div class="vibe-proof">${vibeProof}
+        </div>
+        <div class="vibe-offers">${vibeOffers}
+        </div>
       </div>
     </section>
 
