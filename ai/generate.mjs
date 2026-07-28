@@ -32,7 +32,7 @@ const pages = {
       ["training", "启蒙", "Agents 公司理念导入", "故事化演讲，理解 AI 的重要性与 Agents 公司的最终图景", "线下主题演讲", "人民币 15,000 元 / 场"],
       ["build", "实战", "Agents 公司搭建实战工作坊", "手把手完成一次 Agent 实战，让团队从理解走向操作", "线下 3 小时", "人民币 25,000 元 / 场"],
       ["training", "定制", "企业 AI 定制工作坊", "围绕行业、岗位和业务目标设计专属落地课程", "线下 1–3 天", "人民币 30,000–150,000 元 / 项目"],
-      ["coding", "编程", "Vibe Coding 企业实战工作坊", "使用真实业务题，从需求拆解到完成一个可运行、可继续迭代的产品", "线下 1 天", "人民币 30,000 元 / 场"],
+      ["coding", "编程", "Vibe Coding 软件开发实战工作坊", "使用真实业务题，从需求拆解到完成一个可运行、可继续迭代的产品", "线下 1 天", "人民币 30,000 元 / 场"],
       ["coding", "陪跑", "Vibe Coding 项目陪跑", "围绕客户项目提供需求、架构、代码审查、测试、部署和迭代指导，代码与成果归客户", "线上 4 周", "人民币 49,999 元起 / 期"],
       ["coding", "顾问", "Vibe Coding 工程顾问", "针对复杂系统、遗留代码或关键上线提供技术方案、风险审查与工程决策支持", "月度或项目制", "人民币 60,000 元起 / 月"],
       ["build", "落地", "AI 数字员工 / Agents 公司搭建", "按业务场景组合 Codex、OpenClaw、Buda AI 等 Agent 工具与平台，交付 1 个数字员工、1 条核心工作流、团队培训与 1 个月运营维护起", "定制交付", "国内人民币 12,000 元起 / 海外 US$2,000 起"],
@@ -50,9 +50,9 @@ const pages = {
       ["完整交付链路", "需求、架构、开发、测试、部署与迭代"]
     ],
     vibeOffers: [
-      ["01", "企业实战工作坊", "适合需要统一方法的产品、技术与业务团队", "用一个真实业务题完成从需求描述、Agent 协作到可运行产品的全过程。", ["团队共用的 Vibe Coding 工作流", "一个现场完成的可运行成果", "代码质量、安全与上线检查清单"], "1 天｜人民币 30,000 元 / 场"],
-      ["02", "4 周项目陪跑", "适合已有想法、原型或在建项目的团队", "团队主导开发，Kelly 在关键节点拆需求、定架构、审代码、处理难题并带领上线。", ["每周项目推进与技术评审", "架构、测试、部署与文档指导", "代码和项目成果由客户完整保有"], "4 周｜人民币 49,999 元起 / 期"],
-      ["03", "复杂项目工程顾问", "适合遗留系统、关键集成或高风险上线", "在 AI 生成代码之外补足资深工程判断，识别系统边界、技术债与交付风险。", ["技术方案与架构评审", "关键代码、性能与安全审查", "疑难问题与工程决策支持"], "人民币 60,000 元起 / 月" ]
+      ["01", "Vibe Coding 软件开发实战工作坊", "适合需要统一方法的产品、技术与业务团队", "用一个真实业务题完成从需求描述、Agent 协作到可运行产品的全过程。", ["团队共用的 Vibe Coding 工作流", "一个现场完成的可运行成果", "代码质量、安全与上线检查清单"], "1 天｜人民币 30,000 元 / 场"],
+      ["02", "Vibe Coding 软件项目陪跑（4 周）", "适合已有想法、原型或在建项目的团队", "团队主导开发，Kelly 在关键节点拆需求、定架构、审代码、处理难题并带领上线。", ["每周项目推进与技术评审", "架构、测试、部署与文档指导", "代码和项目成果由客户完整保有"], "4 周｜人民币 49,999 元起 / 期"],
+      ["03", "Vibe Coding 复杂项目工程顾问", "适合遗留系统、关键集成或高风险上线", "在 AI 生成代码之外补足资深工程判断，识别系统边界、技术债与交付风险。", ["技术方案与架构评审", "关键代码、性能与安全审查", "疑难问题与工程决策支持"], "人民币 60,000 元起 / 月" ]
     ],
     journeyLabel: "交付方法",
     journeyTitle: "先确认一个能验收的目标，再扩展",
@@ -119,7 +119,7 @@ const pages = {
       ["training", "Vision", "Agents Company Introduction", "Story-led keynote on why AI matters and what an Agents company can become", "On-site keynote", "RMB 15,000 / session"],
       ["build", "Practice", "Agents Company Hands-on Workshop", "Guided Agent build that moves a team from understanding to operation", "On-site, 3 hours", "RMB 25,000 / session"],
       ["training", "Custom", "Enterprise AI Custom Workshop", "A tailored program around the company's industry, roles, and operating goals", "On-site, 1–3 days", "RMB 30,000–150,000 / project"],
-      ["coding", "Coding", "Vibe Coding Team Workshop", "Use a real business challenge to move from requirements to a working product the team can keep improving", "On-site, 1 day", "RMB 30,000 / session"],
+      ["coding", "Coding", "Vibe Coding Software Development Workshop", "Use a real business challenge to move from requirements to a working product the team can keep improving", "On-site, 1 day", "RMB 30,000 / session"],
       ["coding", "Coaching", "Vibe Coding Project Coaching", "Requirements, architecture, code review, testing, deployment, and iteration guidance around the client's project; the client owns the code and output", "Online, 4 weeks", "RMB 49,999+ / engagement"],
       ["coding", "Advisory", "Vibe Coding Engineering Advisory", "Technical planning, risk review, and engineering decisions for complex systems, legacy code, or critical releases", "Monthly or project-based", "RMB 60,000+ / month"],
       ["build", "Deploy", "AI Employees / Agents Company Build", "Combine Codex, OpenClaw, Buda AI, and other Agent tools for the business scenario; deliver 1 AI employee, 1 core workflow, team enablement, and 1 month of operational support", "Custom delivery", "RMB 12,000+ domestic / US$2,000+ overseas"],
@@ -137,9 +137,9 @@ const pages = {
       ["End-to-end delivery", "Requirements, architecture, development, testing, deployment, and iteration"]
     ],
     vibeOffers: [
-      ["01", "Team workshop", "For product, engineering, and business teams adopting a shared method", "Use one real business challenge to practice the full path from requirements and Agent collaboration to a working product.", ["A shared Vibe Coding workflow", "One working outcome built during the session", "Code quality, security, and release checklists"], "1 day | RMB 30,000 / session"],
-      ["02", "Four-week project coaching", "For teams with an idea, prototype, or active build", "The team owns development while Kelly guides requirements, architecture, reviews, hard problems, and release at critical points.", ["Weekly delivery and technical reviews", "Architecture, testing, deployment, and documentation guidance", "The client retains all code and project output"], "4 weeks | RMB 49,999+ / engagement"],
-      ["03", "Complex-project advisory", "For legacy systems, critical integrations, or high-risk releases", "Add senior engineering judgment beyond AI-generated code to expose system boundaries, technical debt, and delivery risk.", ["Technical plan and architecture review", "Critical code, performance, and security review", "Complex debugging and engineering decisions"], "RMB 60,000+ / month"]
+      ["01", "Vibe Coding Software Development Workshop", "For product, engineering, and business teams adopting a shared method", "Use one real business challenge to practice the full path from requirements and Agent collaboration to a working product.", ["A shared Vibe Coding workflow", "One working outcome built during the session", "Code quality, security, and release checklists"], "1 day | RMB 30,000 / session"],
+      ["02", "Vibe Coding Software Project Coaching (4 Weeks)", "For teams with an idea, prototype, or active build", "The team owns development while Kelly guides requirements, architecture, reviews, hard problems, and release at critical points.", ["Weekly delivery and technical reviews", "Architecture, testing, deployment, and documentation guidance", "The client retains all code and project output"], "4 weeks | RMB 49,999+ / engagement"],
+      ["03", "Vibe Coding Complex-Project Engineering Advisory", "For legacy systems, critical integrations, or high-risk releases", "Add senior engineering judgment beyond AI-generated code to expose system boundaries, technical debt, and delivery risk.", ["Technical plan and architecture review", "Critical code, performance, and security review", "Complex debugging and engineering decisions"], "RMB 60,000+ / month"]
     ],
     journeyLabel: "Delivery method",
     journeyTitle: "Define one measurable outcome, then expand",
@@ -206,7 +206,7 @@ const pages = {
       ["training", "啟蒙", "Agents 公司理念導入", "故事化演講，理解 AI 的重要性與 Agents 公司的最終圖景", "線下主題演講", "人民幣 15,000 元 / 場"],
       ["build", "實戰", "Agents 公司搭建實戰工作坊", "手把手完成一次 Agent 實戰，讓團隊從理解走向操作", "線下 3 小時", "人民幣 25,000 元 / 場"],
       ["training", "定制", "企業 AI 定制工作坊", "圍繞行業、崗位和業務目標設計專屬落地課程", "線下 1–3 天", "人民幣 30,000–150,000 元 / 項目"],
-      ["coding", "編程", "Vibe Coding 企業實戰工作坊", "使用真實業務題，從需求拆解到完成一個可運行、可繼續迭代的產品", "線下 1 天", "人民幣 30,000 元 / 場"],
+      ["coding", "編程", "Vibe Coding 軟件開發實戰工作坊", "使用真實業務題，從需求拆解到完成一個可運行、可繼續迭代的產品", "線下 1 天", "人民幣 30,000 元 / 場"],
       ["coding", "陪跑", "Vibe Coding 項目陪跑", "圍繞客戶項目提供需求、架構、代碼審查、測試、部署和迭代指導，代碼與成果歸客戶", "網上 4 週", "人民幣 49,999 元起 / 期"],
       ["coding", "顧問", "Vibe Coding 工程顧問", "針對複雜系統、遺留代碼或關鍵上線提供技術方案、風險審查與工程決策支援", "月度或項目制", "人民幣 60,000 元起 / 月"],
       ["build", "落地", "AI 數碼員工 / Agents 公司搭建", "按業務場景組合 Codex、OpenClaw、Buda AI 等 Agent 工具與平台，交付 1 個數碼員工、1 條核心工作流程、團隊培訓與 1 個月營運維護起", "定制交付", "國內人民幣 12,000 元起 / 海外 US$2,000 起"],
@@ -224,9 +224,9 @@ const pages = {
       ["完整交付鏈路", "需求、架構、開發、測試、部署與迭代"]
     ],
     vibeOffers: [
-      ["01", "企業實戰工作坊", "適合需要統一方法的產品、技術與業務團隊", "用一個真實業務題完成從需求描述、Agent 協作到可運行產品的全過程。", ["團隊共用的 Vibe Coding 工作流程", "一個現場完成的可運行成果", "代碼質量、安全與上線檢查清單"], "1 天｜人民幣 30,000 元 / 場"],
-      ["02", "4 週項目陪跑", "適合已有想法、原型或在建項目的團隊", "團隊主導開發，Kelly 在關鍵節點拆需求、定架構、審代碼、處理難題並帶領上線。", ["每週項目推進與技術評審", "架構、測試、部署與文檔指導", "代碼和項目成果由客戶完整保有"], "4 週｜人民幣 49,999 元起 / 期"],
-      ["03", "複雜項目工程顧問", "適合遺留系統、關鍵整合或高風險上線", "在 AI 生成代碼之外補足資深工程判斷，識別系統邊界、技術債與交付風險。", ["技術方案與架構評審", "關鍵代碼、效能與安全審查", "疑難問題與工程決策支援"], "人民幣 60,000 元起 / 月"]
+      ["01", "Vibe Coding 軟件開發實戰工作坊", "適合需要統一方法的產品、技術與業務團隊", "用一個真實業務題完成從需求描述、Agent 協作到可運行產品的全過程。", ["團隊共用的 Vibe Coding 工作流程", "一個現場完成的可運行成果", "代碼質量、安全與上線檢查清單"], "1 天｜人民幣 30,000 元 / 場"],
+      ["02", "Vibe Coding 軟件項目陪跑（4 週）", "適合已有想法、原型或在建項目的團隊", "團隊主導開發，Kelly 在關鍵節點拆需求、定架構、審代碼、處理難題並帶領上線。", ["每週項目推進與技術評審", "架構、測試、部署與文檔指導", "代碼和項目成果由客戶完整保有"], "4 週｜人民幣 49,999 元起 / 期"],
+      ["03", "Vibe Coding 複雜項目工程顧問", "適合遺留系統、關鍵整合或高風險上線", "在 AI 生成代碼之外補足資深工程判斷，識別系統邊界、技術債與交付風險。", ["技術方案與架構評審", "關鍵代碼、效能與安全審查", "疑難問題與工程決策支援"], "人民幣 60,000 元起 / 月"]
     ],
     journeyLabel: "交付方法",
     journeyTitle: "先確認一個可驗收的目標，再擴展",
