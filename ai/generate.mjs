@@ -10,10 +10,10 @@ const pages = {
     output: "index.html",
     canonical: "https://mr-kelly.github.io/ai/",
     title: "Kelly AI Deployment Service｜企业 AI 落地服务",
-    description: "企业 AI 落地、Vibe Coding 培训与项目陪跑，覆盖数字员工、企业 AI 资产中枢与品牌 Agent。查看服务与参考报价。",
-    nav: ["服务报价", "Vibe Coding", "落地路径", "技术底座", "联系"],
+    description: "企业 AI 落地、兼职 CAIO、Vibe Coding 培训与项目陪跑，覆盖数字员工、企业 AI 资产中枢与品牌 Agent。查看服务与参考报价。",
+    nav: ["服务报价", "兼职 CAIO", "Vibe Coding", "落地路径", "技术底座", "联系"],
     eyebrow: "企业 AI 落地服务",
-    lead: "从理念导入、Vibe Coding 实战，到数字员工、企业 AI 资产中枢与品牌 Agent，把 AI 从认知带进真实业务。",
+    lead: "从理念导入、Vibe Coding 实战，到兼职 CAIO、数字员工与企业 AI 资产中枢，把 AI 从认知带进真实业务。",
     heroPrimary: "查看服务报价",
     heroSecondary: "联系 Kelly",
     stages: [
@@ -24,7 +24,7 @@ const pages = {
     ],
     serviceLabel: "服务菜单",
     serviceTitle: "从一次课程，到一套可运行的 AI 能力",
-    serviceIntro: "可以从培训、Vibe Coding 工作坊或项目陪跑开始，也可以直接落地 Agent、AI 资产中枢或企业品牌小程序。以下为客户参考报价。",
+    serviceIntro: "可以从培训、Vibe Coding 工作坊或项目陪跑开始，也可以请一位兼职 CAIO 持续带队，或直接落地 Agent、AI 资产中枢与企业品牌小程序。以下为客户参考报价。",
     headers: ["类别", "服务", "核心交付", "形式 / 时长", "服务报价"],
     mobileLabels: ["类别", "服务", "交付", "形式", "报价"],
     services: [
@@ -32,6 +32,7 @@ const pages = {
       ["training", "启蒙", "Agents 公司理念导入", "故事化演讲，理解 AI 的重要性与 Agents 公司的最终图景", "线下主题演讲", "人民币 15,000 元 / 场"],
       ["build", "实战", "Agents 公司搭建实战工作坊", "手把手完成一次 Agent 实战，让团队从理解走向操作", "线下 3 小时", "人民币 25,000 元 / 场"],
       ["training", "定制", "企业 AI 定制工作坊", "围绕行业、岗位和业务目标设计专属落地课程", "线下 1–3 天", "人民币 30,000–150,000 元 / 项目"],
+      ["caio", "CAIO", "兼职 CAIO（企业 AI 负责人）", "像内部全职 AI 负责人一样，每周业务问诊、确定最高优先级实战、拆解任务与负责人、带队执行并验收复盘，让团队在真实业务中边做边学", "每周工作会 + 持续跟进，建议 3 个月起", "按月定制报价"],
       ["coding", "编程", "Vibe Coding 软件开发实战工作坊", "使用真实业务题，从需求拆解到完成一个可运行、可继续迭代的产品", "线下 1 天", "人民币 30,000 元 / 场"],
       ["coding", "陪跑", "Vibe Coding 项目陪跑", "围绕客户项目提供需求、架构、代码审查、测试、部署和迭代指导，代码与成果归客户", "线上 4 周", "人民币 49,999 元起 / 期"],
       ["coding", "顾问", "Vibe Coding 工程顾问", "针对复杂系统、遗留代码或关键上线提供技术方案、风险审查与工程决策支持", "月度或项目制", "人民币 60,000 元起 / 月"],
@@ -41,6 +42,18 @@ const pages = {
       ["brand", "品牌", "企业品牌专属 Agent 小程序", "企业品牌微信 Agent 小程序，用于培训、内部服务或会员式对外服务", "品牌定制", "人民币 99,999 元起"]
     ],
     finePrint: "以上人民币报价均为未税价。线下服务的差旅食宿视项目情况另行确认；最终范围、周期、报价和验收标准以正式报价单或合同为准。",
+    caioLabel: "兼职 CAIO",
+    caioTitle: "像请来一位全职 AI 负责人，每周把事情向前推进",
+    caioIntro: "兼职 CAIO 站在管理层和团队身边，不以部署一堆工具为目标，而是持续找出真正值得做的业务任务，安排执行并对结果负责。团队不是听课，而是在每周真实交付中学会 AI。",
+    caioSteps: [
+      ["01", "每周问诊", "和管理层与业务负责人检查目标、进展、卡点和新的 AI 机会。"],
+      ["02", "确定实战", "选定本周最高优先级任务，明确结果、负责人、截止时间与验收标准。"],
+      ["03", "带队执行", "调动团队与 AI Agents，推进原型、工作流、内容、数据或系统成果。"],
+      ["04", "验收复盘", "检查真实业务结果，沉淀方法与资产，并排定下一周行动。"]
+    ],
+    caioOutputLabel: "每周看得见的交付",
+    caioOutputs: ["一份有负责人和期限的任务清单", "一个持续推进的真实业务成果", "一次验收复盘与下一周安排"],
+    caioMeta: "每周 1 次工作会 + 持续异步跟进｜建议 3 个月起｜按月定制报价",
     vibeLabel: "Vibe Coding 服务",
     vibeTitle: "不只把原型做出来，更把软件做成能交付的产品",
     vibeIntro: "Vibe Coding 降低了写代码的门槛，但需求边界、系统架构、测试、安全和上线质量仍需要工程判断。Kelly 将 AI 编程方法与大型软件经验结合，帮助个人和团队把想法推进到真实可用。",
@@ -85,7 +98,7 @@ const pages = {
       "客户可从一个最小场景开始，验证后再扩展。"
     ],
     contactTitle: "从一个具体场景开始",
-    contactText: "告诉 Kelly 你的业务目标、团队情况，以及已有想法、原型或代码现状，我们会先判断适合培训、Vibe Coding 陪跑还是直接落地。",
+    contactText: "告诉 Kelly 你的业务目标、团队情况，以及已有想法、原型或代码现状，我们会先判断适合培训、兼职 CAIO、Vibe Coding 陪跑还是直接落地。",
     phoneLabel: "电话 18688180270",
     wechatLabel: "复制微信 23110388",
     copiedLabel: "微信号已复制：23110388",
@@ -97,10 +110,10 @@ const pages = {
     output: "en/index.html",
     canonical: "https://mr-kelly.github.io/ai/en/",
     title: "Kelly AI Deployment Service | Enterprise AI Enablement",
-    description: "Enterprise AI deployment, Vibe Coding training and project coaching, AI employees, AI asset hubs, and branded Agent experiences by Kelly.",
-    nav: ["Services", "Vibe Coding", "Delivery", "Technology", "Contact"],
+    description: "Enterprise AI deployment, fractional CAIO leadership, Vibe Coding training and coaching, AI employees, AI asset hubs, and branded Agent experiences by Kelly.",
+    nav: ["Services", "Fractional CAIO", "Vibe Coding", "Delivery", "Technology", "Contact"],
     eyebrow: "Enterprise AI enablement",
-    lead: "Move from AI awareness and Vibe Coding practice to AI employees, enterprise AI asset hubs, and branded Agent experiences in real operations.",
+    lead: "Move from AI awareness and Vibe Coding practice to fractional CAIO leadership, AI employees, and enterprise AI asset hubs in real operations.",
     heroPrimary: "View services & pricing",
     heroSecondary: "Contact Kelly",
     stages: [
@@ -111,7 +124,7 @@ const pages = {
     ],
     serviceLabel: "Service menu",
     serviceTitle: "Start with one session or build a lasting AI capability",
-    serviceIntro: "Begin with training, a Vibe Coding workshop, or project coaching, or deploy an Agent, AI asset hub, or branded mini-program. Prices below are for reference.",
+    serviceIntro: "Begin with training, a Vibe Coding workshop, or project coaching; bring in a fractional CAIO to lead weekly execution; or deploy an Agent, AI asset hub, or branded mini-program. Prices below are for reference.",
     headers: ["Type", "Service", "Core delivery", "Format / duration", "Price"],
     mobileLabels: ["Type", "Service", "Delivery", "Format", "Price"],
     services: [
@@ -119,6 +132,7 @@ const pages = {
       ["training", "Vision", "Agents Company Introduction", "Story-led keynote on why AI matters and what an Agents company can become", "On-site keynote", "RMB 15,000 / session"],
       ["build", "Practice", "Agents Company Hands-on Workshop", "Guided Agent build that moves a team from understanding to operation", "On-site, 3 hours", "RMB 25,000 / session"],
       ["training", "Custom", "Enterprise AI Custom Workshop", "A tailored program around the company's industry, roles, and operating goals", "On-site, 1–3 days", "RMB 30,000–150,000 / project"],
+      ["caio", "CAIO", "Fractional CAIO (Embedded AI Leader)", "Work alongside leadership like an in-house AI executive: diagnose the business weekly, set the highest-priority hands-on work, assign owners and tasks, lead execution, and review outcomes so the team learns through real delivery", "Weekly working session + ongoing follow-through; 3-month minimum recommended", "Custom monthly retainer"],
       ["coding", "Coding", "Vibe Coding Software Development Workshop", "Use a real business challenge to move from requirements to a working product the team can keep improving", "On-site, 1 day", "RMB 30,000 / session"],
       ["coding", "Coaching", "Vibe Coding Project Coaching", "Requirements, architecture, code review, testing, deployment, and iteration guidance around the client's project; the client owns the code and output", "Online, 4 weeks", "RMB 49,999+ / engagement"],
       ["coding", "Advisory", "Vibe Coding Engineering Advisory", "Technical planning, risk review, and engineering decisions for complex systems, legacy code, or critical releases", "Monthly or project-based", "RMB 60,000+ / month"],
@@ -128,6 +142,18 @@ const pages = {
       ["brand", "Brand", "Branded Enterprise Agent Mini Program", "A branded WeChat Agent mini program for training, internal service, or member-facing delivery", "Custom build", "RMB 99,999+"]
     ],
     finePrint: "RMB prices exclude tax. Travel and accommodation for on-site delivery may be quoted separately. Final scope, schedule, fees, and acceptance criteria are governed by the formal quotation or contract.",
+    caioLabel: "Fractional CAIO",
+    caioTitle: "The impact of a full-time AI leader, with progress every week",
+    caioIntro: "A fractional CAIO works alongside leadership and the team. The goal is not to deploy a pile of tools, but to continually identify the business work worth doing, organize execution, and own the follow-through. The team learns AI through real weekly delivery, not lectures.",
+    caioSteps: [
+      ["01", "Weekly diagnosis", "Review goals, progress, blockers, and new AI opportunities with leadership and business owners."],
+      ["02", "Set the work", "Choose the highest-priority task and define its outcome, owner, deadline, and acceptance criteria."],
+      ["03", "Lead execution", "Coordinate the team and AI Agents to advance a prototype, workflow, content, data, or system outcome."],
+      ["04", "Review and reset", "Validate business results, retain methods and assets, and set the next week's actions."]
+    ],
+    caioOutputLabel: "Visible delivery every week",
+    caioOutputs: ["A task list with owners and deadlines", "A real business outcome that keeps advancing", "An acceptance review and plan for the next week"],
+    caioMeta: "1 weekly working session + ongoing async follow-through | 3-month minimum recommended | custom monthly retainer",
     vibeLabel: "Vibe Coding services",
     vibeTitle: "Go beyond a working prototype to software that can actually ship",
     vibeIntro: "Vibe Coding lowers the barrier to writing code, but requirements, architecture, testing, security, and release quality still demand engineering judgment. Kelly combines AI-assisted development with large-scale software experience to help people and teams turn ideas into dependable products.",
@@ -172,7 +198,7 @@ const pages = {
       "Clients can start with one minimum viable scenario and expand after validation."
     ],
     contactTitle: "Start with one specific workflow",
-    contactText: "Share the business objective, team context, and the current state of your idea, prototype, or code. We will determine whether training, Vibe Coding coaching, or direct implementation is the right starting point.",
+    contactText: "Share the business objective, team context, and the current state of your idea, prototype, or code. We will determine whether training, fractional CAIO leadership, Vibe Coding coaching, or direct implementation is the right starting point.",
     phoneLabel: "Call +86 186 8818 0270",
     wechatLabel: "Copy WeChat 23110388",
     copiedLabel: "WeChat copied: 23110388",
@@ -184,10 +210,10 @@ const pages = {
     output: "zh-hk/index.html",
     canonical: "https://mr-kelly.github.io/ai/zh-hk/",
     title: "Kelly AI Deployment Service｜企業 AI 落地服務",
-    description: "企業 AI 落地、Vibe Coding 培訓與項目陪跑，涵蓋數碼員工、企業 AI 資產中樞與品牌 Agent。查看服務與參考報價。",
-    nav: ["服務報價", "Vibe Coding", "落地路徑", "技術底座", "聯絡"],
+    description: "企業 AI 落地、兼職 CAIO、Vibe Coding 培訓與項目陪跑，涵蓋數碼員工、企業 AI 資產中樞與品牌 Agent。查看服務與參考報價。",
+    nav: ["服務報價", "兼職 CAIO", "Vibe Coding", "落地路徑", "技術底座", "聯絡"],
     eyebrow: "企業 AI 落地服務",
-    lead: "從理念導入、Vibe Coding 實戰，到數碼員工、企業 AI 資產中樞與品牌 Agent，把 AI 從認知帶進真實業務。",
+    lead: "從理念導入、Vibe Coding 實戰，到兼職 CAIO、數碼員工與企業 AI 資產中樞，把 AI 從認知帶進真實業務。",
     heroPrimary: "查看服務報價",
     heroSecondary: "聯絡 Kelly",
     stages: [
@@ -198,7 +224,7 @@ const pages = {
     ],
     serviceLabel: "服務菜單",
     serviceTitle: "從一次課程，到一套可運行的 AI 能力",
-    serviceIntro: "可以從培訓、Vibe Coding 工作坊或項目陪跑開始，也可以直接落地 Agent、AI 資產中樞或企業品牌小程式。以下為客戶參考報價。",
+    serviceIntro: "可以從培訓、Vibe Coding 工作坊或項目陪跑開始，也可以請一位兼職 CAIO 持續帶隊，或直接落地 Agent、AI 資產中樞與企業品牌小程式。以下為客戶參考報價。",
     headers: ["類別", "服務", "核心交付", "形式 / 時長", "服務報價"],
     mobileLabels: ["類別", "服務", "交付", "形式", "報價"],
     services: [
@@ -206,6 +232,7 @@ const pages = {
       ["training", "啟蒙", "Agents 公司理念導入", "故事化演講，理解 AI 的重要性與 Agents 公司的最終圖景", "線下主題演講", "人民幣 15,000 元 / 場"],
       ["build", "實戰", "Agents 公司搭建實戰工作坊", "手把手完成一次 Agent 實戰，讓團隊從理解走向操作", "線下 3 小時", "人民幣 25,000 元 / 場"],
       ["training", "定制", "企業 AI 定制工作坊", "圍繞行業、崗位和業務目標設計專屬落地課程", "線下 1–3 天", "人民幣 30,000–150,000 元 / 項目"],
+      ["caio", "CAIO", "兼職 CAIO（企業 AI 負責人）", "像內部全職 AI 負責人一樣，每週業務問診、確定最高優先級實戰、拆解任務與負責人、帶隊執行並驗收複盤，讓團隊在真實業務中邊做邊學", "每週工作會 + 持續跟進，建議 3 個月起", "按月定制報價"],
       ["coding", "編程", "Vibe Coding 軟件開發實戰工作坊", "使用真實業務題，從需求拆解到完成一個可運行、可繼續迭代的產品", "線下 1 天", "人民幣 30,000 元 / 場"],
       ["coding", "陪跑", "Vibe Coding 項目陪跑", "圍繞客戶項目提供需求、架構、代碼審查、測試、部署和迭代指導，代碼與成果歸客戶", "網上 4 週", "人民幣 49,999 元起 / 期"],
       ["coding", "顧問", "Vibe Coding 工程顧問", "針對複雜系統、遺留代碼或關鍵上線提供技術方案、風險審查與工程決策支援", "月度或項目制", "人民幣 60,000 元起 / 月"],
@@ -215,6 +242,18 @@ const pages = {
       ["brand", "品牌", "企業品牌專屬 Agent 小程式", "企業品牌微信 Agent 小程式，用於培訓、內部服務或會員式對外服務", "品牌定制", "人民幣 99,999 元起"]
     ],
     finePrint: "以上人民幣報價均為未稅價。線下服務的差旅住宿視項目情況另行確認；最終範圍、週期、報價和驗收標準以正式報價單或合約為準。",
+    caioLabel: "兼職 CAIO",
+    caioTitle: "像請來一位全職 AI 負責人，每週把事情向前推進",
+    caioIntro: "兼職 CAIO 站在管理層和團隊身邊，不以部署一堆工具為目標，而是持續找出真正值得做的業務任務，安排執行並對結果負責。團隊不是聽課，而是在每週真實交付中學會 AI。",
+    caioSteps: [
+      ["01", "每週問診", "和管理層與業務負責人檢查目標、進展、卡點和新的 AI 機會。"],
+      ["02", "確定實戰", "選定本週最高優先級任務，明確結果、負責人、截止時間與驗收標準。"],
+      ["03", "帶隊執行", "調動團隊與 AI Agents，推進原型、工作流程、內容、數據或系統成果。"],
+      ["04", "驗收複盤", "檢查真實業務結果，沉澱方法與資產，並排定下一週行動。"]
+    ],
+    caioOutputLabel: "每週看得見的交付",
+    caioOutputs: ["一份有負責人和期限的任務清單", "一個持續推進的真實業務成果", "一次驗收複盤與下一週安排"],
+    caioMeta: "每週 1 次工作會 + 持續異步跟進｜建議 3 個月起｜按月定制報價",
     vibeLabel: "Vibe Coding 服務",
     vibeTitle: "不只把原型做出來，更把軟件做成能交付的產品",
     vibeIntro: "Vibe Coding 降低了寫代碼的門檻，但需求邊界、系統架構、測試、安全和上線質量仍需要工程判斷。Kelly 將 AI 編程方法與大型軟件經驗結合，幫助個人和團隊把想法推進到真實可用。",
@@ -259,7 +298,7 @@ const pages = {
       "客戶可從一個最小場景開始，驗證後再擴展。"
     ],
     contactTitle: "從一個具體場景開始",
-    contactText: "告訴 Kelly 你的業務目標、團隊情況，以及已有想法、原型或代碼現狀，我們會先判斷適合培訓、Vibe Coding 陪跑還是直接落地。",
+    contactText: "告訴 Kelly 你的業務目標、團隊情況，以及已有想法、原型或代碼現狀，我們會先判斷適合培訓、兼職 CAIO、Vibe Coding 陪跑還是直接落地。",
     phoneLabel: "電話 18688180270",
     wechatLabel: "複製微信 23110388",
     copiedLabel: "微信號已複製：23110388",
@@ -302,6 +341,14 @@ function renderPage(lang, page) {
   const heroStages = page.stages.map(([title, text]) => `
         <div class="hero-stage"><strong>${title}</strong><span>${text}</span></div>`).join("");
 
+  const caioSteps = page.caioSteps.map(([number, title, text]) => `
+          <article class="caio-step">
+            <span class="caio-number">${number}</span>
+            <h3>${title}</h3>
+            <p>${text}</p>
+          </article>`).join("");
+  const caioOutputs = page.caioOutputs.map((item) => `<li>${item}</li>`).join("");
+
   const steps = page.steps.map(([number, title, text]) => `
         <article class="journey-step">
           <span class="journey-number">${number}</span>
@@ -324,7 +371,7 @@ function renderPage(lang, page) {
             <ul>${points.map((point) => `<li>${point}</li>`).join("")}</ul>
             <p class="vibe-meta">${meta}</p>
           </article>`).join("");
-  const navIds = ["services", "vibe-coding", "delivery", "foundation", "contact"];
+  const navIds = ["services", "caio", "vibe-coding", "delivery", "foundation", "contact"];
   const nav = page.nav.map((label, index) => `<a href="#${navIds[index]}">${label}</a>`).join("");
   const alternates = alternateLinks.map(([hreflang, href]) => `  <link rel="alternate" hreflang="${hreflang}" href="${href}">`).join("\n");
   const structuredData = JSON.stringify({
@@ -342,6 +389,7 @@ function renderPage(lang, page) {
     serviceType: [
       "Enterprise AI Training",
       "AI Agent Workshop",
+      "Fractional Chief AI Officer",
       "Vibe Coding Training and Project Coaching",
       "AI Employee Implementation",
       "Enterprise AI Asset Hub",
@@ -370,7 +418,7 @@ function renderPage(lang, page) {
   <link rel="canonical" href="${page.canonical}">
 ${alternates}
   <link rel="icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/ai/styles.css?v=20260729">
+  <link rel="stylesheet" href="/ai/styles.css?v=20260803">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Kelly AI Deployment Service">
   <meta property="og:title" content="${page.title}">
@@ -438,6 +486,25 @@ ${alternates}
           </table>
         </div>
         <p class="fine-print">${page.finePrint}</p>
+      </div>
+    </section>
+
+    <section class="section section-dark section-caio" id="caio">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-label">${page.caioLabel}</p>
+            <h2>${page.caioTitle}</h2>
+          </div>
+          <p class="section-intro">${page.caioIntro}</p>
+        </div>
+        <div class="caio-cycle">${caioSteps}
+        </div>
+        <div class="caio-output">
+          <p class="caio-output-label">${page.caioOutputLabel}</p>
+          <ul>${caioOutputs}</ul>
+          <p class="caio-meta">${page.caioMeta}</p>
+        </div>
       </div>
     </section>
 
