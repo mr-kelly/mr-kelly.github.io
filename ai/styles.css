@@ -484,6 +484,59 @@ a {
   font-size: 13px;
 }
 
+.scenarios {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 22px 30px;
+  align-items: start;
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.scenarios-label {
+  margin: 0;
+  color: #9edbd6;
+  font-size: 14px;
+  font-weight: 850;
+}
+
+.section-consult .scenarios-label {
+  color: #d9a6c4;
+}
+
+.scenario-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.scenario-card {
+  min-width: 0;
+  padding: 0 22px;
+}
+
+.scenario-card:first-child {
+  padding-left: 0;
+}
+
+.scenario-card + .scenario-card {
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.scenario-card h3 {
+  margin: 0 0 8px;
+  color: var(--white);
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.scenario-card p {
+  margin: 0;
+  color: #c8d2cf;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
 .fit-check {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1160,6 +1213,10 @@ button.contact-chip {
     gap: 20px;
   }
 
+  .scenarios {
+    grid-template-columns: 1fr;
+  }
+
   .vibe-offers {
     grid-template-columns: 1fr;
   }
@@ -1328,6 +1385,20 @@ button.contact-chip {
 
   .product-cards {
     grid-template-columns: 1fr;
+  }
+
+  .scenario-list {
+    grid-template-columns: 1fr;
+  }
+
+  .scenario-card,
+  .scenario-card:first-child {
+    padding: 16px 0;
+  }
+
+  .scenario-card + .scenario-card {
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    border-left: 0;
   }
 
   .hero-stage {

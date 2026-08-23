@@ -11,7 +11,7 @@ const pages = {
     canonical: "https://mr-kelly.github.io/ai/",
     title: "Kelly AI Deployment Service｜企业 AI 落地服务",
     description: "企业 AI 落地、兼职 CAIO、Vibe Coding 培训与项目陪跑，覆盖数字员工、企业 AI 资产中枢与品牌 Agent。查看服务与参考报价。",
-    nav: ["服务报价", "方案咨询", "兼职 CAIO", "Vibe Coding", "落地路径", "技术底座", "联系"],
+    nav: ["服务报价", "商业规划", "兼职 CAIO", "Vibe Coding", "落地路径", "技术底座", "联系"],
     eyebrow: "企业 AI 落地服务",
     lead: "从理念导入、Vibe Coding 实战，到兼职 CAIO、数字员工与企业 AI 资产中枢，把 AI 从认知带进真实业务。",
     heroPrimary: "查看服务报价",
@@ -28,7 +28,7 @@ const pages = {
     headers: ["类别", "服务", "核心交付", "形式 / 时长", "服务报价"],
     mobileLabels: ["类别", "服务", "交付", "形式", "报价"],
     services: [
-      ["consult", "咨询", "方案咨询", "产品方案说明书、商业计划纲要、市场推广计划与可交互 Demo，一次访谈开局，几天到一周内打磨完成", "1 小时启动访谈 + 3–7 天打磨", "人民币 19,999 元起 / 项目"],
+      ["consult", "咨询", "商业规划与方案咨询", "产品方案说明书、商业计划纲要、市场推广计划与可交互 Demo，一次访谈开局，几天到一周内打磨完成", "1 小时启动访谈 + 3–7 天打磨", "人民币 19,999 元起 / 项目"],
       ["training", "培训", "Agents 公司搭建实战课程", "24 节系统实战，从 Agent 方法到 Agents 公司搭建", "线上，每节约 90 分钟", "人民币 599 元 / 人"],
       ["training", "启蒙", "Agents 公司理念导入", "故事化演讲，理解 AI 的重要性与 Agents 公司的最终图景", "线下主题演讲", "人民币 15,000 元 / 场"],
       ["build", "实战", "Agents 公司搭建实战工作坊", "手把手完成一次 Agent 实战，让团队从理解走向操作", "线下 3 小时", "人民币 25,000 元 / 场"],
@@ -43,9 +43,15 @@ const pages = {
       ["brand", "品牌", "企业品牌专属 Agent 小程序", "企业品牌微信 Agent 小程序，用于培训、内部服务或会员式对外服务", "品牌定制", "人民币 99,999 元起"]
     ],
     finePrint: "以上人民币报价均为未税价。线下服务的差旅食宿视项目情况另行确认；最终范围、周期、报价和验收标准以正式报价单或合同为准。",
-    consultLabel: "方案咨询",
+    consultLabel: "商业规划与方案咨询",
     consultTitle: "先想清楚做什么、怎么做，再决定要不要用 AI 编程",
-    consultIntro: "很多团队来找 Kelly 时，还没想清楚要做的产品、目标用户、商业模式和推广打法，却已经在纠结技术选型。方案咨询从一次访谈开始，用几天时间把方向打磨清楚，交付一套可以直接拿去执行、也可以拿去和团队或投资人沟通的方案，并附一个可交互 Demo，让你在方案定稿前就能确认产品大概长什么样。",
+    consultIntro: "很多团队来找 Kelly 时，还没想清楚要做的产品、目标用户、商业模式和推广打法，却已经在纠结技术选型。商业规划与方案咨询从一次访谈开始，用几天时间把方向打磨清楚，交付一套可以直接拿去执行、也可以拿去和团队或投资人沟通的方案，并附一个可交互 Demo，让你在方案定稿前就能确认产品大概长什么样。",
+    consultScenariosLabel: "解决什么问题",
+    consultScenarios: [
+      ["要启动一条新业务", "公司决定做一个新产品或新业务线，方向大致有了，但产品到底长什么样、卖给谁、怎么赚钱，还没有人说得清楚。"],
+      ["有想法，但不知道怎么用 AI 落地", "手上有一个想法，也知道 AI 能帮上忙，但不确定该做成什么形态、走哪条技术路径，更不知道第一步该从哪里开始。"],
+      ["需要一整套商业计划和能演示的产品", "要向投资人、评审或集团汇报，需要一份完整的商业计划，还要有能当场点开演示的产品 Demo，而不只是几页 PPT。"]
+    ],
     consultFitYesLabel: "适合",
     consultFitYesText: "有业务方向但还没验证过；已经启动但方向摇摆，需要外部视角拍板；准备找人陪跑或搭建 AI 能力，但还不知道从哪里开始。",
     consultFitNoLabel: "不适合",
@@ -79,7 +85,7 @@ const pages = {
     caioFitYesLabel: "适合",
     caioFitYesText: "管理层认可 AI 的重要性，但团队缺一个每周把方向和执行拉齐的人；已经零散试过几个 AI 工具，却没有沉淀成业务成果。",
     caioFitNoLabel: "不适合",
-    caioFitNoText: "内部还没有能配合执行的业务负责人，或者只需要一次性培训而非持续带队——可以先看方案咨询或培训课程。",
+    caioFitNoText: "内部还没有能配合执行的业务负责人，或者只需要一次性培训而非持续带队——可以先看商业规划与方案咨询或培训课程。",
     caioTrust: "Kelly 曾以创始 CTO 身份带队研发喜茶的核心系统，也在 Buda、Vika、AITable 里长期以业务目标驱动团队与 AI 协作——不是纸上谈兵的顾问，而是持续对结果负责的执行者。",
     caioSteps: [
       ["01", "每周问诊", "和管理层与业务负责人检查目标、进展、卡点和新的 AI 机会。"],
@@ -96,7 +102,7 @@ const pages = {
     vibeFitYesLabel: "适合",
     vibeFitYesText: "已经有明确的产品方向、原型或在建项目，需要把它做成能真正上线、能维护的软件；愿意让团队参与开发，而不是把代码全部外包出去。",
     vibeFitNoLabel: "不适合",
-    vibeFitNoText: "还没想清楚要做的产品和商业模式——建议先做方案咨询；需要的是完全代工交付、团队不参与开发——这类需求需要单独沟通范围和报价。",
+    vibeFitNoText: "还没想清楚要做的产品和商业模式——建议先做商业规划与方案咨询；需要的是完全代工交付、团队不参与开发——这类需求需要单独沟通范围和报价。",
     vibeProof: [
       ["百万行级", "企业软件研发与交付经验"],
       ["多种产品形态", "游戏、App、小程序、大型网游与大型企业软件"],
@@ -114,7 +120,7 @@ const pages = {
     deployFitYesLabel: "适合",
     deployFitYesText: "已经确定了一个具体的业务场景（客服、内容、数据处理、销售支持等），需要把它变成一个稳定运行的数字员工；团队愿意配合梳理现有流程和数据。",
     deployFitNoLabel: "不适合",
-    deployFitNoText: "还没有确定具体场景，只是想「上一个 AI」——建议先做方案咨询或培训，理清楚从哪个场景切入。",
+    deployFitNoText: "还没有确定具体场景，只是想「上一个 AI」——建议先做商业规划与方案咨询或培训，理清楚从哪个场景切入。",
     deploySteps: [
       ["01", "场景确认", "明确要交付的数字员工负责哪个具体任务、接入哪些数据和系统。"],
       ["02", "搭建接入", "组合 Agent 工具与平台，把数字员工接入真实工作流。"],
@@ -191,7 +197,7 @@ const pages = {
     canonical: "https://mr-kelly.github.io/ai/en/",
     title: "Kelly AI Deployment Service | Enterprise AI Enablement",
     description: "Enterprise AI deployment, fractional CAIO leadership, Vibe Coding training and coaching, AI employees, AI asset hubs, and branded Agent experiences by Kelly.",
-    nav: ["Services", "Solution Consulting", "Fractional CAIO", "Vibe Coding", "Delivery", "Technology", "Contact"],
+    nav: ["Services", "Business Planning", "Fractional CAIO", "Vibe Coding", "Delivery", "Technology", "Contact"],
     eyebrow: "Enterprise AI enablement",
     lead: "Move from AI awareness and Vibe Coding practice to fractional CAIO leadership, AI employees, and enterprise AI asset hubs in real operations.",
     heroPrimary: "View services & pricing",
@@ -208,7 +214,7 @@ const pages = {
     headers: ["Type", "Service", "Core delivery", "Format / duration", "Price"],
     mobileLabels: ["Type", "Service", "Delivery", "Format", "Price"],
     services: [
-      ["consult", "Consulting", "Solution Consulting", "A product brief, business plan outline, marketing plan, and interactive demo — kicked off with one interview and refined over days to a week", "1-hour kickoff interview + 3–7 days of refinement", "RMB 19,999+ / engagement"],
+      ["consult", "Consulting", "Business Planning and Solution Consulting", "A product brief, business plan outline, marketing plan, and interactive demo — kicked off with one interview and refined over days to a week", "1-hour kickoff interview + 3–7 days of refinement", "RMB 19,999+ / engagement"],
       ["training", "Training", "Building an Agents Company", "24 practical sessions covering Agent methods through company-level orchestration", "Online, about 90 minutes each", "RMB 599 / person"],
       ["training", "Vision", "Agents Company Introduction", "Story-led keynote on why AI matters and what an Agents company can become", "On-site keynote", "RMB 15,000 / session"],
       ["build", "Practice", "Agents Company Hands-on Workshop", "Guided Agent build that moves a team from understanding to operation", "On-site, 3 hours", "RMB 25,000 / session"],
@@ -223,9 +229,15 @@ const pages = {
       ["brand", "Brand", "Branded Enterprise Agent Mini Program", "A branded WeChat Agent mini program for training, internal service, or member-facing delivery", "Custom build", "RMB 99,999+"]
     ],
     finePrint: "RMB prices exclude tax. Travel and accommodation for on-site delivery may be quoted separately. Final scope, schedule, fees, and acceptance criteria are governed by the formal quotation or contract.",
-    consultLabel: "Solution Consulting",
+    consultLabel: "Business Planning and Solution Consulting",
     consultTitle: "Get clear on what to build and how, before deciding on AI coding",
-    consultIntro: "Many teams come to Kelly still unsure what product to build, who it's for, how it makes money, or how to market it — yet already debating tech stacks. Solution Consulting starts with one interview and spends a few days refining the direction into a plan the team can act on, and can also take to investors or stakeholders — including an interactive demo so you can confirm what the product roughly looks like before the plan is finalized.",
+    consultIntro: "Many teams come to Kelly still unsure what product to build, who it's for, how it makes money, or how to market it — yet already debating tech stacks. Business Planning and Solution Consulting starts with one interview and spends a few days refining the direction into a plan the team can act on, and can also take to investors or stakeholders — including an interactive demo so you can confirm what the product roughly looks like before the plan is finalized.",
+    consultScenariosLabel: "What it solves",
+    consultScenarios: [
+      ["You're launching a new business line", "The company has committed to a new product or business line and has a rough direction, but nobody can yet say what the product actually looks like, who buys it, or how it makes money."],
+      ["You have an idea but don't know how AI fits", "You have an idea and know AI can help, but you're unsure what form it should take, which technical path to follow, or where the first step even is."],
+      ["You need a full business plan and something to demo", "You're presenting to investors, a review panel, or group leadership, and need a complete business plan plus a product demo people can actually click through — not just slides."]
+    ],
     consultFitYesLabel: "Good fit",
     consultFitYesText: "You have a direction but haven't validated it; momentum has stalled and you need an outside call; you're ready to bring in coaching or build AI capability but don't know where to start.",
     consultFitNoLabel: "Not a fit",
@@ -259,7 +271,7 @@ const pages = {
     caioFitYesLabel: "Good fit",
     caioFitYesText: "Leadership already believes AI matters, but the team lacks someone to align direction and execution every week; you've tried a handful of AI tools without turning them into business outcomes.",
     caioFitNoLabel: "Not a fit",
-    caioFitNoText: "There's no internal business owner to pair with execution yet, or you just need a one-time training rather than ongoing leadership — start with Solution Consulting or a training program instead.",
+    caioFitNoText: "There's no internal business owner to pair with execution yet, or you just need a one-time training rather than ongoing leadership — start with Business Planning and Solution Consulting or a training program instead.",
     caioTrust: "Kelly led engineering as founding CTO of HEYTEA and has spent years driving teams and AI toward business outcomes at Buda, Vika, and AITable — not an advisor who stops at slides, but someone who stays accountable for the result.",
     caioSteps: [
       ["01", "Weekly diagnosis", "Review goals, progress, blockers, and new AI opportunities with leadership and business owners."],
@@ -276,7 +288,7 @@ const pages = {
     vibeFitYesLabel: "Good fit",
     vibeFitYesText: "You have a clear product direction, prototype, or active build and need to turn it into software that can actually ship and be maintained; you want your team involved in development rather than outsourcing all of it.",
     vibeFitNoLabel: "Not a fit",
-    vibeFitNoText: "You haven't settled on the product or business model yet — start with Solution Consulting instead; or you need fully outsourced delivery with no team involvement, which needs its own scope and quote.",
+    vibeFitNoText: "You haven't settled on the product or business model yet — start with Business Planning and Solution Consulting instead; or you need fully outsourced delivery with no team involvement, which needs its own scope and quote.",
     vibeProof: [
       ["Million-line scale", "Enterprise software engineering and delivery experience"],
       ["Across product types", "Games, apps, mini programs, large-scale online games, and enterprise software"],
@@ -294,7 +306,7 @@ const pages = {
     deployFitYesLabel: "Good fit",
     deployFitYesText: "You've identified a specific business scenario (support, content, data processing, sales support, etc.) and need it turned into a stable, running AI employee; your team is willing to help map the existing process and data.",
     deployFitNoLabel: "Not a fit",
-    deployFitNoText: "You haven't identified a specific scenario yet and just want \"some AI\" — start with Solution Consulting or training to find the right entry point first.",
+    deployFitNoText: "You haven't identified a specific scenario yet and just want \"some AI\" — start with Business Planning and Solution Consulting or training to find the right entry point first.",
     deploySteps: [
       ["01", "Scope the scenario", "Define exactly which task the AI employee owns, and which data and systems it connects to."],
       ["02", "Build and connect", "Combine Agent tools and platforms to plug the AI employee into a real workflow."],
@@ -371,7 +383,7 @@ const pages = {
     canonical: "https://mr-kelly.github.io/ai/zh-hk/",
     title: "Kelly AI Deployment Service｜企業 AI 落地服務",
     description: "企業 AI 落地、兼職 CAIO、Vibe Coding 培訓與項目陪跑，涵蓋數碼員工、企業 AI 資產中樞與品牌 Agent。查看服務與參考報價。",
-    nav: ["服務報價", "方案諮詢", "兼職 CAIO", "Vibe Coding", "落地路徑", "技術底座", "聯絡"],
+    nav: ["服務報價", "商業規劃", "兼職 CAIO", "Vibe Coding", "落地路徑", "技術底座", "聯絡"],
     eyebrow: "企業 AI 落地服務",
     lead: "從理念導入、Vibe Coding 實戰，到兼職 CAIO、數碼員工與企業 AI 資產中樞，把 AI 從認知帶進真實業務。",
     heroPrimary: "查看服務報價",
@@ -388,7 +400,7 @@ const pages = {
     headers: ["類別", "服務", "核心交付", "形式 / 時長", "服務報價"],
     mobileLabels: ["類別", "服務", "交付", "形式", "報價"],
     services: [
-      ["consult", "諮詢", "方案諮詢", "產品方案說明書、商業計劃綱要、市場推廣計劃與可互動 Demo，一次訪談開局，數天到一週內打磨完成", "1 小時啟動訪談 + 3–7 天打磨", "人民幣 19,999 元起 / 項目"],
+      ["consult", "諮詢", "商業規劃與方案諮詢", "產品方案說明書、商業計劃綱要、市場推廣計劃與可互動 Demo，一次訪談開局，數天到一週內打磨完成", "1 小時啟動訪談 + 3–7 天打磨", "人民幣 19,999 元起 / 項目"],
       ["training", "培訓", "Agents 公司搭建實戰課程", "24 節系統實戰，從 Agent 方法到 Agents 公司搭建", "網上，每節約 90 分鐘", "人民幣 599 元 / 人"],
       ["training", "啟蒙", "Agents 公司理念導入", "故事化演講，理解 AI 的重要性與 Agents 公司的最終圖景", "線下主題演講", "人民幣 15,000 元 / 場"],
       ["build", "實戰", "Agents 公司搭建實戰工作坊", "手把手完成一次 Agent 實戰，讓團隊從理解走向操作", "線下 3 小時", "人民幣 25,000 元 / 場"],
@@ -403,9 +415,15 @@ const pages = {
       ["brand", "品牌", "企業品牌專屬 Agent 小程式", "企業品牌微信 Agent 小程式，用於培訓、內部服務或會員式對外服務", "品牌定制", "人民幣 99,999 元起"]
     ],
     finePrint: "以上人民幣報價均為未稅價。線下服務的差旅住宿視項目情況另行確認；最終範圍、週期、報價和驗收標準以正式報價單或合約為準。",
-    consultLabel: "方案諮詢",
+    consultLabel: "商業規劃與方案諮詢",
     consultTitle: "先想清楚做什麼、怎麼做，再決定要不要用 AI 編程",
-    consultIntro: "很多團隊來找 Kelly 時，還沒想清楚要做的產品、目標用戶、商業模式和推廣打法，卻已經在糾結技術選型。方案諮詢從一次訪談開始，用數天時間把方向打磨清楚，交付一套可以直接拿去執行、也可以拿去和團隊或投資人溝通的方案，並附一個可互動 Demo，讓你在方案定稿前就能確認產品大概長什麼樣。",
+    consultIntro: "很多團隊來找 Kelly 時，還沒想清楚要做的產品、目標用戶、商業模式和推廣打法，卻已經在糾結技術選型。商業規劃與方案諮詢從一次訪談開始，用數天時間把方向打磨清楚，交付一套可以直接拿去執行、也可以拿去和團隊或投資人溝通的方案，並附一個可互動 Demo，讓你在方案定稿前就能確認產品大概長什麼樣。",
+    consultScenariosLabel: "解決什麼問題",
+    consultScenarios: [
+      ["要啟動一條新業務", "公司決定做一個新產品或新業務線，方向大致有了，但產品到底長什麼樣、賣給誰、怎麼賺錢，還沒有人說得清楚。"],
+      ["有想法，但不知道怎麼用 AI 落地", "手上有一個想法，也知道 AI 能幫上忙，但不確定該做成什麼形態、走哪條技術路徑，更不知道第一步該從哪裡開始。"],
+      ["需要一整套商業計劃和能演示的產品", "要向投資人、評審或集團匯報，需要一份完整的商業計劃，還要有能當場點開演示的產品 Demo，而不只是幾頁 PPT。"]
+    ],
     consultFitYesLabel: "適合",
     consultFitYesText: "有業務方向但還沒驗證過；已經啟動但方向搖擺，需要外部視角拍板；準備找人陪跑或搭建 AI 能力，但還不知道從哪裡開始。",
     consultFitNoLabel: "不適合",
@@ -439,7 +457,7 @@ const pages = {
     caioFitYesLabel: "適合",
     caioFitYesText: "管理層認可 AI 的重要性，但團隊缺一個每週把方向和執行拉齊的人；已經零散試過幾個 AI 工具，卻沒有沉澱成業務成果。",
     caioFitNoLabel: "不適合",
-    caioFitNoText: "內部還沒有能配合執行的業務負責人，或者只需要一次性培訓而非持續帶隊——可以先看方案諮詢或培訓課程。",
+    caioFitNoText: "內部還沒有能配合執行的業務負責人，或者只需要一次性培訓而非持續帶隊——可以先看商業規劃與方案諮詢或培訓課程。",
     caioTrust: "Kelly 曾以創始 CTO 身份帶隊研發喜茶的核心系統，也在 Buda、Vika、AITable 裡長期以業務目標驅動團隊與 AI 協作——不是紙上談兵的顧問，而是持續對結果負責的執行者。",
     caioSteps: [
       ["01", "每週問診", "和管理層與業務負責人檢查目標、進展、卡點和新的 AI 機會。"],
@@ -456,7 +474,7 @@ const pages = {
     vibeFitYesLabel: "適合",
     vibeFitYesText: "已經有明確的產品方向、原型或在建項目，需要把它做成能真正上線、能維護的軟件；願意讓團隊參與開發，而不是把代碼全部外判出去。",
     vibeFitNoLabel: "不適合",
-    vibeFitNoText: "還沒想清楚要做的產品和商業模式——建議先做方案諮詢；需要的是完全代工交付、團隊不參與開發——這類需求需要單獨溝通範圍和報價。",
+    vibeFitNoText: "還沒想清楚要做的產品和商業模式——建議先做商業規劃與方案諮詢；需要的是完全代工交付、團隊不參與開發——這類需求需要單獨溝通範圍和報價。",
     vibeProof: [
       ["百萬行級", "企業軟件研發與交付經驗"],
       ["多種產品形態", "遊戲、App、小程式、大型網遊與大型企業軟件"],
@@ -474,7 +492,7 @@ const pages = {
     deployFitYesLabel: "適合",
     deployFitYesText: "已經確定了一個具體的業務場景（客服、內容、數據處理、銷售支援等），需要把它變成一個穩定運行的數碼員工；團隊願意配合梳理現有流程和數據。",
     deployFitNoLabel: "不適合",
-    deployFitNoText: "還沒有確定具體場景，只是想「上一個 AI」——建議先做方案諮詢或培訓，理清楚從哪個場景切入。",
+    deployFitNoText: "還沒有確定具體場景，只是想「上一個 AI」——建議先做商業規劃與方案諮詢或培訓，理清楚從哪個場景切入。",
     deploySteps: [
       ["01", "場景確認", "明確要交付的數碼員工負責哪個具體任務、接入哪些數據和系統。"],
       ["02", "搭建接入", "組合 Agent 工具與平台，把數碼員工接入真實工作流程。"],
@@ -605,6 +623,11 @@ function renderPage(lang, page) {
             <p>${text}</p>
           </article>`).join("");
   const consultOutputs = page.consultOutputs.map((item) => `<li>${item}</li>`).join("");
+  const consultScenarios = page.consultScenarios.map(([title, text]) => `
+            <article class="scenario-card">
+              <h3>${title}</h3>
+              <p>${text}</p>
+            </article>`).join("");
 
   const caioSteps = page.caioSteps.map(([number, title, text]) => `
           <article class="caio-step">
@@ -673,7 +696,7 @@ function renderPage(lang, page) {
       url: "https://mr-kelly.github.io/resume/"
     },
     serviceType: [
-      "Product and Business Solution Consulting",
+      "Business Planning and Solution Consulting",
       "Enterprise AI Training",
       "AI Agent Workshop",
       "Fractional Chief AI Officer",
@@ -784,6 +807,11 @@ ${alternates}
             <h2>${page.consultTitle}</h2>
           </div>
           <p class="section-intro">${page.consultIntro}</p>
+        </div>
+        <div class="scenarios">
+          <p class="scenarios-label">${page.consultScenariosLabel}</p>
+          <div class="scenario-list">${consultScenarios}
+          </div>
         </div>
         <div class="fit-check">
           <div class="fit-yes">
