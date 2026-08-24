@@ -44,7 +44,7 @@ const pages = {
     ],
     finePrint: "以上人民币报价均为未税价。线下服务的差旅食宿视项目情况另行确认；最终范围、周期、报价和验收标准以正式报价单或合同为准。",
     consultLabel: "商业规划与方案咨询",
-    consultTitle: "先想清楚做什么、怎么做，再决定要不要用 AI 编程",
+    consultTitle: "先想清楚要做什么，交出一套完整的商业规划与产品方案",
     consultIntro: "很多团队来找 Kelly 时，还没想清楚要做的产品、目标用户、商业模式和推广打法，却已经在纠结技术选型。商业规划与方案咨询从一次访谈开始，用几天时间把方向打磨清楚，交付一套可以直接拿去执行、也可以拿去和团队或投资人沟通的方案，并附一个可交互 Demo，让你在方案定稿前就能确认产品大概长什么样。",
     consultScenariosLabel: "解决什么问题",
     consultScenarios: [
@@ -230,7 +230,7 @@ const pages = {
     ],
     finePrint: "RMB prices exclude tax. Travel and accommodation for on-site delivery may be quoted separately. Final scope, schedule, fees, and acceptance criteria are governed by the formal quotation or contract.",
     consultLabel: "Business Planning and Solution Consulting",
-    consultTitle: "Get clear on what to build and how, before deciding on AI coding",
+    consultTitle: "Get clear on what to build, and walk away with a complete business plan and product proposal",
     consultIntro: "Many teams come to Kelly still unsure what product to build, who it's for, how it makes money, or how to market it — yet already debating tech stacks. Business Planning and Solution Consulting starts with one interview and spends a few days refining the direction into a plan the team can act on, and can also take to investors or stakeholders — including an interactive demo so you can confirm what the product roughly looks like before the plan is finalized.",
     consultScenariosLabel: "What it solves",
     consultScenarios: [
@@ -416,7 +416,7 @@ const pages = {
     ],
     finePrint: "以上人民幣報價均為未稅價。線下服務的差旅住宿視項目情況另行確認；最終範圍、週期、報價和驗收標準以正式報價單或合約為準。",
     consultLabel: "商業規劃與方案諮詢",
-    consultTitle: "先想清楚做什麼、怎麼做，再決定要不要用 AI 編程",
+    consultTitle: "先想清楚要做什麼，交出一套完整的商業規劃與產品方案",
     consultIntro: "很多團隊來找 Kelly 時，還沒想清楚要做的產品、目標用戶、商業模式和推廣打法，卻已經在糾結技術選型。商業規劃與方案諮詢從一次訪談開始，用數天時間把方向打磨清楚，交付一套可以直接拿去執行、也可以拿去和團隊或投資人溝通的方案，並附一個可互動 Demo，讓你在方案定稿前就能確認產品大概長什麼樣。",
     consultScenariosLabel: "解決什麼問題",
     consultScenarios: [
