@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-97BE9JLYDT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-97BE9JLYDT');
+  </script>
+  <title>Jam Coding｜AI 在写代码的时候，人该去哪里</title>
+  <meta name="description" content="Jam Coding 是一套给 Coding Agent 时代的人类时间编排方法。AI 执行任务的那段时间，人不该盯着屏幕，而该按任务时长决定是去健身房、去散步，还是去睡觉。含节拍表、健身房协议、反模式与 FAQ。">
+  <meta name="author" content="Kelly Peilin Chan">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://mr-kelly.github.io/jam-coding/">
+  <link rel="alternate" hreflang="en" href="https://mr-kelly.github.io/jam-coding/en/">
+  <link rel="alternate" hreflang="zh-CN" href="https://mr-kelly.github.io/jam-coding/">
+  <link rel="alternate" hreflang="x-default" href="https://mr-kelly.github.io/jam-coding/">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/jam-coding/styles.css?v=20260824">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Kelly Peilin Chan">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:title" content="Jam Coding｜AI 在写代码的时候，人该去哪里">
+  <meta property="og:description" content="AI 执行任务的那段时间，人不该盯着屏幕，而该按任务时长决定是去健身房、去散步，还是去睡觉。一套给 Coding Agent 时代的人类时间编排方法。">
+  <meta property="og:url" content="https://mr-kelly.github.io/jam-coding/">
+  <meta property="og:image" content="https://mr-kelly.github.io/resume/kelly-chan-ai-agents-talk.webp">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="533">
+  <meta property="og:image:alt" content="Kelly 在 AI Agents 主题演讲现场">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Jam Coding｜AI 在写代码的时候，人该去哪里">
+  <meta name="twitter:description" content="AI 执行任务的那段时间，人不该盯着屏幕，而该按任务时长决定是去健身房、去散步，还是去睡觉。">
+  <meta name="twitter:image" content="https://mr-kelly.github.io/resume/kelly-chan-ai-agents-talk.webp">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Jam Coding｜AI 在写代码的时候，人该去哪里","description":"Jam Coding 是一套给 Coding Agent 时代的人类时间编排方法：AI 执行任务的那段时间，人按任务时长决定去健身房、散步还是睡觉。","inLanguage":"zh-CN","datePublished":"2026-08-24","dateModified":"2026-08-24","author":{"@type":"Person","name":"Kelly Peilin Chan","url":"https://mr-kelly.github.io/resume/"},"publisher":{"@type":"Person","name":"Kelly Peilin Chan","url":"https://mr-kelly.github.io/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://mr-kelly.github.io/jam-coding/"},"image":"https://mr-kelly.github.io/resume/kelly-chan-ai-agents-talk.webp","about":[{"@type":"Thing","name":"Jam Coding"},{"@type":"Thing","name":"Coding Agent"},{"@type":"Thing","name":"AI 辅助编程"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"zh-CN","mainEntity":[{"@type":"Question","name":"Jam Coding 和 Vibe Coding 是一回事吗？","acceptedAnswer":{"@type":"Answer","text":"不是，两者管的是不同的一端。Vibe Coding 讲的是你怎么把活交出去——怎么描述需求、怎么让 AI 写出能用的东西。Jam Coding 讲的是活交出去之后，你这个人怎么过这段时间。一个管输入，一个管人。"}},{"@type":"Question","name":"Jam Coding 和番茄钟有什么区别？","acceptedAnswer":{"@type":"Answer","text":"番茄钟假设人是执行者：人专注 25 分钟，休息 5 分钟。Jam Coding 里执行者是机器：机器专注，人恢复，比例正好反过来。而且时长由任务决定，不由计时器决定——没有哪个 agent 会因为你的闹钟响了就停下来。"}},{"@type":"Question","name":"一次同时跑几个 agent 合适？","acceptedAnswer":{"@type":"Answer","text":"从 1 个开始。上限不是算力，是你的审阅带宽。判断标准不是「我能开几个」，而是「我能认真读完几份 diff」。对多数人来说是 2 到 3 个。"}},{"@type":"Question","name":"这不就是给摸鱼找借口？","acceptedAnswer":{"@type":"Answer","text":"摸鱼是无计划地逃离一件正在进行的事；Jam Coding 是事先编排一段你本来就无法用于深度工作的时间。判据有两条：这段时间是不是在派出任务之前就决定好的；回来的时候你是不是比走之前更清醒。"}},{"@type":"Question","name":"Agent 中途卡住了怎么办？","acceptedAnswer":{"@type":"Answer","text":"卡住是常态，所以功夫全在出发前：足够的权限、明确的验收标准、能自己跑测试。如果一个任务平均每 5 分钟就要问你一次，它就还不是一个可以离开的任务，先把它拆小。"}},{"@type":"Question","name":"实践 Jam Coding 需要什么工具？","acceptedAnswer":{"@type":"Answer","text":"不需要专门工具。一个能在后台跑完整任务的 coding agent，加一块表。难的从来不是工具，是允许自己在机器工作的时候离开。"}}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="back-link" href="/">← Kelly Peilin Chan</a>
+    <nav class="language-switcher" aria-label="语言">
+      <a href="/jam-coding/en/" lang="en">EN</a>
+      <a href="/jam-coding/" lang="zh-CN" aria-current="page">简</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="shell">
+      <p class="eyebrow">Coding Agent 时代的人类时间编排</p>
+      <h1>Jam <span class="accent">Coding</span></h1>
+      <p class="hero-lead">AI 在写代码的时候，人该去哪里？<br>正确答案很少是「坐在屏幕前面看着它写」。</p>
+      <p class="hero-meta">一份公开方法论 · <a href="/resume/">Kelly Peilin Chan</a> · 2026 年 8 月</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="definition">
+    <div class="shell">
+      <p class="section-label">定义</p>
+      <h2 id="definition">什么是 Jam Coding</h2>
+      <div class="definition">
+        <dl>
+          <dt>Jam Coding</dt>
+          <dd>把 Coding Agent 的执行时间，当成一段<strong>需要提前编排的人类时间</strong>，而不是一段需要熬过去的空档。</dd>
+        </dl>
+        <p class="etymology">名字来自乐队的 jam session。乐手不会在别人 solo 的时候干瞪眼——他在听，在伴奏，在准备下一个段落。人和 agent 的关系也一样：你们轮流出声，谁都不该在对方演奏时呆坐着。</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="problem">
+    <div class="shell">
+      <p class="section-label">起点</p>
+      <h2 id="problem">瓶颈已经不在「写」，而在「等」</h2>
+      <p>Coding Agent 把一件事彻底改变了：写代码这个动作，从需要你全程在场，变成了一次可以派出去的任务。一次任务跑 3 分钟、20 分钟、两个小时，都是常事。</p>
+      <p>于是一个上一个时代不存在的问题冒了出来——<strong>这段时间，你这个人在干嘛？</strong></p>
+      <p>大多数人没有答案，所以就地取材：盯着输出滚动，或者掏出手机。前者让你在任务结束时已经耗光了注意力，后者让你回到代码时要重新爬一遍上下文。两条路都是在把机器省下来的时间，还回去。</p>
+      <p>Jam Coding 的主张只有一句：<strong>机器工作的时间，应该在派出任务之前，就被分配给一件确定的人类活动。</strong>而在绝大多数时候，那件活动最好发生在离屏幕很远的地方。</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="rules">
+    <div class="shell">
+      <p class="section-label">原则</p>
+      <h2 id="rules">三条规则</h2>
+      <ol class="rules">
+        <li>
+          <h3>只派出「可以离开的任务」</h3>
+          <p>一个任务如果没写清楚「做完长什么样」，你在路上就会开始不放心，然后掏手机。可离开的任务有三个特征：有明确的验收标准、有足够的权限自己跑完、失败了你能整个扔掉。写清楚这三件事的成本，通常不超过两分钟。</p>
+        </li>
+        <li>
+          <h3>时间块归你，不归 agent</h3>
+          <p>不是「它跑多久我就等多久」，而是先看它大概要跑多久，再决定这段时间你去做什么。20 分钟的任务对应一段 20 分钟的人类活动——散步、一组训练、一次洗澡。任务的时长是输入，你的安排是输出，顺序不要反。</p>
+        </li>
+        <li>
+          <h3>回来先看结果，不看过程</h3>
+          <p>不要回放它的输出流。先把东西跑起来看行为，再读 diff，最后才读它给自己写的总结。反过来的顺序会让你先被结论说服，然后带着结论去读代码——那时候你已经不是在审阅了。</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section aria-labelledby="chart">
+    <div class="shell">
+      <p class="section-label">节拍表</p>
+      <h2 id="chart">The Jam Chart</h2>
+      <div class="chart-wrap">
+        <table class="chart">
+          <colgroup><col class="col-beat"><col><col><col class="col-avoid"></colgroup>
+          <thead>
+            <tr>
+              <th scope="col">拍号</th>
+              <th scope="col">Agent 在做</th>
+              <th scope="col">你去做</th>
+              <th scope="col">这一拍别做</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><span class="beat">Fill</span>0–2 分钟</th>
+              <td data-label="Agent 在做">改一个 typo、跑一次 lint、补一个小测试</td>
+              <td class="human-col" data-label="你去做">站起来。看向六米外的东西二十秒。喝水。</td>
+              <td class="avoid-col" data-label="别做">别开新标签页——两分钟不够你从任何一个网页里回来</td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="beat">Comp</span>2–10 分钟</th>
+              <td data-label="Agent 在做">写一个函数、改一个组件、跑一轮单测</td>
+              <td class="human-col" data-label="你去做">一组力量动作：俯卧撑、深蹲、壶铃摆。或者写下一个任务的验收标准。</td>
+              <td class="avoid-col" data-label="别做">别读它正在滚动的输出</td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="beat">Solo</span>10–30 分钟</th>
+              <td data-label="Agent 在做">实现一个完整 feature、一次中型重构、一轮端到端测试</td>
+              <td class="human-col" data-label="你去做">下楼走一圈、洗个澡、做一个完整训练循环。</td>
+              <td class="avoid-col" data-label="别做">别趁这段时间再开第二个、第三个任务</td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="beat">Set</span>30–120 分钟</th>
+              <td data-label="Agent 在做">大规模迁移、全量测试、深度调研</td>
+              <td class="human-col" data-label="你去做">一节完整的健身课、通勤、好好吃一顿饭、二十分钟午睡。</td>
+              <td class="avoid-col" data-label="别做">别每五分钟回来瞄一眼——那等于你根本没走</td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="beat">Overnight</span>2 小时以上</th>
+              <td data-label="Agent 在做">批量任务、长跑的评测、隔夜作业</td>
+              <td class="human-col" data-label="你去做">睡觉。这是唯一一档里你必须做的事。</td>
+              <td class="avoid-col" data-label="别做">别把闹钟设在半夜起来看结果</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="chart-note">时长是估的，估不准也没关系——重点是你在派出任务之前，就已经决定了自己这段时间去哪。宁可估短：任务比预期跑得久，你多得一段时间；你比预期回来得晚，也不会有任何损失。</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="gym">
+    <div class="shell">
+      <p class="section-label">场景协议</p>
+      <h2 id="gym">健身房协议</h2>
+      <p>健身房是 Jam Coding 最好的搭档，因为它天然是分段的：一组、组间休息、下一组。这个节奏和 agent 的任务节奏几乎是对齐的。但它也最容易搞砸——半途掏手机改 prompt，两件事就都做不好了。</p>
+      <div class="protocol">
+        <div class="protocol-step">
+          <p class="step-tag">出发前 · 90 秒</p>
+          <h3>确认这是一个你能走开的任务</h3>
+          <ul>
+            <li>代码在独立分支上，或者已经 commit——你要能随时把这次结果整个扔掉</li>
+            <li>任务写成「做完长什么样」，不是「帮我改一下」</li>
+            <li>权限一次给足：能跑测试、能装依赖。半路问你要权限的任务，会把你叫回来</li>
+            <li>通知只留一条：任务完成。其余全部静音</li>
+          </ul>
+        </div>
+        <div class="protocol-step">
+          <p class="step-tag">组间 · 40–90 秒</p>
+          <h3>只允许一个动作：瞄一眼状态</h3>
+          <ul>
+            <li>还在跑 → 放下手机，进行下一组</li>
+            <li>停下来在问问题 → 一句话回答，或者回一句「先跳过，我回来处理」</li>
+            <li>不读 diff。读 diff 要占用工作记忆，深蹲也要占用工作记忆，两个一起来，两件事都做不好</li>
+            <li>绝不在杠铃底下改 prompt</li>
+          </ul>
+        </div>
+        <div class="protocol-step">
+          <p class="step-tag">回来之后 · 顺序很重要</p>
+          <h3>先看行为，再看改动，最后才看它怎么说</h3>
+          <ul>
+            <li>第一步：跑起来。跑测试，或者直接把应用打开用一下</li>
+            <li>第二步：读 diff。它到底改了什么，改了哪些你没让它改的</li>
+            <li>第三步：才读 agent 的总结。它是全场最擅长自我美化的那一个</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="human-only">
+    <div class="shell">
+      <p class="section-label">人类段落</p>
+      <h2 id="human-only">这段时间里，只有人能做的三件事</h2>
+      <p>如果你实在离不开工位，那就把这段时间花在下面三件事上。它们的共同点是：agent 再强也接不走。</p>
+      <div class="human-track">
+        <div class="human-item">
+          <h3>定义「做完长什么样」</h3>
+          <p>Agent 能写代码，不能替你决定什么叫做对了。验收标准永远是人类的活，而且写验收标准这件事，恰好最适合在等待的时候做——它需要的是判断力，不是键盘。</p>
+        </div>
+        <div class="human-item">
+          <h3>和真实的人说话</h3>
+          <p>给用户打个电话，去问同事一个问题，回一封拖了三天的邮件。没有任何 agent 能替你完成一次真实的对话，而你的下一个需求多半来自其中一次。</p>
+        </div>
+        <div class="human-item">
+          <h3>判断这个东西该不该存在</h3>
+          <p>Agent 会把你交代的一切都实现出来，包括不该被实现的那些。「砍掉这个功能」的念头，从来不会由它主动提出。</p>
+        </div>
+      </div>
+      <p style="margin-top:24px">而在这三件之外，请优先选择离开屏幕的那一项。你的身体是这套系统里唯一不能外包的基础设施——模型会换代，键盘会换，那副身体不会。</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="day">
+    <div class="shell">
+      <p class="section-label">示例</p>
+      <h2 id="day">一天的样子</h2>
+      <ul class="timeline">
+        <li><span class="clock">09:10</span><span><span class="machine-tag">派出</span> 第一个任务，估 20 分钟 · <span class="human-tag">你</span> 下楼买咖啡，走一圈</span></li>
+        <li><span class="clock">09:35</span><span>回来：跑测试 → 读 diff → 提一轮修改，估 6 分钟 · <span class="human-tag">你</span> 一组深蹲</span></li>
+        <li><span class="clock">09:45</span><span>合并。趁热写下第二个任务的验收标准</span></li>
+        <li><span class="clock">10:00</span><span><span class="machine-tag">派出</span> 重构任务，估 70 分钟 · <span class="human-tag">你</span> 去健身房</span></li>
+        <li><span class="clock">11:15</span><span>回来：先跑起来看行为，两处不对，拆成两个小任务</span></li>
+        <li><span class="clock">12:00</span><span><span class="human-tag">你</span> 午饭。不带手机</span></li>
+        <li><span class="clock">14:00</span><span><span class="human-tag">你</span> 只有人能做的事：给三个用户打电话</span></li>
+        <li><span class="clock">16:30</span><span><span class="machine-tag">派出</span> 隔夜的批量迁移 · <span class="human-tag">你</span> 下班</span></li>
+        <li><span class="clock">次日</span><span>睡饱了再读结果。它等了你一夜，不差这十分钟</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section aria-labelledby="antipatterns">
+    <div class="shell">
+      <p class="section-label">反模式</p>
+      <h2 id="antipatterns">四种把等待时间还回去的方式</h2>
+      <div class="antipatterns">
+        <div class="antipattern">
+          <h3>保姆式盯屏</h3>
+          <p>你在读一串 token。token 流不是产出，是过程；真正的产出是 diff 和跑起来的东西，而它们只在结束时才存在。盯着看不会让它跑得更快，只会让你在它跑完、真正需要你判断的那一刻，已经先累了。</p>
+        </div>
+        <div class="antipattern">
+          <h3>人肉调度器</h3>
+          <p>同时开了六个 agent 之后，你的工作就变成了在六个 agent 之间做上下文切换。上限从来不是算力，是你的审阅带宽——判断标准不是「我能开几个」，而是「我能认真读完几份 diff」。多数人是两到三个。</p>
+        </div>
+        <div class="antipattern">
+          <h3>债务螺旋</h3>
+          <p>「反正等着也是等着，再开一个任务吧。」但每一个新任务最后都会变成一份等你审阅的 diff。派出任务几乎不花时间，审阅才花时间——用等待去换更多待审，是在给未来的自己借债。</p>
+        </div>
+        <div class="antipattern">
+          <h3>刷手机漂移</h3>
+          <p>切去社交媒体的代价不是那几分钟，是回来之后的注意力残留：重新爬回代码上下文所需的时间，常常比 agent 这次跑的时间还长。而且你回来时，比走的时候更累——这是它和散步、训练、洗澡之间最本质的区别。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="faq">
+    <div class="shell">
+      <p class="section-label">FAQ</p>
+      <h2 id="faq">常见问题</h2>
+      <div class="faq">
+        <div class="faq-item">
+          <h3>Jam Coding 和 Vibe Coding 是一回事吗？</h3>
+          <p>不是，两者管的是不同的一端。Vibe Coding 讲的是你怎么把活交出去——怎么描述需求、怎么让 AI 写出能用的东西。Jam Coding 讲的是活交出去之后，你这个人怎么过这段时间。一个管输入，一个管人。</p>
+        </div>
+        <div class="faq-item">
+          <h3>和番茄钟有什么区别？</h3>
+          <p>番茄钟假设人是执行者：人专注 25 分钟，休息 5 分钟。Jam Coding 里执行者是机器：机器专注，人恢复，比例正好反过来。而且时长由任务决定，不由计时器决定——没有哪个 agent 会因为你的闹钟响了就停下来。</p>
+        </div>
+        <div class="faq-item">
+          <h3>一次同时跑几个 agent 合适？</h3>
+          <p>从 1 个开始。上限不是算力，是你的审阅带宽。判断标准不是「我能开几个」，而是「我能认真读完几份 diff」。对多数人来说是两到三个。</p>
+        </div>
+        <div class="faq-item">
+          <h3>这不就是给摸鱼找借口？</h3>
+          <p>摸鱼是无计划地逃离一件正在进行的事；Jam Coding 是事先编排一段你本来就无法用于深度工作的时间。判据有两条：这段时间是不是在派出任务之前就决定好的；回来的时候你是不是比走之前更清醒。两条都成立，它就不是摸鱼。</p>
+        </div>
+        <div class="faq-item">
+          <h3>Agent 中途卡住了怎么办？</h3>
+          <p>卡住是常态，所以功夫全在出发前：足够的权限、明确的验收标准、能自己跑测试。如果一个任务平均每 5 分钟就要问你一次，它就还不是一个可以离开的任务——先把它拆小。</p>
+        </div>
+        <div class="faq-item">
+          <h3>需要什么工具？</h3>
+          <p>不需要专门工具。一个能在后台跑完整任务的 coding agent，加一块表。难的从来不是工具，是允许自己在机器工作的时候离开。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="shell">
+      <blockquote>它跑得越久，你就该走得越远。</blockquote>
+      <p class="sign">Jam Coding · 一份公开方法论 · <a href="/resume/">Kelly Peilin Chan</a> · 2026</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="shell">
+    <div class="footer-links">
+      <a href="/">主页</a>
+      <a href="/jam-coding/en/" lang="en">English version</a>
+      <a href="/resume/">简历</a>
+      <a href="/events/">演讲与活动</a>
+    </div>
+    © 2026 Kelly Peilin Chan · 本页内容可自由引用与转述
+  </div>
+</footer>
+
+</body>
+</html>

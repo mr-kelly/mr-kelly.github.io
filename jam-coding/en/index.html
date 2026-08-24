@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-97BE9JLYDT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-97BE9JLYDT');
+  </script>
+  <title>Jam Coding — Where You Go While the AI Writes Code</title>
+  <meta name="description" content="Jam Coding is a practice for scheduling human time in the coding agent era. While the agent runs, you don't watch the screen — you pick what to do based on how long the task takes: the gym, a walk, or sleep. Includes the Jam Chart, a gym protocol, anti-patterns, and FAQ.">
+  <meta name="author" content="Kelly Peilin Chan">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://mr-kelly.github.io/jam-coding/en/">
+  <link rel="alternate" hreflang="en" href="https://mr-kelly.github.io/jam-coding/en/">
+  <link rel="alternate" hreflang="zh-CN" href="https://mr-kelly.github.io/jam-coding/">
+  <link rel="alternate" hreflang="x-default" href="https://mr-kelly.github.io/jam-coding/">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/jam-coding/styles.css?v=20260824">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Kelly Peilin Chan">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="zh_CN">
+  <meta property="og:title" content="Jam Coding — Where You Go While the AI Writes Code">
+  <meta property="og:description" content="While the agent runs, you don't watch the screen. You pick what to do based on how long the task takes: the gym, a walk, or sleep. A practice for the coding agent era.">
+  <meta property="og:url" content="https://mr-kelly.github.io/jam-coding/en/">
+  <meta property="og:image" content="https://mr-kelly.github.io/resume/kelly-chan-ai-agents-talk.webp">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="533">
+  <meta property="og:image:alt" content="Kelly presenting an AI Agents session">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Jam Coding — Where You Go While the AI Writes Code">
+  <meta name="twitter:description" content="While the agent runs, you don't watch the screen. You pick what to do based on how long the task takes: the gym, a walk, or sleep.">
+  <meta name="twitter:image" content="https://mr-kelly.github.io/resume/kelly-chan-ai-agents-talk.webp">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Jam Coding — Where You Go While the AI Writes Code","description":"Jam Coding is a practice for scheduling human time in the coding agent era: while the agent runs, you pick a human activity sized to the task — the gym, a walk, or sleep.","inLanguage":"en","datePublished":"2026-08-24","dateModified":"2026-08-24","author":{"@type":"Person","name":"Kelly Peilin Chan","url":"https://mr-kelly.github.io/resume/"},"publisher":{"@type":"Person","name":"Kelly Peilin Chan","url":"https://mr-kelly.github.io/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://mr-kelly.github.io/jam-coding/en/"},"image":"https://mr-kelly.github.io/resume/kelly-chan-ai-agents-talk.webp","about":[{"@type":"Thing","name":"Jam Coding"},{"@type":"Thing","name":"Coding Agent"},{"@type":"Thing","name":"AI-assisted programming"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"en","mainEntity":[{"@type":"Question","name":"Is Jam Coding the same as vibe coding?","acceptedAnswer":{"@type":"Answer","text":"No — they cover opposite ends of the same handoff. Vibe coding is about how you hand the work over: how you describe intent and get the AI to produce something usable. Jam Coding is about what happens to you after the work is handed over. One governs the input, the other governs the person."}},{"@type":"Question","name":"How is Jam Coding different from the Pomodoro Technique?","acceptedAnswer":{"@type":"Answer","text":"Pomodoro assumes the human is the executor: you focus for 25 minutes, then rest for 5. In Jam Coding the machine is the executor — the machine concentrates and the human recovers, which inverts the ratio. And the length comes from the task, not from a timer: no agent stops because your alarm went off."}},{"@type":"Question","name":"How many agents should I run at once?","acceptedAnswer":{"@type":"Answer","text":"Start with one. The ceiling isn't compute, it's your review bandwidth. The question is never how many can I launch but how many diffs can I actually read carefully. For most people that's two or three."}},{"@type":"Question","name":"Isn't this just an excuse to slack off?","acceptedAnswer":{"@type":"Answer","text":"Slacking off is unplanned escape from work in progress. Jam Coding is a pre-scheduled use of time you could not have spent on deep work anyway. Two tests: was the activity decided before you launched the task, and do you come back sharper than you left? If both hold, it isn't slacking."}},{"@type":"Question","name":"What if the agent gets stuck while I'm away?","acceptedAnswer":{"@type":"Answer","text":"Getting stuck is normal, which is why the work happens before you leave: enough permissions, a clear definition of done, and the ability to run its own tests. If a task interrupts you every five minutes on average, it isn't a leavable task yet — break it down first."}},{"@type":"Question","name":"What tools do I need for Jam Coding?","acceptedAnswer":{"@type":"Answer","text":"None in particular. A coding agent that can run a whole task in the background, and a watch. The hard part was never tooling — it's giving yourself permission to leave while the machine works."}}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="back-link" href="/">← Kelly Peilin Chan</a>
+    <nav class="language-switcher" aria-label="Language">
+      <a href="/jam-coding/en/" lang="en" aria-current="page">EN</a>
+      <a href="/jam-coding/" lang="zh-CN">简</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="shell">
+      <p class="eyebrow">Scheduling human time in the coding agent era</p>
+      <h1>Jam <span class="accent">Coding</span></h1>
+      <p class="hero-lead">Where should you be while the AI writes code?<br>The answer is almost never "in front of the screen, watching it write."</p>
+      <p class="hero-meta">An open practice · <a href="/resume/">Kelly Peilin Chan</a> · August 2026</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="definition">
+    <div class="shell">
+      <p class="section-label">Definition</p>
+      <h2 id="definition">What Jam Coding is</h2>
+      <div class="definition">
+        <dl>
+          <dt>Jam Coding</dt>
+          <dd>Treating a coding agent's run time as <strong>human time that gets scheduled in advance</strong>, rather than a gap you have to sit through.</dd>
+        </dl>
+        <p class="etymology">The name comes from a band's jam session. No musician sits and stares while someone else takes a solo — they listen, they comp, they set up the next passage. You and the agent work the same way: you take turns making sound, and neither of you should be idle while the other plays.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="problem">
+    <div class="shell">
+      <p class="section-label">The premise</p>
+      <h2 id="problem">The bottleneck moved from writing to waiting</h2>
+      <p>Coding agents changed one thing completely: writing code went from something that needs you present the whole time to something you can send off. A single task running 3 minutes, 20 minutes, or two hours is now unremarkable.</p>
+      <p>Which surfaces a problem that didn't exist a few years ago — <strong>what is the human doing during that time?</strong></p>
+      <p>Most people have no answer, so they improvise: they watch the output scroll, or they reach for their phone. The first burns your attention so that it's already gone by the time the run ends. The second means re-climbing the whole context when you return. Both hand back the time the machine just saved you.</p>
+      <p>Jam Coding makes one claim: <strong>the machine's working time should be assigned to a specific human activity before you launch the task.</strong> And most of the time, that activity is best done far away from the screen.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="rules">
+    <div class="shell">
+      <p class="section-label">Principles</p>
+      <h2 id="rules">Three rules</h2>
+      <ol class="rules">
+        <li>
+          <h3>Only launch leavable tasks</h3>
+          <p>If a task doesn't say what done looks like, you'll start feeling uneasy on the way out and reach for your phone. A leavable task has three properties: a clear definition of done, enough permission to finish on its own, and a failure mode where you can throw the whole thing away. Writing those three down rarely takes more than two minutes.</p>
+        </li>
+        <li>
+          <h3>The block belongs to you, not the agent</h3>
+          <p>Not "it runs, so I wait." Estimate roughly how long it will take, then decide what you'll do with that time. A 20-minute task earns a 20-minute human activity — a walk, a training block, a shower. Task length is the input; your schedule is the output. Don't reverse it.</p>
+        </li>
+        <li>
+          <h3>Read the result, not the reel</h3>
+          <p>Don't replay the output stream. Run the thing first and watch its behavior, then read the diff, and only then read the summary the agent wrote about itself. In the reverse order you get convinced by the conclusion first and then read the code holding it — at that point you're no longer reviewing.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section aria-labelledby="chart">
+    <div class="shell">
+      <p class="section-label">The chart</p>
+      <h2 id="chart">The Jam Chart</h2>
+      <div class="chart-wrap">
+        <table class="chart">
+          <colgroup><col class="col-beat"><col><col><col class="col-avoid"></colgroup>
+          <thead>
+            <tr>
+              <th scope="col">Beat</th>
+              <th scope="col">Agent is doing</th>
+              <th scope="col">You go do</th>
+              <th scope="col">Not this beat</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><span class="beat">Fill</span>0–2 min</th>
+              <td data-label="Agent is doing">Fixing a typo, running a linter, adding one small test</td>
+              <td class="human-col" data-label="You go do">Stand up. Look at something twenty feet away for twenty seconds. Drink water.</td>
+              <td class="avoid-col" data-label="Not this">Don't open a new tab — two minutes isn't enough to come back from any web page</td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="beat">Comp</span>2–10 min</th>
+              <td data-label="Agent is doing">Writing a function, reworking a component, one unit test cycle</td>
+              <td class="human-col" data-label="You go do">One strength set: push-ups, squats, kettlebell swings. Or write the acceptance criteria for the next task.</td>
+              <td class="avoid-col" data-label="Not this">Don't read the output while it scrolls</td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="beat">Solo</span>10–30 min</th>
+              <td data-label="Agent is doing">A whole feature, a medium refactor, an end-to-end run</td>
+              <td class="human-col" data-label="You go do">Walk around the block, take a shower, do a full training circuit.</td>
+              <td class="avoid-col" data-label="Not this">Don't use the window to launch a second and third task</td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="beat">Set</span>30–120 min</th>
+              <td data-label="Agent is doing">A large migration, the full test suite, deep research</td>
+              <td class="human-col" data-label="You go do">A full gym session, the commute, a real meal, a 20-minute nap.</td>
+              <td class="avoid-col" data-label="Not this">Don't check back every five minutes — that means you never left</td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="beat">Overnight</span>2 hours+</th>
+              <td data-label="Agent is doing">Batch jobs, long evaluation runs, overnight work</td>
+              <td class="human-col" data-label="You go do">Sleep. It's the one beat where the activity isn't optional.</td>
+              <td class="avoid-col" data-label="Not this">Don't set an alarm to check the results at 3am</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="chart-note">The estimates are estimates, and being wrong is fine — what matters is that you decided where you'd be before you launched. Err on the short side: if the task runs longer than expected you gain time, and if you come back later than planned, nothing is lost.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="gym">
+    <div class="shell">
+      <p class="section-label">Field protocol</p>
+      <h2 id="gym">The gym protocol</h2>
+      <p>The gym is Jam Coding's best partner because it's already segmented: a set, a rest, the next set. That rhythm lines up almost exactly with how agent tasks run. It's also the easiest place to ruin both activities — pull out your phone to tweak a prompt mid-session and you'll do neither well.</p>
+      <div class="protocol">
+        <div class="protocol-step">
+          <p class="step-tag">Before you leave · 90 seconds</p>
+          <h3>Confirm this is a task you can walk away from</h3>
+          <ul>
+            <li>Work is on its own branch, or committed — you need to be able to throw the whole result away</li>
+            <li>The task states what done looks like, not "clean this up for me"</li>
+            <li>Grant permissions up front: run tests, install dependencies. A task that stops to ask for access is a task that calls you back</li>
+            <li>Leave exactly one notification alive: task finished. Mute everything else</li>
+          </ul>
+        </div>
+        <div class="protocol-step">
+          <p class="step-tag">Between sets · 40–90 seconds</p>
+          <h3>One permitted action: glance at the status</h3>
+          <ul>
+            <li>Still running → put the phone down and start the next set</li>
+            <li>Stopped with a question → answer in one line, or reply "skip it, I'll handle this when I'm back"</li>
+            <li>Don't read the diff. Reading a diff takes working memory and so does a heavy squat; run them together and you do both badly</li>
+            <li>Never rewrite a prompt under a loaded barbell</li>
+          </ul>
+        </div>
+        <div class="protocol-step">
+          <p class="step-tag">When you're back · order matters</p>
+          <h3>Behavior first, changes second, its own account last</h3>
+          <ul>
+            <li>Step one: run it. Run the tests, or just open the app and use it</li>
+            <li>Step two: read the diff. What did it actually change, and what did it change that you never asked for</li>
+            <li>Step three: only now read the agent's summary. It is the most flattering narrator in the room</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="human-only">
+    <div class="shell">
+      <p class="section-label">The human track</p>
+      <h2 id="human-only">Three things only a human can do with that time</h2>
+      <p>If you genuinely can't leave your desk, spend the block on these three. What they share is that no agent, however capable, can take them off your hands.</p>
+      <div class="human-track">
+        <div class="human-item">
+          <h3>Define what done looks like</h3>
+          <p>An agent can write the code; it can't decide for you what counts as correct. Acceptance criteria stay human work — and writing them is the perfect thing to do while waiting, because it needs judgment rather than a keyboard.</p>
+        </div>
+        <div class="human-item">
+          <h3>Talk to an actual person</h3>
+          <p>Call a user, ask a colleague the question you've been sitting on, answer the email that's three days old. No agent can hold a real conversation on your behalf, and your next requirement probably comes out of one.</p>
+        </div>
+        <div class="human-item">
+          <h3>Judge whether the thing should exist</h3>
+          <p>An agent will faithfully build everything you ask for, including the parts that shouldn't be built. "Let's cut this feature" is a thought it will never volunteer.</p>
+        </div>
+      </div>
+      <p style="margin-top:24px">And when any of these compete with leaving the screen, leave the screen. Your body is the one piece of infrastructure in this system you can't delegate — models get replaced, keyboards get replaced, that doesn't.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="day">
+    <div class="shell">
+      <p class="section-label">Example</p>
+      <h2 id="day">What a day looks like</h2>
+      <ul class="timeline">
+        <li><span class="clock">09:10</span><span><span class="machine-tag">Launch</span> first task, est. 20 min · <span class="human-tag">You</span> go get coffee, walk a loop</span></li>
+        <li><span class="clock">09:35</span><span>Back: run tests → read diff → send one round of fixes, est. 6 min · <span class="human-tag">You</span> do a set of squats</span></li>
+        <li><span class="clock">09:45</span><span>Merge. While it's fresh, write the acceptance criteria for the next task</span></li>
+        <li><span class="clock">10:00</span><span><span class="machine-tag">Launch</span> the refactor, est. 70 min · <span class="human-tag">You</span> go to the gym</span></li>
+        <li><span class="clock">11:15</span><span>Back: run it and watch the behavior. Two things are wrong; split them into two small tasks</span></li>
+        <li><span class="clock">12:00</span><span><span class="human-tag">You</span> eat lunch. Leave the phone behind</span></li>
+        <li><span class="clock">14:00</span><span><span class="human-tag">You</span> do the human-only work: call three users</span></li>
+        <li><span class="clock">16:30</span><span><span class="machine-tag">Launch</span> the overnight migration · <span class="human-tag">You</span> go home</span></li>
+        <li><span class="clock">Next day</span><span>Read the results after a full night's sleep. It waited all night; ten more minutes won't hurt</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section aria-labelledby="antipatterns">
+    <div class="shell">
+      <p class="section-label">Anti-patterns</p>
+      <h2 id="antipatterns">Four ways to hand the time back</h2>
+      <div class="antipatterns">
+        <div class="antipattern">
+          <h3>Babysitting</h3>
+          <p>You're reading a stream of tokens. The stream isn't the output, it's the process; the real output is the diff and the running thing, and neither exists until the end. Watching won't make it faster — it just means that at the moment it finishes and finally needs your judgment, you've already spent it.</p>
+        </div>
+        <div class="antipattern">
+          <h3>The human scheduler</h3>
+          <p>Once six agents are running, your job has become context-switching between six agents. The ceiling was never compute, it's your review bandwidth — the question is not "how many can I launch" but "how many diffs can I read carefully." For most people, two or three.</p>
+        </div>
+        <div class="antipattern">
+          <h3>The debt spiral</h3>
+          <p>"I'm waiting anyway, might as well start another one." But every new task eventually becomes another diff waiting for your review. Launching costs almost nothing; reviewing costs everything — trading idle time for more pending review is borrowing against your future self.</p>
+        </div>
+        <div class="antipattern">
+          <h3>Doomscroll drift</h3>
+          <p>The cost of switching to social media isn't those few minutes, it's the attention residue afterward: the time to climb back into the code context is often longer than the agent's run itself. And you return more tired than you left — which is the fundamental difference between it and a walk, a training set, or a shower.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="faq">
+    <div class="shell">
+      <p class="section-label">FAQ</p>
+      <h2 id="faq">Common questions</h2>
+      <div class="faq">
+        <div class="faq-item">
+          <h3>Is Jam Coding the same as vibe coding?</h3>
+          <p>No — they cover opposite ends of the same handoff. Vibe coding is about how you hand the work over: how you describe intent and get the AI to produce something usable. Jam Coding is about what happens to you after the work is handed over. One governs the input, the other governs the person.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How is it different from the Pomodoro Technique?</h3>
+          <p>Pomodoro assumes the human is the executor: you focus for 25 minutes, then rest for 5. In Jam Coding the machine is the executor — the machine concentrates and the human recovers, which inverts the ratio. And the length comes from the task, not from a timer: no agent stops because your alarm went off.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How many agents should I run at once?</h3>
+          <p>Start with one. The ceiling isn't compute, it's your review bandwidth. The question is never "how many can I launch" but "how many diffs can I actually read carefully." For most people that's two or three.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Isn't this just an excuse to slack off?</h3>
+          <p>Slacking off is unplanned escape from work in progress. Jam Coding is a pre-scheduled use of time you could not have spent on deep work anyway. Two tests: was the activity decided before you launched the task, and do you come back sharper than you left? If both hold, it isn't slacking.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What if the agent gets stuck while I'm away?</h3>
+          <p>Getting stuck is normal, which is why the work happens before you leave: enough permissions, a clear definition of done, and the ability to run its own tests. If a task interrupts you every five minutes on average, it isn't a leavable task yet — break it down first.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What tools do I need?</h3>
+          <p>None in particular. A coding agent that can run a whole task in the background, and a watch. The hard part was never tooling — it's giving yourself permission to leave while the machine works.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="shell">
+      <blockquote>The longer it runs, the further you should go.</blockquote>
+      <p class="sign">Jam Coding · an open practice · <a href="/resume/">Kelly Peilin Chan</a> · 2026</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="shell">
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/jam-coding/" lang="zh-CN">中文版</a>
+      <a href="/resume/">Resume</a>
+      <a href="/events/">Talks &amp; events</a>
+    </div>
+    © 2026 Kelly Peilin Chan · Quote and adapt freely
+  </div>
+</footer>
+
+</body>
+</html>
