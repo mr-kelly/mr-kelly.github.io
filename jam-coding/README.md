@@ -4,8 +4,10 @@ A public methodology page: what the human does while a coding agent runs.
 
 ## Routes
 
-- `/jam-coding/`: Simplified Chinese, and `x-default`
-- `/jam-coding/en/`: English
+- `/jam-coding/`: English, and `x-default`
+- `/jam-coding/zh-cn/`: Simplified Chinese
+
+English holds the root because "Jam Coding" is a coined English term — external links land on the bare URL, so that URL should serve the language those readers read. It also matches `/resume/` and `/events/`; note `/ai/` uses the opposite convention (Chinese at the root), so don't copy its layout here.
 
 The two pages are hand-written translations of each other, not generated. **Any content change must be applied to both files in the same commit** — otherwise the `hreflang` pair goes out of sync and the two versions start making different claims.
 
