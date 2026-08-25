@@ -13,7 +13,7 @@
     gtag('config', 'G-97BE9JLYDT');
   </script>
   <title>Jam Coding — Where You Go While the AI Writes Code</title>
-  <meta name="description" content="Jam Coding is a practice for scheduling human time in the coding agent era. While the agent runs, you don't watch the screen — you pick what to do based on how long the task takes: the gym, a walk, or sleep. Includes the Jam Chart, a gym protocol, anti-patterns, and FAQ.">
+  <meta name="description" content="Jam Coding is a practice for scheduling human time in the coding agent era. Pick an interactive 5, 10, or 15-minute workout while the agent runs, including treadmill intervals, full-body training, and recovery.">
   <meta name="author" content="Kelly Peilin Chan">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://mr-kelly.github.io/jam-coding/">
@@ -21,7 +21,8 @@
   <link rel="alternate" hreflang="zh-CN" href="https://mr-kelly.github.io/jam-coding/zh-cn/">
   <link rel="alternate" hreflang="x-default" href="https://mr-kelly.github.io/jam-coding/">
   <link rel="icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/jam-coding/styles.css?v=20260824">
+  <link rel="stylesheet" href="/jam-coding/styles.css?v=20260825-3">
+  <script defer src="/jam-coding/app.js?v=20260825"></script>
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Kelly Peilin Chan">
   <meta property="og:locale" content="en_US">
@@ -61,6 +62,7 @@
       <h1>Jam <span class="accent">Coding</span></h1>
       <p class="hero-lead">Where should you be while the AI writes code?<br>The answer is almost never "in front of the screen, watching it write."</p>
       <p class="hero-meta">An open practice · <a href="/resume/">Kelly Peilin Chan</a> · August 2026</p>
+      <a class="hero-action" href="#gym">Choose a 5-minute workout <span aria-hidden="true">↓</span></a>
     </div>
   </section>
 
@@ -167,7 +169,62 @@
     <div class="shell">
       <p class="section-label">Field protocol</p>
       <h2 id="gym">The gym protocol</h2>
-      <p>The gym is Jam Coding's best partner because it's already segmented: a set, a rest, the next set. That rhythm lines up almost exactly with how agent tasks run. It's also the easiest place to ruin both activities — pull out your phone to tweak a prompt mid-session and you'll do neither well.</p>
+      <p>The gym version is not one uninterrupted workout. It is a loop: send one agent task, train for 5, 10, or 15 minutes, come back to review and reply, then send the next task and train again. Several short beats add up to the session.</p>
+
+      <div class="workout-builder" data-workout-builder data-lang="en" aria-labelledby="workout-title">
+        <div class="workout-heading">
+          <div>
+            <p class="step-tag">One agent run · one complete package</p>
+            <h3 id="workout-title">Choose what to train and how long you can leave</h3>
+          </div>
+          <p class="workout-rule">Every option is a complete beat, not a suggestion. Follow it until the timer ends, then return to review and reply.</p>
+        </div>
+
+        <div class="builder-controls">
+          <fieldset>
+            <legend><span>1</span> Choose a package</legend>
+            <div class="segment package-segment" data-package-controls>
+              <button type="button" data-package="treadmill" aria-pressed="true">Treadmill</button>
+              <button type="button" data-package="machines" aria-pressed="false">Full body</button>
+              <button type="button" data-package="bodyweight" aria-pressed="false">No equipment</button>
+              <button type="button" data-package="recovery" aria-pressed="false">Recovery</button>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend><span>2</span> Choose this beat</legend>
+            <div class="segment duration-segment" data-duration-controls>
+              <button type="button" data-duration="5" aria-pressed="true">5 min</button>
+              <button type="button" data-duration="10" aria-pressed="false">10 min</button>
+              <button type="button" data-duration="15" aria-pressed="false">15 min</button>
+            </div>
+          </fieldset>
+        </div>
+
+        <section class="prescription" data-prescription>
+          <div class="prescription-head">
+            <div>
+              <p class="prescription-kicker" data-prescription-kicker>Treadmill · 5 minutes</p>
+              <h4 data-prescription-title>Three quick run/walk intervals</h4>
+              <p data-prescription-summary>A short first beat that raises your heart rate without leaving the agent unattended for long.</p>
+            </div>
+            <div class="timer" data-timer>
+              <output data-timer-output aria-label="Time remaining">05:00</output>
+              <div class="timer-actions">
+                <button type="button" class="timer-primary" data-timer-toggle aria-label="Start timer" title="Start timer"><span aria-hidden="true">▶</span> Start</button>
+                <button type="button" data-timer-reset aria-label="Reset timer" title="Reset timer"><span aria-hidden="true">↺</span> Reset</button>
+              </div>
+            </div>
+          </div>
+          <div class="timer-track" aria-hidden="true"><span data-timer-progress></span></div>
+          <ol class="minute-plan" data-minute-plan></ol>
+          <div class="return-cue">
+            <strong data-return-title aria-live="polite">When the timer ends</strong>
+            <span data-return-cue>Slow the belt before stepping off. Return to the agent, review the result, reply, then choose the next beat.</span>
+          </div>
+        </section>
+        <noscript><p class="noscript-note">Turn on JavaScript to switch packages and use the workout timer.</p></noscript>
+      </div>
+
       <div class="protocol">
         <div class="protocol-step">
           <p class="step-tag">Before you leave · 90 seconds</p>
@@ -180,13 +237,13 @@
           </ul>
         </div>
         <div class="protocol-step">
-          <p class="step-tag">Between sets · 40–90 seconds</p>
-          <h3>One permitted action: glance at the status</h3>
+          <p class="step-tag">At the end of each beat</p>
+          <h3>Return, decide, then leave again</h3>
           <ul>
-            <li>Still running → put the phone down and start the next set</li>
-            <li>Stopped with a question → answer in one line, or reply "skip it, I'll handle this when I'm back"</li>
-            <li>Don't read the diff. Reading a diff takes working memory and so does a heavy squat; run them together and you do both badly</li>
-            <li>Never rewrite a prompt under a loaded barbell</li>
+            <li>Still running → choose another 5-minute beat; don't stand there watching</li>
+            <li>Stopped with a question → answer it, then choose the next beat before sending the reply</li>
+            <li>Finished → review while seated or standing still, send the next task, and resume the first unfinished exercise</li>
+            <li>Never read a diff or rewrite a prompt while holding a weight</li>
           </ul>
         </div>
         <div class="protocol-step">

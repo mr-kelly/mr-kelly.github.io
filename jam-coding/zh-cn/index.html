@@ -13,7 +13,7 @@
     gtag('config', 'G-97BE9JLYDT');
   </script>
   <title>Jam Coding｜AI 在写代码的时候，人该去哪里</title>
-  <meta name="description" content="Jam Coding 是一套给 Coding Agent 时代的人类时间编排方法。AI 执行任务的那段时间，人不该盯着屏幕，而该按任务时长决定是去健身房、去散步，还是去睡觉。含节拍表、健身房协议、反模式与 FAQ。">
+  <meta name="description" content="Jam Coding 是一套给 Coding Agent 时代的人类时间编排方法。AI 执行任务时，可选择交互式 5、10 或 15 分钟健身套餐，包括跑步机间歇、全身器械和恢复训练。">
   <meta name="author" content="Kelly Peilin Chan">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://mr-kelly.github.io/jam-coding/zh-cn/">
@@ -21,7 +21,8 @@
   <link rel="alternate" hreflang="zh-CN" href="https://mr-kelly.github.io/jam-coding/zh-cn/">
   <link rel="alternate" hreflang="x-default" href="https://mr-kelly.github.io/jam-coding/">
   <link rel="icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/jam-coding/styles.css?v=20260824">
+  <link rel="stylesheet" href="/jam-coding/styles.css?v=20260825-3">
+  <script defer src="/jam-coding/app.js?v=20260825"></script>
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Kelly Peilin Chan">
   <meta property="og:locale" content="zh_CN">
@@ -61,6 +62,7 @@
       <h1>Jam <span class="accent">Coding</span></h1>
       <p class="hero-lead">AI 在写代码的时候，人该去哪里？<br>正确答案很少是「坐在屏幕前面看着它写」。</p>
       <p class="hero-meta">一份公开方法论 · <a href="/resume/">Kelly Peilin Chan</a> · 2026 年 8 月</p>
+      <a class="hero-action" href="#gym">选择今晚的 5 分钟套餐 <span aria-hidden="true">↓</span></a>
     </div>
   </section>
 
@@ -167,7 +169,62 @@
     <div class="shell">
       <p class="section-label">场景协议</p>
       <h2 id="gym">健身房协议</h2>
-      <p>健身房是 Jam Coding 最好的搭档，因为它天然是分段的：一组、组间休息、下一组。这个节奏和 agent 的任务节奏几乎是对齐的。但它也最容易搞砸——半途掏手机改 prompt，两件事就都做不好了。</p>
+      <p>健身房版本不是一口气练完整场，而是一个循环：给 agent 派一个任务，训练 5、10 或 15 分钟，回来审阅和回复，再派下一轮、继续练。几个短节拍累积起来，就是今天的训练。</p>
+
+      <div class="workout-builder" data-workout-builder data-lang="zh-CN" aria-labelledby="workout-title">
+        <div class="workout-heading">
+          <div>
+            <p class="step-tag">一次 Agent 运行 · 一份完整套餐</p>
+            <h3 id="workout-title">选择练什么，以及这轮能离开多久</h3>
+          </div>
+          <p class="workout-rule">每个选项都是可以直接照做的完整节拍，不是动作建议。跟着练到倒计时结束，再回来审阅和回复。</p>
+        </div>
+
+        <div class="builder-controls">
+          <fieldset>
+            <legend><span>1</span> 选择套餐</legend>
+            <div class="segment package-segment" data-package-controls>
+              <button type="button" data-package="treadmill" aria-pressed="true">跑步机</button>
+              <button type="button" data-package="machines" aria-pressed="false">全身器械</button>
+              <button type="button" data-package="bodyweight" aria-pressed="false">无器械</button>
+              <button type="button" data-package="recovery" aria-pressed="false">恢复活动</button>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend><span>2</span> 选择这一轮</legend>
+            <div class="segment duration-segment" data-duration-controls>
+              <button type="button" data-duration="5" aria-pressed="true">5 分钟</button>
+              <button type="button" data-duration="10" aria-pressed="false">10 分钟</button>
+              <button type="button" data-duration="15" aria-pressed="false">15 分钟</button>
+            </div>
+          </fieldset>
+        </div>
+
+        <section class="prescription" data-prescription>
+          <div class="prescription-head">
+            <div>
+              <p class="prescription-kicker" data-prescription-kicker>跑步机 · 5 分钟</p>
+              <h4 data-prescription-title>三轮短跑走间歇</h4>
+              <p data-prescription-summary>第一轮先短一点：把心率提起来，但不用让 agent 长时间等你。</p>
+            </div>
+            <div class="timer" data-timer>
+              <output data-timer-output aria-label="剩余时间">05:00</output>
+              <div class="timer-actions">
+                <button type="button" class="timer-primary" data-timer-toggle aria-label="开始计时" title="开始计时"><span aria-hidden="true">▶</span> 开始</button>
+                <button type="button" data-timer-reset aria-label="重置计时" title="重置计时"><span aria-hidden="true">↺</span> 重置</button>
+              </div>
+            </div>
+          </div>
+          <div class="timer-track" aria-hidden="true"><span data-timer-progress></span></div>
+          <ol class="minute-plan" data-minute-plan></ol>
+          <div class="return-cue">
+            <strong data-return-title aria-live="polite">倒计时结束</strong>
+            <span data-return-cue>先把跑步机减速再下来。回到 agent，审阅结果、回复，然后选择下一轮。</span>
+          </div>
+        </section>
+        <noscript><p class="noscript-note">开启 JavaScript 后可以切换套餐并使用训练计时器。</p></noscript>
+      </div>
+
       <div class="protocol">
         <div class="protocol-step">
           <p class="step-tag">出发前 · 90 秒</p>
@@ -180,13 +237,13 @@
           </ul>
         </div>
         <div class="protocol-step">
-          <p class="step-tag">组间 · 40–90 秒</p>
-          <h3>只允许一个动作：瞄一眼状态</h3>
+          <p class="step-tag">每个节拍结束时</p>
+          <h3>回来，做决定，再离开</h3>
           <ul>
-            <li>还在跑 → 放下手机，进行下一组</li>
-            <li>停下来在问问题 → 一句话回答，或者回一句「先跳过，我回来处理」</li>
-            <li>不读 diff。读 diff 要占用工作记忆，深蹲也要占用工作记忆，两个一起来，两件事都做不好</li>
-            <li>绝不在杠铃底下改 prompt</li>
+            <li>还在跑 → 再选一个 5 分钟节拍，别站在原地盯着</li>
+            <li>停下来问问题 → 回答它，并在发出回复前选好下一个节拍</li>
+            <li>已经完成 → 坐下或站稳再审阅，派出下一项任务，从第一个没做完的动作继续</li>
+            <li>手里拿着重量时，绝不读 diff，也不改 prompt</li>
           </ul>
         </div>
         <div class="protocol-step">

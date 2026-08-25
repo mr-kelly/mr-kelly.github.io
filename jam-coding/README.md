@@ -13,6 +13,8 @@ The two pages are hand-written translations of each other, not generated. **Any 
 
 Shared presentation lives in `styles.css` (loaded by both pages via `/jam-coding/styles.css?v=<date>`); bump the `?v=` query on both pages when the stylesheet changes.
 
+The interactive workout builder lives in `app.js`. Its package data contains both English and Chinese; every package must offer complete 5, 10, and 15 minute variants in both languages. The HTML keeps the controls and initial treadmill state visible for each locale, while JavaScript renders the selected prescription and runs the timer.
+
 ## Positioning — read before editing
 
 This page is a **pure methodology statement**. It deliberately carries no sales CTA, no pricing, and no service pitch. Commercial intent lives at `/ai/`; keep it there. The only outbound links are attribution (`/resume/`) and site navigation. If a future edit wants to sell something from this page, it should become a separate page instead.
@@ -27,7 +29,7 @@ Section order is the argument, so keep it:
 2. **The premise** — the bottleneck moved from writing to waiting
 3. **Three rules** — leavable tasks / the block belongs to you / read the result, not the reel
 4. **The Jam Chart** — the centrepiece. Five beats (Fill, Comp, Solo, Set, Overnight) mapping agent run time to a human activity, plus what *not* to do in that beat
-5. **The gym protocol** — before you leave / between sets / when you're back
+5. **The gym protocol** — an interactive package and duration selector, followed by before / between / after rules
 6. **The human track** — the three things only a person can do with the block
 7. **What a day looks like** — a concrete timeline
 8. **Anti-patterns** — the four ways people hand the saved time back
@@ -40,6 +42,7 @@ The Jam Chart breaks out wider than the prose column on desktop (`.chart-wrap` u
 ## After editing
 
 1. Update **both** language files.
-2. Keep the two `application/ld+json` blocks in sync with the visible text — especially `FAQPage`, where answers must match the rendered copy.
-3. Bump `dateModified` in the `Article` JSON-LD, and the `lastmod` for both URLs in `/sitemap-main.xml` plus the `sitemap-main.xml` entry in `/sitemap.xml`.
-4. Check desktop and mobile layout, and that the canonical/hreflang links still point at the right pair.
+2. If changing workout packages, update both locale objects in `app.js` and keep all three duration variants complete.
+3. Keep the two `application/ld+json` blocks in sync with the visible text — especially `FAQPage`, where answers must match the rendered copy.
+4. Bump `dateModified` in the `Article` JSON-LD, and the `lastmod` for both URLs in `/sitemap-main.xml` plus the `sitemap-main.xml` entry in `/sitemap.xml`.
+5. Check desktop and mobile layout, timer behavior, all package/duration combinations, and that the canonical/hreflang links still point at the right pair.
