@@ -1418,6 +1418,62 @@ button.contact-chip {
   margin-top: 18px;
 }
 
+.section-insights {
+  background: #e7ece8;
+}
+
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+
+.insight-card {
+  display: flex;
+  min-width: 0;
+  min-height: 300px;
+  flex-direction: column;
+  padding: 30px 28px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.insight-card + .insight-card {
+  border-left: 1px solid var(--line);
+}
+
+.insight-meta {
+  color: var(--teal-dark);
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.insight-card h3 {
+  max-width: 480px;
+  margin: 22px 0 12px;
+  font-size: 25px;
+  line-height: 1.35;
+}
+
+.insight-card p {
+  max-width: 520px;
+  margin: 0 0 24px;
+  color: #52605d;
+  font-size: 15px;
+}
+
+.insight-card strong {
+  margin-top: auto;
+  color: var(--coral);
+  font-size: 14px;
+}
+
+.insight-card:hover,
+.insight-card:focus-visible {
+  background: var(--white);
+}
+
 @media (max-width: 980px) {
   .primary-nav {
     display: none;
@@ -1441,7 +1497,8 @@ button.contact-chip {
   .caio-detail-signals,
   .caio-detail-paths,
   .caio-outcome-grid,
-  .caio-boundaries {
+  .caio-boundaries,
+  .insights-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1452,9 +1509,14 @@ button.contact-chip {
   }
 
   .caio-detail-path + .caio-detail-path,
-  .caio-boundary:nth-child(even) {
+  .caio-boundary:nth-child(even),
+  .insight-card + .insight-card {
     border-top: 1px solid #596461;
     border-left: 0;
+  }
+
+  .insight-card + .insight-card {
+    border-top-color: var(--line);
   }
 
   .caio-detail-fit {
@@ -1620,6 +1682,15 @@ button.contact-chip {
   .caio-trust img {
     width: 112px;
     height: 112px;
+  }
+
+  .insight-card {
+    min-height: 0;
+    padding: 24px 0;
+  }
+
+  .insight-card h3 {
+    font-size: 21px;
   }
 
   .hero-lead {

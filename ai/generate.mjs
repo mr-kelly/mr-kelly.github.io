@@ -25,6 +25,14 @@ const pages = {
     serviceLabel: "服务菜单",
     serviceTitle: "从一次课程，到一套可运行的 AI 能力",
     serviceIntro: "可以从培训、Vibe Coding 工作坊或项目陪跑开始，也可以请一位兼职 CAIO 持续带队，或直接落地 Agent、AI 资产中枢与企业品牌小程序。以下为客户参考报价。",
+    insightsLabel: "观点文章",
+    insightsTitle: "先看方法，再决定需要什么服务",
+    insightsIntro: "两篇长文分别从企业 AI 落地和研发团队优化切入，讲清问题为什么发生、应该怎样推进，以及兼职 CAIO 与 FDE 在其中承担什么角色。",
+    insightsCta: "阅读全文",
+    insightsItems: [
+      ["企业做 AI，最缺的不是工具，而是一个把结果逼出来的人", "从“AI 落地断层”拆解目标、执行、验收和资产沉淀，适合正在推动公司级 AI 转型的管理者。", "企业 AI · CAIO", "/articles/enterprise-ai-needs-caio-and-fde.html"],
+      ["研发团队越招越多，产品为什么还是做不快？", "从“研发黑箱”解释交付透明、AI Coding、测试验收和技术资产，适合 CEO、CTO 与研发负责人。", "研发改造 · AI Coding", "/articles/ai-native-rd-team-optimization.html"]
+    ],
     headers: ["类别", "服务", "核心交付", "形式 / 时长", "服务报价"],
     mobileLabels: ["类别", "服务", "交付", "形式", "报价"],
     services: [
@@ -220,6 +228,14 @@ const pages = {
     serviceLabel: "Service menu",
     serviceTitle: "Start with one session or build a lasting AI capability",
     serviceIntro: "Begin with training, a Vibe Coding workshop, or project coaching; bring in a fractional CAIO to lead weekly execution; or deploy an Agent, AI asset hub, or branded mini-program. Prices below are for reference.",
+    insightsLabel: "Insights · Chinese",
+    insightsTitle: "Read the method before choosing the service",
+    insightsIntro: "Two Chinese long-form essays explain enterprise AI deployment and R&D transformation: why the problem occurs, how to move it forward, and where a fractional CAIO or FDE fits.",
+    insightsCta: "Read article",
+    insightsItems: [
+      ["Enterprise AI needs someone who drives the result", "A practical diagnosis of the gap between AI strategy, weekly execution, acceptance, and reusable company assets.", "Enterprise AI · CAIO", "/articles/enterprise-ai-needs-caio-and-fde.html"],
+      ["Why a larger R&D team still may not ship faster", "A practical view of delivery visibility, AI coding, testing, acceptance, documentation, and R&D operating systems.", "R&D transformation · AI Coding", "/articles/ai-native-rd-team-optimization.html"]
+    ],
     headers: ["Type", "Service", "Core delivery", "Format / duration", "Price"],
     mobileLabels: ["Type", "Service", "Delivery", "Format", "Price"],
     services: [
@@ -415,6 +431,14 @@ const pages = {
     serviceLabel: "服務菜單",
     serviceTitle: "從一次課程，到一套可運行的 AI 能力",
     serviceIntro: "可以從培訓、Vibe Coding 工作坊或項目陪跑開始，也可以請一位兼職 CAIO 持續帶隊，或直接落地 Agent、AI 資產中樞與企業品牌小程式。以下為客戶參考報價。",
+    insightsLabel: "觀點文章 · 中文",
+    insightsTitle: "先看方法，再決定需要什麼服務",
+    insightsIntro: "兩篇長文分別從企業 AI 落地和研發團隊優化切入，講清問題為什麼發生、應該怎樣推進，以及兼職 CAIO 與 FDE 在其中承擔什麼角色。",
+    insightsCta: "閱讀全文",
+    insightsItems: [
+      ["企業做 AI，最缺的不是工具，而是一個把結果逼出來的人", "從「AI 落地斷層」拆解目標、執行、驗收和資產沉澱，適合正在推動公司級 AI 轉型的管理者。", "企業 AI · CAIO", "/articles/enterprise-ai-needs-caio-and-fde.html"],
+      ["研發團隊越招越多，產品為什麼還是做不快？", "從「研發黑箱」解釋交付透明、AI Coding、測試驗收和技術資產，適合 CEO、CTO 與研發負責人。", "研發改造 · AI Coding", "/articles/ai-native-rd-team-optimization.html"]
+    ],
     headers: ["類別", "服務", "核心交付", "形式 / 時長", "服務報價"],
     mobileLabels: ["類別", "服務", "交付", "形式", "報價"],
     services: [
@@ -647,6 +671,13 @@ function renderPage(lang, page) {
 
   const heroStages = page.stages.map(([title, text]) => `
         <div class="hero-stage"><strong>${title}</strong><span>${text}</span></div>`).join("");
+  const insightCards = page.insightsItems.map(([title, text, meta, href]) => `
+          <a class="insight-card" href="${href}">
+            <span class="insight-meta">${meta}</span>
+            <h3>${title}</h3>
+            <p>${text}</p>
+            <strong>${page.insightsCta}</strong>
+          </a>`).join("");
 
   const consultSteps = page.consultSteps.map(([number, title, text]) => `
           <article class="consult-step">
@@ -836,6 +867,20 @@ ${alternates}
           </table>
         </div>
         <p class="fine-print">${page.finePrint}</p>
+      </div>
+    </section>
+
+    <section class="section section-insights" id="insights">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-label">${page.insightsLabel}</p>
+            <h2>${page.insightsTitle}</h2>
+          </div>
+          <p class="section-intro">${page.insightsIntro}</p>
+        </div>
+        <div class="insights-grid">${insightCards}
+        </div>
       </div>
     </section>
 

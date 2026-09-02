@@ -70,6 +70,39 @@ const pages = {
   }
 };
 
+const relatedContent = {
+  "zh-CN": {
+    label: "延伸阅读",
+    title: "从观点文章继续理解 CAIO 的价值",
+    intro: "一篇讲企业级 AI 落地，一篇讲研发团队改造。先看问题与方法，再判断从哪条服务路径切入。",
+    cta: "阅读全文",
+    items: [
+      ["企业做 AI，最缺的不是工具，而是一个把结果逼出来的人", "企业 AI · CAIO", "/articles/enterprise-ai-needs-caio-and-fde.html"],
+      ["研发团队越招越多，产品为什么还是做不快？", "研发改造 · AI Coding", "/articles/ai-native-rd-team-optimization.html"]
+    ]
+  },
+  en: {
+    label: "Insights · Chinese",
+    title: "Explore the thinking behind the CAIO offer",
+    intro: "Two Chinese long-form essays cover enterprise AI deployment and R&D transformation before you choose an engagement track.",
+    cta: "Read article",
+    items: [
+      ["Enterprise AI needs someone who drives the result", "Enterprise AI · CAIO", "/articles/enterprise-ai-needs-caio-and-fde.html"],
+      ["Why a larger R&D team still may not ship faster", "R&D transformation · AI Coding", "/articles/ai-native-rd-team-optimization.html"]
+    ]
+  },
+  "zh-HK": {
+    label: "延伸閱讀 · 中文",
+    title: "從觀點文章繼續理解 CAIO 的價值",
+    intro: "一篇講企業級 AI 落地，一篇講研發團隊改造。先看問題與方法，再判斷從哪條服務路徑切入。",
+    cta: "閱讀全文",
+    items: [
+      ["企業做 AI，最缺的不是工具，而是一個把結果逼出來的人", "企業 AI · CAIO", "/articles/enterprise-ai-needs-caio-and-fde.html"],
+      ["研發團隊越招越多，產品為什麼還是做不快？", "研發改造 · AI Coding", "/articles/ai-native-rd-team-optimization.html"]
+    ]
+  }
+};
+
 const esc = (value) => value;
 const list = (items) => items.map((item) => `<li>${esc(item)}</li>`).join("");
 
@@ -79,6 +112,7 @@ function languageSwitcher(lang) {
 }
 
 function render(lang, p) {
+  const related = relatedContent[lang];
   const pathLabels = lang === "en" ? ["Focus", "Typical outputs"] : lang === "zh-HK" ? ["工作重點", "典型交付"] : ["工作重点", "典型交付"];
   const nav = p.nav.map((label, i) => `<a href="${p.navTargets[i]}">${label}</a>`).join("");
   const signals = p.heroSignals.map(([title, text]) => `<div class="hero-stage"><strong>${title}</strong><span>${text}</span></div>`).join("");
@@ -87,6 +121,7 @@ function render(lang, p) {
   const cadence = p.cadence.map(([number, title, text]) => `<article class="caio-step"><span class="caio-number">${number}</span><h3>${title}</h3><p>${text}</p></article>`).join("");
   const first = p.firstSteps.map(([time, title, text]) => `<article class="journey-step"><span class="journey-number">${time}</span><h3>${title}</h3><p>${text}</p></article>`).join("");
   const boundaries = p.boundaries.map(([title, text], i) => `<article class="caio-boundary"><span>0${i + 1}</span><div><h3>${title}</h3><p>${text}</p></div></article>`).join("");
+  const relatedCards = related.items.map(([title, meta, href]) => `<a class="insight-card" href="${href}"><span class="insight-meta">${meta}</span><h3>${title}</h3><strong>${related.cta}</strong></a>`).join("");
   const hreflang = `<link rel="alternate" hreflang="en" href="https://mr-kelly.github.io/ai/en/caio/"><link rel="alternate" hreflang="zh-CN" href="https://mr-kelly.github.io/ai/caio/"><link rel="alternate" hreflang="zh-HK" href="https://mr-kelly.github.io/ai/zh-hk/caio/"><link rel="alternate" hreflang="x-default" href="https://mr-kelly.github.io/ai/caio/">`;
   return `<!doctype html><html lang="${lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${p.title}</title><meta name="description" content="${p.description}"><link rel="canonical" href="${p.canonical}">${hreflang}<meta property="og:title" content="${p.title}"><meta property="og:description" content="${p.description}"><meta property="og:type" content="website"><meta property="og:url" content="${p.canonical}"><meta property="og:image" content="https://mr-kelly.github.io/resume/kelly-chan-ai-agents-talk.webp"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/ai/styles.css?v=20260903"><script async src="https://www.googletagmanager.com/gtag/js?id=${measurementId}"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${measurementId}');</script></head><body class="caio-detail-page"><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="shell header-inner"><a class="brand" href="${p.home}"><span class="brand-mark" aria-hidden="true">K</span><span>Kelly AI Deployment Service</span></a><div class="header-actions"><nav class="primary-nav" aria-label="Primary">${nav}</nav><nav class="language-switcher" aria-label="Language">${languageSwitcher(lang)}</nav></div></div></header><main id="main"><section class="hero caio-detail-hero"><div class="shell hero-inner"><p class="eyebrow">${p.eyebrow}</p><h1>${p.heroTitle}</h1><p class="hero-lead">${p.heroLead}</p><div class="hero-actions"><a class="button button-primary" href="#paths">${p.heroPrimary}</a><a class="button button-secondary" href="#contact">${p.heroSecondary}</a></div></div></section><div class="hero-stages">${signals}</div>
   <section class="section section-white"><div class="shell"><div class="section-heading"><div><p class="section-label">${p.problemLabel}</p><h2>${p.problemTitle}</h2></div><p class="section-intro">${p.problemIntro}</p></div><div class="caio-detail-signals">${problemSignals}</div></div></section>
@@ -94,6 +129,7 @@ function render(lang, p) {
   <section class="section" id="first-30-days"><div class="shell"><div class="section-heading"><div><p class="section-label">${p.firstLabel}</p><h2>${p.firstTitle}</h2></div><p class="section-intro">${p.firstIntro}</p></div><div class="journey caio-first-steps">${first}</div></div></section>
   <section class="section section-white" id="outcomes"><div class="shell"><div class="section-heading"><div><p class="section-label">${p.outcomesLabel}</p><h2>${p.outcomesTitle}</h2></div><p class="section-intro">${p.outcomesIntro}</p></div><div class="caio-outcome-grid"><section><h3>${p.deliverablesTitle}</h3><ul>${list(p.deliverables)}</ul></section><section><h3>${p.metricsTitle}</h3><ul>${list(p.metrics)}</ul></section></div></div></section>
   <section class="section section-dark" id="boundaries"><div class="shell"><div class="section-heading"><div><p class="section-label">${p.boundariesLabel}</p><h2>${p.boundariesTitle}</h2></div></div><div class="caio-boundaries">${boundaries}</div><div class="caio-trust"><img src="/resume/kelly-chan-portrait.webp?v=20260726" width="152" height="152" loading="lazy" decoding="async" alt="Kelly"><div><p class="section-label">${p.trustLabel}</p><h2>${p.trustTitle}</h2><p>${p.trustText}</p></div></div></div></section>
+  <section class="section section-insights" id="insights"><div class="shell"><div class="section-heading"><div><p class="section-label">${related.label}</p><h2>${related.title}</h2></div><p class="section-intro">${related.intro}</p></div><div class="insights-grid">${relatedCards}</div></div></section>
   <section class="section section-caio-contact" id="contact"><div class="shell commercial-grid"><div><p class="section-label">${p.contactLabel}</p><h2>${p.contactTitle}</h2><p class="section-intro caio-contact-copy">${p.contactText}</p></div><div class="contact-panel"><div class="contact-details"><a class="contact-chip" href="tel:+8618688180270">${p.phone}</a><button class="contact-chip" type="button" data-copy-wechat data-copied-label="${p.copied}" data-fallback-label="${p.fallback}">${p.wechat}</button><a class="contact-chip" href="/resume/">${p.resume}</a><a class="contact-chip" href="${p.home}">${p.back}</a></div><p class="copy-status" aria-live="polite" data-copy-status></p></div></div></section></main><footer class="site-footer"><div class="shell footer-inner"><span>© 2026 ${p.footer}</span><a href="${p.home}">${p.back}</a></div></footer><script src="/ai/site.js?v=20260903"></script></body></html>`;
 }
 
