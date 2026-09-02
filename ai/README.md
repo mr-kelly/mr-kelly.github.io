@@ -15,7 +15,7 @@ Service detail slugs: `consult`, `training`, `caio`, `vibe-coding`, `ai-employee
 
 ## Maintain
 
-`generate.mjs` contains the localized content and generates the three catalog pages plus every service detail page. `generate-service-pages.mjs` renders the shared service families; `generate-caio.mjs` renders the deeper fractional CAIO page.
+`generate.mjs` contains the localized content and generates the three catalog pages plus every service detail page. `generate-service-pages.mjs` renders the shared service families; `generate-caio.mjs` renders the deeper CAIO Office page.
 
 ```bash
 node ai/generate.mjs
