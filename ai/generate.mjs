@@ -33,7 +33,7 @@ const pages = {
       ["training", "启蒙", "Agents 公司理念导入", "故事化演讲，理解 AI 的重要性与 Agents 公司的最终图景", "线下主题演讲", "人民币 15,000 元 / 场"],
       ["build", "实战", "Agents 公司搭建实战工作坊", "手把手完成一次 Agent 实战，让团队从理解走向操作", "线下 3 小时", "人民币 25,000 元 / 场"],
       ["training", "定制", "企业 AI 定制工作坊", "围绕行业、岗位和业务目标设计专属落地课程", "线下 1–3 天", "人民币 30,000–150,000 元 / 项目"],
-      ["caio", "CAIO", "兼职 CAIO（企业 AI 负责人）", "像内部全职 AI 负责人一样，每周业务问诊、确定最高优先级实战、拆解任务与负责人、带队执行并验收复盘，让团队在真实业务中边做边学", "每周工作会 + 持续跟进，建议 3 个月起", "按月定制报价"],
+      ["caio", "CAIO", "兼职 CAIO（企业 AI 负责人）", "提供企业级 AI 转型与研发改造两种切入路径；像内部全职 AI 负责人一样，每周确定优先级、拆解任务、带队执行并验收复盘", "每周工作会 + 持续跟进，建议 3 个月起", "按月定制报价"],
       ["coding", "编程", "Vibe Coding 软件开发实战工作坊", "使用真实业务题，从需求拆解到完成一个可运行、可继续迭代的产品", "线下 1 天", "人民币 30,000 元 / 场"],
       ["coding", "陪跑", "Vibe Coding 项目陪跑", "围绕客户项目提供需求、架构、代码审查、测试、部署和迭代指导，代码与成果归客户", "线上 4 周", "人民币 49,999 元起 / 期"],
       ["coding", "顾问", "Vibe Coding 工程顾问", "针对复杂系统、遗留代码或关键上线提供技术方案、风险审查与工程决策支持", "月度或项目制", "人民币 60,000 元起 / 月"],
@@ -81,12 +81,19 @@ const pages = {
     trainingTrust: "Kelly 常年在企业内部和公开场合讲 AI 和 Agents 公司，也在带着团队真正落地——培训里讲的不是道听途说的趋势判断，而是自己正在做的事。",
     caioLabel: "兼职 CAIO",
     caioTitle: "像请来一位全职 AI 负责人，每周把事情向前推进",
-    caioIntro: "兼职 CAIO 站在管理层和团队身边，不以部署一堆工具为目标，而是持续找出真正值得做的业务任务，安排执行并对结果负责。团队不是听课，而是在每周真实交付中学会 AI。",
+    caioIntro: "兼职 CAIO 站在管理层和团队身边，不以部署一堆工具为目标，而是持续找出真正值得做的业务任务，安排执行并对结果负责。可按当前最主要的问题选择企业级 AI 转型或研发改造路径，团队在每周真实交付中学会 AI。",
     caioFitYesLabel: "适合",
     caioFitYesText: "管理层认可 AI 的重要性，但团队缺一个每周把方向和执行拉齐的人；已经零散试过几个 AI 工具，却没有沉淀成业务成果。",
     caioFitNoLabel: "不适合",
     caioFitNoText: "内部还没有能配合执行的业务负责人，或者只需要一次性培训而非持续带队——可以先看商业规划与方案咨询或培训课程。",
     caioTrust: "Kelly 曾以创始 CTO 身份带队研发喜茶的核心系统，也在 Buda、Vika、AITable 里长期以业务目标驱动团队与 AI 协作——不是纸上谈兵的顾问，而是持续对结果负责的执行者。",
+    caioPathLabel: "两种切入路径",
+    caioPaths: [
+      ["01", "企业级 AI 转型 CAIO", "适合管理层认可 AI，但各部门仍在零散试工具、没有统一优先级和业务闭环的企业。", "从经营目标出发，筛选最值得投入的 AI 场景，协调业务、产品、技术、数据和安全团队，先让一个跨部门业务闭环跑起来。", ["AI 机会与优先级路线图", "跨部门周度执行机制", "业务闭环与管理层复盘"]],
+      ["02", "研发改造 CAIO", "适合研发持续投入却交付不透明、文档断层，或 AI Coding 只停留在局部写代码的企业。", "重建从业务目标、需求、任务到代码、测试、发布和人工签收的研发闭环，让产出可见、交付可验、知识可接管。", ["研发价值流与交付看板", "任务／PR／测试／发布证据链", "产品文档与 AI 原生研发方法"]]
+    ],
+    caioPathMeta: "两条路径择一切入，不要求同时采购。涉及具体 Agent、代码、自动化测试、系统集成或私有化部署时，再按范围配置 FDE 工作包。",
+    caioCycleLabel: "共同工作节奏",
     caioSteps: [
       ["01", "每周问诊", "和管理层与业务负责人检查目标、进展、卡点和新的 AI 机会。"],
       ["02", "确定实战", "选定本周最高优先级任务，明确结果、负责人、截止时间与验收标准。"],
@@ -219,7 +226,7 @@ const pages = {
       ["training", "Vision", "Agents Company Introduction", "Story-led keynote on why AI matters and what an Agents company can become", "On-site keynote", "RMB 15,000 / session"],
       ["build", "Practice", "Agents Company Hands-on Workshop", "Guided Agent build that moves a team from understanding to operation", "On-site, 3 hours", "RMB 25,000 / session"],
       ["training", "Custom", "Enterprise AI Custom Workshop", "A tailored program around the company's industry, roles, and operating goals", "On-site, 1–3 days", "RMB 30,000–150,000 / project"],
-      ["caio", "CAIO", "Fractional CAIO (Embedded AI Leader)", "Work alongside leadership like an in-house AI executive: diagnose the business weekly, set the highest-priority hands-on work, assign owners and tasks, lead execution, and review outcomes so the team learns through real delivery", "Weekly working session + ongoing follow-through; 3-month minimum recommended", "Custom monthly retainer"],
+      ["caio", "CAIO", "Fractional CAIO (Embedded AI Leader)", "Choose an enterprise AI transformation or R&D transformation track; work like an in-house AI leader to set priorities, assign owners, lead execution, and review outcomes every week", "Weekly working session + ongoing follow-through; 3-month minimum recommended", "Custom monthly retainer"],
       ["coding", "Coding", "Vibe Coding Software Development Workshop", "Use a real business challenge to move from requirements to a working product the team can keep improving", "On-site, 1 day", "RMB 30,000 / session"],
       ["coding", "Coaching", "Vibe Coding Project Coaching", "Requirements, architecture, code review, testing, deployment, and iteration guidance around the client's project; the client owns the code and output", "Online, 4 weeks", "RMB 49,999+ / engagement"],
       ["coding", "Advisory", "Vibe Coding Engineering Advisory", "Technical planning, risk review, and engineering decisions for complex systems, legacy code, or critical releases", "Monthly or project-based", "RMB 60,000+ / month"],
@@ -267,12 +274,19 @@ const pages = {
     trainingTrust: "Kelly speaks regularly on AI and Agents companies, both inside client organizations and in public — the training reflects what Kelly is actually building, not secondhand trend-watching.",
     caioLabel: "Fractional CAIO",
     caioTitle: "The impact of a full-time AI leader, with progress every week",
-    caioIntro: "A fractional CAIO works alongside leadership and the team. The goal is not to deploy a pile of tools, but to continually identify the business work worth doing, organize execution, and own the follow-through. The team learns AI through real weekly delivery, not lectures.",
+    caioIntro: "A fractional CAIO works alongside leadership and the team. The goal is not to deploy a pile of tools, but to identify the business work worth doing, organize execution, and own the follow-through. Start with either enterprise AI transformation or R&D transformation, based on the company's most important constraint.",
     caioFitYesLabel: "Good fit",
     caioFitYesText: "Leadership already believes AI matters, but the team lacks someone to align direction and execution every week; you've tried a handful of AI tools without turning them into business outcomes.",
     caioFitNoLabel: "Not a fit",
     caioFitNoText: "There's no internal business owner to pair with execution yet, or you just need a one-time training rather than ongoing leadership — start with Business Planning and Solution Consulting or a training program instead.",
     caioTrust: "Kelly led engineering as founding CTO of HEYTEA and has spent years driving teams and AI toward business outcomes at Buda, Vika, and AITable — not an advisor who stops at slides, but someone who stays accountable for the result.",
+    caioPathLabel: "Two ways to engage",
+    caioPaths: [
+      ["01", "Enterprise AI Transformation CAIO", "For companies whose leaders support AI, but departments still run isolated tool experiments without shared priorities or an operating loop.", "Start from business goals, select the AI work worth funding, align business, product, engineering, data, and security, and make one cross-functional operating loop work before scaling.", ["AI opportunity portfolio and roadmap", "Cross-functional weekly execution system", "Business outcome and executive review"]],
+      ["02", "R&D Transformation CAIO", "For companies investing in engineering without clear delivery visibility, durable documentation, or an AI coding workflow beyond isolated code generation.", "Rebuild the path from business goal and requirement through task, code, test, release, and human sign-off so work is visible, evidence-based, and transferable.", ["R&D value stream and delivery view", "Task / PR / test / release evidence chain", "Product documentation and AI-native engineering method"]]
+    ],
+    caioPathMeta: "Choose one track to start; the two are not bundled by default. When delivery requires Agents, code changes, automated testing, systems integration, or private deployment, scope a separate FDE work package.",
+    caioCycleLabel: "Shared operating cadence",
     caioSteps: [
       ["01", "Weekly diagnosis", "Review goals, progress, blockers, and new AI opportunities with leadership and business owners."],
       ["02", "Set the work", "Choose the highest-priority task and define its outcome, owner, deadline, and acceptance criteria."],
@@ -405,7 +419,7 @@ const pages = {
       ["training", "啟蒙", "Agents 公司理念導入", "故事化演講，理解 AI 的重要性與 Agents 公司的最終圖景", "線下主題演講", "人民幣 15,000 元 / 場"],
       ["build", "實戰", "Agents 公司搭建實戰工作坊", "手把手完成一次 Agent 實戰，讓團隊從理解走向操作", "線下 3 小時", "人民幣 25,000 元 / 場"],
       ["training", "定制", "企業 AI 定制工作坊", "圍繞行業、崗位和業務目標設計專屬落地課程", "線下 1–3 天", "人民幣 30,000–150,000 元 / 項目"],
-      ["caio", "CAIO", "兼職 CAIO（企業 AI 負責人）", "像內部全職 AI 負責人一樣，每週業務問診、確定最高優先級實戰、拆解任務與負責人、帶隊執行並驗收複盤，讓團隊在真實業務中邊做邊學", "每週工作會 + 持續跟進，建議 3 個月起", "按月定制報價"],
+      ["caio", "CAIO", "兼職 CAIO（企業 AI 負責人）", "提供企業級 AI 轉型與研發改造兩種切入路徑；像內部全職 AI 負責人一樣，每週確定優先級、拆解任務、帶隊執行並驗收複盤", "每週工作會 + 持續跟進，建議 3 個月起", "按月定制報價"],
       ["coding", "編程", "Vibe Coding 軟件開發實戰工作坊", "使用真實業務題，從需求拆解到完成一個可運行、可繼續迭代的產品", "線下 1 天", "人民幣 30,000 元 / 場"],
       ["coding", "陪跑", "Vibe Coding 項目陪跑", "圍繞客戶項目提供需求、架構、代碼審查、測試、部署和迭代指導，代碼與成果歸客戶", "網上 4 週", "人民幣 49,999 元起 / 期"],
       ["coding", "顧問", "Vibe Coding 工程顧問", "針對複雜系統、遺留代碼或關鍵上線提供技術方案、風險審查與工程決策支援", "月度或項目制", "人民幣 60,000 元起 / 月"],
@@ -453,12 +467,19 @@ const pages = {
     trainingTrust: "Kelly 常年在企業內部和公開場合講 AI 和 Agents 公司，也在帶著團隊真正落地——培訓裡講的不是道聽途說的趨勢判斷，而是自己正在做的事。",
     caioLabel: "兼職 CAIO",
     caioTitle: "像請來一位全職 AI 負責人，每週把事情向前推進",
-    caioIntro: "兼職 CAIO 站在管理層和團隊身邊，不以部署一堆工具為目標，而是持續找出真正值得做的業務任務，安排執行並對結果負責。團隊不是聽課，而是在每週真實交付中學會 AI。",
+    caioIntro: "兼職 CAIO 站在管理層和團隊身邊，不以部署一堆工具為目標，而是持續找出真正值得做的業務任務，安排執行並對結果負責。可按當前最主要的問題選擇企業級 AI 轉型或研發改造路徑，團隊在每週真實交付中學會 AI。",
     caioFitYesLabel: "適合",
     caioFitYesText: "管理層認可 AI 的重要性，但團隊缺一個每週把方向和執行拉齊的人；已經零散試過幾個 AI 工具，卻沒有沉澱成業務成果。",
     caioFitNoLabel: "不適合",
     caioFitNoText: "內部還沒有能配合執行的業務負責人，或者只需要一次性培訓而非持續帶隊——可以先看商業規劃與方案諮詢或培訓課程。",
     caioTrust: "Kelly 曾以創始 CTO 身份帶隊研發喜茶的核心系統，也在 Buda、Vika、AITable 裡長期以業務目標驅動團隊與 AI 協作——不是紙上談兵的顧問，而是持續對結果負責的執行者。",
+    caioPathLabel: "兩種切入路徑",
+    caioPaths: [
+      ["01", "企業級 AI 轉型 CAIO", "適合管理層認可 AI，但各部門仍在零散試工具、沒有統一優先級和業務閉環的企業。", "從經營目標出發，篩選最值得投入的 AI 場景，協調業務、產品、技術、數據和安全團隊，先讓一個跨部門業務閉環跑起來。", ["AI 機會與優先級路線圖", "跨部門每週執行機制", "業務閉環與管理層複盤"]],
+      ["02", "研發改造 CAIO", "適合研發持續投入卻交付不透明、文檔斷層，或 AI Coding 只停留在局部寫代碼的企業。", "重建從業務目標、需求、任務到代碼、測試、發布和人工簽收的研發閉環，讓產出可見、交付可驗、知識可接管。", ["研發價值流與交付看板", "任務／PR／測試／發布證據鏈", "產品文檔與 AI 原生研發方法"]]
+    ],
+    caioPathMeta: "兩條路徑擇一切入，不要求同時採購。涉及具體 Agent、代碼、自動化測試、系統集成或私有化部署時，再按範圍配置 FDE 工作包。",
+    caioCycleLabel: "共同工作節奏",
     caioSteps: [
       ["01", "每週問診", "和管理層與業務負責人檢查目標、進展、卡點和新的 AI 機會。"],
       ["02", "確定實戰", "選定本週最高優先級任務，明確結果、負責人、截止時間與驗收標準。"],
@@ -636,6 +657,14 @@ function renderPage(lang, page) {
             <p>${text}</p>
           </article>`).join("");
   const caioOutputs = page.caioOutputs.map((item) => `<li>${item}</li>`).join("");
+  const caioPaths = page.caioPaths.map(([number, title, audience, text, outcomes]) => `
+          <article class="caio-path">
+            <span class="caio-path-number">${number}</span>
+            <h3>${title}</h3>
+            <p class="caio-path-audience">${audience}</p>
+            <p>${text}</p>
+            <ul>${outcomes.map((item) => `<li>${item}</li>`).join("")}</ul>
+          </article>`).join("");
 
   const renderCycleSteps = (steps, prefix) => steps.map(([number, title, text]) => `
           <article class="${prefix}-step">
@@ -878,6 +907,11 @@ ${alternates}
             <p>${page.caioFitNoText}</p>
           </div>
         </div>
+        <p class="caio-block-label">${page.caioPathLabel}</p>
+        <div class="caio-paths">${caioPaths}
+        </div>
+        <p class="caio-path-meta">${page.caioPathMeta}</p>
+        <p class="caio-block-label caio-cycle-label">${page.caioCycleLabel}</p>
         <div class="caio-cycle">${caioSteps}
         </div>
         <div class="caio-output">

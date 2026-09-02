@@ -288,6 +288,7 @@ a {
 }
 
 .section {
+  scroll-margin-top: 64px;
   padding: 88px 0;
 }
 
@@ -698,6 +699,81 @@ a {
 
 .section-caio {
   background: #23302d;
+}
+
+.caio-block-label {
+  margin: 34px 0 14px;
+  color: #9edbd6;
+  font-size: 13px;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.caio-paths {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid #5b6865;
+  border-bottom: 1px solid #5b6865;
+}
+
+.caio-path {
+  min-width: 0;
+  padding: 30px 28px;
+}
+
+.caio-path + .caio-path {
+  border-left: 1px solid #5b6865;
+}
+
+.caio-path-number {
+  display: block;
+  margin-bottom: 14px;
+  color: #f18779;
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.caio-path h3 {
+  margin: 0 0 10px;
+  color: var(--white);
+  font-size: 23px;
+  line-height: 1.35;
+}
+
+.caio-path p {
+  margin: 14px 0 0;
+  color: #c8d2cf;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.caio-path .caio-path-audience {
+  margin-top: 0;
+  color: #9edbd6;
+  font-weight: 750;
+}
+
+.caio-path ul {
+  margin: 20px 0 0;
+  padding: 18px 0 0 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  color: var(--white);
+  font-size: 14px;
+}
+
+.caio-path li + li {
+  margin-top: 7px;
+}
+
+.caio-path-meta {
+  margin: 16px 0 0;
+  color: #aebbb7;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.caio-cycle-label {
+  margin-top: 38px;
 }
 
 .caio-cycle {
@@ -1188,6 +1264,15 @@ button.contact-chip {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .caio-paths {
+    grid-template-columns: 1fr;
+  }
+
+  .caio-path + .caio-path {
+    border-top: 1px solid #5b6865;
+    border-left: 0;
+  }
+
   .caio-step {
     border-bottom: 1px solid #5b6865;
   }
@@ -1244,6 +1329,10 @@ button.contact-chip {
 }
 
 @media (max-width: 720px) {
+  .section {
+    scroll-margin-top: 58px;
+  }
+
   .shell {
     width: min(calc(100% - 28px), var(--shell));
   }
@@ -1303,6 +1392,14 @@ button.contact-chip {
   .caio-cycle,
   .caio-output ul {
     grid-template-columns: 1fr;
+  }
+
+  .caio-path {
+    padding: 24px 0;
+  }
+
+  .caio-path h3 {
+    font-size: 20px;
   }
 
   .caio-step {
