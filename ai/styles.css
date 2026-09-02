@@ -1216,6 +1216,208 @@ button.contact-chip {
   outline-offset: 3px;
 }
 
+.caio-detail-link {
+  margin-top: 18px;
+}
+
+.service-detail-hero,
+.caio-detail-hero {
+  min-height: min(58vh, 560px);
+  background-position: center 34%;
+}
+
+.caio-detail-signals {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+
+.caio-detail-signal {
+  min-width: 0;
+  padding: 26px 22px;
+}
+
+.caio-detail-signal + .caio-detail-signal {
+  border-left: 1px solid var(--line);
+}
+
+.caio-detail-signal span,
+.caio-boundary > span {
+  color: var(--coral);
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.caio-detail-signal h3,
+.caio-boundary h3 {
+  margin: 20px 0 8px;
+  font-size: 19px;
+}
+
+.caio-detail-signal p,
+.caio-boundary p {
+  margin: 0;
+  color: #52605d;
+  font-size: 14px;
+}
+
+.caio-detail-paths,
+.caio-outcome-grid,
+.caio-boundaries {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.caio-detail-paths {
+  border-top: 1px solid #5b6865;
+  border-bottom: 1px solid #5b6865;
+}
+
+.caio-detail-path {
+  scroll-margin-top: 80px;
+  min-width: 0;
+  padding: 32px 30px;
+}
+
+.caio-detail-path + .caio-detail-path {
+  border-left: 1px solid #5b6865;
+}
+
+.caio-detail-path h3 {
+  margin: 12px 0 10px;
+  font-size: 26px;
+  line-height: 1.3;
+}
+
+.caio-detail-path h4 {
+  margin: 24px 0 8px;
+  color: #9edbd6;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.caio-detail-path p,
+.caio-detail-path li {
+  color: #c8d2cf;
+  font-size: 14px;
+}
+
+.caio-detail-path ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.caio-detail-path li + li {
+  margin-top: 7px;
+}
+
+.caio-detail-fit {
+  min-height: 70px;
+  color: #9edbd6 !important;
+  font-weight: 750;
+}
+
+.caio-detail-subtitle {
+  max-width: 760px;
+  margin: 0 0 28px !important;
+  font-size: 30px !important;
+}
+
+.caio-first-steps {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.caio-outcome-grid {
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+
+.caio-outcome-grid section {
+  padding: 30px 28px;
+}
+
+.caio-outcome-grid section + section {
+  border-left: 1px solid var(--line);
+}
+
+.caio-outcome-grid h3 {
+  margin: 0 0 18px;
+  font-size: 22px;
+}
+
+.caio-outcome-grid ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #43504d;
+}
+
+.caio-outcome-grid li + li {
+  margin-top: 10px;
+}
+
+.caio-boundaries {
+  border-top: 1px solid #596461;
+  border-bottom: 1px solid #596461;
+}
+
+.caio-boundary {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 12px;
+  padding: 26px 24px;
+}
+
+.caio-boundary:nth-child(even) {
+  border-left: 1px solid #596461;
+}
+
+.caio-boundary:nth-child(n + 3) {
+  border-top: 1px solid #596461;
+}
+
+.caio-boundary h3 {
+  margin-top: 0;
+  color: var(--white);
+}
+
+.caio-boundary p {
+  color: #bec9c5;
+}
+
+.caio-trust {
+  display: grid;
+  grid-template-columns: 152px minmax(0, 1fr);
+  gap: 30px;
+  align-items: center;
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid #596461;
+}
+
+.caio-trust img {
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.caio-trust h2 {
+  margin-bottom: 12px;
+}
+
+.caio-trust p:last-child {
+  max-width: 760px;
+  margin: 0;
+  color: #c5d0cc;
+}
+
+.section-caio-contact {
+  background: #edf1ee;
+}
+
+.caio-contact-copy {
+  margin-top: 18px;
+}
+
 @media (max-width: 980px) {
   .primary-nav {
     display: none;
@@ -1234,6 +1436,29 @@ button.contact-chip {
 
   .journey {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .caio-detail-signals,
+  .caio-detail-paths,
+  .caio-outcome-grid,
+  .caio-boundaries {
+    grid-template-columns: 1fr;
+  }
+
+  .caio-detail-signal + .caio-detail-signal,
+  .caio-outcome-grid section + section {
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
+  .caio-detail-path + .caio-detail-path,
+  .caio-boundary:nth-child(even) {
+    border-top: 1px solid #596461;
+    border-left: 0;
+  }
+
+  .caio-detail-fit {
+    min-height: 0;
   }
 
   .consult-cycle {
@@ -1374,6 +1599,27 @@ button.contact-chip {
     max-width: 100%;
     font-size: 40px;
     overflow-wrap: anywhere;
+  }
+
+  .service-detail-hero,
+  .caio-detail-hero {
+    min-height: 52svh;
+  }
+
+  .caio-detail-signal,
+  .caio-detail-path,
+  .caio-outcome-grid section,
+  .caio-boundary {
+    padding: 24px 0;
+  }
+
+  .caio-trust {
+    grid-template-columns: 1fr;
+  }
+
+  .caio-trust img {
+    width: 112px;
+    height: 112px;
   }
 
   .hero-lead {

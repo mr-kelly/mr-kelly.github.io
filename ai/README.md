@@ -7,10 +7,15 @@ Customer-facing multilingual website for Kelly AI Deployment Service.
 - `/ai/`: Simplified Chinese and x-default
 - `/ai/en/`: English
 - `/ai/zh-hk/`: Traditional Chinese
+- `/ai/<service>/`: Simplified Chinese service detail pages
+- `/ai/en/<service>/`: English service detail pages
+- `/ai/zh-hk/<service>/`: Traditional Chinese service detail pages
+
+Service detail slugs: `consult`, `training`, `caio`, `vibe-coding`, `ai-employees`, `ai-assets`, and `products`.
 
 ## Maintain
 
-`generate.mjs` contains the localized content and generates the three HTML entry points.
+`generate.mjs` contains the localized content and generates the three catalog pages plus every service detail page. `generate-service-pages.mjs` renders the shared service families; `generate-caio.mjs` renders the deeper fractional CAIO page.
 
 ```bash
 node ai/generate.mjs

@@ -93,6 +93,8 @@ const pages = {
       ["02", "研发改造 CAIO", "适合研发持续投入却交付不透明、文档断层，或 AI Coding 只停留在局部写代码的企业。", "重建从业务目标、需求、任务到代码、测试、发布和人工签收的研发闭环，让产出可见、交付可验、知识可接管。", ["研发价值流与交付看板", "任务／PR／测试／发布证据链", "产品文档与 AI 原生研发方法"]]
     ],
     caioPathMeta: "两条路径择一切入，不要求同时采购。涉及具体 Agent、代码、自动化测试、系统集成或私有化部署时，再按范围配置 FDE 工作包。",
+    caioDetailLabel: "查看兼职 CAIO 完整方案",
+    caioDetailUrl: "/ai/caio/",
     caioCycleLabel: "共同工作节奏",
     caioSteps: [
       ["01", "每周问诊", "和管理层与业务负责人检查目标、进展、卡点和新的 AI 机会。"],
@@ -286,6 +288,8 @@ const pages = {
       ["02", "R&D Transformation CAIO", "For companies investing in engineering without clear delivery visibility, durable documentation, or an AI coding workflow beyond isolated code generation.", "Rebuild the path from business goal and requirement through task, code, test, release, and human sign-off so work is visible, evidence-based, and transferable.", ["R&D value stream and delivery view", "Task / PR / test / release evidence chain", "Product documentation and AI-native engineering method"]]
     ],
     caioPathMeta: "Choose one track to start; the two are not bundled by default. When delivery requires Agents, code changes, automated testing, systems integration, or private deployment, scope a separate FDE work package.",
+    caioDetailLabel: "View the complete Fractional CAIO plan",
+    caioDetailUrl: "/ai/en/caio/",
     caioCycleLabel: "Shared operating cadence",
     caioSteps: [
       ["01", "Weekly diagnosis", "Review goals, progress, blockers, and new AI opportunities with leadership and business owners."],
@@ -479,6 +483,8 @@ const pages = {
       ["02", "研發改造 CAIO", "適合研發持續投入卻交付不透明、文檔斷層，或 AI Coding 只停留在局部寫代碼的企業。", "重建從業務目標、需求、任務到代碼、測試、發布和人工簽收的研發閉環，讓產出可見、交付可驗、知識可接管。", ["研發價值流與交付看板", "任務／PR／測試／發布證據鏈", "產品文檔與 AI 原生研發方法"]]
     ],
     caioPathMeta: "兩條路徑擇一切入，不要求同時採購。涉及具體 Agent、代碼、自動化測試、系統集成或私有化部署時，再按範圍配置 FDE 工作包。",
+    caioDetailLabel: "查看兼職 CAIO 完整方案",
+    caioDetailUrl: "/ai/zh-hk/caio/",
     caioCycleLabel: "共同工作節奏",
     caioSteps: [
       ["01", "每週問診", "和管理層與業務負責人檢查目標、進展、卡點和新的 AI 機會。"],
@@ -603,15 +609,20 @@ const alternateLinks = [
 // One entry per row in `services`, in the same order, pointing at the detail
 // section a customer should land on when they click the service name — or
 // null if that row has no dedicated section (rare; keep it that way).
-const serviceAnchors = [
-  "consult",
-  "training", "training", "training", "training",
-  "caio",
-  "vibe-coding", "vibe-coding", "vibe-coding",
-  "deploy",
-  "assets",
-  "products", "products"
+const serviceDetailTargets = [
+  ["consult"],
+  ["training", "training-4"], ["training", "training-1"], ["training", "training-2"], ["training", "training-3"],
+  ["caio"],
+  ["vibe-coding", "vibe-1"], ["vibe-coding", "vibe-2"], ["vibe-coding", "vibe-3"],
+  ["ai-employees"],
+  ["ai-assets"],
+  ["products", "product-1"], ["products", "product-2"]
 ];
+
+function detailUrl(lang, slug, hash = "") {
+  const prefix = lang === "zh-CN" ? "/ai/" : lang === "en" ? "/ai/en/" : "/ai/zh-hk/";
+  return `${prefix}${slug}/${hash ? `#${hash}` : ""}`;
+}
 
 function renderLanguageSwitcher(current) {
   return languageLinks.map(([label, href, lang]) => {
@@ -622,8 +633,8 @@ function renderLanguageSwitcher(current) {
 
 function renderPage(lang, page) {
   const serviceRows = page.services.map(([type, category, name, delivery, format, price], index) => {
-    const anchor = serviceAnchors[index];
-    const nameCell = anchor ? `<a href="#${anchor}">${name}</a>` : name;
+    const [slug, hash] = serviceDetailTargets[index];
+    const nameCell = `<a href="${detailUrl(lang, slug, hash)}">${name}</a>`;
     return `
           <tr>
             <td class="service-category" data-label="${page.mobileLabels[0]}"><span class="tag tag-${type}">${category}</span></td>
@@ -709,8 +720,8 @@ function renderPage(lang, page) {
   const vibeProof = page.vibeProof.map(([title, text]) => `
           <div class="vibe-proof-item"><strong>${title}</strong><span>${text}</span></div>`).join("");
   const vibeOffers = renderOffers(page.vibeOffers);
-  const navIds = ["services", "consult", "caio", "vibe-coding", "delivery", "foundation", "contact"];
-  const nav = page.nav.map((label, index) => `<a href="#${navIds[index]}">${label}</a>`).join("");
+  const navHrefs = ["#services", detailUrl(lang, "consult"), detailUrl(lang, "caio"), detailUrl(lang, "vibe-coding"), "#delivery", "#foundation", "#contact"];
+  const nav = page.nav.map((label, index) => `<a href="${navHrefs[index]}">${label}</a>`).join("");
   const alternates = alternateLinks.map(([hreflang, href]) => `  <link rel="alternate" hreflang="${hreflang}" href="${href}">`).join("\n");
   const structuredData = JSON.stringify({
     "@context": "https://schema.org",
@@ -828,7 +839,7 @@ ${alternates}
       </div>
     </section>
 
-    <section class="section section-dark section-consult" id="consult">
+    <section class="section section-dark section-consult" id="consult" hidden>
       <div class="shell">
         <div class="section-heading">
           <div>
@@ -863,7 +874,7 @@ ${alternates}
       </div>
     </section>
 
-    <section class="section section-white" id="training">
+    <section class="section section-white" id="training" hidden>
       <div class="shell">
         <div class="section-heading">
           <div>
@@ -888,7 +899,7 @@ ${alternates}
       </div>
     </section>
 
-    <section class="section section-dark section-caio" id="caio">
+    <section class="section section-dark section-caio" id="caio" hidden>
       <div class="shell">
         <div class="section-heading">
           <div>
@@ -911,6 +922,7 @@ ${alternates}
         <div class="caio-paths">${caioPaths}
         </div>
         <p class="caio-path-meta">${page.caioPathMeta}</p>
+        <a class="button button-secondary caio-detail-link" href="${page.caioDetailUrl}">${page.caioDetailLabel}</a>
         <p class="caio-block-label caio-cycle-label">${page.caioCycleLabel}</p>
         <div class="caio-cycle">${caioSteps}
         </div>
@@ -923,7 +935,7 @@ ${alternates}
       </div>
     </section>
 
-    <section class="section section-vibe" id="vibe-coding">
+    <section class="section section-vibe" id="vibe-coding" hidden>
       <div class="shell">
         <div class="section-heading">
           <div>
@@ -950,7 +962,7 @@ ${alternates}
       </div>
     </section>
 
-    <section class="section section-dark" id="deploy">
+    <section class="section section-dark" id="deploy" hidden>
       <div class="shell">
         <div class="section-heading">
           <div>
@@ -980,7 +992,7 @@ ${alternates}
       </div>
     </section>
 
-    <section class="section section-dark" id="assets">
+    <section class="section section-dark" id="assets" hidden>
       <div class="shell">
         <div class="section-heading">
           <div>
@@ -1010,7 +1022,7 @@ ${alternates}
       </div>
     </section>
 
-    <section class="section section-white" id="products">
+    <section class="section section-white" id="products" hidden>
       <div class="shell">
         <div class="section-heading">
           <div>
@@ -1085,7 +1097,7 @@ ${alternates}
       <a href="/">mr-kelly.github.io</a>
     </div>
   </footer>
-  <script src="/ai/site.js?v=20260726"></script>
+  <script src="/ai/site.js?v=20260903"></script>
 </body>
 </html>
 `;
@@ -1097,3 +1109,7 @@ for (const [lang, page] of Object.entries(pages)) {
   await writeFile(output, renderPage(lang, page), "utf8");
   console.log(`Generated ${output}`);
 }
+
+const { generateServicePages } = await import("./generate-service-pages.mjs");
+await generateServicePages(pages);
+await import("./generate-caio.mjs");
