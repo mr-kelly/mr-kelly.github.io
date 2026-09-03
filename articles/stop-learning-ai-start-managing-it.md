@@ -13,9 +13,7 @@ cover_subtitle: 越可能一直做超级打工人
 
 # 你越努力学 AI，越可能一直做那个超级打工人
 
-> **Kelly 陈霈霖**｜喜茶创始 CTO，Vika 维格表、AITable.ai、Buda AI 创始人。带过 150 人以上的产品与研发团队，参与过 3 万人零售企业的数字化转型。现在以 CAIO Office 与 FDE 的方式，帮企业把 AI 真正落进业务。
->
-> 了解我：[个人简介](https://kellychan.im/resume/zh-cn/)｜[企业 AI 服务](https://kellychan.im/ai/)｜[CAIO Office](https://kellychan.im/ai/caio/)
+> **Kelly 陈霈霖**｜喜茶创始 CTO 兼董事会成员，维格 Vika / AITable 创始人，Buda AI 创始人。带过 150 人团队，主导 3 万人零售企业数字化转型；Vika 服务 100 万用户与 1.5 万家企业组织，获 IDG 资本、天图资本、五源资本、靖亚资本、高瓴创投投资，融资超千万美元。了解我：[个人简介](https://kellychan.im/resume/zh-cn/)｜[企业 AI 服务](https://kellychan.im/ai/)｜[CAIO Office](https://kellychan.im/ai/caio/)
 
 最近，一次关于“怎么学 AI”的讨论，让我重新梳理了一个很典型的问题。
 
