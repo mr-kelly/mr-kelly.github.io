@@ -1,59 +1,24 @@
-# Articles
+---
+title: 文章
+description: Kelly 陈霈霖关于企业 AI 落地、研发 AI 原生转型，以及怎样管理一支 AI 工作队的长文。
+---
 
-Long-form content for Kelly's public channels.
+# 文章
 
-## These files ARE live web pages
+关于企业 AI 落地、研发 AI 原生转型，以及怎样管理一支 AI 工作队。
 
-GitHub Pages runs Jekyll on this repository (there is no `.nojekyll` at the
-root), so every `.md` file here is rendered to `/articles/<name>.html` and
-published **as soon as it is pushed to `master`**. There is no separate build
-step and no staging.
+## [企业做 AI，最缺的不是工具，而是一个把结果逼出来的人](./enterprise-ai-needs-caio-and-fde.html)
 
-| Article | Live URL |
-| --- | --- |
-| 企业做 AI，最缺的不是工具，而是一个把结果逼出来的人 | <https://kellychan.im/articles/enterprise-ai-needs-caio-and-fde.html> |
-| 研发团队越招越多，产品为什么还是做不快？ | <https://kellychan.im/articles/ai-native-rd-team-optimization.html> |
-| 你越努力学 AI，越可能一直做那个超级打工人 | <https://kellychan.im/articles/stop-learning-ai-start-managing-it.html> |
+你买了模型，上了培训，Demo 也演示过，业务却一点没变。问题通常不在工具，而在没有人把目标、执行和验收串起来。这篇讲清楚这个人具体做什么，以及前 30 天怎么走。
 
-All three are listed in [`sitemap-main.xml`](../sitemap-main.xml) and linked
-from the article cards on `/ai/` and `/ai/caio/`, which are generated from
-`ai/generate.mjs` and `ai/generate-caio.mjs`. Renaming a file breaks those
-links and the sitemap — update both generators and the sitemap in the same
-commit.
+## [研发团队越招越多，产品为什么还是做不快？](./ai-native-rd-team-optimization.html)
 
-## Frontmatter reaches the public page
+你不停加人，项目还是延期。而另一些公司的代码已经 99.9% 由 AI 生成。差别不在人数，在你还把研发定义成写代码。这篇讲研发团队怎样做 AI 原生转型，以及前 30 天怎么走。
 
-`jekyll-seo-tag` reads the frontmatter directly, so these fields are not
-internal notes — they are what search engines, WeChat and LinkedIn show:
+## [你越努力学 AI，越可能一直做那个超级打工人](./stop-learning-ai-start-managing-it.html)
 
-- `title` → `<title>` and `og:title`
-- `description` → `<meta name="description">` and `og:description`
-- `author` → `<meta name="author">`
+你买了课，存了几百条提示词，工具换了一轮，时间还是没省下来。因为 AI 早就不缺能力，缺的是你敢不敢把一件事完整交出去。这篇讲第一周怎么交出第一件事，以及什么算做完。
 
-`subtitle`, `digest`, `cover_title` and `cover_subtitle` are for the WeChat
-Official Account backend and are not rendered by Jekyll.
+---
 
-## status vs. actually published
-
-`status: draft | ready | published` tracks the **WeChat Official Account**
-lifecycle only. **Jekyll ignores it** — a file marked `draft` is still live on
-the web the moment it is pushed.
-
-To keep a file off the website, use Jekyll's own switch:
-
-```yaml
-published: false
-```
-
-## Publishing Boundary
-
-- Pushing to `master` publishes to the web immediately. Treat every push here
-  as a public release.
-- Do not include customer names, private conversations, unapproved
-  screenshots, internal pricing, or identifiable operating data.
-- Verify service facts against <https://kellychan.im/ai/> before pushing.
-- Publishing to WeChat or another external channel is a separate step and
-  requires separate human approval.
-- Writing conventions (narrative spine, formula, author card, description
-  hook, pre-publish checklist) live in the sales repository at
-  `sales-kit/services/kelly-ai/internal/consultant-promotion-writing-playbook.md`.
+[了解 Kelly](https://kellychan.im/resume/zh-cn/)｜[企业 AI 服务](https://kellychan.im/ai/)｜[CAIO Office](https://kellychan.im/ai/caio/)
