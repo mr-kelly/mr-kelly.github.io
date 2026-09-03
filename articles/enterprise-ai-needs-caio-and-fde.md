@@ -13,6 +13,10 @@ cover_subtitle: 而是一个把结果逼出来的人
 
 # 企业做 AI，最缺的不是工具，而是一个把结果逼出来的人
 
+> **Kelly 陈霈霖**｜喜茶创始 CTO，Vika 维格表、AITable.ai、Buda AI 创始人。带过 150 人以上的产品与研发团队，参与过 3 万人零售企业的数字化转型。现在以 CAIO Office 与 FDE 的方式，帮企业把 AI 真正落进业务。
+>
+> 了解我：[个人简介](https://kellychan.im/resume/zh-cn/)｜[企业 AI 服务](https://kellychan.im/ai/)｜[CAIO Office](https://kellychan.im/ai/caio/)
+
 最近，一位老板问了我一个很典型的问题：
 
 > 公司已经买了 AI 工具，员工也上过课，技术团队甚至开始用 AI 写代码了。为什么业务还是没有明显变化？

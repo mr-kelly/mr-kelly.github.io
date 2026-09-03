@@ -13,6 +13,10 @@ cover_subtitle: 该优化的不是人数，而是研发操作系统
 
 # 研发团队越招越多，产品为什么还是做不快？
 
+> **Kelly 陈霈霖**｜喜茶创始 CTO，Vika 维格表、AITable.ai、Buda AI 创始人。带过 150 人以上的产品与研发团队，参与过 3 万人零售企业的数字化转型。现在以 CAIO Office 与 FDE 的方式，帮企业把 AI 真正落进业务。
+>
+> 了解我：[个人简介](https://kellychan.im/resume/zh-cn/)｜[企业 AI 服务](https://kellychan.im/ai/)｜[CAIO Office](https://kellychan.im/ai/caio/)
+
 最近，一次关于研发管理的讨论，让我重新梳理了一个很典型的问题。
 
 我们先设想这样一家公司。
