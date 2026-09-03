@@ -237,6 +237,59 @@ h1 {
   line-height: 1.35;
 }
 
+.availability {
+  margin: 6px 0 0;
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.where-help {
+  border-top: 1px solid var(--line);
+  background: var(--white);
+}
+
+.where-help > .shell {
+  padding-top: 32px;
+  padding-bottom: 30px;
+}
+
+.where-help > .shell > .eyebrow {
+  margin-bottom: 20px;
+}
+
+.where-help-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.where-help-grid article {
+  min-width: 0;
+  border-top: 3px solid var(--signal);
+  padding-top: 13px;
+}
+
+.where-help-grid h3 {
+  margin: 0 0 9px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.where-help-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.where-help-grid strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
 .agent-practice {
   border-top: 1px solid #34413d;
   border-bottom: 1px solid #34413d;
@@ -545,6 +598,11 @@ h1 {
     gap: 14px;
   }
 
+  .where-help-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
   .agent-practice-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -613,6 +671,11 @@ h1 {
 
   .summary {
     font-size: 19px;
+  }
+
+  .where-help > .shell {
+    padding-top: 26px;
+    padding-bottom: 24px;
   }
 
   .agent-practice > .shell {
@@ -712,6 +775,32 @@ h1 {
 
   .summary {
     font-size: 12pt;
+  }
+
+  .where-help {
+    break-inside: avoid;
+  }
+
+  .where-help > .shell {
+    padding-top: 5mm;
+    padding-bottom: 4mm;
+  }
+
+  .where-help > .shell > .eyebrow {
+    margin-bottom: 3mm;
+    color: var(--green);
+  }
+
+  .where-help-grid {
+    gap: 6mm;
+  }
+
+  .where-help-grid h3 {
+    font-size: 11pt;
+  }
+
+  .where-help-grid p {
+    font-size: 8.5pt;
   }
 
   .agent-practice {
