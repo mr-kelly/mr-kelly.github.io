@@ -1,9 +1,9 @@
 ---
+layout: article
+page_kind: index
 title: 文章
 description: Kelly 陈霈霖关于企业 AI 落地、研发 AI 原生转型，以及怎样管理一支 AI 工作队的长文。
 ---
-
-# 文章
 
 关于企业 AI 落地、研发 AI 原生转型，以及怎样管理一支 AI 工作队。
 

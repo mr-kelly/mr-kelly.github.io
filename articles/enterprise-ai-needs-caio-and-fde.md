@@ -1,4 +1,5 @@
 ---
+layout: article
 title: 企业做 AI，最缺的不是工具，而是一个把结果逼出来的人
 subtitle: 从 CAIO Office 到 FDE，企业 AI 落地为什么总卡在最后一公里
 description: 你买了模型，上了培训，Demo 也演示过，业务却一点没变。问题通常不在工具，而在没有人把目标、执行和验收串起来。这篇讲清楚这个人具体做什么，以及前 30 天怎么走。
@@ -10,8 +11,6 @@ digest: 企业买了模型、上了培训、做了 Demo，业务为什么还是�
 cover_title: 企业做 AI，最缺的不是工具
 cover_subtitle: 而是一个把结果逼出来的人
 ---
-
-# 企业做 AI，最缺的不是工具，而是一个把结果逼出来的人
 
 > **Kelly 陈霈霖**｜喜茶创始 CTO 兼董事会成员，维格 Vika / AITable 创始人，Buda AI 创始人。带过 150 人团队，主导 3 万人零售企业数字化转型；Vika 服务 100 万用户与 1.5 万家企业组织，获 IDG 资本、天图资本、五源资本、靖亚资本、高瓴创投投资，融资超千万美元。了解我：[个人简介](https://kellychan.im/resume/zh-cn/)｜[企业 AI 服务](https://kellychan.im/ai/)｜[CAIO Office](https://kellychan.im/ai/caio/)
 

@@ -1,6 +1,6 @@
 # Kelly Brand Guidelines
 
-Version 1.0 | 2026-09-05
+Version 1.2 | 2026-09-05
 
 `kellychan.im` 的母品牌视觉与表达规范。内部视觉代号为 **枯墨侘寂 Wabi Ink**。
 
@@ -268,4 +268,4 @@ Kelly 把复杂的 AI、产品和研发问题，转化为管理层可以理解�
 
 ### Current State
 
-Version 1.0 已选择视觉方向并建立规范。现有 `kellychan.im` 页面尚未迁移到本系统；在完成页面级视觉检查前，不声称官网已经采用新主题。
+Version 1.2 已完成主要公开界面的本地主题迁移：`/` 使用母品牌暗色模式；`/ai/` 的 24 个三语页面、`/resume/` 与 CAIO Resume、`/events/`、`/jam-coding/`、`/articles/` 使用对应的浅色服务、档案、实践与编辑版式。所有页面在正式发布与线上复核前仍标记为待上线。

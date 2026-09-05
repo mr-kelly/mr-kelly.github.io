@@ -1,4 +1,5 @@
 ---
+layout: article
 title: 你越努力学 AI，越可能一直做那个超级打工人
 subtitle: AI 已经有了超能力，而我们还在用学工具的方式学它
 description: 你买了课，存了几百条提示词，工具换了一轮，时间还是没省下来。因为 AI 早就不缺能力，缺的是你敢不敢把一件事完整交出去。这篇讲第一周怎么交出第一件事，以及什么算做完。
@@ -10,8 +11,6 @@ digest: 课买了，工具试了，AI 确实也会干活，为什么时间还是
 cover_title: 越努力学 AI
 cover_subtitle: 越可能一直做超级打工人
 ---
-
-# 你越努力学 AI，越可能一直做那个超级打工人
 
 > **Kelly 陈霈霖**｜喜茶创始 CTO 兼董事会成员，维格 Vika / AITable 创始人，Buda AI 创始人。带过 150 人团队，主导 3 万人零售企业数字化转型；Vika 服务 100 万用户与 1.5 万家企业组织，获 IDG 资本、天图资本、五源资本、靖亚资本、高瓴创投投资，融资超千万美元。了解我：[个人简介](https://kellychan.im/resume/zh-cn/)｜[企业 AI 服务](https://kellychan.im/ai/)｜[CAIO Office](https://kellychan.im/ai/caio/)
 

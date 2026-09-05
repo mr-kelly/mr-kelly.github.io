@@ -1,4 +1,5 @@
 ---
+layout: article
 title: 研发团队越招越多，产品为什么还是做不快？
 subtitle: 当一些公司的代码已经 99.9% 由 AI 生成，该改的就不是人数
 description: 你不停加人，项目还是延期。而另一些公司的代码已经 99.9% 由 AI 生成。差别不在人数，在你还把研发定义成写代码。这篇讲研发团队怎样做 AI 原生转型，以及前 30 天怎么走。
@@ -10,8 +11,6 @@ digest: 老板不断招人，项目仍然延期；而另一些公司的代码已
 cover_title: 研发越招越多，为什么还是做不快？
 cover_subtitle: 该改的不是人数，而是研发操作系统
 ---
-
-# 研发团队越招越多，产品为什么还是做不快？
 
 > **Kelly 陈霈霖**｜喜茶创始 CTO 兼董事会成员，维格 Vika / AITable 创始人，Buda AI 创始人。带过 150 人团队，主导 3 万人零售企业数字化转型；Vika 服务 100 万用户与 1.5 万家企业组织，获 IDG 资本、天图资本、五源资本、靖亚资本、高瓴创投投资，融资超千万美元。了解我：[个人简介](https://kellychan.im/resume/zh-cn/)｜[企业 AI 服务](https://kellychan.im/ai/)｜[CAIO Office](https://kellychan.im/ai/caio/)
 

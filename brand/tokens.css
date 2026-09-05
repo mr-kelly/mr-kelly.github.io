@@ -20,6 +20,20 @@
   --kelly-blue-text: #4c6372;
   --kelly-blue-soft: #dfe7eb;
 
+  --kelly-gold: #b28a3e;
+  --kelly-gold-text: #7d612c;
+  --kelly-gold-soft: #eee4cb;
+
+  --kelly-dark-background: #171b1a;
+  --kelly-dark-surface: #202624;
+  --kelly-dark-text: #e8e4da;
+  --kelly-dark-muted: #adb6b0;
+  --kelly-dark-line: #3b4540;
+  --kelly-dark-moss: #6f9083;
+  --kelly-dark-rust: #c65d4a;
+  --kelly-dark-gold: #c2a05a;
+  --kelly-dark-blue: #8197a4;
+
   --kelly-font-display: "Noto Serif SC", "Songti SC", STSong, Georgia, serif;
   --kelly-font-body: Inter, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
   --kelly-font-mono: "SFMono-Regular", Menlo, Consolas, monospace;

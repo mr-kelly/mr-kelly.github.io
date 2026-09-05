@@ -15,24 +15,28 @@
   <title>Kelly — Full-Stack Polyglot & Serial Founder</title>
   <meta name="description" content="Hong Kong ↔ San Francisco. Full-Stack Polyglot. Serial Founder. Building AGI tools that make powerful AI accessible to everyone.">
   <style>
+    @import url("/brand/tokens.css?v=20260905-2");
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Serif+SC:wght@400;500&display=swap");
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #0d1117;
-      --bg2: #161b22;
-      --bg3: #21262d;
-      --border: #30363d;
-      --text: #e6edf3;
-      --muted: #8b949e;
-      --accent: #58a6ff;
-      --accent2: #3fb950;
-      --accent3: #f78166;
+      color-scheme: dark;
+      --bg: var(--kelly-dark-background);
+      --bg2: var(--kelly-dark-surface);
+      --bg3: #29302d;
+      --border: var(--kelly-dark-line);
+      --text: var(--kelly-dark-text);
+      --muted: var(--kelly-dark-muted);
+      --accent: var(--kelly-dark-moss);
+      --accent2: var(--kelly-dark-gold);
+      --accent3: var(--kelly-dark-rust);
     }
 
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: var(--kelly-font-body);
       font-size: 15px;
       line-height: 1.6;
     }
@@ -45,27 +49,39 @@
     /* Header */
     header {
       border-bottom: 1px solid var(--border);
-      padding: 48px 0 40px;
+      padding: 64px 0 52px;
     }
-    .hero { display: flex; gap: 32px; align-items: flex-start; flex-wrap: wrap; }
+    .hero { display: grid; grid-template-columns: 116px minmax(0, 1fr); gap: 34px; align-items: start; }
     .avatar {
-      width: 96px; height: 96px; border-radius: 50%;
-      border: 2px solid var(--border); flex-shrink: 0;
+      width: 116px; height: 116px; border-radius: var(--kelly-radius-sm);
+      border: 1px solid var(--border); object-fit: cover;
     }
-    .hero-text h1 { font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+    .hero-text h1 {
+      font-family: var(--kelly-font-display); font-size: 42px;
+      font-weight: 500; line-height: 1.12; margin-bottom: 8px;
+    }
     .hero-text .tagline { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
     .hero-text .tagline span { margin-right: 16px; }
     .quote {
       background: var(--bg2);
       border-left: 3px solid var(--accent);
       padding: 10px 16px;
-      border-radius: 0 6px 6px 0;
+      border-radius: 0 var(--kelly-radius-sm) var(--kelly-radius-sm) 0;
       color: var(--muted);
       font-style: italic;
       font-size: 14px;
       margin-top: 12px;
       max-width: 560px;
     }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .hero-action {
+      min-height: 42px; display: inline-flex; align-items: center; justify-content: center;
+      padding: 0 14px; border: 1px solid var(--border); border-radius: var(--kelly-radius-sm);
+      color: var(--text); font-size: 13px; font-weight: 500;
+    }
+    .hero-action:hover { border-color: var(--accent); color: var(--text); text-decoration: none; }
+    .hero-action.primary { border-color: var(--accent3); background: var(--accent3); color: #fff; }
+    .hero-action.primary:hover { background: #ad4f40; }
 
     /* Badges */
     .badges { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0; }
@@ -90,7 +106,7 @@
     .projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
     .card {
       background: var(--bg2); border: 1px solid var(--border);
-      border-radius: 8px; padding: 16px;
+      border-radius: var(--kelly-radius-md); padding: 16px;
       transition: border-color .15s;
     }
     .card:hover { border-color: var(--accent); }
@@ -118,7 +134,7 @@
     .recognition { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
     .rec-item {
       background: var(--bg2); border: 1px solid var(--border);
-      border-radius: 6px; padding: 12px 14px;
+      border-radius: var(--kelly-radius-md); padding: 12px 14px;
       font-size: 13px; color: var(--muted);
     }
 
@@ -127,7 +143,7 @@
     .connect-link {
       display: inline-flex; align-items: center; gap: 6px;
       background: var(--bg2); border: 1px solid var(--border);
-      border-radius: 6px; padding: 8px 14px;
+      border-radius: var(--kelly-radius-md); padding: 8px 14px;
       font-size: 13px; color: var(--text);
       transition: border-color .15s;
     }
@@ -146,7 +162,11 @@
     }
 
     @media (max-width: 600px) {
-      .hero { flex-direction: column; }
+      header { padding: 42px 0 36px; }
+      .hero { grid-template-columns: 1fr; gap: 18px; }
+      .avatar { width: 76px; height: 76px; }
+      .hero-text h1 { font-size: 34px; }
+      .hero-text .tagline span { display: block; margin: 2px 0; }
       .projects { grid-template-columns: 1fr; }
     }
   </style>
@@ -157,13 +177,13 @@
 
   <header>
     <div class="hero">
-      <img class="avatar" src="https://github.com/mr-kelly.png" alt="Kelly">
+      <img class="avatar" src="/resume/kelly-chan-portrait.webp?v=20260726" alt="Kelly Peilin Chan">
       <div class="hero-text">
-        <h1>Hi, I'm Kelly 👋</h1>
+        <h1>Kelly Peilin Chan</h1>
         <div class="tagline">
-          <span>📍 Hong Kong ↔ San Francisco</span>
-          <span>💻 Full-Stack Polyglot</span>
-          <span>🚀 Serial Founder</span>
+          <span>Hong Kong ↔ San Francisco</span>
+          <span>Full-Stack Polyglot</span>
+          <span>Serial Founder</span>
         </div>
         <div class="badges">
           <span class="badge">JavaScript</span><span class="badge">TypeScript</span><span class="badge">Python</span>
@@ -179,6 +199,10 @@
         </div>
         <div class="quote">
           Coding Agent is Eating The World. Making powerful AGI accessible to everyone — applying Coding Agents to simplify every industry.
+        </div>
+        <div class="hero-actions">
+          <a class="hero-action primary" href="/ai/">Work with Kelly</a>
+          <a class="hero-action" href="/resume/">View resume</a>
         </div>
       </div>
     </div>

@@ -1,14 +1,17 @@
+@import url("/brand/tokens.css?v=20260905-2");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Serif+SC:wght@400;500&display=swap");
+
 :root {
   color-scheme: light;
-  --ink: #18201e;
-  --muted: #5f6966;
-  --line: #d9dfdc;
-  --paper: #f7f9f8;
-  --white: #fff;
-  --green: #0f624f;
-  --green-dark: #0a4437;
-  --signal: #c95539;
-  --blue: #2c5f82;
+  --ink: var(--kelly-ink);
+  --muted: var(--kelly-muted-text);
+  --line: var(--kelly-line);
+  --paper: var(--kelly-paper);
+  --white: var(--kelly-surface);
+  --green: var(--kelly-moss-text);
+  --green-dark: var(--kelly-moss-text);
+  --signal: var(--kelly-rust-text);
+  --blue: var(--kelly-blue-text);
 }
 
 *,
@@ -21,7 +24,7 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--kelly-font-body);
   font-size: 16px;
   line-height: 1.65;
 }
@@ -36,8 +39,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
   position: sticky;
   z-index: 20;
   top: 0;
-  border-bottom: 1px solid rgba(217, 223, 220, .9);
-  background: rgba(247, 249, 248, .95);
+  border-bottom: 1px solid rgb(203 203 194 / 90%);
+  background: rgb(241 240 234 / 95%);
   backdrop-filter: blur(12px);
 }
 
@@ -94,7 +97,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 h1 {
   max-width: 820px;
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--kelly-font-display);
   font-size: 56px;
   font-weight: 500;
   line-height: 1.07;
@@ -109,7 +112,7 @@ h1 {
   z-index: 10;
   top: 58px;
   border-bottom: 1px solid var(--line);
-  background: rgba(247, 249, 248, .96);
+  background: rgb(241 240 234 / 96%);
   backdrop-filter: blur(12px);
 }
 
@@ -150,13 +153,13 @@ h1 {
 .archive { padding: 26px 0 78px; }
 .year-group { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: 30px; padding-top: 38px; }
 .year-group + .year-group { margin-top: 16px; border-top: 1px solid var(--line); }
-.year-label { position: sticky; top: 142px; align-self: start; margin: 0; color: var(--green-dark); font: 500 32px/1 Georgia, "Times New Roman", serif; }
+.year-label { position: sticky; top: 142px; align-self: start; margin: 0; color: var(--green-dark); font: 500 32px/1 var(--kelly-font-display); }
 .event-list { display: grid; gap: 20px; }
 
 .event {
   overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 7px;
+  border-radius: var(--kelly-radius-md);
   background: var(--white);
 }
 
@@ -165,7 +168,7 @@ h1 {
 .category { border-left: 3px solid var(--signal); padding-left: 8px; color: var(--signal); text-transform: uppercase; }
 .event[data-type~="media"] .category { border-color: var(--blue); color: var(--blue); }
 .event[data-type~="milestone"] .category { border-color: var(--green); color: var(--green); }
-.event h2 { margin: 0; font: 500 27px/1.22 Georgia, "Times New Roman", serif; letter-spacing: 0; }
+.event h2 { margin: 0; font: 500 27px/1.22 var(--kelly-font-display); letter-spacing: 0; }
 .event p { max-width: 790px; margin: 10px 0 0; color: var(--muted); }
 .source-link { display: inline-block; margin-top: 14px; font-size: 13px; font-weight: 750; }
 

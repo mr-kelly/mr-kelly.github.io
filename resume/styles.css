@@ -1,13 +1,16 @@
+@import url("/brand/tokens.css?v=20260905-2");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Serif+SC:wght@400;500&display=swap");
+
 :root {
   color-scheme: light;
-  --ink: #18201e;
-  --muted: #5e6965;
-  --line: #d9dfdc;
-  --paper: #f8faf9;
-  --white: #ffffff;
-  --green: #0f624f;
-  --green-dark: #0a4437;
-  --signal: #ca5a3c;
+  --ink: var(--kelly-ink);
+  --muted: var(--kelly-muted-text);
+  --line: var(--kelly-line);
+  --paper: var(--kelly-paper);
+  --white: var(--kelly-surface);
+  --green: var(--kelly-moss-text);
+  --green-dark: var(--kelly-moss-text);
+  --signal: var(--kelly-rust-text);
 }
 
 *,
@@ -24,7 +27,7 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--kelly-font-body);
   font-size: 16px;
   line-height: 1.65;
 }
@@ -52,8 +55,8 @@ a {
   position: sticky;
   z-index: 10;
   top: 0;
-  border-bottom: 1px solid rgba(217, 223, 220, 0.88);
-  background: rgba(248, 250, 249, 0.94);
+  border-bottom: 1px solid rgb(203 203 194 / 88%);
+  background: rgb(241 240 234 / 94%);
   backdrop-filter: blur(12px);
 }
 
@@ -158,7 +161,7 @@ a {
 
 h1 {
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--kelly-font-display);
   font-size: 58px;
   font-weight: 500;
   line-height: 1.04;
@@ -204,7 +207,7 @@ h1 {
 
 .summary {
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--kelly-font-display);
   font-size: 22px;
   line-height: 1.55;
 }
@@ -223,7 +226,7 @@ h1 {
 .metric strong {
   display: block;
   color: var(--green-dark);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--kelly-font-display);
   font-size: 27px;
   font-weight: 600;
   line-height: 1.1;
@@ -272,7 +275,7 @@ h1 {
 
 .where-help-grid h3 {
   margin: 0 0 9px;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--kelly-font-display);
   font-size: 17px;
   font-weight: 600;
   line-height: 1.35;
@@ -291,10 +294,10 @@ h1 {
 }
 
 .agent-practice {
-  border-top: 1px solid #34413d;
-  border-bottom: 1px solid #34413d;
-  background: var(--ink);
-  color: var(--white);
+  border-top: 1px solid var(--kelly-dark-line);
+  border-bottom: 1px solid var(--kelly-dark-line);
+  background: var(--kelly-dark-background);
+  color: var(--kelly-dark-text);
 }
 
 .agent-practice > .shell {
@@ -311,12 +314,12 @@ h1 {
 }
 
 .agent-practice-heading .eyebrow {
-  color: #79c7b5;
+  color: var(--kelly-dark-moss);
 }
 
 .agent-practice-heading h2 {
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--kelly-font-display);
   font-size: 31px;
   font-weight: 500;
   line-height: 1.15;
@@ -324,15 +327,15 @@ h1 {
 
 .agent-practice-heading > p {
   margin: 0;
-  color: #c8d2ce;
+  color: var(--kelly-dark-muted);
   font-size: 14px;
 }
 
 .agent-practice-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  border-top: 1px solid #52605b;
-  border-bottom: 1px solid #52605b;
+  border-top: 1px solid var(--kelly-dark-line);
+  border-bottom: 1px solid var(--kelly-dark-line);
 }
 
 .agent-practice-grid article {
@@ -342,13 +345,13 @@ h1 {
 }
 
 .agent-practice-grid article + article {
-  border-left: 1px solid #52605b;
+  border-left: 1px solid var(--kelly-dark-line);
 }
 
 .agent-practice-grid span {
   display: block;
   margin-bottom: 22px;
-  color: #ee8b70;
+  color: var(--kelly-dark-rust);
   font-size: 11px;
   font-weight: 850;
 }
@@ -361,7 +364,7 @@ h1 {
 
 .agent-practice-grid p {
   margin: 0;
-  color: #c8d2ce;
+  color: var(--kelly-dark-muted);
   font-size: 12px;
   line-height: 1.55;
 }
@@ -375,11 +378,11 @@ h1 {
 }
 
 .agent-environment strong {
-  color: #79c7b5;
+  color: var(--kelly-dark-moss);
 }
 
 .agent-environment span {
-  color: #e3e9e6;
+  color: var(--kelly-dark-text);
 }
 
 .resume-main {
@@ -612,7 +615,7 @@ h1 {
   }
 
   .agent-practice-grid article:nth-child(n + 3) {
-    border-top: 1px solid #52605b;
+    border-top: 1px solid var(--kelly-dark-line);
   }
 }
 
@@ -697,7 +700,7 @@ h1 {
   }
 
   .agent-practice-grid article + article {
-    border-top: 1px solid #52605b;
+    border-top: 1px solid var(--kelly-dark-line);
     border-left: 0;
   }
 

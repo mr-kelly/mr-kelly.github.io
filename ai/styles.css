@@ -1,3 +1,6 @@
+@import url("/brand/tokens.css?v=20260905-2");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Noto+Serif+SC:wght@400;500&display=swap");
+
 :root {
   --ink: #18201f;
   --ink-soft: #34413f;
@@ -1968,4 +1971,299 @@ button.contact-chip {
   html {
     scroll-behavior: auto;
   }
+}
+
+/* Kelly Brand v1: Wabi Ink light mode */
+
+:root {
+  --ink: var(--kelly-ink);
+  --ink-soft: #3f4740;
+  --paper: var(--kelly-paper);
+  --white: var(--kelly-surface);
+  --mist: var(--kelly-moss-soft);
+  --line: var(--kelly-line);
+  --teal: var(--kelly-moss);
+  --teal-dark: var(--kelly-moss-text);
+  --coral: var(--kelly-rust-text);
+  --amber: var(--kelly-gold-text);
+  --blue: var(--kelly-blue-text);
+  --shadow: var(--kelly-shadow-subtle);
+  --brand-dark-muted: #c7cec5;
+  --brand-dark-line: #4b534d;
+}
+
+body {
+  background: var(--kelly-paper);
+  color: var(--kelly-ink);
+  font-family: var(--kelly-font-body);
+  font-weight: 400;
+}
+
+.brand,
+.hero h1,
+.section h2,
+.section h3,
+.profile h3,
+.contact-panel h2,
+.insight-card h3,
+.caio-detail-path h3,
+.caio-detail-signal h3,
+.caio-boundary h3 {
+  font-family: var(--kelly-font-display);
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.site-header {
+  border-bottom-color: var(--kelly-line);
+  background: rgb(241 240 234 / 96%);
+  color: var(--kelly-ink);
+  backdrop-filter: blur(12px);
+}
+
+.brand {
+  gap: 0;
+  color: var(--kelly-ink);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.brand-mark { display: none; }
+
+.primary-nav a,
+.language-switcher a,
+.button,
+.tag,
+.section-label,
+.service-table th,
+.service-price,
+.fine-print,
+.insight-meta,
+.insight-card strong,
+.copy-status {
+  font-weight: 500;
+}
+
+.primary-nav a { color: var(--kelly-muted-text); }
+.primary-nav a:hover,
+.primary-nav a:focus-visible { color: var(--kelly-rust-text); }
+.language-switcher { border-color: var(--kelly-line); }
+.language-switcher a { color: var(--kelly-muted-text); }
+.language-switcher a + a { border-left-color: var(--kelly-line); }
+.language-switcher a[aria-current="page"] { background: var(--kelly-ink); color: var(--kelly-surface); }
+
+.hero {
+  min-height: min(61vh, 590px);
+  background-color: var(--kelly-paper);
+  color: var(--kelly-ink);
+}
+
+.hero::before { background: rgb(241 240 234 / 76%); }
+.hero-inner { padding-bottom: 68px; }
+.eyebrow { color: var(--kelly-moss-text); font-weight: 500; }
+.hero h1 { max-width: 930px; font-size: 60px; line-height: 1.12; }
+.hero-lead { color: var(--kelly-muted-text); }
+
+.button {
+  border-radius: var(--kelly-radius-sm);
+  font-weight: 500;
+}
+
+.button-primary { background: var(--kelly-rust-text); color: var(--kelly-surface); }
+.button-primary:hover,
+.button-primary:focus-visible { background: #813a32; }
+.button-secondary { border-color: var(--kelly-ink); background: rgb(250 250 246 / 72%); color: var(--kelly-ink); }
+.button-secondary:hover,
+.button-secondary:focus-visible { background: var(--kelly-ink); color: var(--kelly-surface); }
+
+.hero-stages { border-top-color: var(--kelly-line); background: var(--kelly-moss-soft); }
+.hero-stage + .hero-stage { border-left-color: var(--kelly-line); }
+.hero-stage strong { color: var(--kelly-ink); font-weight: 500; }
+.hero-stage span { color: var(--kelly-muted-text); }
+
+.section-white,
+.product-card { background: var(--kelly-surface); }
+.section-vibe,
+.section-caio-contact { background: var(--kelly-paper); }
+.section-insights { background: var(--kelly-moss-soft); }
+.section-label { color: var(--kelly-moss-text); }
+.section h2 { line-height: 1.28; }
+.section-intro,
+.service-delivery,
+.vibe-offer p,
+.vibe-offer ul,
+.product-card p,
+.foundation-list span,
+.profile p,
+.caio-detail-signal p,
+.caio-outcome-grid ul,
+.insight-card p { color: var(--kelly-muted-text); }
+
+.service-table-wrap {
+  border: 1px solid var(--kelly-line);
+  border-top: 3px solid var(--kelly-moss);
+  background: var(--kelly-surface);
+  box-shadow: none;
+}
+
+.service-table th { background: var(--kelly-moss-soft); color: var(--kelly-ink); }
+.service-table td { border-bottom-color: var(--kelly-line); }
+.service-table tbody tr:hover { background: var(--kelly-moss-soft); }
+.service-name a:hover,
+.service-name a:focus-visible { color: var(--kelly-rust-text); }
+.service-format { color: var(--kelly-muted-text); }
+.service-price { color: var(--kelly-rust-text); }
+
+.tag { color: var(--kelly-ink); }
+.tag-training { background: var(--kelly-gold-soft); color: var(--kelly-gold-text); }
+.tag-build,
+.tag-data { background: var(--kelly-moss-soft); color: var(--kelly-moss-text); }
+.tag-platform { background: var(--kelly-blue-soft); color: var(--kelly-blue-text); }
+.tag-brand,
+.tag-caio { background: var(--kelly-rust-soft); color: var(--kelly-rust-text); }
+.tag-coding,
+.tag-consult { background: #e7e1e5; color: #685661; }
+
+.section-consult { background: var(--kelly-surface); }
+.section-caio { background: var(--kelly-moss-soft); }
+.section-dark { background: var(--kelly-paper); color: var(--kelly-ink); }
+.section-dark.section-consult { background: var(--kelly-surface); }
+.section-dark.section-caio { background: var(--kelly-moss-soft); }
+.section-dark .section-label { color: var(--kelly-moss-text); }
+
+.section-consult .section-label,
+.section-consult .scenarios-label,
+.consult-number,
+.consult-output-label,
+.section-caio .section-label,
+.caio-block-label,
+.caio-path .caio-path-audience,
+.caio-output-label,
+.journey-number,
+.caio-detail-path h4,
+.caio-detail-fit { color: var(--kelly-moss-text) !important; }
+
+.section-dark .section-intro,
+.scenario-card p,
+.fit-check p:last-child,
+.consult-step p,
+.caio-path p,
+.caio-path li,
+.caio-path-meta,
+.caio-step p,
+.journey-step p,
+.commercial-list li,
+.caio-detail-path p,
+.caio-detail-path li,
+.caio-boundary p,
+.caio-trust p:last-child { color: var(--kelly-muted-text); }
+
+.scenario-card h3,
+.caio-path h3,
+.caio-boundary h3,
+.consult-output li,
+.caio-output li { color: var(--kelly-ink); }
+
+.contact-panel p { color: var(--kelly-dark-muted); }
+
+.scenarios,
+.consult-cycle,
+.consult-output ul,
+.caio-paths,
+.caio-cycle,
+.caio-output ul,
+.journey,
+.caio-detail-paths,
+.caio-boundaries,
+.caio-trust { border-color: var(--kelly-line); }
+
+.scenario-card + .scenario-card,
+.consult-step + .consult-step,
+.consult-output li + li,
+.caio-path + .caio-path,
+.caio-step + .caio-step,
+.caio-output li + li,
+.journey-step + .journey-step,
+.caio-detail-path + .caio-detail-path,
+.caio-boundary:nth-child(even),
+.caio-boundary:nth-child(n + 3) { border-color: var(--kelly-line); }
+
+.consult-meta,
+.caio-meta,
+.caio-path-number,
+.caio-number,
+.caio-detail-signal span,
+.caio-boundary > span { color: var(--kelly-rust-text); }
+.consult-meta,
+.caio-meta,
+.caio-path ul { border-color: var(--kelly-line); }
+
+.trust-strip { border-left: 3px solid var(--kelly-rust); background: var(--kelly-rust-soft); }
+.trust-strip p { color: var(--kelly-ink); }
+.trust-strip-light { border-left-color: var(--kelly-moss); background: var(--kelly-moss-soft); }
+.trust-strip-light p { color: var(--kelly-ink); }
+
+.fit-check-light { border-color: var(--kelly-line); }
+.fit-check-light .fit-yes .fit-label { color: var(--kelly-moss-text); }
+.fit-check-light .fit-no .fit-label { color: var(--kelly-rust-text); }
+.fit-check-light p:last-child { color: var(--kelly-muted-text); }
+
+.vibe-proof { border-top: 1px solid var(--kelly-line); border-bottom: 1px solid var(--kelly-line); background: var(--kelly-surface); }
+.contact-panel { background: var(--kelly-ink); color: var(--kelly-dark-text); }
+.vibe-proof-item + .vibe-proof-item { border-color: var(--kelly-line); }
+.vibe-proof-item strong { color: var(--kelly-moss-text); font-weight: 500; }
+.vibe-proof-item span { color: var(--kelly-muted-text); }
+.vibe-offers { border-top-color: var(--kelly-ink); border-bottom-color: var(--kelly-line); }
+.vibe-offer + .vibe-offer { border-color: var(--kelly-line); }
+.vibe-offer-number,
+.profile-role,
+.insight-card strong { color: var(--kelly-rust-text); }
+.vibe-offer .vibe-audience,
+.vibe-offer .vibe-meta,
+.product-card .product-meta,
+.foundation-list strong,
+.insight-meta { color: var(--kelly-moss-text); }
+
+.product-cards { border-color: var(--kelly-line); background: var(--kelly-line); }
+.profile { border-color: var(--kelly-line); background: var(--kelly-moss-soft); box-shadow: none; }
+.profile img,
+.caio-trust img { border-radius: var(--kelly-radius-sm); }
+
+.contact-panel { border-left-color: var(--kelly-rust); }
+.contact-chip { border-color: #59635d; color: var(--kelly-dark-text); font-weight: 500; }
+.contact-chip:hover,
+.contact-chip:focus-visible { border-color: var(--kelly-dark-text); background: var(--kelly-dark-text); color: var(--kelly-dark-background); }
+.copy-status { color: #c8d6c2; }
+.site-footer { border-top-color: var(--kelly-dark-line); background: var(--kelly-dark-background); color: var(--kelly-dark-muted); }
+.footer-inner a { color: var(--kelly-dark-text); }
+
+.caio-detail-signals,
+.caio-outcome-grid,
+.insights-grid { border-color: var(--kelly-line); }
+.caio-detail-signal + .caio-detail-signal,
+.caio-outcome-grid section + section,
+.insight-card + .insight-card { border-color: var(--kelly-line); }
+.insight-card { color: var(--kelly-ink); }
+.insight-card:hover,
+.insight-card:focus-visible { background: var(--kelly-surface); }
+
+:focus-visible { outline-color: var(--kelly-rust); }
+
+@media (max-width: 720px) {
+  .brand { font-size: 13px; }
+  .hero { min-height: 56svh; }
+  .hero h1 { font-size: 39px; line-height: 1.18; }
+  .hero-stage + .hero-stage,
+  .hero-stage:nth-child(3),
+  .hero-stage:nth-child(4) { border-color: var(--kelly-line); }
+  .service-table-wrap { border-right: 0; border-left: 0; }
+  .service-table td::before { color: var(--kelly-muted-text); font-weight: 500; }
+  .scenario-card + .scenario-card,
+  .consult-step,
+  .consult-output li + li,
+  .caio-path + .caio-path,
+  .caio-step,
+  .caio-output li + li,
+  .journey-step,
+  .vibe-proof-item + .vibe-proof-item { border-color: var(--kelly-line); }
 }
