@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-97BE9JLYDT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-97BE9JLYDT');
+</script>
+<title>AI 时代招聘指南 · 面试工具包 | AI-Era Hiring Toolkit</title>
+<meta name="description" content="给老板和 HR 负责人的 AI 时代面试工具包：简历该看什么、怎么用三道题考察品味、现场怎么给候选人和 agent 的协作打分，并导出一页纸面试脚本。A working interview toolkit for the AI era.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mr-kelly.github.io/ai-hire-guide/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI 时代招聘指南 · 面试工具包">
+<meta property="og:description" content="技能已经不值钱了，你在招的是品味。选好岗位和层级，直接生成简历追问、品味测试题、现场评分表和一页纸面试脚本。">
+<meta property="og:url" content="https://mr-kelly.github.io/ai-hire-guide/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/ai-hire-guide/styles.css?v=20260906">
+</head>
+<body>
+
+<div class="topbar no-print">
+  <div class="topbar-inner">
+    <a class="topbar-home" href="/">← Kelly Chan</a>
+    <div class="topbar-tools">
+      <button type="button" class="btn btn-ghost" id="resetBtn" data-i18n="reset">清空</button>
+      <button type="button" class="btn" id="printBtn" data-i18n="print">打印 / 存 PDF</button>
+      <div class="langswitch" role="group" aria-label="Language">
+        <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header class="hero shell">
+  <div class="eyebrow" data-i18n="eyebrow">AI 时代的招聘工具包</div>
+  <h1 data-i18n="title">技能已经不值钱了，你在招的是品味</h1>
+  <p class="lede" data-i18n="lede">给老板和 HR 负责人的一套可直接使用的面试工具。不是文章——选好岗位和层级，它会给你简历追问、品味测试题、现场评分表，以及一份可以打印带进会议室的面试脚本。</p>
+  <div class="thesis" data-i18n="thesis">在 AI 时代，生成是免费的，选择是瓶颈。所以不要考察他能产出什么——考察他拒绝什么，以及凭什么拒绝。</div>
+</header>
+
+<div class="knobs no-print" id="knobs"></div>
+
+<main class="shell" id="app">
+  <noscript>
+    <section class="module">
+      <h2>需要开启 JavaScript</h2>
+      <p class="module-sub">这是一个交互式工具，需要 JavaScript 才能生成面试题和评分表。核心主张是：在 AI 时代技能已被抹平，简历要看的是他用什么 agent、模型和工具干活；面试要考察的是品味——他能不能品味别人做出来的东西。</p>
+    </section>
+  </noscript>
+</main>
+
+<footer class="shell">
+  <p data-i18n="footer">这套工具不收集任何数据。用得上就拿走，改成你自己的版本。</p>
+  <p><a href="/">Kelly Chan</a> · <a href="/articles/">Articles</a> · <a href="/ai/">Work with Kelly</a></p>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="/ai-hire-guide/app.js?v=20260906"></script>
+</body>
+</html>
