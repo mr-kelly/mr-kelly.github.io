@@ -373,6 +373,237 @@
     }
   };
 
+
+  /* ------------------------------------------------------------------ *
+   * The actual materials — what you hand the candidate, verbatim
+   * ------------------------------------------------------------------ */
+
+  var CASES = {
+    general: {
+      brief: {
+        zh: '客户回信：「方案我们看了，很专业。但你们报价 28 万，我们今年这条线的预算总共就 20 万，超了批不下来。你看怎么办？」\n\n下面是三份回信草稿，都是 AI 写的，你只做了少量修改。',
+        en: 'The client writes back: "We read the proposal, it is solid. But you quoted 280k and our budget for this line is 200k for the year — anything above that will not get approved. What can we do?"\n\nBelow are three draft replies, all AI-written, lightly edited by you.'
+      },
+      say: {
+        zh: '你就这么说：「我这里有三份回信草稿，都是同一封客户邮件的回复，三份都发得出去。你花五分钟看完，告诉我你会发哪一份，另外两份你会怎么处理。」',
+        en: 'Say it like this: "I have three draft replies to the same client email. All three are sendable. Take five minutes, then tell me which one you would send, and what you would do with the other two."'
+      },
+      artifacts: [
+        {
+          key: 'A',
+          body: {
+            zh: '主题：关于报价的价值说明与投资回报分析\n\n尊敬的王总：\n\n感谢贵方对方案的认可。为便于贵司内部决策，我们准备了完整的价值说明材料：\n\n一、报价构成拆解（详见附件一）\n  1. 实施服务 12 万：3 名顾问 8 周驻场，含流程梳理与\n     上线陪跑\n  2. 平台授权 10 万：三年期，含全部标准功能模块\n  3. 培训与交付 6 万：4 场培训、全套文档与验收支持\n\n二、投资回报测算（详见附件二）\n  按贵司当前人力成本测算，本方案第 14 个月即可收回\n  投资，三年期净收益约 87 万元。\n\n三、同规模客户实施效果（详见附件三）\n\n如需，我方可安排产品与实施负责人当面汇报。\n\n顺颂商祺',
+            en: 'Subject: Value breakdown and return-on-investment analysis\n\nDear Mr Wang,\n\nThank you for your positive assessment. To support your internal\ndecision-making, we have prepared a full value breakdown:\n\n1. Price composition (Appendix A)\n   - Implementation, 120k: three consultants on site for eight\n     weeks, including process mapping and go-live support\n   - Platform licence, 100k: three-year term, all standard modules\n   - Training and handover, 60k: four sessions, full documentation\n\n2. Return on investment (Appendix B)\n   Against your current staffing costs, the investment is recovered\n   in month 14, with a three-year net benefit of roughly 870k.\n\n3. Outcomes at comparable clients (Appendix C)\n\nWe would be glad to present this in person.\n\nBest regards'
+          }
+        },
+        {
+          key: 'B',
+          body: {
+            zh: '主题：回复：报价\n\n王总：\n\n20 万能做。\n\n我把第三期的「历史数据迁移」先拿掉，报价 19.8 万，其余\n范围不变。\n\n拿掉之后的影响：2023 年之前的老数据在新系统里查不到，\n需要的时候走人工导出，一次大概半天。明年预算下来随时\n可以补，补的价格是 6 万，不涨价。\n\n如果历史数据今年就必须要，那得砍别的。你告诉我哪块可以\n往后放，我重新排一版给你。\n\nKelly',
+            en: 'Subject: Re: quote\n\nMr Wang,\n\n200k works.\n\nI am taking phase three — the historical data migration — out.\nThat brings it to 198k. Everything else stays.\n\nWhat you lose: anything before 2023 will not be queryable in the\nnew system. When you need it, someone exports it by hand, about\nhalf a day each time. We can add it back the moment next year’s\nbudget lands, at 60k, and that price will not move.\n\nIf the historical data has to happen this year, something else has\nto come out. Tell me which part can wait and I will re-cut it.\n\nKelly'
+          }
+        },
+        {
+          key: 'C',
+          body: {
+            zh: '主题：回复：报价 —— 关于价格的一些说明\n\n王总：\n\n非常理解贵方的预算压力。在展开讨论之前，请允许我说明这\n28 万的构成，以及为什么我们认为它是合理的。\n\n我们的报价包含了同行通常不含的实施陪跑与一年期迭代支持。\n市面上 20 万左右的方案，通常在验收后即结束服务，而后续\n运维往往需要额外投入 8–10 万，综合成本反而更高。\n\n此外，本方案采用的架构可支撑贵司未来三年的业务增长，避免\n了两年后推倒重来的隐性成本。\n\n考虑到我们对这次合作的重视，我可以向公司申请 5% 的特别\n折扣，即 26.6 万。这已经是我们能争取到的最好条件。\n\n期待您的回复。',
+            en: 'Subject: Re: quote — some context on pricing\n\nMr Wang,\n\nI completely understand the budget pressure. Before we go further,\nlet me explain what the 280k consists of and why we believe it is\nfair.\n\nOur price includes hands-on implementation and a year of iteration\nsupport, which comparable vendors do not include. A 200k proposal\ntypically ends at acceptance, and the operations work afterwards\nusually costs another 80–100k — a higher total in the end.\n\nThe architecture here also supports three years of growth, avoiding\nthe hidden cost of a rebuild two years out.\n\nGiven how much we value this partnership, I can request a special\n5% discount — 266k. That is the best we are able to do.\n\nLooking forward to your reply.'
+          }
+        }
+      ],
+      tells: [
+        {
+          tone: 'tone-bad',
+          heard: { zh: '「C 写得最好，有理有据还给了折扣」', en: '"C is the best written — well argued, and it offers a discount."' },
+            verdict: {
+            zh: '追问一句：「26.6 万，客户批得下来吗？」客户说的是预算上限批不下来，不是嫌贵。C 通篇在回答一个没人问的问题，最后给的价还是超预算。如果他自己发现不了，这是硬伤。',
+            en: 'Ask one thing: "Can the client get 266k approved?" They did not say it was expensive — they said anything over 200k will not clear. C answers a question nobody asked and still lands over budget. If he cannot see that himself, that is the whole test.'
+          }
+        },
+        {
+          tone: 'tone-warn',
+          heard: { zh: '「B 太简单了，显得不专业」', en: '"B is too thin — it looks unprofessional."' },
+          verdict: {
+            zh: '他把"看起来花了力气"当成了专业。B 是唯一一份真正解决了对方问题的：给了一个能批下来的数字、说清了代价、留了回头路。',
+            en: 'He is reading effort as professionalism. B is the only one that solves the client’s actual problem: a number that can be approved, the cost of getting there, and a way back.'
+          }
+        },
+        {
+          tone: 'tone-good',
+          heard: { zh: '「C 没回答问题——他说的是批不下来，不是贵」', en: '"C does not answer the question — they said it will not get approved, not that it is expensive."' },
+          verdict: {
+            zh: '就是他了。他读懂了约束的类型，而不是只读懂了情绪。',
+            en: 'That is your person. He read the type of constraint, not just the tone.'
+          }
+        },
+        {
+          tone: 'tone-good',
+          heard: { zh: '主动问：「这 20 万是硬预算，还是能走特批？」', en: 'He asks first: "Is the 200k a hard cap, or is there an exception process?"' },
+          verdict: {
+            zh: '加分。他知道同一封邮件在两种约束下答案完全不同，所以他先确认约束再动笔。这是 L3 的反应。',
+            en: 'Bonus. He knows the same email has two different right answers depending on the constraint, so he checks the constraint before writing. That is an L3 reflex.'
+          }
+        }
+      ]
+    },
+
+    eng: {
+      brief: {
+        zh: '需求原文：「运营上传 CSV 批量导入联系人。如果邮箱在系统里已经存在，就跳过这一条。导入完成后告诉用户导入了多少条、跳过了多少条。」\n\n下面是三份实现，三份都能跑、都提交了 PR。',
+        en: 'The requirement, verbatim: "Ops uploads a CSV to bulk-import contacts. If an email already exists in the system, skip that row. When the import finishes, tell the user how many were imported and how many were skipped."\n\nBelow are three implementations. All three run. All three were opened as PRs.'
+      },
+      say: {
+        zh: '你就这么说：「这三份都能跑、测试都过了。你花十分钟读，然后告诉我你会合哪一份进主干，另外两份你会怎么处理。」',
+        en: 'Say it like this: "All three run and all three pass their tests. Take ten minutes, then tell me which one you would merge, and what you would do with the other two."'
+      },
+      artifacts: [
+        {
+          key: 'A',
+          mono: true,
+          body: {
+            zh: '// import/pipeline.ts\ninterface Parser<T> { parse(raw: string): T[] }\ninterface KeySource { existingKeys(): Promise<Set<string>> }\ninterface ImportResult<T> { imported: T[]; skipped: T[] }\n\nexport class ImportPipeline<T> {\n  constructor(\n    private parser: Parser<T>,\n    private source: KeySource,\n    private keyOf: (x: T) => string,\n    private hooks: ((r: ImportResult<T>) => void)[] = []\n  ) {}\n\n  async run(raw: string): Promise<ImportResult<T>> {\n    const seen = await this.source.existingKeys()\n    const out: ImportResult<T> = { imported: [], skipped: [] }\n    for (const item of this.parser.parse(raw)) {\n      const k = this.keyOf(item)\n      if (seen.has(k)) { out.skipped.push(item); continue }\n      seen.add(k)\n      out.imported.push(item)\n    }\n    this.hooks.forEach(h => h(out))\n    return out\n  }\n}\n\n// import/registry.ts — 为将来的 Excel / JSON 预留\nexport const parsers = { csv: new CsvParser() }\n\n// 目前唯一的调用点：\nnew ImportPipeline(\n  new CsvParser(),\n  new ContactEmailSource(db),\n  c => c.email.toLowerCase()\n).run(file)',
+            en: '// import/pipeline.ts\ninterface Parser<T> { parse(raw: string): T[] }\ninterface KeySource { existingKeys(): Promise<Set<string>> }\ninterface ImportResult<T> { imported: T[]; skipped: T[] }\n\nexport class ImportPipeline<T> {\n  constructor(\n    private parser: Parser<T>,\n    private source: KeySource,\n    private keyOf: (x: T) => string,\n    private hooks: ((r: ImportResult<T>) => void)[] = []\n  ) {}\n\n  async run(raw: string): Promise<ImportResult<T>> {\n    const seen = await this.source.existingKeys()\n    const out: ImportResult<T> = { imported: [], skipped: [] }\n    for (const item of this.parser.parse(raw)) {\n      const k = this.keyOf(item)\n      if (seen.has(k)) { out.skipped.push(item); continue }\n      seen.add(k)\n      out.imported.push(item)\n    }\n    this.hooks.forEach(h => h(out))\n    return out\n  }\n}\n\n// import/registry.ts — reserved for Excel / JSON later\nexport const parsers = { csv: new CsvParser() }\n\n// the one and only call site today:\nnew ImportPipeline(\n  new CsvParser(),\n  new ContactEmailSource(db),\n  c => c.email.toLowerCase()\n).run(file)'
+          }
+        },
+        {
+          key: 'B',
+          mono: true,
+          body: {
+            zh: '// import.ts\nexport async function importContacts(csv: string, db: Db) {\n  const rows = parseCsv(csv)\n\n  const existing = new Set(\n    (await db.query(\'select email from contacts\'))\n      .map(r => r.email.toLowerCase())\n  )\n\n  const toInsert = []\n  let skipped = 0\n\n  for (const row of rows) {\n    const email = row.email.trim().toLowerCase()\n    if (!email || existing.has(email)) { skipped++; continue }\n    existing.add(email)\n    toInsert.push({ ...row, email })\n  }\n\n  await db.insertMany(\'contacts\', toInsert)\n  return { imported: toInsert.length, skipped }\n}',
+            en: '// import.ts\nexport async function importContacts(csv: string, db: Db) {\n  const rows = parseCsv(csv)\n\n  const existing = new Set(\n    (await db.query(\'select email from contacts\'))\n      .map(r => r.email.toLowerCase())\n  )\n\n  const toInsert = []\n  let skipped = 0\n\n  for (const row of rows) {\n    const email = row.email.trim().toLowerCase()\n    if (!email || existing.has(email)) { skipped++; continue }\n    existing.add(email)\n    toInsert.push({ ...row, email })\n  }\n\n  await db.insertMany(\'contacts\', toInsert)\n  return { imported: toInsert.length, skipped }\n}'
+          }
+        },
+        {
+          key: 'C',
+          mono: true,
+          body: {
+            zh: '// import.ts\nexport async function importContacts(csv: string, db: Db) {\n  const rows = parseCsv(csv)\n  const seen = new Set<string>()\n  const toInsert = []\n  let skipped = 0\n\n  for (const row of rows) {\n    const email = row.email.trim().toLowerCase()\n    if (!email) { skipped++; continue }\n    if (seen.has(email)) { skipped++; continue }\n    seen.add(email)\n    toInsert.push({ ...row, email })\n  }\n\n  await db.insertMany(\'contacts\', toInsert)\n  return { imported: toInsert.length, skipped }\n}\n\n// import.test.ts\ndescribe(\'importContacts\', () => {\n  it(\'跳过重复邮箱\', async () => {\n    const csv = \'email\\na@x.com\\na@x.com\\n\'\n    const r = await importContacts(csv, db)\n    expect(r.imported).toBe(1)\n    expect(r.skipped).toBe(1)\n  })\n\n  it(\'忽略空邮箱\', async () => { /* ... */ })\n  it(\'邮箱大小写不敏感\', async () => { /* ... */ })\n})',
+            en: '// import.ts\nexport async function importContacts(csv: string, db: Db) {\n  const rows = parseCsv(csv)\n  const seen = new Set<string>()\n  const toInsert = []\n  let skipped = 0\n\n  for (const row of rows) {\n    const email = row.email.trim().toLowerCase()\n    if (!email) { skipped++; continue }\n    if (seen.has(email)) { skipped++; continue }\n    seen.add(email)\n    toInsert.push({ ...row, email })\n  }\n\n  await db.insertMany(\'contacts\', toInsert)\n  return { imported: toInsert.length, skipped }\n}\n\n// import.test.ts\ndescribe(\'importContacts\', () => {\n  it(\'skips duplicate emails\', async () => {\n    const csv = \'email\\na@x.com\\na@x.com\\n\'\n    const r = await importContacts(csv, db)\n    expect(r.imported).toBe(1)\n    expect(r.skipped).toBe(1)\n  })\n\n  it(\'ignores empty emails\', async () => { /* ... */ })\n  it(\'is case-insensitive\', async () => { /* ... */ })\n})'
+          }
+        }
+      ],
+      tells: [
+        {
+          tone: 'tone-bad',
+          heard: { zh: '「C 挺干净的，测试也齐，可以合」', en: '"C is clean and well tested — mergeable."' },
+          verdict: {
+            zh: '红旗，而且是最重要的一个。C 只在这一个 CSV 文件内部去重，从来没查过数据库——需求说的是"系统里已经存在"。它的测试全过，因为测试是照着代码写的，不是照着需求写的。这正是 AI 产出的典型形态：自洽、干净、跑得通、解决的是另一个问题。',
+            en: 'Red flag, and the important one. C only deduplicates inside the uploaded file and never touches the database — the requirement says "already exists in the system". Its tests all pass because they were written against the code, not against the requirement. This is the signature shape of AI output: coherent, clean, green, and solving a different problem.'
+          }
+        },
+        {
+          tone: 'tone-warn',
+          heard: { zh: '「A 好，扩展性强，以后加 Excel 很方便」', en: '"A — good extensibility, easy to add Excel later."' },
+          verdict: {
+            zh: '追问：「现在有第二种格式的需求吗？」如果没有，他是在用今天确定的复杂度，换一个明天不一定发生的方便。还坚持的话，你招到的是一个会把每个功能都做成框架的人。',
+            en: 'Ask: "Is there a second format on the roadmap?" If not, he is paying certain complexity today for convenience that may never arrive. If he holds his ground anyway, you are hiring someone who turns every feature into a framework.'
+          }
+        },
+        {
+          tone: 'tone-good',
+          heard: { zh: '「合 B。C 根本没查库，需求说的是系统里已存在。」', en: '"Merge B. C never queries the database — the requirement says already in the system."' },
+          verdict: {
+            zh: '就是他了。他去对了需求，而不是对了测试。',
+            en: 'That is your person. He checked against the requirement, not against the test suite.'
+          }
+        },
+        {
+          tone: 'tone-good',
+          heard: { zh: '「B 对，但如果联系人有几百万，把邮箱全查出来塞 Set 会撑爆内存，要么分批查，要么直接靠数据库唯一索引。」', en: '"B is right, but if there are millions of contacts, pulling every email into a Set will blow up memory — batch it, or let a unique index do the work."' },
+          verdict: {
+            zh: '最好的一种回答。他没有把"B 是标准答案"当成终点，而是问了真实规模。注意：这道题没有完美选项，能看出 B 的规模隐患比选对 B 更值钱。',
+            en: 'The best answer available. He does not treat "B is the right one" as the end of the thought — he asks about real scale. Note there is no perfect option here: spotting B’s scaling limit is worth more than picking B.'
+          }
+        }
+      ]
+    },
+
+    pm: {
+      brief: {
+        zh: '真实背景：客户成功团队这个月收到 11 张工单，都是「找不到导出功能」。导出功能其实是有的，藏在「设置 → 数据管理」里面。\n\n下面是三份方案，都是 AI 生成的，你只做了少量修改。',
+        en: 'The situation: customer success logged 11 tickets this month, all of them "cannot find the export function". Export exists — it is buried under Settings → Data Management.\n\nBelow are three proposals, all AI-generated, lightly edited by you.'
+      },
+      say: {
+        zh: '你就这么说：「这三份方案都能立项、都能排期。你花十分钟看，告诉我你会做哪一份，另外两份你会怎么处理。」',
+        en: 'Say it like this: "All three of these could be approved and scheduled. Take ten minutes, then tell me which one you would build, and what you would do with the other two."'
+      },
+      artifacts: [
+        {
+          key: 'A',
+          body: {
+            zh: '【方案 A】数据中心 2.0\n\n一、背景与用户画像\n  P0「数据分析型运营」：每周导出 3–5 次，关注明细\n  P1「管理者」：关注汇总视图与趋势\n  P2「财务」：月度对账，关注字段完整性\n\n二、竞品能力矩阵\n  （对比 Tableau / 观远 / 帆软 的导出与报表能力，略）\n\n三、方案设计\n  新增一级菜单「数据中心」，包含三个子模块：\n  3.1 导出任务管理：定时导出、导出历史、失败重试\n  3.2 自定义报表模板：字段选择、模板保存与共享\n  3.3 数据订阅：按周/月邮件推送\n\n四、分期路线\n  Q1 导出任务管理\n  Q2 报表模板\n  Q3 数据订阅\n\n五、资源需求\n  前端 1.5 人 / 后端 1 人 / 设计 0.5 人，持续三个季度',
+            en: 'Proposal A — Data Centre 2.0\n\n1. Background and personas\n   P0 "analytics-driven ops": exports 3–5 times a week, wants detail\n   P1 "managers": want rollups and trends\n   P2 "finance": monthly reconciliation, cares about field coverage\n\n2. Competitive matrix\n   (Tableau / Looker / Metabase export and reporting capabilities)\n\n3. Design\n   A new top-level "Data Centre" menu with three modules:\n   3.1 Export jobs: scheduling, history, retry on failure\n   3.2 Custom report templates: field selection, save and share\n   3.3 Subscriptions: weekly/monthly email delivery\n\n4. Phasing\n   Q1 export jobs / Q2 templates / Q3 subscriptions\n\n5. Resourcing\n   1.5 FE, 1 BE, 0.5 design, sustained across three quarters'
+          }
+        },
+        {
+          key: 'B',
+          body: {
+            zh: '【方案 B】把导出按钮放到列表页右上角\n\n做什么\n  列表页右上角加一个「导出」按钮，点击直接下载当前筛选\n  条件下的数据。原来「设置 → 数据管理」的入口保留不动。\n\n不做什么\n  不做定时导出。不做报表模板。不做导出历史。\n\n怎么算成功\n  两周内「找不到导出」的工单降到 0–2 张。\n  如果没降，说明问题不是入口，是别的（比如导出的字段\n  不对、或者导出后打不开），到时候再查，不要现在猜。\n\n工期\n  前端 1 天，不需要后端。',
+            en: 'Proposal B — put an Export button in the top right of the list page\n\nWhat we build\n  An "Export" button in the top-right of the list view. Clicking it\n  downloads the data under the current filters. The old path under\n  Settings → Data Management stays where it is.\n\nWhat we do not build\n  No scheduled exports. No report templates. No export history.\n\nHow we know it worked\n  "Cannot find export" tickets drop to 0–2 within two weeks.\n  If they do not drop, the problem was never the entry point — it is\n  something else (wrong fields, file will not open). We investigate\n  then, instead of guessing now.\n\nEffort\n  One front-end day. No back-end work.'
+          }
+        },
+        {
+          key: 'C',
+          body: {
+            zh: '【方案 C】数据能力升级\n\n一、问题定义\n  本月 11 张工单反映用户找不到导出功能。结合行业调研，\n  67% 的 SaaS 用户将「数据分析能力不足」列为更换供应商\n  的主要原因之一。这说明问题的严重性被低估了。\n\n二、根因分析\n  用户找不到导出，本质上是我们缺少面向"数据消费场景"的\n  产品设计。单纯调整按钮位置只能缓解表层症状，无法建立\n  长期的数据心智。\n\n三、方案\n  引入轻量 BI 看板：用户可自定义指标卡与图表，导出作为\n  看板上的一个自然动作存在。这样既解决了发现性问题，也\n  为后续的数据变现能力打下基础。\n\n四、预期收益\n  提升用户粘性与续费率，建立数据产品的差异化壁垒。',
+            en: 'Proposal C — Data capability upgrade\n\n1. Problem definition\n   11 tickets this month report that users cannot find export.\n   Industry research shows 67% of SaaS users cite "insufficient\n   analytics" as a primary reason for switching vendors. The\n   severity here has been underestimated.\n\n2. Root cause\n   Users cannot find export because we lack product design for the\n   data-consumption scenario. Moving a button treats the symptom\n   and never builds the underlying data habit.\n\n3. Solution\n   Introduce a lightweight BI dashboard where users compose metric\n   cards and charts, with export as a natural action on the board.\n   This addresses discoverability and lays groundwork for future\n   data monetisation.\n\n4. Expected benefit\n   Higher stickiness and renewal rates, and a defensible position\n   in data products.'
+          }
+        }
+      ],
+      tells: [
+        {
+          tone: 'tone-bad',
+          heard: { zh: '「C 有道理，得看根因，不能头痛医头」', en: '"C makes sense — you have to fix root causes, not symptoms."' },
+          verdict: {
+            zh: '追问两句：「那个 67% 是关于什么的？和这 11 张工单有什么因果关系？」——那是"换供应商的原因"的行业调研，和"这 11 个人找不到按钮"没有关系。C 用一个宏大叙事把一个一天能修的问题变成了一个季度的项目，而且全篇没有成功指标。"看根因"是这个岗位最常见的、听起来最聪明的错误。',
+            en: 'Ask two things: "What is that 67% actually about, and how does it connect to these 11 tickets?" It is industry research on why customers switch vendors — unrelated to eleven people not finding a button. C turns a one-day fix into a quarter-long project on the strength of a grand narrative, and never states a success metric. "Look at root causes" is the smartest-sounding mistake in this role.'
+          }
+        },
+        {
+          tone: 'tone-warn',
+          heard: { zh: '「A 最完整，考虑得最周全」', en: '"A is the most complete — it thought of everything."' },
+          verdict: {
+            zh: '他会把每一个一天的问题都做成一个季度的项目。而且注意 A 的画像和竞品矩阵：它们看起来是论据，其实一条也没有支撑"要不要挪那个按钮"。',
+            en: 'He will turn every one-day problem into a quarter-long project. Note too that A’s personas and competitive matrix look like evidence but support nothing about whether to move the button.'
+          }
+        },
+        {
+          tone: 'tone-good',
+          heard: { zh: '「做 B。而且 B 里那句『如果两周后没降，说明不是入口问题』是关键。」', en: '"Build B. And the key line in B is: if tickets do not drop in two weeks, the entry point was never the problem."' },
+          verdict: {
+            zh: '就是他了。他挑中的不是方案，是那个可证伪的假设——B 是唯一一份敢于说"我可能是错的，这是我怎么知道"的方案。',
+            en: 'That is your person. What he picked was not a solution but a falsifiable hypothesis — B is the only one willing to say "I might be wrong, and here is how we will know."'
+          }
+        },
+        {
+          tone: 'tone-good',
+          heard: { zh: '主动问：「这 11 张工单是 11 个客户，还是同一个客户提了 11 次？」', en: 'He asks first: "Is that 11 customers, or one customer filing 11 times?"' },
+          verdict: {
+            zh: '最高级的反应，而且几乎没人会问。如果是同一个大客户提了 11 次，这可能根本不是产品问题，是客户成功的问题——方案全都白做。',
+            en: 'The best reflex available, and almost nobody asks it. If one large account filed all eleven, this may not be a product problem at all — it may be a customer-success problem, and all three proposals are moot.'
+          }
+        }
+      ]
+    }
+  };
+
+  /* Verbatim wording for the questions that are not the reverse review. */
+  var SAY = {
+    why: [
+      { zh: '第一问：「你刚才说那个项目做得不错——你怎么知道它是好的？」', en: 'First: "You said that project went well — how do you know it was good?"' },
+      { zh: '第二问（针对他的答案）：「你说 XX 变好了，你又怎么知道那是好的？」', en: 'Second, against his answer: "You said X improved — how do you know that was good?"' },
+      { zh: '第三问：「这个标准是从哪来的？谁定的？」', en: 'Third: "Where does that standard come from? Who set it?"' }
+    ],
+    cal: {
+      zh: '你就这么说：「这是我们团队真实做的一个东西，没有标准答案，我也不是要考你。你先说好在哪，再说如果只能砍一样你砍什么，最后如果只能改一处你改哪。」',
+      en: 'Say it like this: "This is something my team actually shipped. There is no answer key and I am not testing you. Tell me what is good about it, then what you would cut if you could only cut one thing, then what you would change if you could only change one."'
+    },
+    l3: {
+      zh: '你就这么说：「这个项目我们已经投了三个月，下个月要上线。假设从今天起这是你的决定——你会继续做吗？」',
+      en: 'Say it like this: "We are three months into this and it ships next month. Assume it is your call from today — would you keep going?"'
+    }
+  };
+
   /* ------------------------------------------------------------------ *
    * Module 4 — live session scorecard
    * ------------------------------------------------------------------ */
@@ -546,6 +777,12 @@
     tasteWhy: { zh: '3.2　"你怎么知道它是好的？"连问三次', en: '3.2  "How do you know it was good?" — asked three times' },
     tasteCal: { zh: '3.3　品味校准题', en: '3.3  The calibration test' },
     materialLabel: { zh: '准备什么材料', en: 'What to prepare' },
+    briefLabel: { zh: '给候选人看的原始材料', en: 'What the candidate sees' },
+    artLabel: { zh: '三份材料', en: 'The three artefacts' },
+    artNote: { zh: '标签（漂亮但过度设计 / 朴素正确 / 似是而非）只有你看得到。复制出去的版本不含标签。', en: 'The labels — overbuilt, plain, coherent-but-false — are for you only. The copied version does not include them.' },
+    copyCase: { zh: '复制材料（不含标签）', en: 'Copy the material (no labels)' },
+    tellsTitle: { zh: '听到这个答案，怎么判', en: 'What to do when you hear this' },
+    scriptLabel: { zh: '逐字话术', en: 'Say it like this' },
     howRead: { zh: '怎么读他的回答', en: 'How to read their answer' },
     showAnswer: { zh: '显示判读（别念出来）', en: 'Show how to read it (do not read aloud)' },
     hideAnswer: { zh: '收起判读', en: 'Hide' },
@@ -1014,31 +1251,70 @@
   }
 
   /* --- module 3 --- */
-  function tasteReviewCard(compact) {
-    var d = TASTE[S.role];
-    return '<div style="margin-top:' + (compact ? '4' : '16') + 'px">' +
-      (compact ? '' : '<div class="sig-group-title">' + esc(t(UI.materialLabel)) + '</div>') +
-      '<div class="card-note" style="margin-bottom:12px">' + esc(t(d.material)) + '</div>' +
-      '<div class="abc">' + d.abc.map(function (x) {
-        return '<div class="abc-item"><div class="abc-key">' + x.key + '</div><div class="abc-name">' + esc(t(x.name)) + '</div>' +
-          '<div class="abc-desc">' + esc(t(x.desc)) + '</div></div>';
-      }).join('') + '</div></div>';
+  function caseForCandidate() {
+    var k = CASES[S.role];
+    return t(k.brief) + '\n\n' + k.artifacts.map(function (a) {
+      return '——— ' + a.key + ' ———\n\n' + t(a.body);
+    }).join('\n\n') + '\n\n— ' + MARK;
+  }
+
+  function tasteReviewCard() {
+    var d = TASTE[S.role], k = CASES[S.role];
+    return '<div class="brief"><div class="brief-label">' + esc(t(UI.briefLabel)) + '</div>' +
+      '<div class="brief-body">' + md(t(k.brief)) + '</div></div>' +
+      '<div class="say"><span class="say-label">' + esc(t(UI.scriptLabel)) + '</span>' + esc(t(k.say)) + '</div>' +
+      '<div class="arts"><div class="art-tabs">' +
+      k.artifacts.map(function (a, i) {
+        return '<button type="button" class="art-tab" data-art="' + i + '" aria-pressed="' + (i === 0) + '">' +
+          '<span class="art-key">' + a.key + '</span>' +
+          '<span class="art-name">' + esc(t(d.abc[i].name)) + '</span></button>';
+      }).join('') + '</div>' +
+      k.artifacts.map(function (a, i) {
+        return '<pre class="art-body' + (a.mono ? ' is-code' : '') + '" data-artbody="' + i + '"' + (i === 0 ? '' : ' hidden') + '>' +
+          esc(t(a.body)) + '</pre>';
+      }).join('') + '</div>' +
+      '<div class="card-note" style="margin-top:10px">' + esc(t(UI.artNote)) + '</div>' +
+      '<div class="actions no-print"><button type="button" class="btn" data-copycase>' + esc(t(UI.copyCase)) + '</button></div>';
+  }
+
+  function bindCase(root) {
+    root.querySelectorAll('[data-art]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var i = b.getAttribute('data-art');
+        root.querySelectorAll('[data-art]').forEach(function (x) {
+          x.setAttribute('aria-pressed', String(x.getAttribute('data-art') === i));
+        });
+        root.querySelectorAll('[data-artbody]').forEach(function (x) {
+          x.hidden = x.getAttribute('data-artbody') !== i;
+        });
+      });
+    });
+    var cc = root.querySelector('[data-copycase]');
+    if (cc) cc.addEventListener('click', function () { copyText(caseForCandidate()); });
   }
   function tasteAnswerHtml() {
     return '<div class="card-note" style="margin-bottom:8px"><strong>' + esc(t(TASTE_ANSWER.order)) + '</strong></div>' +
       '<div class="qblock">' + TASTE_ANSWER.read.map(function (x) {
         return '<div class="qitem"><div class="qnum">·</div><div class="qtext">' + md(t(x)) + '</div></div>';
+      }).join('') + '</div>' +
+      '<div class="sig-group-title" style="margin-top:20px">' + esc(t(UI.tellsTitle)) + '</div>' +
+      '<div class="tells">' + CASES[S.role].tells.map(function (x) {
+        return '<div class="tell"><div class="tell-heard ' + x.tone + '">' + esc(t(x.heard)) + '</div>' +
+          '<div class="tell-verdict">' + esc(t(x.verdict)) + '</div></div>';
       }).join('') + '</div>';
   }
   function threeWhyHtml() {
-    return '<div class="compare" style="margin-top:16px">' +
+    return '<div class="say"><span class="say-label">' + esc(t(UI.scriptLabel)) + '</span>' +
+      SAY.why.map(function (x) { return esc(t(x)); }).join('<br>') + '</div>' +
+      '<div class="compare" style="margin-top:16px">' +
       '<div class="compare-col compare-good"><h4>' + esc(t(UI.goodGround)) + '</h4><ul>' +
       THREE_WHY.good.map(function (x) { return '<li>' + md(t(x)) + '</li>'; }).join('') + '</ul></div>' +
       '<div class="compare-col compare-bad"><h4>' + esc(t(UI.badGround)) + '</h4><ul>' +
       THREE_WHY.bad.map(function (x) { return '<li>' + md(t(x)) + '</li>'; }).join('') + '</ul></div></div>';
   }
   function calQuestionsHtml() {
-    return '<div class="qblock">' + CALIBRATION.questions.map(function (q, i) {
+    return '<div class="say"><span class="say-label">' + esc(t(UI.scriptLabel)) + '</span>' + esc(t(SAY.cal)) + '</div>' +
+      '<div class="qblock">' + CALIBRATION.questions.map(function (q, i) {
       return '<div class="qitem"><div class="qnum">Q' + (i + 1) + '</div><div class="qtext">' + esc(t(q)) + '</div></div>';
     }).join('') + '</div>';
   }
@@ -1050,7 +1326,7 @@
         '<div class="verdict-body">' + esc(t(UI.l1note)) + '</div></div>';
     }
     html += '<div class="card"><h3>' + esc(t(UI.tasteReverse)) + '</h3>' +
-      '<div class="card-note">' + esc(t(UI.tasteReverseSub)) + '</div>' + tasteReviewCard(false) +
+      '<div class="card-note">' + esc(t(UI.tasteReverseSub)) + '</div>' + tasteReviewCard() +
       '<div style="margin-top:18px"><div class="sig-group-title">' + esc(t(UI.howRead)) + '</div>' + tasteAnswerHtml() +
       '<div class="card-note" style="margin-top:12px">' + esc(t(TASTE_ANSWER.howto)) + '</div></div></div>';
 
@@ -1065,9 +1341,12 @@
 
     if (S.level === 'L3') {
       html += '<div class="card" style="border-color:var(--kelly-rust)"><h3>' + esc(t(L3_EXTRA.title)) + '</h3>' +
+        '<div class="say"><span class="say-label">' + esc(t(UI.scriptLabel)) + '</span>' + esc(t(SAY.l3)) + '</div>' +
         '<div class="card-note" style="margin-top:8px">' + md(t(L3_EXTRA.body)) + '</div></div>';
     }
-    body('m3').innerHTML = html;
+    var b3 = body('m3');
+    b3.innerHTML = html;
+    bindCase(b3);
   }
 
   /* --- module 4 --- */
@@ -1248,7 +1527,7 @@
       {
         key: 'review', title: UI.ivReview,
         html: function () {
-          return '<div class="iv-lead">' + esc(t(UI.tasteReverseSub)) + '</div>' + tasteReviewCard(true) +
+          return '<div class="iv-lead">' + esc(t(UI.tasteReverseSub)) + '</div>' + tasteReviewCard() +
             '<div class="iv-reveal"><button type="button" class="btn" id="ivReveal">' +
             esc(t(IV.showAnswer ? UI.hideAnswer : UI.showAnswer)) + '</button>' +
             (IV.showAnswer ? '<div style="margin-top:14px">' + tasteAnswerHtml() + '</div>' : '') + '</div>';
@@ -1267,7 +1546,10 @@
     if (S.level === 'L3') {
       steps.push({
         key: 'l3', title: L3_EXTRA.title,
-        html: function () { return '<div class="iv-lead">' + md(t(L3_EXTRA.body)) + '</div>'; }
+        html: function () {
+          return '<div class="say"><span class="say-label">' + esc(t(UI.scriptLabel)) + '</span>' + esc(t(SAY.l3)) + '</div>' +
+            '<div class="iv-lead">' + md(t(L3_EXTRA.body)) + '</div>';
+        }
       });
     }
 
@@ -1362,6 +1644,7 @@
     var rev = root.querySelector('#ivReveal');
     if (rev) rev.addEventListener('click', function () { IV.showAnswer = !IV.showAnswer; renderInterview(); });
 
+    bindCase(root);
     bindScoreDims(root, function () { renderInterview(); });
     root.querySelectorAll('input[name=decision]').forEach(function (r) {
       r.addEventListener('change', function () { cur().decision = r.value; save(); renderInterview(); });
@@ -1404,25 +1687,47 @@
     out.push('');
 
     out.push('## ' + (zh ? '③ 品味题' : '③ Taste tests'));
+    var kase = CASES[S.role];
     out.push('### ' + t(UI.tasteReverse));
-    out.push((zh ? '材料：' : 'Material: ') + t(d.material));
-    d.abc.forEach(function (x) { out.push('- **' + x.key + ' ' + t(x.name) + '** — ' + t(x.desc)); });
+    out.push('**' + t(UI.scriptLabel) + '** ' + t(kase.say));
+    out.push('');
+    out.push('**' + t(UI.briefLabel) + '**');
+    out.push('');
+    out.push(t(kase.brief));
+    kase.artifacts.forEach(function (a, i) {
+      out.push('');
+      out.push('**' + a.key + '** — ' + t(d.abc[i].name) + (zh ? '（标签不要给候选人看）' : ' (do not show this label to the candidate)'));
+      out.push('');
+      out.push('```');
+      out.push(t(a.body));
+      out.push('```');
+    });
     out.push('');
     out.push(t(TASTE_ANSWER.order));
     TASTE_ANSWER.read.forEach(function (x) { out.push('- ' + t(x).replace(/\n/g, ' ')); });
     out.push('');
+    out.push('**' + t(UI.tellsTitle) + '**');
+    kase.tells.forEach(function (x) {
+      out.push('- ' + t(x.heard));
+      out.push('  → ' + t(x.verdict));
+    });
+    out.push('');
     out.push('### ' + t(UI.tasteWhy));
     out.push(t(THREE_WHY.intro));
+    SAY.why.forEach(function (x) { out.push('- ' + t(x)); });
     out.push('- ' + (zh ? '有品味会落在：' : 'Taste lands on: ') + THREE_WHY.good.map(function (x) { return t(x).replace(/\*\*/g, ''); }).join(' / '));
     out.push('- ' + (zh ? '没品味会落在：' : 'No taste lands on: ') + THREE_WHY.bad.map(function (x) { return t(x).replace(/\*\*/g, ''); }).join(' / '));
     out.push('');
     out.push('### ' + t(UI.tasteCal));
     out.push(t(CALIBRATION.setup[S.role]));
+    out.push('**' + t(UI.scriptLabel) + '** ' + t(SAY.cal));
     CALIBRATION.questions.forEach(function (q, i) { out.push((i + 1) + '. ' + t(q)); });
     out.push('- ' + t(CALIBRATION.key).replace(/\*\*/g, '').replace(/\n\n/g, ' '));
     if (S.level === 'L3') {
       out.push('');
       out.push('### ' + t(L3_EXTRA.title));
+      out.push('**' + t(UI.scriptLabel) + '** ' + t(SAY.l3));
+      out.push('');
       out.push(t(L3_EXTRA.body).replace(/\*\*/g, ''));
     }
     out.push('');
