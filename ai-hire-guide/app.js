@@ -6,16 +6,15 @@
 
   var STORE = 'kelly-ai-hire-guide-v1';
 
+  /* Session-level settings live on S; everything observed about a person
+     lives on that person's record in S.candidates. */
   var S = {
     lang: 'zh',
     role: 'general',
     level: 'L2',
     quiz: {},
-    sigs: {},
-    scores: {},
-    candidate: '',
-    theirQuestions: '',
-    decision: ''
+    candidates: [],
+    active: null
   };
 
   function t(pair) { return (pair && pair[S.lang]) || (pair && pair.zh) || ''; }
@@ -483,6 +482,8 @@
    * UI copy
    * ------------------------------------------------------------------ */
 
+  var MARK = 'kellychan.im/ai-hire-guide';
+
   var UI = {
     eyebrow: { zh: 'AI 时代的招聘工具包', en: 'A hiring toolkit for the AI era' },
     title: { zh: '技能已经不值钱了，你在招的是品味', en: 'Skills are commoditised. What you are hiring is taste.' },
@@ -496,6 +497,15 @@
     },
     knobRole: { zh: '我在招什么岗位', en: 'Role I am hiring for' },
     knobLevel: { zh: '我要哪一层的人', en: 'Level I need' },
+    knobPeople: { zh: '候选人', en: 'Candidates' },
+    addPerson: { zh: '＋ 新增', en: '＋ Add' },
+    renamePerson: { zh: '重命名', en: 'Rename' },
+    delPerson: { zh: '删除', en: 'Delete' },
+    delConfirm: { zh: '删除这位候选人的所有记录？', en: 'Delete everything recorded for this candidate?' },
+    namePrompt: { zh: '候选人姓名或代号', en: 'Candidate name or reference' },
+    unnamed: { zh: '未命名', en: 'Unnamed' },
+    startInterview: { zh: '▶ 进入面试模式', en: '▶ Interview mode' },
+    exitInterview: { zh: '退出', en: 'Exit' },
     m1: { zh: '你到底在招哪一层？', en: 'Which level are you actually hiring?' },
     m1sub: {
       zh: '多数老板以为自己在招 L3，出的题却全在考 L1。先花两分钟把这件事定下来——后面所有题目和评分线都会跟着变。',
@@ -515,8 +525,12 @@
     m4sub: { zh: '看他怎么和 agent 一起干活。这是 AI 时代版的"写段代码我看看"。', en: 'Watch them work with an agent. This is the AI-era version of "write some code for me".' },
     m5: { zh: '反向面试提示卡', en: 'Reverse interview card' },
     m5sub: { zh: '让他问你。', en: 'Let them ask you.' },
-    m6: { zh: '一页纸导出', en: 'Export the one-pager' },
-    m6sub: { zh: '把上面所有选择汇总成一份面试脚本，打印带进会议室，或者复制成 Markdown 发给同事。', en: 'Everything above, assembled into one interview script. Print it and carry it in, or copy it as Markdown for a colleague.' },
+    m6: { zh: '对比与导出', en: 'Compare and export' },
+    m6sub: { zh: '把所有候选人横过来看，然后把这一场的选择汇总成一份面试脚本。', en: 'Lay every candidate side by side, then assemble this session into one interview script.' },
+    navTitles: {
+      zh: ['① 层级', '② 简历', '③ 品味题', '④ 评分', '⑤ 反向面试', '⑥ 对比导出'],
+      en: ['① Level', '② Resume', '③ Taste', '④ Score', '⑤ Reverse', '⑥ Export']
+    },
     posTitle: { zh: '正向信号', en: 'Positive signals' },
     negTitle: { zh: '负向信号', en: 'Negative signals' },
     followups: { zh: '给这位候选人的追问', en: 'Follow-ups for this candidate' },
@@ -525,7 +539,7 @@
     copied: { zh: '已复制', en: 'Copied' },
     print: { zh: '打印 / 存 PDF', en: 'Print / save PDF' },
     reset: { zh: '清空', en: 'Reset' },
-    resetConfirm: { zh: '清空这个页面上所有已填的内容？', en: 'Clear everything filled in on this page?' },
+    resetConfirm: { zh: '清空这位候选人已填的内容？（岗位和层级设置会保留）', en: 'Clear what you filled in for this candidate? (Role and level settings are kept.)' },
     unscored: { zh: '未打分', en: 'not scored' },
     tasteReverse: { zh: '3.1　反向评审题', en: '3.1  The reverse review' },
     tasteReverseSub: { zh: '不给"做一个 X"，给三份已经做好的 X，让他排序并说明理由。', en: 'Do not ask them to make an X. Hand them three finished Xs and ask them to rank the three and defend the ranking.' },
@@ -533,6 +547,8 @@
     tasteCal: { zh: '3.3　品味校准题', en: '3.3  The calibration test' },
     materialLabel: { zh: '准备什么材料', en: 'What to prepare' },
     howRead: { zh: '怎么读他的回答', en: 'How to read their answer' },
+    showAnswer: { zh: '显示判读（别念出来）', en: 'Show how to read it (do not read aloud)' },
+    hideAnswer: { zh: '收起判读', en: 'Hide' },
     goodGround: { zh: '有品味：追问到底会落在这里', en: 'Taste: pushed far enough, they land here' },
     badGround: { zh: '没品味：追问到底会落在这里', en: 'No taste: pushed far enough, they land here' },
     calQuestions: { zh: '问这三个问题', en: 'Ask these three' },
@@ -544,6 +560,8 @@
     badQ: { zh: '坏问题', en: 'Bad questions' },
     theirQ: { zh: '记下他实际问了什么', en: 'Write down what they actually asked' },
     theirQPh: { zh: '他问的问题往往比他的回答更值得记下来……', en: 'What they asked is usually worth more than what they answered…' },
+    notes: { zh: '面试笔记', en: 'Interview notes' },
+    notesPh: { zh: '原话、犹豫的地方、他主动问的问题……', en: 'Exact words, hesitations, what they asked unprompted…' },
     candidate: { zh: '候选人', en: 'Candidate' },
     candidatePh: { zh: '姓名或代号', en: 'Name or reference' },
     decision: { zh: '结论', en: 'Decision' },
@@ -567,10 +585,40 @@
     verdictGoodB: { zh: '信号足够强。把时间花在品味题上，不要再花在核实履历上。', en: 'Signal is strong enough. Spend the interview on taste, not on verifying history.' },
     verdictAskB: { zh: '信号不足以判断，但也没到该拒的程度。用下面生成的追问打一通电话，十五分钟就能定。', en: 'Not enough to judge, not enough to reject. Use the follow-ups below on a fifteen-minute call.' },
     verdictNoB: { zh: '这份简历里没有可验证的判断力痕迹。除非有其他渠道的强推荐，否则不值得占用一场面试。', en: 'No verifiable trace of judgement here. Unless there is a strong referral elsewhere, it does not warrant an interview slot.' },
+    compareTitle: { zh: '候选人对比', en: 'Side by side' },
+    compareNote: {
+      zh: '重点不是看谁总分高，是看"验证"那一行——那一列是 1 分的人，你要为他的每一份产出兜底。',
+      en: 'Do not read this for the highest total. Read the "verify" row: whoever scores 1 there is someone whose every output you will personally backstop.'
+    },
+    compareEmpty: { zh: '再加一位候选人就能横向对比了。', en: 'Add one more candidate to compare side by side.' },
+    rowResume: { zh: '简历分', en: 'Resume' },
+    rowTotal: { zh: '现场总分', en: 'Live total' },
+    rowDecision: { zh: '结论', en: 'Decision' },
+    open: { zh: '打开', en: 'Open' },
     footer: {
       zh: '这套工具不收集任何数据。用得上就拿走，改成你自己的版本。',
       en: 'This toolkit collects nothing. Take it, and make it yours.'
-    }
+    },
+    /* interview mode */
+    ivStepOf: { zh: '第 {a} / {b} 步', en: 'Step {a} of {b}' },
+    ivPrev: { zh: '← 上一步', en: '← Back' },
+    ivNext: { zh: '下一步 →', en: 'Next →' },
+    ivOpenTitle: { zh: '这一场你要评估的是品味', en: 'This session is about taste' },
+    ivOpenBody: {
+      zh: '不是他会什么，是他能不能品味别人做出来的东西。三件事贯穿全程：他拒绝了什么、他凭什么拒绝、他怎么知道自己是对的。\n\n笔记随时可以记，按 → 进入下一步，按 Esc 退出。',
+      en: 'Not what they know — whether they can judge someone else’s work. Three things run through the whole session: what they reject, on what grounds, and how they know they are right.\n\nNotes are always available. Press → to advance, Esc to exit.'
+    },
+    ivAsk: { zh: '简历追问', en: 'Resume follow-ups' },
+    ivReview: { zh: '反向评审题', en: 'Reverse review' },
+    ivWhy: { zh: '连问三次', en: 'Three times why' },
+    ivCal: { zh: '品味校准', en: 'Calibration' },
+    ivScore: { zh: '打分', en: 'Score' },
+    ivClose: { zh: '收尾', en: 'Wrap up' },
+    ivCloseBody: {
+      zh: '给他 10 分钟问你问题——问题比答案更能暴露品味。然后当场下结论，不要拖到晚上，那时候你记得的只剩印象。',
+      en: 'Give them ten minutes to ask you anything — questions expose taste better than answers do. Then decide in the room. By tonight all you will have left is an impression.'
+    },
+    ivDone: { zh: '完成，回到文档', en: 'Done — back to the doc' }
   };
 
   /* ------------------------------------------------------------------ *
@@ -583,23 +631,59 @@
   function md(s) {
     return esc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\n\n/g, '<br><br>');
   }
-  function el(html) {
-    var d = document.createElement('div');
-    d.innerHTML = html.trim();
-    return d.firstElementChild;
+  function fmt(pair, vals) {
+    return t(pair).replace(/\{(\w+)\}/g, function (_, k) { return vals[k]; });
   }
+  function uid() {
+    return 'c' + (S.candidates.length + 1) + '-' + Math.random().toString(36).slice(2, 7);
+  }
+  function blankCandidate(name) {
+    return { id: uid(), name: name || '', sigs: {}, scores: {}, theirQuestions: '', notes: '', decision: '' };
+  }
+  function cur() {
+    var c = null;
+    for (var i = 0; i < S.candidates.length; i++) { if (S.candidates[i].id === S.active) c = S.candidates[i]; }
+    if (!c) {
+      if (!S.candidates.length) S.candidates.push(blankCandidate(''));
+      c = S.candidates[0];
+      S.active = c.id;
+    }
+    return c;
+  }
+  function displayName(c) {
+    return c.name || t(UI.unnamed);
+  }
+
   function save() {
     try { localStorage.setItem(STORE, JSON.stringify(S)); } catch (e) {}
   }
   function load() {
+    var p;
     try {
       var raw = localStorage.getItem(STORE);
-      if (raw) {
-        var p = JSON.parse(raw);
-        Object.keys(p).forEach(function (k) { if (k in S) S[k] = p[k]; });
-      }
-    } catch (e) {}
+      if (!raw) return;
+      p = JSON.parse(raw);
+    } catch (e) { return; }
+
+    /* v1 kept one candidate's data flat on the root object. */
+    if (!p.candidates && (p.sigs || p.scores || p.candidate)) {
+      var c = blankCandidate(p.candidate || '');
+      c.sigs = p.sigs || {};
+      c.scores = p.scores || {};
+      c.theirQuestions = p.theirQuestions || '';
+      c.decision = p.decision || '';
+      p.candidates = [c];
+      p.active = c.id;
+    }
+    Object.keys(p).forEach(function (k) { if (k in S) S[k] = p[k]; });
+    if (!Array.isArray(S.candidates)) S.candidates = [];
+    S.candidates = S.candidates.filter(function (x) { return x && x.id; });
+    S.candidates.forEach(function (x) {
+      x.sigs = x.sigs || {}; x.scores = x.scores || {};
+      x.theirQuestions = x.theirQuestions || ''; x.notes = x.notes || ''; x.decision = x.decision || '';
+    });
   }
+
   var toastTimer;
   function toast(msg) {
     var n = document.getElementById('toast');
@@ -632,6 +716,15 @@
     for (var i = 0; i < ROLES.length; i++) { if (ROLES[i].key === key) return t(ROLES[i].name); }
     return key;
   }
+  function flash(ids) {
+    ids.forEach(function (id) {
+      var n = document.getElementById(id);
+      if (!n) return;
+      n.classList.remove('is-flash');
+      void n.offsetWidth;
+      n.classList.add('is-flash');
+    });
+  }
 
   /* ------------------------------------------------------------------ *
    * Computation
@@ -646,34 +739,43 @@
     return 'L3';
   }
 
-  function resumeScore() {
+  function resumeScore(c) {
+    c = c || cur();
     var list = signalsFor(S.role), score = 0, max = 0;
     list.forEach(function (s) {
       if (s.pol === '+') {
         max += s.w;
-        if (S.sigs[s.id]) score += s.w;
-      } else if (S.sigs[s.id]) {
+        if (c.sigs[s.id]) score += s.w;
+      } else if (c.sigs[s.id]) {
         score -= s.w;
       }
     });
-    return { score: score, max: max };
+    return { score: score, max: max, touched: Object.keys(c.sigs).some(function (k) { return c.sigs[k]; }) };
   }
 
-  function followUps() {
+  function resumeVerdict(score) {
+    if (score >= 7) return { tone: 'tone-good', head: UI.verdictGood, body: UI.verdictGoodB };
+    if (score >= 2) return { tone: 'tone-warn', head: UI.verdictAsk, body: UI.verdictAskB };
+    return { tone: 'tone-bad', head: UI.verdictNo, body: UI.verdictNoB };
+  }
+
+  function followUps(c) {
+    c = c || cur();
     var list = signalsFor(S.role), out = [];
     list.forEach(function (s) {
-      var missing = (s.pol === '+' && !S.sigs[s.id]);
-      var present = (s.pol === '-' && S.sigs[s.id]);
+      var missing = (s.pol === '+' && !c.sigs[s.id]);
+      var present = (s.pol === '-' && c.sigs[s.id]);
       if (missing || present) out.push({ w: s.w + (present ? 1 : 0), ask: s.ask, why: s.t, kind: present ? '-' : '+' });
     });
     out.sort(function (a, b) { return b.w - a.w; });
     return out.slice(0, 4);
   }
 
-  function scoreTotal() {
+  function scoreTotal(c) {
+    c = c || cur();
     var sum = 0, n = 0;
     SCORE_DIMS.forEach(function (d) {
-      if (S.scores[d.id]) { sum += S.scores[d.id]; n++; }
+      if (c.scores[d.id]) { sum += c.scores[d.id]; n++; }
     });
     return { sum: sum, n: n, complete: n === SCORE_DIMS.length };
   }
@@ -683,24 +785,35 @@
     return SCORE_READS[SCORE_READS.length - 1];
   }
 
+  /* How far through the six modules this candidate is. */
+  function progress() {
+    var c = cur(), done = 0;
+    if (quizLevel()) done++;
+    if (resumeScore(c).touched) done++;
+    done++; /* module 3 is reference material — always "ready" */
+    if (scoreTotal(c).n) done++;
+    if (c.theirQuestions) done++;
+    if (c.decision) done++;
+    return { done: done, total: 6 };
+  }
+
   /* ------------------------------------------------------------------ *
-   * Rendering
+   * Document rendering
    * ------------------------------------------------------------------ */
 
   var MODULES = [
-    { id: 'm1', num: '①', title: UI.m1, sub: UI.m1sub, render: renderM1 },
-    { id: 'm2', num: '②', title: UI.m2, sub: UI.m2sub, render: renderM2 },
-    { id: 'm3', num: '③', title: UI.m3, sub: UI.m3sub, render: renderM3 },
-    { id: 'm4', num: '④', title: UI.m4, sub: UI.m4sub, render: renderM4 },
-    { id: 'm5', num: '⑤', title: UI.m5, sub: UI.m5sub, render: renderM5 },
-    { id: 'm6', num: '⑥', title: UI.m6, sub: UI.m6sub, render: renderM6 }
+    { id: 'm1', num: '①', title: UI.m1, sub: UI.m1sub },
+    { id: 'm2', num: '②', title: UI.m2, sub: UI.m2sub },
+    { id: 'm3', num: '③', title: UI.m3, sub: UI.m3sub },
+    { id: 'm4', num: '④', title: UI.m4, sub: UI.m4sub },
+    { id: 'm5', num: '⑤', title: UI.m5, sub: UI.m5sub },
+    { id: 'm6', num: '⑥', title: UI.m6, sub: UI.m6sub }
   ];
 
   function body(id) { return document.querySelector('#' + id + ' .module-body'); }
 
   function buildShell() {
-    var app = document.getElementById('app');
-    app.innerHTML = MODULES.map(function (m) {
+    document.getElementById('app').innerHTML = MODULES.map(function (m) {
       return '<section class="module" id="' + m.id + '">' +
         '<div class="module-num">' + m.num + '</div>' +
         '<h2></h2><p class="module-sub"></p><div class="module-body"></div></section>';
@@ -719,34 +832,112 @@
     document.documentElement.lang = (S.lang === 'zh' ? 'zh-CN' : 'en');
   }
 
-  /* --- knobs --- */
+  /* --- status pill in the top bar --- */
+  function renderStatus() {
+    var c = cur(), st = scoreTotal(c), pr = progress();
+    var bits = [displayName(c)];
+    if (st.n) bits.push(st.sum + '/16');
+    bits.push(pr.done + '/' + pr.total);
+    document.getElementById('status').innerHTML =
+      '<span class="status-name">' + esc(bits[0]) + '</span>' +
+      bits.slice(1).map(function (b) { return '<span class="status-bit">' + esc(b) + '</span>'; }).join('');
+  }
+
+  /* --- left rail --- */
+  function renderRail() {
+    var titles = UI.navTitles[S.lang] || UI.navTitles.zh;
+    document.getElementById('rail').innerHTML = MODULES.map(function (m, i) {
+      return '<a href="#' + m.id + '" data-rail="' + m.id + '"><span class="rail-dot"></span>' +
+        '<span class="rail-label">' + esc(titles[i]) + '</span></a>';
+    }).join('');
+    syncRail();
+  }
+  function syncRail() {
+    var y = window.scrollY + 200, active = MODULES[0].id;
+    MODULES.forEach(function (m) {
+      var n = document.getElementById(m.id);
+      if (n && n.offsetTop <= y) active = m.id;
+    });
+    document.querySelectorAll('#rail a').forEach(function (a) {
+      a.classList.toggle('is-on', a.getAttribute('data-rail') === active);
+    });
+  }
+
+  /* --- knobs + candidates --- */
   function renderKnobs() {
     var n = document.getElementById('knobs');
     n.innerHTML =
-      '<div><div class="knob-label">' + esc(t(UI.knobRole)) + '</div><div class="chips" id="roleChips">' +
+      '<div><div class="knob-label">' + esc(t(UI.knobRole)) + '</div><div class="chips">' +
       ROLES.map(function (r) {
         return '<button type="button" class="chip" data-role="' + r.key + '" aria-pressed="' + (S.role === r.key) + '">' + esc(t(r.name)) + '</button>';
       }).join('') + '</div></div>' +
-      '<div><div class="knob-label">' + esc(t(UI.knobLevel)) + '</div><div class="chips" id="levelChips">' +
+      '<div><div class="knob-label">' + esc(t(UI.knobLevel)) + '</div><div class="chips">' +
       LEVELS.map(function (l) {
         return '<button type="button" class="chip" data-level="' + l.key + '" aria-pressed="' + (S.level === l.key) + '">' + l.key + ' · ' + esc(t(l.name)) + '</button>';
-      }).join('') + '</div></div>';
+      }).join('') + '</div></div>' +
+      '<div class="knob-people"><div class="knob-label">' + esc(t(UI.knobPeople)) + '</div><div class="chips">' +
+      S.candidates.map(function (c) {
+        return '<button type="button" class="chip" data-person="' + c.id + '" aria-pressed="' + (S.active === c.id) + '">' + esc(displayName(c)) + '</button>';
+      }).join('') +
+      '<button type="button" class="chip chip-add" id="addPerson">' + esc(t(UI.addPerson)) + '</button>' +
+      '<span class="chip-tools">' +
+      '<button type="button" class="linkbtn" id="renamePerson">' + esc(t(UI.renamePerson)) + '</button>' +
+      '<button type="button" class="linkbtn" id="delPerson">' + esc(t(UI.delPerson)) + '</button>' +
+      '<button type="button" class="linkbtn" id="resetPerson">' + esc(t(UI.reset)) + '</button>' +
+      '</span></div></div>';
 
     n.querySelectorAll('[data-role]').forEach(function (b) {
       b.addEventListener('click', function () {
         S.role = b.getAttribute('data-role');
-        save(); renderKnobs(); renderM2(); renderM3(); renderM5();
+        save(); renderKnobs(); renderM2(); renderM3(); renderM5(); renderM6(); renderStatus();
+        flash(['m2', 'm3', 'm5']);
       });
     });
     n.querySelectorAll('[data-level]').forEach(function (b) {
       b.addEventListener('click', function () {
         S.level = b.getAttribute('data-level');
         save(); renderKnobs(); renderM1(); renderM3();
+        flash(['m1', 'm3']);
       });
+    });
+    n.querySelectorAll('[data-person]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        S.active = b.getAttribute('data-person');
+        save(); renderAllCandidate();
+        flash(['m2', 'm4', 'm5', 'm6']);
+      });
+    });
+    n.querySelector('#addPerson').addEventListener('click', function () {
+      var name = window.prompt(t(UI.namePrompt), '');
+      if (name === null) return;
+      var c = blankCandidate(name.trim());
+      S.candidates.push(c);
+      S.active = c.id;
+      save(); renderAllCandidate();
+    });
+    n.querySelector('#renamePerson').addEventListener('click', function () {
+      var c = cur();
+      var name = window.prompt(t(UI.namePrompt), c.name);
+      if (name === null) return;
+      c.name = name.trim();
+      save(); renderAllCandidate();
+    });
+    n.querySelector('#delPerson').addEventListener('click', function () {
+      if (!window.confirm(t(UI.delConfirm))) return;
+      var id = cur().id;
+      S.candidates = S.candidates.filter(function (x) { return x.id !== id; });
+      S.active = S.candidates.length ? S.candidates[0].id : null;
+      save(); renderAllCandidate();
+    });
+    n.querySelector('#resetPerson').addEventListener('click', function () {
+      if (!window.confirm(t(UI.resetConfirm))) return;
+      var c = cur();
+      c.sigs = {}; c.scores = {}; c.theirQuestions = ''; c.notes = ''; c.decision = '';
+      save(); renderAllCandidate();
     });
   }
 
-  /* --- module 1: level --- */
+  /* --- module 1 --- */
   function renderM1() {
     var computed = quizLevel();
     var html = '<div class="card">' + LEVEL_QUIZ.map(function (q) {
@@ -779,34 +970,27 @@
     b.querySelectorAll('input[type=radio]').forEach(function (r) {
       r.addEventListener('change', function () {
         S.quiz[r.name] = parseInt(r.value, 10);
-        save(); renderM1();
+        save(); renderM1(); renderStatus();
       });
     });
   }
 
-  /* --- module 2: resume --- */
+  /* --- module 2 --- */
   function renderM2() {
-    var list = signalsFor(S.role);
+    var c = cur(), list = signalsFor(S.role);
     function group(pol, title, cls) {
-      var items = list.filter(function (s) { return s.pol === pol; });
       return '<div class="card"><div class="sig-group-title ' + cls + '">' + esc(t(title)) + '</div>' +
-        items.map(function (s) {
-          return '<label class="check"><input type="checkbox" data-sig="' + s.id + '"' + (S.sigs[s.id] ? ' checked' : '') + '>' +
+        list.filter(function (s) { return s.pol === pol; }).map(function (s) {
+          return '<label class="check"><input type="checkbox" data-sig="' + s.id + '"' + (c.sigs[s.id] ? ' checked' : '') + '>' +
             '<span class="check-body"><span class="check-text">' + esc(t(s.t)) + '</span>' +
             '<span class="check-hint">' + esc(t(s.hint)) + '</span></span></label>';
         }).join('') + '</div>';
     }
 
-    var r = resumeScore();
-    var tone, head, bodyTxt;
-    if (r.score >= 7) { tone = 'tone-good'; head = UI.verdictGood; bodyTxt = UI.verdictGoodB; }
-    else if (r.score >= 2) { tone = 'tone-warn'; head = UI.verdictAsk; bodyTxt = UI.verdictAskB; }
-    else { tone = 'tone-bad'; head = UI.verdictNo; bodyTxt = UI.verdictNoB; }
-
-    var fu = followUps();
+    var r = resumeScore(c), v = resumeVerdict(r.score), fu = followUps(c);
     var html = group('+', UI.posTitle, 'sig-pos') + group('-', UI.negTitle, 'sig-neg') +
-      '<div class="verdict"><span class="verdict-tag ' + tone + '">' + esc(t(head)) + '</span>' +
-      '<div class="verdict-body">' + esc(t(bodyTxt)) + '</div>' +
+      '<div class="verdict"><span class="verdict-tag ' + v.tone + '">' + esc(t(v.head)) + '</span>' +
+      '<div class="verdict-body">' + esc(t(v.body)) + '</div>' +
       '<div class="score-line">score ' + r.score + ' / ' + r.max + '</div></div>' +
       '<div class="card" style="margin-top:16px"><h3>' + esc(t(UI.followups)) + '</h3>' +
       '<div class="card-note">' + esc(t(UI.followupsNote)) + '</div><div class="qblock">' +
@@ -818,131 +1002,183 @@
 
     var b = body('m2');
     b.innerHTML = html;
-    b.querySelectorAll('[data-sig]').forEach(function (c) {
-      c.addEventListener('change', function () {
-        S.sigs[c.getAttribute('data-sig')] = c.checked;
-        save(); renderM2();
+    b.querySelectorAll('[data-sig]').forEach(function (x) {
+      x.addEventListener('change', function () {
+        cur().sigs[x.getAttribute('data-sig')] = x.checked;
+        save(); renderM2(); renderStatus(); renderM6();
       });
     });
-    var cf = b.querySelector('#copyFu');
-    if (cf) cf.addEventListener('click', function () {
-      copyText(fu.map(function (f, i) { return (i + 1) + '. ' + t(f.ask); }).join('\n'));
+    b.querySelector('#copyFu').addEventListener('click', function () {
+      copyText(fu.map(function (f, i) { return (i + 1) + '. ' + t(f.ask); }).join('\n') + '\n\n— ' + MARK);
     });
   }
 
-  /* --- module 3: taste --- */
-  function renderM3() {
+  /* --- module 3 --- */
+  function tasteReviewCard(compact) {
     var d = TASTE[S.role];
-    var html = '';
-
-    if (S.level === 'L1') {
-      html += '<div class="verdict" style="margin-bottom:16px"><span class="verdict-tag tone-warn">L1</span>' +
-        '<div class="verdict-body">' + esc(t(UI.l1note)) + '</div></div>';
-    }
-
-    html += '<div class="card"><h3>' + esc(t(UI.tasteReverse)) + '</h3>' +
-      '<div class="card-note">' + esc(t(UI.tasteReverseSub)) + '</div>' +
-      '<div style="margin-top:16px"><div class="sig-group-title">' + esc(t(UI.materialLabel)) + '</div>' +
+    return '<div style="margin-top:' + (compact ? '4' : '16') + 'px">' +
+      (compact ? '' : '<div class="sig-group-title">' + esc(t(UI.materialLabel)) + '</div>') +
       '<div class="card-note" style="margin-bottom:12px">' + esc(t(d.material)) + '</div>' +
       '<div class="abc">' + d.abc.map(function (x) {
         return '<div class="abc-item"><div class="abc-key">' + x.key + '</div><div class="abc-name">' + esc(t(x.name)) + '</div>' +
           '<div class="abc-desc">' + esc(t(x.desc)) + '</div></div>';
-      }).join('') + '</div></div>' +
-      '<div style="margin-top:18px"><div class="sig-group-title">' + esc(t(UI.howRead)) + '</div>' +
-      '<div class="card-note" style="margin-bottom:8px"><strong>' + esc(t(TASTE_ANSWER.order)) + '</strong></div>' +
+      }).join('') + '</div></div>';
+  }
+  function tasteAnswerHtml() {
+    return '<div class="card-note" style="margin-bottom:8px"><strong>' + esc(t(TASTE_ANSWER.order)) + '</strong></div>' +
       '<div class="qblock">' + TASTE_ANSWER.read.map(function (x) {
         return '<div class="qitem"><div class="qnum">·</div><div class="qtext">' + md(t(x)) + '</div></div>';
-      }).join('') + '</div>' +
-      '<div class="card-note" style="margin-top:12px">' + esc(t(TASTE_ANSWER.howto)) + '</div></div></div>';
-
-    html += '<div class="card"><h3>' + esc(t(UI.tasteWhy)) + '</h3>' +
-      '<div class="card-note">' + esc(t(THREE_WHY.intro)) + '</div>' +
-      '<div class="compare" style="margin-top:16px">' +
+      }).join('') + '</div>';
+  }
+  function threeWhyHtml() {
+    return '<div class="compare" style="margin-top:16px">' +
       '<div class="compare-col compare-good"><h4>' + esc(t(UI.goodGround)) + '</h4><ul>' +
       THREE_WHY.good.map(function (x) { return '<li>' + md(t(x)) + '</li>'; }).join('') + '</ul></div>' +
       '<div class="compare-col compare-bad"><h4>' + esc(t(UI.badGround)) + '</h4><ul>' +
-      THREE_WHY.bad.map(function (x) { return '<li>' + md(t(x)) + '</li>'; }).join('') + '</ul></div></div>' +
+      THREE_WHY.bad.map(function (x) { return '<li>' + md(t(x)) + '</li>'; }).join('') + '</ul></div></div>';
+  }
+  function calQuestionsHtml() {
+    return '<div class="qblock">' + CALIBRATION.questions.map(function (q, i) {
+      return '<div class="qitem"><div class="qnum">Q' + (i + 1) + '</div><div class="qtext">' + esc(t(q)) + '</div></div>';
+    }).join('') + '</div>';
+  }
+
+  function renderM3() {
+    var html = '';
+    if (S.level === 'L1') {
+      html += '<div class="verdict" style="margin-bottom:16px"><span class="verdict-tag tone-warn">L1</span>' +
+        '<div class="verdict-body">' + esc(t(UI.l1note)) + '</div></div>';
+    }
+    html += '<div class="card"><h3>' + esc(t(UI.tasteReverse)) + '</h3>' +
+      '<div class="card-note">' + esc(t(UI.tasteReverseSub)) + '</div>' + tasteReviewCard(false) +
+      '<div style="margin-top:18px"><div class="sig-group-title">' + esc(t(UI.howRead)) + '</div>' + tasteAnswerHtml() +
+      '<div class="card-note" style="margin-top:12px">' + esc(t(TASTE_ANSWER.howto)) + '</div></div></div>';
+
+    html += '<div class="card"><h3>' + esc(t(UI.tasteWhy)) + '</h3>' +
+      '<div class="card-note">' + esc(t(THREE_WHY.intro)) + '</div>' + threeWhyHtml() +
       '<div class="card-note" style="margin-top:14px">' + esc(t(THREE_WHY.note)) + '</div></div>';
 
     html += '<div class="card"><h3>' + esc(t(UI.tasteCal)) + '</h3>' +
       '<div class="card-note">' + esc(t(CALIBRATION.setup[S.role])) + '</div>' +
-      '<div style="margin-top:14px"><div class="sig-group-title">' + esc(t(UI.calQuestions)) + '</div>' +
-      '<div class="qblock">' + CALIBRATION.questions.map(function (q, i) {
-        return '<div class="qitem"><div class="qnum">Q' + (i + 1) + '</div><div class="qtext">' + esc(t(q)) + '</div></div>';
-      }).join('') + '</div>' +
+      '<div style="margin-top:14px"><div class="sig-group-title">' + esc(t(UI.calQuestions)) + '</div>' + calQuestionsHtml() +
       '<div class="card-note" style="margin-top:12px">' + md(t(CALIBRATION.key)) + '</div></div></div>';
 
     if (S.level === 'L3') {
       html += '<div class="card" style="border-color:var(--kelly-rust)"><h3>' + esc(t(L3_EXTRA.title)) + '</h3>' +
         '<div class="card-note" style="margin-top:8px">' + md(t(L3_EXTRA.body)) + '</div></div>';
     }
-
     body('m3').innerHTML = html;
   }
 
-  /* --- module 4: scorecard --- */
+  /* --- module 4 --- */
+  function scoreDimsHtml(big) {
+    var c = cur();
+    return SCORE_DIMS.map(function (dim) {
+      var v = c.scores[dim.id];
+      var flag = (v && v <= 2) ? '<div class="qwhy" style="color:var(--kelly-rust-text);margin-top:8px">' + esc(t(dim.low)) + '</div>' : '';
+      return '<div class="dim"><div class="dim-title">' + esc(t(dim.title)) + '</div>' +
+        '<div class="dim-watch">' + esc(t(dim.watch)) + '</div><div class="scale' + (big ? ' scale-big' : '') + '">' +
+        dim.anchors.map(function (a, i) {
+          var n = i + 1;
+          return '<label><input type="radio" name="sc_' + dim.id + '" value="' + n + '"' + (v === n ? ' checked' : '') + '>' +
+            '<span><span class="scale-n">' + n + '</span>' + esc(t(a)) + '</span></label>';
+        }).join('') + '</div>' + flag + '</div>';
+    }).join('');
+  }
+  function bindScoreDims(root, after) {
+    root.querySelectorAll('input[name^=sc_]').forEach(function (r) {
+      r.addEventListener('change', function () {
+        cur().scores[r.name.slice(3)] = parseInt(r.value, 10);
+        save(); after();
+      });
+    });
+  }
+
   function renderM4() {
     var st = scoreTotal();
-    var html = '<div class="card" style="border-left:3px solid var(--kelly-moss)"><div class="card-note">' + md(t(SCORE_INTRO)) + '</div></div>';
-
-    html += '<div class="card">' + SCORE_DIMS.map(function (dim) {
-      var cur = S.scores[dim.id];
-      var flag = (cur && cur <= 2) ? '<div class="qwhy" style="color:var(--kelly-rust-text);margin-top:8px">' + esc(t(dim.low)) + '</div>' : '';
-      return '<div class="dim"><div class="dim-title">' + esc(t(dim.title)) + '</div>' +
-        '<div class="dim-watch">' + esc(t(dim.watch)) + '</div><div class="scale">' +
-        dim.anchors.map(function (a, i) {
-          var v = i + 1;
-          return '<label><input type="radio" name="sc_' + dim.id + '" value="' + v + '"' + (cur === v ? ' checked' : '') + '>' +
-            '<span><span class="scale-n">' + v + '</span>' + esc(t(a)) + '</span></label>';
-        }).join('') + '</div>' + flag + '</div>';
-    }).join('') + '</div>';
-
+    var html = '<div class="card" style="border-left:3px solid var(--kelly-moss)"><div class="card-note">' + md(t(SCORE_INTRO)) + '</div></div>' +
+      '<div class="card">' + scoreDimsHtml(false) + '</div>';
     if (st.n > 0) {
       var read = scoreRead(st.sum);
       html += '<div class="verdict"><span class="verdict-tag ' + read.tone + '">' + st.sum + ' / 16</span>' +
         '<div class="verdict-head">' + esc(t(read.head)) + '</div>' +
         '<div class="verdict-body">' + esc(t(read.body)) + '</div>' +
-        (!st.complete ? '<div class="score-line">' + (SCORE_DIMS.length - st.n) + ' ' + esc(t(UI.unscored)) + '</div>' : '') +
-        '</div>';
+        (!st.complete ? '<div class="score-line">' + (SCORE_DIMS.length - st.n) + ' ' + esc(t(UI.unscored)) + '</div>' : '') + '</div>';
     }
-
     var b = body('m4');
     b.innerHTML = html;
-    b.querySelectorAll('input[type=radio]').forEach(function (r) {
-      r.addEventListener('change', function () {
-        S.scores[r.name.slice(3)] = parseInt(r.value, 10);
-        save(); renderM4();
-      });
-    });
+    bindScoreDims(b, function () { renderM4(); renderStatus(); renderM6(); });
   }
 
-  /* --- module 5: reverse interview --- */
+  /* --- module 5 --- */
+  function goodQuestions() {
+    return REVERSE.good.general.concat(S.role === 'general' ? [] : REVERSE.good[S.role]);
+  }
   function renderM5() {
-    var good = REVERSE.good.general.concat(S.role === 'general' ? [] : REVERSE.good[S.role]);
+    var c = cur();
     var html = '<div class="card" style="border-left:3px solid var(--kelly-moss)"><div class="card-note">' + md(t(REVERSE.intro)) + '</div></div>' +
       '<div class="card"><div class="compare">' +
       '<div class="compare-col compare-good"><h4>' + esc(t(UI.goodQ)) + '</h4><ul>' +
-      good.map(function (x) { return '<li>' + esc(t(x)) + '</li>'; }).join('') + '</ul></div>' +
+      goodQuestions().map(function (x) { return '<li>' + esc(t(x)) + '</li>'; }).join('') + '</ul></div>' +
       '<div class="compare-col compare-bad"><h4>' + esc(t(UI.badQ)) + '</h4><ul>' +
       REVERSE.bad.map(function (x) { return '<li>' + esc(t(x)) + '</li>'; }).join('') + '</ul></div>' +
       '</div><div class="field" style="margin-top:18px"><label class="field-label" for="theirQ">' + esc(t(UI.theirQ)) + '</label>' +
       '<textarea id="theirQ" rows="4" placeholder="' + esc(t(UI.theirQPh)) + '"></textarea></div></div>';
-
     var b = body('m5');
     b.innerHTML = html;
     var ta = b.querySelector('#theirQ');
-    ta.value = S.theirQuestions || '';
-    ta.addEventListener('input', function () { S.theirQuestions = ta.value; save(); });
+    ta.value = c.theirQuestions || '';
+    ta.addEventListener('input', function () { cur().theirQuestions = ta.value; save(); renderStatus(); });
   }
 
-  /* --- module 6: export --- */
+  /* --- module 6 --- */
+  function renderCompare() {
+    if (S.candidates.length < 2) {
+      return '<div class="card"><h3>' + esc(t(UI.compareTitle)) + '</h3>' +
+        '<div class="card-note">' + esc(t(UI.compareEmpty)) + '</div></div>';
+    }
+    var rows = [];
+    rows.push({ label: t(UI.rowResume), get: function (c) { var r = resumeScore(c); return r.score + '/' + r.max; }, cls: '' });
+    SCORE_DIMS.forEach(function (d) {
+      rows.push({
+        label: t(d.title), dim: d.id,
+        get: function (c) { return c.scores[d.id] ? String(c.scores[d.id]) : '–'; },
+        cls: d.id === 'verify' ? 'row-key' : ''
+      });
+    });
+    rows.push({ label: t(UI.rowTotal), get: function (c) { var s = scoreTotal(c); return s.n ? s.sum + '/16' : '–'; }, cls: 'row-total' });
+    rows.push({
+      label: t(UI.rowDecision), get: function (c) {
+        var d = UI.decisions.filter(function (x) { return x.v === c.decision; })[0];
+        return d ? t(d.t) : '–';
+      }, cls: ''
+    });
+
+    return '<div class="card"><h3>' + esc(t(UI.compareTitle)) + '</h3>' +
+      '<div class="card-note">' + esc(t(UI.compareNote)) + '</div>' +
+      '<div class="table-wrap"><table class="cmp"><thead><tr><th></th>' +
+      S.candidates.map(function (c) {
+        return '<th' + (c.id === S.active ? ' class="is-active"' : '') + '>' +
+          '<button type="button" class="linkbtn" data-open="' + c.id + '">' + esc(displayName(c)) + '</button></th>';
+      }).join('') + '</tr></thead><tbody>' +
+      rows.map(function (r) {
+        return '<tr class="' + r.cls + '"><th>' + esc(r.label) + '</th>' +
+          S.candidates.map(function (c) {
+            var v = r.get(c);
+            var warn = (r.dim && c.scores[r.dim] && c.scores[r.dim] <= 2) ? ' class="cell-warn"' : '';
+            return '<td' + warn + '>' + esc(v) + '</td>';
+          }).join('') + '</tr>';
+      }).join('') + '</tbody></table></div></div>';
+  }
+
   function renderM6() {
-    var html = '<div class="card">' +
+    var c = cur();
+    var html = renderCompare() + '<div class="card">' +
       '<div class="field"><label class="field-label" for="cand">' + esc(t(UI.candidate)) + '</label>' +
       '<input type="text" id="cand" placeholder="' + esc(t(UI.candidatePh)) + '"></div>' +
       '<div class="field"><span class="field-label">' + esc(t(UI.decision)) + '</span><div class="scale">' +
-      UI.decisions.map(function (dc) {
-        return '<label><input type="radio" name="decision" value="' + dc.v + '"' + (S.decision === dc.v ? ' checked' : '') + '><span>' + esc(t(dc.t)) + '</span></label>';
+      UI.decisions.map(function (d) {
+        return '<label><input type="radio" name="decision" value="' + d.v + '"' + (c.decision === d.v ? ' checked' : '') + '><span>' + esc(t(d.t)) + '</span></label>';
       }).join('') + '</div></div>' +
       '<div class="actions no-print">' +
       '<button type="button" class="btn btn-primary" id="buildSheet">' + esc(t(UI.build)) + '</button>' +
@@ -953,11 +1189,25 @@
 
     var b = body('m6');
     b.innerHTML = html;
+    b.querySelectorAll('[data-open]').forEach(function (x) {
+      x.addEventListener('click', function () {
+        S.active = x.getAttribute('data-open');
+        save(); renderAllCandidate();
+      });
+    });
     var ci = b.querySelector('#cand');
-    ci.value = S.candidate || '';
-    ci.addEventListener('input', function () { S.candidate = ci.value; save(); });
+    ci.value = c.name || '';
+    ci.addEventListener('input', function () {
+      cur().name = ci.value;
+      save(); renderKnobs(); renderStatus();
+      var th = b.querySelector('[data-open="' + cur().id + '"]');
+      if (th) th.textContent = displayName(cur());
+    });
     b.querySelectorAll('input[name=decision]').forEach(function (r) {
-      r.addEventListener('change', function () { S.decision = r.value; save(); });
+      r.addEventListener('change', function () {
+        cur().decision = r.value;
+        save(); renderM6(); renderStatus();
+      });
     });
     b.querySelector('#buildSheet').addEventListener('click', function () {
       var p = b.querySelector('#sheet');
@@ -975,18 +1225,162 @@
   }
 
   /* ------------------------------------------------------------------ *
+   * Interview mode — one thing on screen at a time, for use in the room
+   * ------------------------------------------------------------------ */
+
+  var IV = { on: false, i: 0, showAnswer: false };
+
+  function ivSteps() {
+    var steps = [
+      {
+        key: 'open', title: UI.ivOpenTitle,
+        html: function () { return '<div class="iv-lead">' + md(t(UI.ivOpenBody)) + '</div>'; }
+      },
+      {
+        key: 'ask', title: UI.ivAsk,
+        html: function () {
+          return '<div class="qblock iv-q">' + followUps().map(function (f, i) {
+            return '<div class="qitem"><div class="qnum">Q' + (i + 1) + '</div><div><div class="qtext">' + esc(t(f.ask)) + '</div>' +
+              '<div class="qwhy">' + esc(t(f.why)) + '</div></div></div>';
+          }).join('') + '</div>';
+        }
+      },
+      {
+        key: 'review', title: UI.ivReview,
+        html: function () {
+          return '<div class="iv-lead">' + esc(t(UI.tasteReverseSub)) + '</div>' + tasteReviewCard(true) +
+            '<div class="iv-reveal"><button type="button" class="btn" id="ivReveal">' +
+            esc(t(IV.showAnswer ? UI.hideAnswer : UI.showAnswer)) + '</button>' +
+            (IV.showAnswer ? '<div style="margin-top:14px">' + tasteAnswerHtml() + '</div>' : '') + '</div>';
+        }
+      },
+      {
+        key: 'why', title: UI.ivWhy,
+        html: function () { return '<div class="iv-lead">' + esc(t(THREE_WHY.intro)) + '</div>' + threeWhyHtml(); }
+      },
+      {
+        key: 'cal', title: UI.ivCal,
+        html: function () { return '<div class="iv-lead">' + esc(t(CALIBRATION.setup[S.role])) + '</div>' + calQuestionsHtml(); }
+      }
+    ];
+
+    if (S.level === 'L3') {
+      steps.push({
+        key: 'l3', title: L3_EXTRA.title,
+        html: function () { return '<div class="iv-lead">' + md(t(L3_EXTRA.body)) + '</div>'; }
+      });
+    }
+
+    steps.push({
+      key: 'score', title: UI.ivScore,
+      html: function () {
+        var st = scoreTotal();
+        return '<div class="iv-lead">' + md(t(SCORE_INTRO)) + '</div>' + scoreDimsHtml(true) +
+          (st.n ? '<div class="verdict" style="margin-top:18px"><span class="verdict-tag ' + scoreRead(st.sum).tone + '">' + st.sum + ' / 16</span>' +
+            '<div class="verdict-head">' + esc(t(scoreRead(st.sum).head)) + '</div></div>' : '');
+      }
+    });
+
+    steps.push({
+      key: 'close', title: UI.ivClose,
+      html: function () {
+        var c = cur();
+        return '<div class="iv-lead">' + esc(t(UI.ivCloseBody)) + '</div>' +
+          '<ul class="iv-list">' + goodQuestions().map(function (x) { return '<li>' + esc(t(x)) + '</li>'; }).join('') + '</ul>' +
+          '<div class="field" style="margin-top:20px"><span class="field-label">' + esc(t(UI.decision)) + '</span>' +
+          '<div class="scale scale-big">' + UI.decisions.map(function (d) {
+            return '<label><input type="radio" name="decision" value="' + d.v + '"' + (c.decision === d.v ? ' checked' : '') + '><span>' + esc(t(d.t)) + '</span></label>';
+          }).join('') + '</div></div>' +
+          '<div class="actions" style="margin-top:18px"><button type="button" class="btn btn-primary" id="ivDone">' + esc(t(UI.ivDone)) + '</button></div>';
+      }
+    });
+
+    return steps;
+  }
+
+  function openInterview() {
+    IV.on = true;
+    IV.i = 0;
+    document.getElementById('iv').hidden = false;
+    document.body.classList.add('iv-open');
+    renderInterview();
+  }
+  function closeInterview() {
+    IV.on = false;
+    document.getElementById('iv').hidden = true;
+    document.body.classList.remove('iv-open');
+    renderAllCandidate();
+  }
+  function ivGo(delta) {
+    var steps = ivSteps();
+    var next = IV.i + delta;
+    if (next < 0 || next >= steps.length) return;
+    IV.i = next;
+    renderInterview();
+    var st = document.querySelector('.iv-stage');
+    if (st) st.scrollTop = 0;
+  }
+
+  function renderInterview() {
+    var steps = ivSteps(), step = steps[Math.min(IV.i, steps.length - 1)], c = cur();
+    var L = levelObj(S.level);
+    var root = document.getElementById('iv');
+
+    root.innerHTML =
+      '<div class="iv-bar">' +
+      '<div class="iv-who"><strong>' + esc(displayName(c)) + '</strong>' +
+      '<span>' + esc(roleName(S.role)) + ' · ' + L.key + ' ' + esc(t(L.name)) + '</span></div>' +
+      '<div class="iv-dots">' + steps.map(function (s, i) {
+        return '<button type="button" class="iv-dot' + (i === IV.i ? ' is-on' : '') + '" data-step="' + i + '" title="' + esc(t(s.title)) + '"></button>';
+      }).join('') + '</div>' +
+      '<button type="button" class="btn btn-ghost" id="ivExit">' + esc(t(UI.exitInterview)) + ' ✕</button>' +
+      '</div>' +
+      '<div class="iv-stage"><div class="iv-inner">' +
+      '<div class="iv-step">' + fmt(UI.ivStepOf, { a: IV.i + 1, b: steps.length }) + '</div>' +
+      '<h2 class="iv-title">' + esc(t(step.title)) + '</h2>' +
+      step.html() + '</div></div>' +
+      '<div class="iv-foot">' +
+      '<div class="iv-nav">' +
+      '<button type="button" class="btn" id="ivPrev"' + (IV.i === 0 ? ' disabled' : '') + '>' + esc(t(UI.ivPrev)) + '</button>' +
+      '<button type="button" class="btn btn-primary" id="ivNext"' + (IV.i === steps.length - 1 ? ' disabled' : '') + '>' + esc(t(UI.ivNext)) + '</button>' +
+      '</div>' +
+      '<textarea id="ivNotes" rows="2" placeholder="' + esc(t(UI.notesPh)) + '"></textarea>' +
+      '<div class="iv-mark">' + MARK + '</div>' +
+      '</div>';
+
+    var notes = root.querySelector('#ivNotes');
+    notes.value = c.notes || '';
+    notes.addEventListener('input', function () { cur().notes = notes.value; save(); });
+
+    root.querySelector('#ivExit').addEventListener('click', closeInterview);
+    root.querySelector('#ivPrev').addEventListener('click', function () { ivGo(-1); });
+    root.querySelector('#ivNext').addEventListener('click', function () { ivGo(1); });
+    root.querySelectorAll('[data-step]').forEach(function (d) {
+      d.addEventListener('click', function () { IV.i = parseInt(d.getAttribute('data-step'), 10); renderInterview(); });
+    });
+
+    var rev = root.querySelector('#ivReveal');
+    if (rev) rev.addEventListener('click', function () { IV.showAnswer = !IV.showAnswer; renderInterview(); });
+
+    bindScoreDims(root, function () { renderInterview(); });
+    root.querySelectorAll('input[name=decision]').forEach(function (r) {
+      r.addEventListener('change', function () { cur().decision = r.value; save(); renderInterview(); });
+    });
+    var done = root.querySelector('#ivDone');
+    if (done) done.addEventListener('click', closeInterview);
+  }
+
+  /* ------------------------------------------------------------------ *
    * The one-pager
    * ------------------------------------------------------------------ */
 
   function buildSheet() {
     var zh = S.lang === 'zh';
-    var L = levelObj(S.level);
-    var d = TASTE[S.role];
-    var st = scoreTotal();
-    var r = resumeScore();
+    var c = cur(), L = levelObj(S.level), d = TASTE[S.role];
+    var st = scoreTotal(c), r = resumeScore(c);
     var out = [];
 
-    out.push('# ' + (zh ? 'AI 时代面试脚本' : 'AI-era interview script') + (S.candidate ? ' — ' + S.candidate : ''));
+    out.push('# ' + (zh ? 'AI 时代面试脚本' : 'AI-era interview script') + (c.name ? ' — ' + c.name : ''));
     out.push('');
     out.push((zh ? '岗位' : 'Role') + ': ' + roleName(S.role) + '　|　' +
       (zh ? '目标层级' : 'Target level') + ': ' + L.key + ' ' + t(L.name) + '　|　' + new Date().toISOString().slice(0, 10));
@@ -1002,8 +1396,8 @@
     }
     out.push('');
 
-    out.push('## ' + (zh ? '② 简历' : '② Resume') + ' (score ' + r.score + '/' + r.max + ')');
-    followUps().forEach(function (f, i) {
+    out.push('## ' + (zh ? '② 简历' : '② Resume') + ' (score ' + r.score + '/' + r.max + ' — ' + t(resumeVerdict(r.score).head) + ')');
+    followUps(c).forEach(function (f, i) {
       out.push((i + 1) + '. ' + t(f.ask));
       out.push('   - ' + (f.kind === '-' ? (zh ? '因为看到：' : 'because you saw: ') : (zh ? '因为缺少：' : 'because it is missing: ')) + t(f.why));
     });
@@ -1037,12 +1431,12 @@
     out.push(t(SCORE_INTRO).replace(/\*\*/g, ''));
     out.push('');
     SCORE_DIMS.forEach(function (dim) {
-      var cur = S.scores[dim.id];
-      out.push('- [' + (cur ? cur : ' ') + '/4] **' + t(dim.title) + '** — ' + t(dim.watch));
+      var v = c.scores[dim.id];
+      out.push('- [' + (v ? v : ' ') + '/4] **' + t(dim.title) + '** — ' + t(dim.watch));
       dim.anchors.forEach(function (a, i) {
-        out.push('    ' + (i + 1) + '. ' + t(a) + (cur === i + 1 ? '  ←' : ''));
+        out.push('    ' + (i + 1) + '. ' + t(a) + (v === i + 1 ? '  ←' : ''));
       });
-      if (cur && cur <= 2) out.push('    ⚠︎ ' + t(dim.low));
+      if (v && v <= 2) out.push('    ⚠︎ ' + t(dim.low));
     });
     if (st.n) {
       var read = scoreRead(st.sum);
@@ -1053,23 +1447,39 @@
 
     out.push('## ' + (zh ? '⑤ 反向面试' : '⑤ Reverse interview'));
     out.push(t(REVERSE.intro).replace(/\*\*/g, ''));
-    REVERSE.good.general.concat(S.role === 'general' ? [] : REVERSE.good[S.role]).forEach(function (x) {
-      out.push('- ' + t(x));
-    });
-    if (S.theirQuestions) {
+    goodQuestions().forEach(function (x) { out.push('- ' + t(x)); });
+    if (c.theirQuestions) {
       out.push('');
-      out.push((zh ? '他实际问的：' : 'What they actually asked:'));
-      out.push(S.theirQuestions.split('\n').map(function (l) { return '> ' + l; }).join('\n'));
+      out.push(zh ? '他实际问的：' : 'What they actually asked:');
+      out.push(c.theirQuestions.split('\n').map(function (l) { return '> ' + l; }).join('\n'));
     }
     out.push('');
 
+    if (c.notes) {
+      out.push('## ' + (zh ? '面试笔记' : 'Notes'));
+      out.push(c.notes.split('\n').map(function (l) { return '> ' + l; }).join('\n'));
+      out.push('');
+    }
+
     out.push('## ' + (zh ? '⑥ 结论' : '⑥ Decision'));
-    var dec = UI.decisions.filter(function (x) { return x.v === S.decision; })[0];
+    var dec = UI.decisions.filter(function (x) { return x.v === c.decision; })[0];
     out.push('- ' + (dec ? t(dec.t) : '____'));
+
+    if (S.candidates.length > 1) {
+      out.push('');
+      out.push('### ' + t(UI.compareTitle));
+      out.push('| | ' + S.candidates.map(function (x) { return displayName(x); }).join(' | ') + ' |');
+      out.push('|---|' + S.candidates.map(function () { return '---|'; }).join(''));
+      out.push('| ' + t(UI.rowResume) + ' | ' + S.candidates.map(function (x) { var q = resumeScore(x); return q.score + '/' + q.max; }).join(' | ') + ' |');
+      SCORE_DIMS.forEach(function (dim) {
+        out.push('| ' + t(dim.title) + ' | ' + S.candidates.map(function (x) { return x.scores[dim.id] || '–'; }).join(' | ') + ' |');
+      });
+      out.push('| ' + t(UI.rowTotal) + ' | ' + S.candidates.map(function (x) { var q = scoreTotal(x); return q.n ? q.sum + '/16' : '–'; }).join(' | ') + ' |');
+    }
+
     out.push('');
     out.push('---');
-    out.push(zh ? '工具来源：https://mr-kelly.github.io/ai-hire-guide/' : 'Toolkit: https://mr-kelly.github.io/ai-hire-guide/');
-
+    out.push((zh ? '工具来源：' : 'Toolkit: ') + 'https://' + MARK + '/');
     return out.join('\n');
   }
 
@@ -1077,10 +1487,14 @@
    * Init
    * ------------------------------------------------------------------ */
 
+  function renderAllCandidate() {
+    renderKnobs(); renderM2(); renderM4(); renderM5(); renderM6(); renderStatus();
+  }
   function renderAll() {
-    renderHeaders();
-    renderKnobs();
+    renderHeaders(); renderRail(); renderKnobs();
     renderM1(); renderM2(); renderM3(); renderM4(); renderM5(); renderM6();
+    renderStatus();
+    if (IV.on) renderInterview();
   }
 
   function setLang(lang) {
@@ -1094,16 +1508,21 @@
 
   function init() {
     load();
+    cur();
     buildShell();
     document.querySelectorAll('.langswitch button').forEach(function (b) {
       b.addEventListener('click', function () { setLang(b.getAttribute('data-lang')); });
     });
     document.getElementById('printBtn').addEventListener('click', function () { window.print(); });
-    document.getElementById('resetBtn').addEventListener('click', function () {
-      if (!window.confirm(t(UI.resetConfirm))) return;
-      S.quiz = {}; S.sigs = {}; S.scores = {};
-      S.candidate = ''; S.theirQuestions = ''; S.decision = '';
-      save(); renderAll();
+    document.getElementById('ivBtn').addEventListener('click', openInterview);
+    window.addEventListener('scroll', syncRail, { passive: true });
+    document.addEventListener('keydown', function (e) {
+      if (!IV.on) return;
+      var tag = (e.target.tagName || '').toLowerCase();
+      if (e.key === 'Escape') { closeInterview(); return; }
+      if (tag === 'textarea' || tag === 'input') return;
+      if (e.key === 'ArrowRight') { e.preventDefault(); ivGo(1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); ivGo(-1); }
     });
     setLang(S.lang);
   }
