@@ -1,5 +1,6 @@
 ---
 layout: article
+variant: master
 title: 企业做 AI，最缺的不是工具，而是一个把结果逼出来的人
 subtitle: 从 CAIO Office 到 FDE，企业 AI 落地为什么总卡在最后一公里
 description: 你买了模型，上了培训，Demo 也演示过，业务却一点没变。问题通常不在工具，而在没有人把目标、执行和验收串起来。这篇讲清楚这个人具体做什么，以及前 30 天怎么走。
