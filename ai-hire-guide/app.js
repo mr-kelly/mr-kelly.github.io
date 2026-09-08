@@ -221,6 +221,20 @@
         ask: { zh: '你们团队的流程里，哪一步是 agent 在跑？出错的时候怎么兜？', en: 'Which step of your team pipeline is run by an agent? What catches it when it fails?' }
       },
       {
+        id: 'eng_merge',
+        pol: '+', w: 3,
+        t: { zh: '主导过一次收敛：把两套做同一件事的实现合成一套，或者把一个长错了的模块拆开', en: 'Led a consolidation: merged two implementations of the same thing into one, or split a module that had grown wrong' },
+        hint: { zh: '这是架构品味最硬的证据。新增结构人人会，删掉一层结构需要判断力，还需要承担风险。', en: 'The hardest evidence of architectural taste there is. Anyone can add structure; removing a layer takes judgement and carries risk.' },
+        ask: { zh: '你有没有把两套做同一件事的代码合成一套？当时为什么会有两套，合并之后什么变简单了？', en: 'Have you ever merged two implementations of the same thing into one? Why were there two, and what got simpler afterwards?' }
+      },
+      {
+        id: 'eng_buzzword',
+        pol: '-', w: 2,
+        t: { zh: '架构部分是名词堆砌：微服务、DDD、中台、六边形，没有一个是他做的取舍', en: 'The architecture section is a pile of nouns — microservices, DDD, hexagonal, event-driven — with no trade-off he personally made' },
+        hint: { zh: '追问"你们为什么不拆成两个服务"，比追问"你们怎么拆的服务"有用得多。', en: 'Asking "why did you not split that into two services" tells you far more than asking how they split them.' },
+        ask: { zh: '这套架构里，有哪一处是你当时反对的？后来证明谁是对的？', en: 'Which part of that architecture did you argue against at the time? Who turned out to be right?' }
+      },
+      {
         id: 'eng_shallow',
         pol: '-', w: 2,
         t: { zh: '对 AI 的描述停留在"用 Cursor / Copilot 写代码，效率提升"', en: 'AI experience amounts to "I use Cursor/Copilot, it makes me faster"' },
@@ -252,6 +266,24 @@
       }
     ]
   };
+
+  /* Cases are addressed by id in the DOM. Stamped from init(), since the
+     CASES literal is defined further down the file. */
+  function stampCaseIds() {
+    Object.keys(CASES).forEach(function (role) {
+      CASES[role].forEach(function (k, i) { k.id = role + '-' + i; });
+    });
+  }
+
+  function caseById(id) {
+    var found = null;
+    Object.keys(CASES).forEach(function (role) {
+      CASES[role].forEach(function (k) { if (k.id === id) found = k; });
+    });
+    return found;
+  }
+
+  function secNo(n) { return '<span class="secno">3.' + n + '</span>'; }
 
   function signalsFor(role) {
     return SIGNALS_COMMON.concat(SIGNALS_ROLE[role] || []);
@@ -379,7 +411,7 @@
    * ------------------------------------------------------------------ */
 
   var CASES = {
-    general: {
+    general: [{
       brief: {
         zh: '客户回信：「方案我们看了，很专业。但你们报价 28 万，我们今年这条线的预算总共就 20 万，超了批不下来。你看怎么办？」\n\n下面是三份回信草稿，都是 AI 写的，你只做了少量修改。',
         en: 'The client writes back: "We read the proposal, it is solid. But you quoted 280k and our budget for this line is 200k for the year — anything above that will not get approved. What can we do?"\n\nBelow are three draft replies, all AI-written, lightly edited by you.'
@@ -445,9 +477,124 @@
           }
         }
       ]
-    },
+    }],
 
-    eng: {
+    eng: [
+      {
+        lens: { zh: '架构层 · 只看文件结构', en: 'Architecture — the file tree only' },
+        note: {
+          zh: '函数级的代码，AI 现在写得比大多数候选人好。AI 写不好的是"这段代码该放在哪"。所以函数级只能筛掉差的，架构级才能选出好的——而架构品味在 files changed 的文件列表里就能看出来，不用读代码。',
+          en: 'At the function level AI now writes better code than most candidates. What AI cannot do is decide where code belongs. Function-level review screens out the weak; architecture-level review is what selects the strong — and it is legible from the files-changed list alone, before you read a line.'
+        },
+        brief: {
+          zh: '需求原文：「订单目前只支持全额退款。要支持部分退款：可以退指定金额，可以退多次，累计不能超过订单金额。」\n\n下面是三个 PR 的 files changed。先不看代码，只看文件列表。',
+          en: 'The requirement, verbatim: "Orders only support full refunds today. Add partial refunds: refund a specified amount, multiple times, never exceeding the order total."\n\nBelow are the files-changed lists of three PRs. No code — just the file list.'
+        },
+        say: {
+          zh: '你就这么说：「这是同一个需求的三个 PR，我先不给你看代码，只给你看 files changed。你光看这个列表告诉我三件事：你会 approve 哪一个？你会第一个打开哪个文件？你现在最担心什么？」',
+          en: 'Say it like this: "Three PRs for the same requirement. I am not showing you the code yet — just the files changed. From that list alone, tell me three things: which one would you approve, which file would you open first, and what worries you right now?"'
+        },
+        artifacts: [
+          {
+            key: 'A',
+            mono: true,
+            name: { zh: '不敢碰旧代码，在旁边新建一层', en: 'Afraid to touch the old code — builds a parallel layer' },
+            body: {
+              zh: 'src/refund/partial-refund.service.ts        +142\nsrc/refund/partial-refund.controller.ts    + 88\nsrc/refund/partial-refund.types.ts         + 46\nsrc/refund/partial-refund.constants.ts     + 12\nsrc/refund/partial-refund.utils.ts         + 37\nsrc/refund/partial-refund.validator.ts     + 54\nsrc/refund/refund.service.ts               +  3\nsrc/routes/index.ts                        +  2\nmigrations/0042_create_partial_refunds.sql + 14\ntests/partial-refund.spec.ts               +118\n\n10 files changed, 516 insertions(+), 0 deletions(-)',
+              en: 'src/refund/partial-refund.service.ts        +142\nsrc/refund/partial-refund.controller.ts    + 88\nsrc/refund/partial-refund.types.ts         + 46\nsrc/refund/partial-refund.constants.ts     + 12\nsrc/refund/partial-refund.utils.ts         + 37\nsrc/refund/partial-refund.validator.ts     + 54\nsrc/refund/refund.service.ts               +  3\nsrc/routes/index.ts                        +  2\nmigrations/0042_create_partial_refunds.sql + 14\ntests/partial-refund.spec.ts               +118\n\n10 files changed, 516 insertions(+), 0 deletions(-)'
+            }
+          },
+          {
+            key: 'B',
+            mono: true,
+            name: { zh: '改在该改的地方', en: 'Changes what actually needed changing' },
+            body: {
+              zh: 'src/refund/refund.service.ts               + 34  −12\nsrc/refund/refund.types.ts                 +  6  − 2\nsrc/order/order.model.ts                   +  4  − 1\nmigrations/0042_add_refunded_amount.sql    +  9\ntests/refund.spec.ts                       + 61  − 8\n\n5 files changed, 114 insertions(+), 23 deletions(-)',
+              en: 'src/refund/refund.service.ts               + 34  −12\nsrc/refund/refund.types.ts                 +  6  − 2\nsrc/order/order.model.ts                   +  4  − 1\nmigrations/0042_add_refunded_amount.sql    +  9\ntests/refund.spec.ts                       + 61  − 8\n\n5 files changed, 114 insertions(+), 23 deletions(-)'
+            }
+          },
+          {
+            key: 'C',
+            mono: true,
+            name: { zh: '结构最漂亮，边界切错了', en: 'The best-looking structure, cut along the wrong boundary' },
+            body: {
+              zh: 'src/payments/refund-engine/engine.ts       +176\nsrc/payments/refund-engine/policy.ts       + 92\nsrc/payments/refund-engine/ledger.ts       +134\nsrc/payments/refund-engine/index.ts        + 18\nsrc/refund/refund.service.ts               + 12  −86\nsrc/payments/payment.service.ts            + 24  − 5\ntests/refund-engine.spec.ts                +203\n\n7 files changed, 659 insertions(+), 91 deletions(-)',
+              en: 'src/payments/refund-engine/engine.ts       +176\nsrc/payments/refund-engine/policy.ts       + 92\nsrc/payments/refund-engine/ledger.ts       +134\nsrc/payments/refund-engine/index.ts        + 18\nsrc/refund/refund.service.ts               + 12  −86\nsrc/payments/payment.service.ts            + 24  − 5\ntests/refund-engine.spec.ts                +203\n\n7 files changed, 659 insertions(+), 91 deletions(-)'
+            }
+          }
+        ],
+        order: {
+          zh: 'B 第一，这个没有争议。A 和 C 谁第二不重要——重要的是他能不能说出：A 的病是"从今天起有两套退款逻辑"，C 的病是"边界切错了，而且 659 行改动里没有一行 migration"。说得出这两句，比排序排对值钱得多。',
+          en: 'B first, and that part is not controversial. Whether A or C comes second does not matter — what matters is whether he can say it out loud: A leaves two refund implementations in the codebase from today on, and C cuts the boundary wrong while shipping 659 lines without a single migration. Saying those two sentences is worth far more than getting the order right.'
+        },
+        read: [
+          { zh: '**选 B** —— 有品味。他知道"改动集中在该改的地方"本身就是一种设计质量，而不是保守或者偷懒。', en: '**Picks B** — taste. He knows that a change landing where it belongs is a design property, not conservatism or laziness.' },
+          { zh: '**选 A** —— 他把"不影响现有代码"当成了优点。在函数层面那可能是优点，在架构层面那是"没有做整合"的另一种说法。', en: '**Picks A** — he reads "does not touch existing code" as a virtue. At the function level it can be. At the architecture level it is another way of saying no integration happened.' },
+          { zh: '**选 C** —— 最需要警惕的一种，因为 C 是三份里唯一一个"看起来像好架构"的。被结构的形状说服，而不是被边界的正确性说服，是 senior 工程师最常见的失手方式。', en: '**Picks C** — the one to worry about, because C is the only one of the three that looks like good architecture. Being persuaded by the shape of a structure rather than the correctness of its boundary is the most common way senior engineers get this wrong.' },
+          { zh: '**先问"这个系统现在是按领域切的还是按技术层切的"再判断** —— 加分。他知道离开既有结构谈新增结构是没有意义的。', en: '**Asks whether the system is sliced by domain or by technical layer before judging** — bonus. He knows new structure is meaningless without knowing the structure it lands in.' }
+        ],
+        checklist: {
+          title: { zh: '你自己看 files changed 时，先看这八样', en: 'What to read in a files-changed list, before the code' },
+          items: [
+            { zh: '**改了几个文件，散在几个目录。** 一个功能横跨七八个目录，说明这个系统是按技术分层切的，不是按领域切的——以后每个需求都要这么横跨一遍。', en: '**How many files, across how many directories.** One feature touching seven directories means the system is sliced by technical layer rather than by domain — and every future feature will cost the same sprawl.' },
+            { zh: '**有没有净删除。** 只增不删的"重构"不是重构，是叠加。', en: '**Whether anything was deleted.** A refactor with no deletions is not a refactor; it is an accumulation.' },
+            { zh: '**有没有 migration。** 一个明显动了数据形状的需求却没有 schema 变更，要么他没想到，要么塞进某个 JSON 字段里了——代码可以重写，数据形状错了要还很多年。', en: '**Whether there is a migration.** A requirement that clearly changes the shape of the data, with no schema change, means either he did not think about it or he hid it in a JSON column. Code can be rewritten; the wrong data shape is paid off over years.' },
+            { zh: '**新文件的名字说不说人话。** `utils.ts`、`helper.ts`、`common.ts`、`manager.ts`、`base.ts` 是"我不知道这该叫什么"的自白。好名字是领域词。', en: '**Whether the new filenames say anything.** `utils.ts`, `helper.ts`, `common.ts`, `manager.ts`, `base.ts` are confessions that the author could not name the thing. Good names are domain words.' },
+            { zh: '**有没有和已有文件平行的新文件。** `partial-refund.service.ts` 和 `refund.service.ts` 并排出现，意味着从今天起有两套退款逻辑，以后每次改规则都要改两处。', en: '**Whether a new file sits parallel to an existing one.** `partial-refund.service.ts` next to `refund.service.ts` means there are two refund implementations from today on, and every rule change costs two edits.' },
+            { zh: '**测试是改的还是新增的。** 全是新增测试、旧测试一行没动，通常意味着他绕开了旧行为，而不是验证了旧行为没被破坏。', en: '**Whether tests were modified or only added.** All-new tests with the old suite untouched usually means he routed around the existing behaviour instead of proving he did not break it.' },
+            { zh: '**有没有顺手改的不相关文件。** 格式化、重命名、升级依赖混在功能 PR 里——不是大错，但说明他不体谅 review 的人。', en: '**Whether unrelated files rode along.** Formatting, renames and dependency bumps mixed into a feature PR. Not a crime, but it tells you he does not think about the reviewer.' },
+            { zh: '**（AI 时代新增的一条）有没有新长出来的一层。** AI 不敢改已有代码，它的默认动作永远是"新建一个文件"。所以 AI 参与越深的仓库，越容易长出平行结构。**能约束住 AI 不要再长一层，是最近两年才出现的架构能力，也是目前最稀缺的。**', en: '**(New in the AI era) Whether a layer grew.** AI will not touch existing code; its default move is always to add a file. The more AI a repo absorbs, the more parallel structure it grows. **Holding the line against another layer is an architectural skill that did not exist two years ago, and it is the scarcest one right now.**' }
+          ]
+        },
+        tells: [
+          {
+            tone: 'tone-bad',
+            heard: { zh: '「A 最清晰，功能独立，不影响现有代码」', en: '"A is the cleanest — self-contained, does not touch existing code."' },
+            verdict: {
+              zh: '追问：「合进去之后系统里有几套退款逻辑？下次改退款审批规则要改几个地方？」再看那张 `partial_refunds` 新表——全额退款记在老地方，部分退款记在新表，以后查"这个订单一共退了多少"要 union 两张表。在架构层面，"不影响现有代码"不是优点，是"没有做整合"的另一种说法。这也正是 AI 参与的 PR 最典型的形状：它不敢动 refund.service.ts，于是在旁边新建了一个。',
+              en: 'Ask: "After this merges, how many refund implementations exist? How many places change when the approval rule changes?" Then look at the new `partial_refunds` table — full refunds recorded in one place, partial ones in another, and "how much has this order refunded" becomes a union of two tables. At the architecture level, "does not touch existing code" is not a virtue; it is another way of saying no integration happened. It is also the signature shape of an AI-assisted PR: it would not touch refund.service.ts, so it built one next to it.'
+            }
+          },
+          {
+            tone: 'tone-bad',
+            heard: { zh: '「C 最专业，分层清楚，而且还删了旧代码」', en: '"C is the most professional — clean layering, and it even deletes old code."' },
+            verdict: {
+              zh: '问两句。第一句：「退款金额存在哪张表？我没看到 migration。」659 行的重构里没有一行 schema 变更，说明数据往哪放这件事根本没想清楚。第二句：「为什么退款逻辑搬到 payments 下面去了？」能不能退、退多少，是订单和商务规则决定的，不是支付通道决定的——边界一旦切错，以后每一个退款规则的改动都要跨两个域。另外那个凭空出现的 ledger.ts：需求里没有记账，它自己发明了一个概念。C 危险就危险在，资深的人扫一眼也会点头。',
+              en: 'Ask two things. First: "Which table holds the refunded amount? I do not see a migration." A 659-line refactor with zero schema change means the question of where the data lives was never answered. Second: "Why did refunds move under payments?" Whether and how much you can refund is decided by order and commercial rules, not by the payment channel — cut that boundary wrong and every future refund rule spans two domains. Also note ledger.ts appearing from nowhere: nothing in the requirement asks for bookkeeping; it invented a concept. C is dangerous precisely because a senior engineer will nod at it.'
+            }
+          },
+          {
+            tone: 'tone-good',
+            heard: { zh: '「B。而且我会第一个打开那个 migration。」', en: '"B. And the first file I would open is the migration."' },
+            verdict: {
+              zh: '就是他了。看 files changed 先找数据模型变更，是很硬的经验信号——他知道代码可以重写，数据形状改错了要还很多年。',
+              en: 'That is your person. Going to the schema change first is a hard-won instinct — he knows code can be rewritten and the wrong data shape is paid off for years.'
+            }
+          },
+          {
+            tone: 'tone-good',
+            heard: { zh: '「A 那三个 types / constants / utils 文件一看就是 AI 生成的」', en: '"Those three files — types, constants, utils — are AI-generated, you can see it."' },
+            verdict: {
+              zh: '加分。他见过这个形状，也就意味着他大概率知道怎么在自己的仓库里挡住它。',
+              en: 'Bonus. He has seen this shape before, which usually means he knows how to stop it in his own repo.'
+            }
+          },
+          {
+            tone: 'tone-good',
+            heard: { zh: '主动指出：「B 有删除，A 一行没删——这三个 PR 不像同一个人写的。」', en: 'Unprompted: "B deletes things and A deletes nothing — these do not look like the same author."' },
+            verdict: {
+              zh: '最高级的反应。他读的不是结构，是改动背后的意图和习惯。这种人 review 别人代码时，看的是"这个人在想什么"，而不是"这行对不对"。',
+              en: 'The best reflex available. He is not reading structure, he is reading intent and habit. People like this review code by asking what the author was thinking, not whether a line is correct.'
+            }
+          }
+        ]
+      },
+      {
+        lens: { zh: '函数层 · 看具体实现', en: 'Function level — the implementation itself' },
+        note: {
+          zh: '函数层考察的是另一件事：他会不会把"测试通过"当成"需求满足"。这一层筛掉的人比选出的人多，但值得花十分钟。',
+          en: 'The function level tests something else: whether he mistakes "tests pass" for "requirement met". It rejects more people than it selects, but it is worth ten minutes.'
+        },
       brief: {
         zh: '需求原文：「运营上传 CSV 批量导入联系人。如果邮箱在系统里已经存在，就跳过这一条。导入完成后告诉用户导入了多少条、跳过了多少条。」\n\n下面是三份实现，三份都能跑、都提交了 PR。',
         en: 'The requirement, verbatim: "Ops uploads a CSV to bulk-import contacts. If an email already exists in the system, skip that row. When the import finishes, tell the user how many were imported and how many were skipped."\n\nBelow are three implementations. All three run. All three were opened as PRs.'
@@ -516,9 +663,9 @@
           }
         }
       ]
-    },
+    }],
 
-    pm: {
+    pm: [{
       brief: {
         zh: '真实背景：客户成功团队这个月收到 11 张工单，都是「找不到导出功能」。导出功能其实是有的，藏在「设置 → 数据管理」里面。\n\n下面是三份方案，都是 AI 生成的，你只做了少量修改。',
         en: 'The situation: customer success logged 11 tickets this month, all of them "cannot find the export function". Export exists — it is buried under Settings → Data Management.\n\nBelow are three proposals, all AI-generated, lightly edited by you.'
@@ -584,7 +731,7 @@
           }
         }
       ]
-    }
+    }]
   };
 
   /* Verbatim wording for the questions that are not the reverse review. */
@@ -772,14 +919,14 @@
     reset: { zh: '清空', en: 'Reset' },
     resetConfirm: { zh: '清空这位候选人已填的内容？（岗位和层级设置会保留）', en: 'Clear what you filled in for this candidate? (Role and level settings are kept.)' },
     unscored: { zh: '未打分', en: 'not scored' },
-    tasteReverse: { zh: '3.1　反向评审题', en: '3.1  The reverse review' },
+    tasteReverse: { zh: '反向评审题', en: 'The reverse review' },
     tasteReverseSub: { zh: '不给"做一个 X"，给三份已经做好的 X，让他排序并说明理由。', en: 'Do not ask them to make an X. Hand them three finished Xs and ask them to rank the three and defend the ranking.' },
-    tasteWhy: { zh: '3.2　"你怎么知道它是好的？"连问三次', en: '3.2  "How do you know it was good?" — asked three times' },
-    tasteCal: { zh: '3.3　品味校准题', en: '3.3  The calibration test' },
+    tasteWhy: { zh: '"你怎么知道它是好的？"连问三次', en: '"How do you know it was good?" — asked three times' },
+    tasteCal: { zh: '品味校准题', en: 'The calibration test' },
     materialLabel: { zh: '准备什么材料', en: 'What to prepare' },
     briefLabel: { zh: '给候选人看的原始材料', en: 'What the candidate sees' },
     artLabel: { zh: '三份材料', en: 'The three artefacts' },
-    artNote: { zh: '标签（漂亮但过度设计 / 朴素正确 / 似是而非）只有你看得到。复制出去的版本不含标签。', en: 'The labels — overbuilt, plain, coherent-but-false — are for you only. The copied version does not include them.' },
+    artNote: { zh: '标签只有你看得到。「复制材料」导出的版本不含标签，可以直接发给候选人。', en: 'The labels are for your eyes only. The copy button emits a version without them, ready to send to the candidate.' },
     copyCase: { zh: '复制材料（不含标签）', en: 'Copy the material (no labels)' },
     tellsTitle: { zh: '听到这个答案，怎么判', en: 'What to do when you hear this' },
     scriptLabel: { zh: '逐字话术', en: 'Say it like this' },
@@ -866,7 +1013,10 @@
     return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
   function md(s) {
-    return esc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\n\n/g, '<br><br>');
+    return esc(s)
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/`([^`]+)`/g, '<code>$1</code>')
+      .replace(/\n\n/g, '<br><br>');
   }
   function fmt(pair, vals) {
     return t(pair).replace(/\{(\w+)\}/g, function (_, k) { return vals[k]; });
@@ -1251,15 +1401,17 @@
   }
 
   /* --- module 3 --- */
-  function caseForCandidate() {
-    var k = CASES[S.role];
+  function artName(k, a, i) {
+    return t(a.name || TASTE[S.role].abc[i].name);
+  }
+
+  function caseForCandidate(k) {
     return t(k.brief) + '\n\n' + k.artifacts.map(function (a) {
       return '——— ' + a.key + ' ———\n\n' + t(a.body);
     }).join('\n\n') + '\n\n— ' + MARK;
   }
 
-  function tasteReviewCard() {
-    var d = TASTE[S.role], k = CASES[S.role];
+  function tasteReviewCard(k) {
     return '<div class="brief"><div class="brief-label">' + esc(t(UI.briefLabel)) + '</div>' +
       '<div class="brief-body">' + md(t(k.brief)) + '</div></div>' +
       '<div class="say"><span class="say-label">' + esc(t(UI.scriptLabel)) + '</span>' + esc(t(k.say)) + '</div>' +
@@ -1267,14 +1419,20 @@
       k.artifacts.map(function (a, i) {
         return '<button type="button" class="art-tab" data-art="' + i + '" aria-pressed="' + (i === 0) + '">' +
           '<span class="art-key">' + a.key + '</span>' +
-          '<span class="art-name">' + esc(t(d.abc[i].name)) + '</span></button>';
+          '<span class="art-name">' + esc(artName(k, a, i)) + '</span></button>';
       }).join('') + '</div>' +
       k.artifacts.map(function (a, i) {
         return '<pre class="art-body' + (a.mono ? ' is-code' : '') + '" data-artbody="' + i + '"' + (i === 0 ? '' : ' hidden') + '>' +
           esc(t(a.body)) + '</pre>';
       }).join('') + '</div>' +
       '<div class="card-note" style="margin-top:10px">' + esc(t(UI.artNote)) + '</div>' +
-      '<div class="actions no-print"><button type="button" class="btn" data-copycase>' + esc(t(UI.copyCase)) + '</button></div>';
+      '<div class="actions no-print"><button type="button" class="btn" data-copycase="' + k.id + '">' + esc(t(UI.copyCase)) + '</button></div>';
+  }
+
+  function checklistHtml(k) {
+    if (!k.checklist) return '';
+    return '<div class="card checklist"><h3>' + esc(t(k.checklist.title)) + '</h3><ol class="check-list">' +
+      k.checklist.items.map(function (x) { return '<li>' + md(t(x)) + '</li>'; }).join('') + '</ol></div>';
   }
 
   function bindCase(root) {
@@ -1289,16 +1447,18 @@
         });
       });
     });
-    var cc = root.querySelector('[data-copycase]');
-    if (cc) cc.addEventListener('click', function () { copyText(caseForCandidate()); });
+    root.querySelectorAll('[data-copycase]').forEach(function (cc) {
+      var k = caseById(cc.getAttribute('data-copycase'));
+      cc.addEventListener('click', function () { copyText(caseForCandidate(k)); });
+    });
   }
-  function tasteAnswerHtml() {
-    return '<div class="card-note" style="margin-bottom:8px"><strong>' + esc(t(TASTE_ANSWER.order)) + '</strong></div>' +
-      '<div class="qblock">' + TASTE_ANSWER.read.map(function (x) {
+  function tasteAnswerHtml(k) {
+    return '<div class="card-note" style="margin-bottom:8px"><strong>' + esc(t(k.order || TASTE_ANSWER.order)) + '</strong></div>' +
+      '<div class="qblock">' + (k.read || TASTE_ANSWER.read).map(function (x) {
         return '<div class="qitem"><div class="qnum">·</div><div class="qtext">' + md(t(x)) + '</div></div>';
       }).join('') + '</div>' +
       '<div class="sig-group-title" style="margin-top:20px">' + esc(t(UI.tellsTitle)) + '</div>' +
-      '<div class="tells">' + CASES[S.role].tells.map(function (x) {
+      '<div class="tells">' + k.tells.map(function (x) {
         return '<div class="tell"><div class="tell-heard ' + x.tone + '">' + esc(t(x.heard)) + '</div>' +
           '<div class="tell-verdict">' + esc(t(x.verdict)) + '</div></div>';
       }).join('') + '</div>';
@@ -1325,16 +1485,22 @@
       html += '<div class="verdict" style="margin-bottom:16px"><span class="verdict-tag tone-warn">L1</span>' +
         '<div class="verdict-body">' + esc(t(UI.l1note)) + '</div></div>';
     }
-    html += '<div class="card"><h3>' + esc(t(UI.tasteReverse)) + '</h3>' +
-      '<div class="card-note">' + esc(t(UI.tasteReverseSub)) + '</div>' + tasteReviewCard() +
-      '<div style="margin-top:18px"><div class="sig-group-title">' + esc(t(UI.howRead)) + '</div>' + tasteAnswerHtml() +
-      '<div class="card-note" style="margin-top:12px">' + esc(t(TASTE_ANSWER.howto)) + '</div></div></div>';
+    var cases = CASES[S.role], n = 0;
+    cases.forEach(function (k) {
+      n++;
+      html += '<div class="card"><h3>' + secNo(n) + esc(t(UI.tasteReverse)) +
+        (k.lens ? '<span class="lens">' + esc(t(k.lens)) + '</span>' : '') + '</h3>' +
+        '<div class="card-note">' + esc(t(k.note || UI.tasteReverseSub)) + '</div>' + tasteReviewCard(k) +
+        '<div style="margin-top:18px"><div class="sig-group-title">' + esc(t(UI.howRead)) + '</div>' + tasteAnswerHtml(k) +
+        '<div class="card-note" style="margin-top:12px">' + esc(t(TASTE_ANSWER.howto)) + '</div></div></div>';
+      html += checklistHtml(k);
+    });
 
-    html += '<div class="card"><h3>' + esc(t(UI.tasteWhy)) + '</h3>' +
+    html += '<div class="card"><h3>' + secNo(++n) + esc(t(UI.tasteWhy)) + '</h3>' +
       '<div class="card-note">' + esc(t(THREE_WHY.intro)) + '</div>' + threeWhyHtml() +
       '<div class="card-note" style="margin-top:14px">' + esc(t(THREE_WHY.note)) + '</div></div>';
 
-    html += '<div class="card"><h3>' + esc(t(UI.tasteCal)) + '</h3>' +
+    html += '<div class="card"><h3>' + secNo(++n) + esc(t(UI.tasteCal)) + '</h3>' +
       '<div class="card-note">' + esc(t(CALIBRATION.setup[S.role])) + '</div>' +
       '<div style="margin-top:14px"><div class="sig-group-title">' + esc(t(UI.calQuestions)) + '</div>' + calQuestionsHtml() +
       '<div class="card-note" style="margin-top:12px">' + md(t(CALIBRATION.key)) + '</div></div></div>';
@@ -1507,7 +1673,7 @@
    * Interview mode — one thing on screen at a time, for use in the room
    * ------------------------------------------------------------------ */
 
-  var IV = { on: false, i: 0, showAnswer: false };
+  var IV = { on: false, i: 0, reveal: {} };
 
   function ivSteps() {
     var steps = [
@@ -1524,15 +1690,7 @@
           }).join('') + '</div>';
         }
       },
-      {
-        key: 'review', title: UI.ivReview,
-        html: function () {
-          return '<div class="iv-lead">' + esc(t(UI.tasteReverseSub)) + '</div>' + tasteReviewCard() +
-            '<div class="iv-reveal"><button type="button" class="btn" id="ivReveal">' +
-            esc(t(IV.showAnswer ? UI.hideAnswer : UI.showAnswer)) + '</button>' +
-            (IV.showAnswer ? '<div style="margin-top:14px">' + tasteAnswerHtml() + '</div>' : '') + '</div>';
-        }
-      },
+      /* placeholder — replaced below by one step per case */
       {
         key: 'why', title: UI.ivWhy,
         html: function () { return '<div class="iv-lead">' + esc(t(THREE_WHY.intro)) + '</div>' + threeWhyHtml(); }
@@ -1542,6 +1700,19 @@
         html: function () { return '<div class="iv-lead">' + esc(t(CALIBRATION.setup[S.role])) + '</div>' + calQuestionsHtml(); }
       }
     ];
+
+    CASES[S.role].slice().reverse().forEach(function (k) {
+      steps.splice(2, 0, {
+        key: 'review-' + k.id,
+        title: k.lens ? { zh: t(UI.ivReview) + ' · ' + t(k.lens), en: t(UI.ivReview) + ' · ' + t(k.lens) } : UI.ivReview,
+        html: function () {
+          return '<div class="iv-lead">' + esc(t(k.note || UI.tasteReverseSub)) + '</div>' + tasteReviewCard(k) +
+            '<div class="iv-reveal"><button type="button" class="btn" data-reveal="' + k.id + '">' +
+            esc(t(IV.reveal[k.id] ? UI.hideAnswer : UI.showAnswer)) + '</button>' +
+            (IV.reveal[k.id] ? '<div style="margin-top:14px">' + tasteAnswerHtml(k) + '</div>' : '') + '</div>';
+        }
+      });
+    });
 
     if (S.level === 'L3') {
       steps.push({
@@ -1641,8 +1812,13 @@
       d.addEventListener('click', function () { IV.i = parseInt(d.getAttribute('data-step'), 10); renderInterview(); });
     });
 
-    var rev = root.querySelector('#ivReveal');
-    if (rev) rev.addEventListener('click', function () { IV.showAnswer = !IV.showAnswer; renderInterview(); });
+    root.querySelectorAll('[data-reveal]').forEach(function (rev) {
+      rev.addEventListener('click', function () {
+        var id = rev.getAttribute('data-reveal');
+        IV.reveal[id] = !IV.reveal[id];
+        renderInterview();
+      });
+    });
 
     bindCase(root);
     bindScoreDims(root, function () { renderInterview(); });
@@ -1687,38 +1863,51 @@
     out.push('');
 
     out.push('## ' + (zh ? '③ 品味题' : '③ Taste tests'));
-    var kase = CASES[S.role];
-    out.push('### ' + t(UI.tasteReverse));
-    out.push('**' + t(UI.scriptLabel) + '** ' + t(kase.say));
-    out.push('');
-    out.push('**' + t(UI.briefLabel) + '**');
-    out.push('');
-    out.push(t(kase.brief));
-    kase.artifacts.forEach(function (a, i) {
+    var n = 0;
+    CASES[S.role].forEach(function (kase) {
+      n++;
+      out.push('### 3.' + n + ' ' + t(UI.tasteReverse) + (kase.lens ? ' · ' + t(kase.lens) : ''));
+      if (kase.note) out.push(t(kase.note));
       out.push('');
-      out.push('**' + a.key + '** — ' + t(d.abc[i].name) + (zh ? '（标签不要给候选人看）' : ' (do not show this label to the candidate)'));
+      out.push('**' + t(UI.scriptLabel) + '** ' + t(kase.say));
       out.push('');
-      out.push('```');
-      out.push(t(a.body));
-      out.push('```');
+      out.push('**' + t(UI.briefLabel) + '**');
+      out.push('');
+      out.push(t(kase.brief));
+      kase.artifacts.forEach(function (a, i) {
+        out.push('');
+        out.push('**' + a.key + '** — ' + artName(kase, a, i) + (zh ? '（标签不要给候选人看）' : ' (do not show this label to the candidate)'));
+        out.push('');
+        out.push('```');
+        out.push(t(a.body));
+        out.push('```');
+      });
+      out.push('');
+      out.push(t(kase.order || TASTE_ANSWER.order));
+      (kase.read || TASTE_ANSWER.read).forEach(function (x) { out.push('- ' + t(x).replace(/\n/g, ' ')); });
+      out.push('');
+      out.push('**' + t(UI.tellsTitle) + '**');
+      kase.tells.forEach(function (x) {
+        out.push('- ' + t(x.heard));
+        out.push('  → ' + t(x.verdict));
+      });
+      if (kase.checklist) {
+        out.push('');
+        out.push('**' + t(kase.checklist.title) + '**');
+        kase.checklist.items.forEach(function (x, i) {
+          out.push((i + 1) + '. ' + t(x).replace(/\*\*/g, ''));
+        });
+      }
+      out.push('');
     });
-    out.push('');
-    out.push(t(TASTE_ANSWER.order));
-    TASTE_ANSWER.read.forEach(function (x) { out.push('- ' + t(x).replace(/\n/g, ' ')); });
-    out.push('');
-    out.push('**' + t(UI.tellsTitle) + '**');
-    kase.tells.forEach(function (x) {
-      out.push('- ' + t(x.heard));
-      out.push('  → ' + t(x.verdict));
-    });
-    out.push('');
-    out.push('### ' + t(UI.tasteWhy));
+
+    out.push('### 3.' + (++n) + ' ' + t(UI.tasteWhy));
     out.push(t(THREE_WHY.intro));
     SAY.why.forEach(function (x) { out.push('- ' + t(x)); });
     out.push('- ' + (zh ? '有品味会落在：' : 'Taste lands on: ') + THREE_WHY.good.map(function (x) { return t(x).replace(/\*\*/g, ''); }).join(' / '));
     out.push('- ' + (zh ? '没品味会落在：' : 'No taste lands on: ') + THREE_WHY.bad.map(function (x) { return t(x).replace(/\*\*/g, ''); }).join(' / '));
     out.push('');
-    out.push('### ' + t(UI.tasteCal));
+    out.push('### 3.' + (++n) + ' ' + t(UI.tasteCal));
     out.push(t(CALIBRATION.setup[S.role]));
     out.push('**' + t(UI.scriptLabel) + '** ' + t(SAY.cal));
     CALIBRATION.questions.forEach(function (q, i) { out.push((i + 1) + '. ' + t(q)); });
@@ -1812,6 +2001,7 @@
   }
 
   function init() {
+    stampCaseIds();
     load();
     cur();
     buildShell();

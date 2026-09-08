@@ -442,6 +442,24 @@ body.iv-open { overflow: hidden; }
   .art-name { display: none; }
 }
 
+.secno {
+  font-family: var(--kelly-font-mono); font-size: 13px;
+  color: var(--kelly-rust-text); margin-right: 10px; font-weight: 600;
+}
+.lens {
+  display: inline-block; margin-left: 10px; padding: 2px 9px;
+  border-radius: 999px; background: var(--kelly-blue-soft); color: var(--kelly-blue-text);
+  font-family: var(--kelly-font-body); font-size: 12px; font-weight: 600;
+  vertical-align: middle;
+}
+.checklist { border-left: 3px solid var(--kelly-gold); }
+.check-list { margin: 12px 0 0; padding-left: 22px; }
+.check-list li { font-size: 14px; margin-bottom: 11px; line-height: 1.7; }
+.check-list code, .checklist code {
+  font-family: var(--kelly-font-mono); font-size: 12px;
+  background: var(--kelly-paper); padding: 1px 5px; border-radius: 3px;
+}
+
 /* ---------- watermark ---------- */
 .print-mark { display: none; }
 
