@@ -727,6 +727,46 @@ h1 {
   }
 }
 
+
+/* --- subtractions: what was cut and what was called wrong --- */
+.summary-lead {
+  font-family: var(--kelly-font-display, Georgia, serif);
+  font-size: 1.28rem;
+  line-height: 1.5;
+  margin: 0 0 0.7rem;
+}
+.practice-cost {
+  display: block;
+  margin-top: 0.55rem;
+  font-style: normal;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  opacity: 0.72;
+}
+.agent-environment-was {
+  margin-top: 0.45rem;
+  opacity: 0.75;
+}
+.tradeoff-list {
+  display: grid;
+  gap: 1.1rem;
+}
+.tradeoff {
+  border-left: 3px solid var(--kelly-rust, #b55f4f);
+  padding: 0.15rem 0 0.15rem 1.05rem;
+}
+.tradeoff h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.02rem;
+}
+.tradeoff p {
+  margin: 0;
+}
+.tradeoff-intro {
+  margin: 0 0 1.15rem;
+  opacity: 0.8;
+}
+
 @media print {
   @page {
     size: A4;
