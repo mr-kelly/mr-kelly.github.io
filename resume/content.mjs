@@ -145,7 +145,7 @@ export const DOCS = {
             "Built and led Digital Marketing, Software R&D and ITSM teams from zero to more than 150 people.",
             "Served as second-in-command, founding CTO and board member, leading company-wide digital transformation for a 30,000-person retail organization during rapid national expansion.",
             "As Head of the PMO, coordinated every department company-wide, breaking the transformation into tasks with named owners, deadlines and acceptance criteria, and holding each team to delivering results on schedule.",
-            "Built and operated HEYTEA GO, its membership system and owned-channel commerce platform from zero to 30M+ members, spanning ordering, member operations, marketing and growth.",
+            "Built and operated HEYTEA GO, its membership system and owned-channel commerce platform from zero to 30M+ members, spanning ordering, member operations, marketing and growth. The platform has since passed 100M users.",
             "Following the transformation, the company went on to raise billions of RMB."
           ]
         },
@@ -247,8 +247,8 @@ export const DOCS = {
           "p": "Agent task design, multi-agent orchestration, context and memory, tool/MCP integration, human-in-the-loop review, acceptance and evals, workflow automation, AI asset governance"
         },
         {
-          "h3": "Full-stack internet product builder",
-          "p": "Shipped 0→1 across mobile games, large-scale online games, enterprise software and consumer software, and ran digital marketing as its own function. On the engineering side: TypeScript, JavaScript, Python, Java, C#, C++, Go, Rust, PHP, Lua, React, Vue, Node.js, Unity and Docker, plus software architecture, R&amp;D leadership and developer platforms. The point of that range is no longer building all of it myself — it is that whichever language or product category an agent works in, I can review it down to the detail."
+          "h3": "Full-Stack Product Builder",
+          "p": "Hands-on across technology, product and operations. Shipped 0→1 across mobile games, large-scale online games, enterprise software and consumer software — HEYTEA GO, which I built from zero, has since passed 100M users — and ran digital marketing as its own function. On the engineering side: TypeScript, JavaScript, Python, Java, C#, C++, Go, Rust, PHP, Lua, React, Vue, Node.js, Unity and Docker, plus software architecture, R&amp;D leadership and developer platforms. The point of that range is no longer building all of it myself — it is that whichever language or product category an agent works in, I can review it down to the detail."
         },
         {
           "h3": "Models &amp; agent runtimes",
@@ -472,7 +472,7 @@ export const DOCS = {
             "从零组建并带领数字营销、软件研发与 ITSM 三个团队，总规模超过 150 人。",
             "作为公司二号位、创始 CTO 与董事会成员，在全国高速扩张期主导 3 万人零售企业的整体数字化转型。",
             "作为 PMO（项目管理办公室）负责人，横向协调全公司所有部门，把数字化转型拆解为有负责人、有期限、有验收标准的任务，推动各团队按期拿到结果。",
-            "从零搭建并运营喜茶 GO、会员体系与私域电商平台，增长至 3000 万+ 会员，覆盖点单、会员运营、营销与增长。",
+            "从零搭建并运营喜茶 GO、会员体系与私域电商平台，增长至 3000 万+ 会员，覆盖点单、会员运营、营销与增长。该平台其后用户已过亿。",
             "转型完成后，企业先后完成数十亿元融资。"
           ]
         },
@@ -575,7 +575,7 @@ export const DOCS = {
         },
         {
           "h3": "全栈互联网产品人",
-          "p": "从 0 到 1 操盘过手机游戏、大型网络游戏、大型企业软件与 C 端消费级软件，也做过数字营销负责人。工程一侧写过 TypeScript、JavaScript、Python、Java、C#、C++、Go、Rust、PHP、Lua、React、Vue、Node.js、Unity 与 Docker，另含软件架构、研发管理与开发者平台。这个跨度今天的价值不在于我能自己做完，而在于无论 agent 用哪一门语言、做哪一类产品，我都能 review 到细节。"
+          "p": "技术、产品、运营全栈实操。从 0 到 1 操盘过手机游戏、大型网络游戏、大型企业软件与 C 端消费级软件——其中喜茶 GO 由我从零做起，如今用户已过亿；也做过数字营销负责人。工程一侧写过 TypeScript、JavaScript、Python、Java、C#、C++、Go、Rust、PHP、Lua、React、Vue、Node.js、Unity 与 Docker，另含软件架构、研发管理与开发者平台。这个跨度今天的价值不在于我能自己做完，而在于无论 agent 用哪一门语言、做哪一类产品，我都能 review 到细节。"
         },
         {
           "h3": "模型与 Agent 运行时",
@@ -799,7 +799,7 @@ export const DOCS = {
             "從零建立並帶領數碼營銷、軟件研發及 ITSM 三個團隊，總規模超過 150 人。",
             "作為公司二號位、創始 CTO 與董事會成員，在全國高速擴張期主導 3 萬人零售企業的整體數碼轉型。",
             "作為 PMO（項目管理辦公室）負責人，橫向協調全公司所有部門，把數碼轉型拆解為有負責人、有期限、有驗收標準的任務，推動各團隊按期拿到結果。",
-            "從零建立並營運喜茶 GO、會員體系與私域電商平台，增長至 3,000 萬+ 會員，涵蓋點單、會員營運、營銷與增長。",
+            "從零建立並營運喜茶 GO、會員體系與私域電商平台，增長至 3,000 萬+ 會員，涵蓋點單、會員營運、營銷與增長。該平台其後用戶已過億。",
             "轉型完成後，企業先後完成數十億元融資。"
           ]
         },
@@ -902,7 +902,7 @@ export const DOCS = {
         },
         {
           "h3": "全棧互聯網產品人",
-          "p": "從 0 到 1 操盤過手機遊戲、大型網絡遊戲、大型企業軟件與 C 端消費級軟件，也做過數字營銷負責人。工程一側寫過 TypeScript、JavaScript、Python、Java、C#、C++、Go、Rust、PHP、Lua、React、Vue、Node.js、Unity 與 Docker，另含軟件架構、研發管理與開發者平台。這個跨度今天的價值不在於我能自己做完，而在於無論 agent 用哪一門語言、做哪一類產品，我都能 review 到細節。"
+          "p": "技術、產品、營運全棧實操。從 0 到 1 操盤過手機遊戲、大型網絡遊戲、大型企業軟件與 C 端消費級軟件——其中喜茶 GO 由我從零做起，如今用戶已過億；也做過數碼營銷負責人。工程一側寫過 TypeScript、JavaScript、Python、Java、C#、C++、Go、Rust、PHP、Lua、React、Vue、Node.js、Unity 與 Docker，另含軟件架構、研發管理與開發者平台。這個跨度今天的價值不在於我能自己做完，而在於無論 agent 用哪一門語言、做哪一類產品，我都能 review 到細節。"
         },
         {
           "h3": "模型與 Agent 執行環境",
@@ -1143,7 +1143,7 @@ export const DOCS = {
             "Built and led Digital Marketing, Software R&D and ITSM teams from zero to more than 150 people.",
             "Served as second-in-command, founding CTO and board member, leading company-wide digital transformation for a 30,000-person retail organization during rapid national expansion.",
             "As Head of the PMO, coordinated every department company-wide, breaking the transformation into tasks with named owners, deadlines and acceptance criteria, and holding each team to delivering results on schedule.",
-            "Built and operated HEYTEA GO, its membership system and owned-channel commerce platform from zero to 30M+ members, spanning ordering, member operations, marketing and growth.",
+            "Built and operated HEYTEA GO, its membership system and owned-channel commerce platform from zero to 30M+ members, spanning ordering, member operations, marketing and growth. The platform has since passed 100M users.",
             "Following the transformation, the company went on to raise billions of RMB."
           ]
         },
@@ -1245,8 +1245,8 @@ export const DOCS = {
           "p": "Agent task design, multi-agent orchestration, context and memory, tool/MCP integration, human-in-the-loop review, acceptance and evals, workflow automation, AI asset governance"
         },
         {
-          "h3": "Full-stack internet product builder",
-          "p": "Shipped 0→1 across mobile games, large-scale online games, enterprise software and consumer software, and ran digital marketing as its own function. On the engineering side: TypeScript, JavaScript, Python, Java, C#, C++, Go, Rust, PHP, Lua, React, Vue, Node.js, Unity and Docker, plus software architecture, R&amp;D leadership and developer platforms. The point of that range is no longer building all of it myself — it is that whichever language or product category an agent works in, I can review it down to the detail."
+          "h3": "Full-Stack Product Builder",
+          "p": "Hands-on across technology, product and operations. Shipped 0→1 across mobile games, large-scale online games, enterprise software and consumer software — HEYTEA GO, which I built from zero, has since passed 100M users — and ran digital marketing as its own function. On the engineering side: TypeScript, JavaScript, Python, Java, C#, C++, Go, Rust, PHP, Lua, React, Vue, Node.js, Unity and Docker, plus software architecture, R&amp;D leadership and developer platforms. The point of that range is no longer building all of it myself — it is that whichever language or product category an agent works in, I can review it down to the detail."
         },
         {
           "h3": "Models &amp; agent runtimes",
@@ -1487,7 +1487,7 @@ export const DOCS = {
             "从零组建并带领数字营销、软件研发与 ITSM 三个团队，总规模超过 150 人。",
             "作为公司二号位、创始 CTO 与董事会成员，在全国高速扩张期主导 3 万人零售企业的整体数字化转型。",
             "作为 PMO（项目管理办公室）负责人，横向协调全公司所有部门，把数字化转型拆解为有负责人、有期限、有验收标准的任务，推动各团队按期拿到结果。",
-            "从零搭建并运营喜茶 GO、会员体系与私域电商平台，增长至 3000 万+ 会员，覆盖点单、会员运营、营销与增长。",
+            "从零搭建并运营喜茶 GO、会员体系与私域电商平台，增长至 3000 万+ 会员，覆盖点单、会员运营、营销与增长。该平台其后用户已过亿。",
             "转型完成后，企业先后完成数十亿元融资。"
           ]
         },
@@ -1590,7 +1590,7 @@ export const DOCS = {
         },
         {
           "h3": "全栈互联网产品人",
-          "p": "从 0 到 1 操盘过手机游戏、大型网络游戏、大型企业软件与 C 端消费级软件，也做过数字营销负责人。工程一侧写过 TypeScript、JavaScript、Python、Java、C#、C++、Go、Rust、PHP、Lua、React、Vue、Node.js、Unity 与 Docker，另含软件架构、研发管理与开发者平台。这个跨度今天的价值不在于我能自己做完，而在于无论 agent 用哪一门语言、做哪一类产品，我都能 review 到细节。"
+          "p": "技术、产品、运营全栈实操。从 0 到 1 操盘过手机游戏、大型网络游戏、大型企业软件与 C 端消费级软件——其中喜茶 GO 由我从零做起，如今用户已过亿；也做过数字营销负责人。工程一侧写过 TypeScript、JavaScript、Python、Java、C#、C++、Go、Rust、PHP、Lua、React、Vue、Node.js、Unity 与 Docker，另含软件架构、研发管理与开发者平台。这个跨度今天的价值不在于我能自己做完，而在于无论 agent 用哪一门语言、做哪一类产品，我都能 review 到细节。"
         },
         {
           "h3": "模型与 Agent 运行时",
@@ -1831,7 +1831,7 @@ export const DOCS = {
             "從零建立並帶領數碼營銷、軟件研發及 ITSM 三個團隊，總規模超過 150 人。",
             "作為公司二號位、創始 CTO 與董事會成員，在全國高速擴張期主導 3 萬人零售企業的整體數碼轉型。",
             "作為 PMO（項目管理辦公室）負責人，橫向協調全公司所有部門，把數碼轉型拆解為有負責人、有期限、有驗收標準的任務，推動各團隊按期拿到結果。",
-            "從零建立並營運喜茶 GO、會員體系與私域電商平台，增長至 3,000 萬+ 會員，涵蓋點單、會員營運、營銷與增長。",
+            "從零建立並營運喜茶 GO、會員體系與私域電商平台，增長至 3,000 萬+ 會員，涵蓋點單、會員營運、營銷與增長。該平台其後用戶已過億。",
             "轉型完成後，企業先後完成數十億元融資。"
           ]
         },
@@ -1934,7 +1934,7 @@ export const DOCS = {
         },
         {
           "h3": "全棧互聯網產品人",
-          "p": "從 0 到 1 操盤過手機遊戲、大型網絡遊戲、大型企業軟件與 C 端消費級軟件，也做過數字營銷負責人。工程一側寫過 TypeScript、JavaScript、Python、Java、C#、C++、Go、Rust、PHP、Lua、React、Vue、Node.js、Unity 與 Docker，另含軟件架構、研發管理與開發者平台。這個跨度今天的價值不在於我能自己做完，而在於無論 agent 用哪一門語言、做哪一類產品，我都能 review 到細節。"
+          "p": "技術、產品、營運全棧實操。從 0 到 1 操盤過手機遊戲、大型網絡遊戲、大型企業軟件與 C 端消費級軟件——其中喜茶 GO 由我從零做起，如今用戶已過億；也做過數碼營銷負責人。工程一側寫過 TypeScript、JavaScript、Python、Java、C#、C++、Go、Rust、PHP、Lua、React、Vue、Node.js、Unity 與 Docker，另含軟件架構、研發管理與開發者平台。這個跨度今天的價值不在於我能自己做完，而在於無論 agent 用哪一門語言、做哪一類產品，我都能 review 到細節。"
         },
         {
           "h3": "模型與 Agent 執行環境",
