@@ -247,8 +247,8 @@ export const DOCS = {
           "p": "Agent task design, multi-agent orchestration, context and memory, tool/MCP integration, human-in-the-loop review, acceptance and evals, workflow automation, AI asset governance"
         },
         {
-          "h3": "Cross-language review",
-          "p": "Fourteen years of writing TypeScript, JavaScript, Python, Java, C#, C++, Go, Rust, PHP, Lua, React, Vue, Node.js, Unity and Docker. The point of that range is no longer writing them — it is being able to review what an agent wrote in any of them, down to each language’s idioms. Plus software architecture, R&amp;D leadership and developer platforms."
+          "h3": "Full-stack internet product builder",
+          "p": "Shipped 0→1 across mobile games, large-scale online games, enterprise software and consumer software, and ran digital marketing as its own function. On the engineering side: TypeScript, JavaScript, Python, Java, C#, C++, Go, Rust, PHP, Lua, React, Vue, Node.js, Unity and Docker, plus software architecture, R&amp;D leadership and developer platforms. The point of that range is no longer building all of it myself — it is that whichever language or product category an agent works in, I can review it down to the detail."
         },
         {
           "h3": "Models &amp; agent runtimes",
@@ -574,8 +574,8 @@ export const DOCS = {
           "p": "Agent 任务设计、多 Agent 编排、上下文与记忆、工具与 MCP 集成、人在回路审核、验收与评估、工作流自动化、AI 资产治理"
         },
         {
-          "h3": "跨语言 Review",
-          "p": "14 年写过 TypeScript、JavaScript、Python、Java、C#、C++、Go、Rust、PHP、Lua、React、Vue、Node.js、Unity 与 Docker。这个跨度今天的价值不在于我能写，而在于 agent 用其中任何一种写出来的东西，我都能 review 到语言习惯的细节。另含软件架构、研发管理与开发者平台。"
+          "h3": "全栈互联网产品人",
+          "p": "从 0 到 1 操盘过手机游戏、大型网络游戏、大型企业软件与 C 端消费级软件，也做过数字营销负责人。工程一侧写过 TypeScript、JavaScript、Python、Java、C#、C++、Go、Rust、PHP、Lua、React、Vue、Node.js、Unity 与 Docker，另含软件架构、研发管理与开发者平台。这个跨度今天的价值不在于我能自己做完，而在于无论 agent 用哪一门语言、做哪一类产品，我都能 review 到细节。"
         },
         {
           "h3": "模型与 Agent 运行时",
@@ -901,8 +901,8 @@ export const DOCS = {
           "p": "Agent 任務設計、多 Agent 編排、上下文與記憶、工具與 MCP 整合、人在迴路審核、驗收與評估、工作流程自動化、AI 資產治理"
         },
         {
-          "h3": "跨語言 Review",
-          "p": "14 年寫過 TypeScript、JavaScript、Python、Java、C#、C++、Go、Rust、PHP、Lua、React、Vue、Node.js 與 Docker。這個跨度今天的價值不在於我能寫，而在於 agent 用其中任何一種寫出來的東西，我都能 review 到語言習慣的細節。另含軟件架構、研發管理與開發者平台。"
+          "h3": "全棧互聯網產品人",
+          "p": "從 0 到 1 操盤過手機遊戲、大型網絡遊戲、大型企業軟件與 C 端消費級軟件，也做過數字營銷負責人。工程一側寫過 TypeScript、JavaScript、Python、Java、C#、C++、Go、Rust、PHP、Lua、React、Vue、Node.js、Unity 與 Docker，另含軟件架構、研發管理與開發者平台。這個跨度今天的價值不在於我能自己做完，而在於無論 agent 用哪一門語言、做哪一類產品，我都能 review 到細節。"
         },
         {
           "h3": "模型與 Agent 執行環境",
@@ -1245,8 +1245,8 @@ export const DOCS = {
           "p": "Agent task design, multi-agent orchestration, context and memory, tool/MCP integration, human-in-the-loop review, acceptance and evals, workflow automation, AI asset governance"
         },
         {
-          "h3": "Cross-language review",
-          "p": "Fourteen years of writing TypeScript, JavaScript, Python, Java, C#, C++, Go, Rust, PHP, Lua, React, Vue, Node.js, Unity and Docker. The point of that range is no longer writing them — it is being able to review what an agent wrote in any of them, down to each language’s idioms. Plus software architecture, R&amp;D leadership and developer platforms."
+          "h3": "Full-stack internet product builder",
+          "p": "Shipped 0→1 across mobile games, large-scale online games, enterprise software and consumer software, and ran digital marketing as its own function. On the engineering side: TypeScript, JavaScript, Python, Java, C#, C++, Go, Rust, PHP, Lua, React, Vue, Node.js, Unity and Docker, plus software architecture, R&amp;D leadership and developer platforms. The point of that range is no longer building all of it myself — it is that whichever language or product category an agent works in, I can review it down to the detail."
         },
         {
           "h3": "Models &amp; agent runtimes",
@@ -1589,8 +1589,8 @@ export const DOCS = {
           "p": "Agent 任务设计、多 Agent 编排、上下文与记忆、工具与 MCP 集成、人在回路审核、验收与评估、工作流自动化、AI 资产治理"
         },
         {
-          "h3": "跨语言 Review",
-          "p": "14 年写过 TypeScript、JavaScript、Python、Java、C#、C++、Go、Rust、PHP、Lua、React、Vue、Node.js、Unity 与 Docker。这个跨度今天的价值不在于我能写，而在于 agent 用其中任何一种写出来的东西，我都能 review 到语言习惯的细节。另含软件架构、研发管理与开发者平台。"
+          "h3": "全栈互联网产品人",
+          "p": "从 0 到 1 操盘过手机游戏、大型网络游戏、大型企业软件与 C 端消费级软件，也做过数字营销负责人。工程一侧写过 TypeScript、JavaScript、Python、Java、C#、C++、Go、Rust、PHP、Lua、React、Vue、Node.js、Unity 与 Docker，另含软件架构、研发管理与开发者平台。这个跨度今天的价值不在于我能自己做完，而在于无论 agent 用哪一门语言、做哪一类产品，我都能 review 到细节。"
         },
         {
           "h3": "模型与 Agent 运行时",
@@ -1933,8 +1933,8 @@ export const DOCS = {
           "p": "Agent 任務設計、多 Agent 編排、上下文與記憶、工具與 MCP 整合、人在迴路審核、驗收與評估、工作流程自動化、AI 資產治理"
         },
         {
-          "h3": "跨語言 Review",
-          "p": "14 年寫過 TypeScript、JavaScript、Python、Java、C#、C++、Go、Rust、PHP、Lua、React、Vue、Node.js 與 Docker。這個跨度今天的價值不在於我能寫，而在於 agent 用其中任何一種寫出來的東西，我都能 review 到語言習慣的細節。另含軟件架構、研發管理與開發者平台。"
+          "h3": "全棧互聯網產品人",
+          "p": "從 0 到 1 操盤過手機遊戲、大型網絡遊戲、大型企業軟件與 C 端消費級軟件，也做過數字營銷負責人。工程一側寫過 TypeScript、JavaScript、Python、Java、C#、C++、Go、Rust、PHP、Lua、React、Vue、Node.js、Unity 與 Docker，另含軟件架構、研發管理與開發者平台。這個跨度今天的價值不在於我能自己做完，而在於無論 agent 用哪一門語言、做哪一類產品，我都能 review 到細節。"
         },
         {
           "h3": "模型與 Agent 執行環境",
