@@ -361,8 +361,8 @@
 
   var THREE_WHY = {
     intro: {
-      zh: '拿他简历上任何一个成果，问"你怎么知道它是好的？"。然后对他的答案，再问一次同样的问题。连问三次。',
-      en: 'Take any achievement on their resume and ask: "How do you know it was good?" Then ask the same question about their answer. Three times.'
+      zh: 'Kelly 最常用的一道题：拿他简历上任何一个成果，问"你怎么知道它是好的？"。然后对他的答案，再问一次同样的问题。连问三次。',
+      en: 'Kelly’s most-used question: take any achievement on their resume and ask "How do you know it was good?" Then ask the same question about their answer. Three times.'
     },
     good: [
       { zh: '落到**后果**：用户会怎样、三个月后会怎样、谁会因此少做一件事', en: 'Lands on **consequence**: what happens to the user, what happens in three months, whose work disappears' },
@@ -534,7 +534,7 @@
           { zh: '**先问"这个系统现在是按领域切的还是按技术层切的"再判断** —— 加分。他知道离开既有结构谈新增结构是没有意义的。', en: '**Asks whether the system is sliced by domain or by technical layer before judging** — bonus. He knows new structure is meaningless without knowing the structure it lands in.' }
         ],
         checklist: {
-          title: { zh: '你自己看 files changed 时，先看这八样', en: 'What to read in a files-changed list, before the code' },
+          title: { zh: 'Kelly 看 files changed 时，先看这八样', en: 'What Kelly reads in a files-changed list, before the code' },
           items: [
             { zh: '**改了几个文件，散在几个目录。** 一个功能横跨七八个目录，说明这个系统是按技术分层切的，不是按领域切的——以后每个需求都要这么横跨一遍。', en: '**How many files, across how many directories.** One feature touching seven directories means the system is sliced by technical layer rather than by domain — and every future feature will cost the same sprawl.' },
             { zh: '**有没有净删除。** 只增不删的"重构"不是重构，是叠加。', en: '**Whether anything was deleted.** A refactor with no deletions is not a refactor; it is an accumulation.' },
@@ -757,7 +757,7 @@
 
   var EXAM = {
     note: {
-      zh: '「做一个 X」类型的笔试题已经死了。候选人三十秒就能让 AI 做完，你收到的是 AI 的水平，而且你分辨不出来。\n\n还能用的只剩三种形态：**让他评审、让他砍、让他交出过程**。前两种 AI 做不好，第三种 AI 做不了。',
+      zh: 'Kelly 的判断：「做一个 X」类型的笔试题已经死了。候选人三十秒就能让 AI 做完，你收到的是 AI 的水平，而且你分辨不出来。\n\n还能用的只剩三种形态：**让他评审、让他砍、让他交出过程**。前两种 AI 做不好，第三种 AI 做不了。',
       en: 'The "build me an X" take-home is dead. A candidate has AI finish it in thirty seconds, what you receive is AI’s standard of work, and you cannot tell the difference.\n\nThree forms still survive: **make them review, make them cut, make them show the process.** AI is bad at the first two and cannot do the third at all.'
     },
     rulesTitle: { zh: '题面上原样写给候选人的三条', en: 'Three lines to put on the paper, verbatim' },
@@ -893,7 +893,7 @@
     ],
     defenseTitle: { zh: '当面复核（笔试真正的用途）', en: 'The defence — what the take-home is actually for' },
     defenseNote: {
-      zh: '笔试只用来筛掉，永远不要用来录用。真正的裁决在于他能不能当面为自己写的东西辩护。**任何不能当面复核的笔试题都是无效的**——因为你根本不知道那是谁写的。',
+      zh: 'Kelly 的原则：笔试只用来筛掉，永远不要用来录用。真正的裁决在于他能不能当面为自己写的东西辩护。**任何不能当面复核的笔试题都是无效的**——因为你根本不知道那是谁写的。',
       en: 'A take-home screens out; it must never select. The verdict comes from whether he can defend it in the room. **A take-home you cannot cross-examine is worthless**, because you do not know who wrote it.'
     },
     defense: [
@@ -912,6 +912,158 @@
     ],
     sent: { zh: '我给这位候选人发了笔试', en: 'I sent this candidate a take-home' },
     sentNote: { zh: '勾上之后，面试模式里会多一步「笔试复核」。', en: 'Ticking this adds a defence step to interview mode.' }
+  };
+
+  /* ------------------------------------------------------------------ *
+   * Job-board screeners — 30 seconds to answer, 15 seconds to judge
+   * ------------------------------------------------------------------ */
+
+  var SCREEN = {
+    note: {
+      zh: '招聘网站上的初筛题有三个硬约束：**他一定会用 AI 答**（你既禁不住也验证不了）、**题目要 30 秒能答完**（长了没人填）、**你要 15 秒判完**（你面对的是两百份）。\n\n所以初筛题的设计目标不是"防住 AI"，而是**即使他用 AI 答，答案依然能分辨出人**。下面每一道都满足这一条。',
+      en: 'Screener questions on a job board have three hard constraints: **he will answer with AI** (you can neither prevent nor detect it), **it must take 30 seconds to answer** (longer and nobody fills it in), and **you must judge it in 15 seconds** (you are looking at two hundred of these).\n\nSo the design goal is not to defeat AI. It is that **the answer still separates people even when AI wrote it.** Every question below meets that bar.'
+    },
+    rulesTitle: { zh: '三条通用判据（先用这三条扫一遍，能砍掉一大半）', en: 'Three blanket rules — run these first and most of the pile disappears' },
+    rules: [
+      { zh: '**超字数的直接淘汰。** 不是因为啰嗦，是因为他要么没读要求，要么约束不住 AI 的输出——这两件事在这个岗位上都是硬伤。', en: '**Over the word limit: reject.** Not for verbosity — either he did not read the instruction or he cannot constrain an AI’s output. Both are disqualifying now.' },
+      { zh: '**没有具体对象的直接淘汰。** "提升了效率"、"优化了流程"、"赋能业务"——把这句话删掉，答案的信息量不变。', en: '**No concrete object: reject.** "Improved efficiency", "optimised the process", "enabled the business" — delete the sentence and the answer loses nothing.' },
+      { zh: '**四平八稳、面面俱到的直接淘汰。** AI 的默认输出就是这个形状。有判断的人一定会显得偏，因为他放弃了一些东西。', en: '**Balanced and comprehensive: reject.** That is AI’s default shape. Anyone with judgement reads as lopsided, because he gave something up.' }
+    ],
+    bank: {
+      common: [
+        {
+          id: 's1',
+          tag: { zh: '工具栈', en: 'Stack' },
+          q: { zh: '你现在用得最多的 AI 工具是哪个？说一件你上周用它完成的具体的事。（50 字以内）', en: 'Which AI tool do you use most? Name one specific thing you finished with it last week. (50 words max)' },
+          keep: { zh: '说得出一件带上下文的事，而且带着一点不必要的具体（"周三写季度复盘，先让它把三份周报合并成时间线"）。真实的事情总是多余地具体。', en: 'One thing with context, carrying a little unnecessary detail ("Wednesday, quarterly review — had it merge three weekly reports into a timeline first"). Real events are always gratuitously specific.' },
+          drop: { zh: '只列工具名；或者"用它提高了工作效率"这类没有对象的句子。', en: 'A list of tool names, or "it made me more efficient" with no object.' },
+          why: { zh: 'AI 能润色，编不出他上周做了什么。编的那种会干净得不像真的。', en: 'AI can polish; it cannot invent his last week. What it invents comes out too clean to be true.' }
+        },
+        {
+          id: 's2',
+          tag: { zh: '拒绝', en: 'Rejection' },
+          q: { zh: '说一次你没有采用 AI 给你的结果。你当时怎么知道它不对？（50 字以内）', en: 'Describe a time you did not use what AI gave you. How did you know it was wrong? (50 words max)' },
+          keep: { zh: '说得出判断依据：跑了一下、和已知事实对不上、前提错了、规模不对。', en: 'A stated basis: I ran it, it contradicted something I knew, the premise was wrong, the scale was off.' },
+          drop: { zh: '"AI 基本都挺对的"；或者说的是"写得不够好我改了文字"——那是润色，不是判断。', en: '"AI is usually right"; or "the wording was off so I edited it" — that is polishing, not judgement.' },
+          why: { zh: '这是整套指南的中心问题的最短形式：他能不能品味 AI 的产出。**如果只能问一道题，Kelly 会问这道。**', en: 'The shortest possible form of this guide’s central question: can he judge AI’s output. **If Kelly could only ask one, it would be this one.**' }
+        },
+        {
+          id: 's3',
+          tag: { zh: '陷阱', en: 'Trap' },
+          q: { zh: '我们希望这个岗位的人每天至少使用 4 小时 AI 工具。你怎么看这个要求？（50 字以内）', en: 'We expect whoever takes this role to use AI tools at least four hours a day. What do you think of that requirement? (50 words max)' },
+          keep: { zh: '指出这个指标本身是错的——用多久不重要，重要的是产出和判断。措辞可以客气，但要有立场。', en: 'Points out the metric is wrong — hours are not the thing, output and judgement are. Politely is fine, but there must be a position.' },
+          drop: { zh: '顺着答"我可以做到"、"我认同"、"我每天用 6 小时"。', en: 'Goes along with it: "I can do that", "I agree", "I already use it six hours a day".' },
+          why: { zh: '**AI 默认是讨好的，它会顺着你的前提答。** 所以这道题同时测两件事：他有没有品味，以及他敢不敢在求职的时候说招聘方错了。成本极低，区分度极高。', en: '**AI is agreeable by default and will answer inside your premise.** So this tests two things at once: whether he has taste, and whether he will tell a hiring manager they are wrong while asking for a job. Cheap to ask, brutally discriminating.' }
+        },
+        {
+          id: 's4',
+          tag: { zh: '取舍', en: 'Trade-off' },
+          q: { zh: '你过去一年砍掉过什么？写清楚砍的是什么、为什么砍。（30 字以内）', en: 'What did you kill in the past year? What it was, and why. (30 words max)' },
+          keep: { zh: '有具体对象 + 有理由。哪怕砍的是小东西也算。', en: 'A concrete object and a reason. A small thing still counts.' },
+          drop: { zh: '写不出来；或者"砍掉了不必要的流程"这种没有对象的。', en: 'Nothing comes; or "cut unnecessary process" with no object.' },
+          why: { zh: '生成是免费的时代，品味体现在扔掉什么。30 字的限制逼他只能说一件事。', en: 'When generating is free, taste shows in what gets thrown away. Thirty words forces him to name exactly one.' }
+        },
+        {
+          id: 's5',
+          tag: { zh: '可验证', en: 'Checkable' },
+          q: { zh: '贴一个我们现在就能打开看的东西：repo、上线的产品、作品、文章。没有就写"没有"。', en: 'Paste one thing we can open right now: a repo, a live product, a portfolio, an article. If there is none, write "none".' },
+          keep: { zh: '给了链接。内容质量二看——先看他愿不愿意被检验。写"没有"的**不淘汰**，诚实比编造强。', en: 'A link. Quality is a second-pass question — first see whether he is willing to be checked. "None" is **not** a rejection; honesty beats invention.' },
+          drop: { zh: '不写；或者写一大段解释为什么没有。', en: 'Skips it, or writes a paragraph explaining why there is none.' },
+          why: { zh: '这道题的作用是把"可验证"和"不可验证"的候选人分成两堆，后面的时间只花在第一堆。', en: 'It splits the pile into checkable and unverifiable, so the rest of your time goes to the first pile.' }
+        },
+        {
+          id: 's6',
+          tag: { zh: '自建', en: 'Built it' },
+          q: { zh: '你有没有为自己搭过工具、脚本、agent、或者写过 CLAUDE.md 之类的配置？是什么？（30 字以内）', en: 'Have you built yourself a tool, script, agent, or written config like a CLAUDE.md? What was it? (30 words max)' },
+          keep: { zh: '说得出具体的一个。这说明他把 AI 当系统在搭，不是当聊天框在用。', en: 'Names one specific thing. It means he treats AI as a system to build, not a chat box to type into.' },
+          drop: { zh: '"暂时没有，但我很愿意学习"——愿意学习不是信号，做过才是。', en: '"Not yet, but I am eager to learn." Eagerness is not a signal; having done it is.' },
+          why: { zh: '目前区分度最高的单一事实型问题，而且完全无法用 AI 编——编出来的一问就穿。', en: 'The highest-signal factual question available, and impossible to fake — an invented answer collapses on the first follow-up.' }
+        },
+        {
+          id: 's7',
+          tag: { zh: '过程', en: 'Process' },
+          q: { zh: '你回答上面这些问题时用 AI 了吗？用了的话，你改了它哪一句？（30 字以内）', en: 'Did you use AI to answer these questions? If so, which sentence of its draft did you change? (30 words max)' },
+          keep: { zh: '答"用了"并说得出改了哪句。这说明他读过自己交出去的东西。', en: 'Says yes and can point at the sentence. It means he read what he was about to send.' },
+          drop: { zh: '答"没用"（在这个年代通常不是诚实）；或者答"用了但没改"。', en: '"I did not" (rarely honesty in this era), or "I used it and changed nothing".' },
+          why: { zh: '**这道题把作弊变成了考题本身。** 你明说允许用，于是问题从"他有没有用"变成了"他有没有判断"——后者才是你要买的东西。', en: '**This turns the cheating into the question.** You said AI was allowed, so it stops being about whether he used it and becomes about whether he judged it — which is the thing you are buying.' }
+        }
+      ],
+      eng: [
+        {
+          id: 'e1',
+          tag: { zh: '可验证', en: 'Checkable' },
+          q: { zh: '贴一个你最满意的 PR 链接，并用一句话说明：你在里面删掉了什么？', en: 'Paste a link to a PR you are proud of, and say in one line: what did you delete in it?' },
+          keep: { zh: '有删除，而且说得出为什么删。', en: 'There are deletions, and he can say why.' },
+          drop: { zh: '只贴链接不答后半句；或者那个 PR 零删除还说不出原因。', en: 'Link with no answer to the second half; or a PR with zero deletions and no explanation.' },
+          why: { zh: '新增结构人人会，删掉一层需要判断力还要担风险。这一句话把架构品味压缩到了一行。', en: 'Anyone can add structure; removing a layer takes judgement and carries risk. This compresses architectural taste into one line.' }
+        },
+        {
+          id: 'e2',
+          tag: { zh: '陷阱', en: 'Trap' },
+          q: { zh: '我们要求所有 AI 生成的代码必须达到 100% 测试覆盖才能合入。你怎么看？（50 字以内）', en: 'We require every AI-generated change to hit 100% test coverage before merge. What do you think? (50 words max)' },
+          keep: { zh: '指出覆盖率不等于正确性——尤其 AI 写的测试常常是照着代码写的，代码错了测试跟着错，照样全绿。', en: 'Points out coverage is not correctness — especially when AI writes the tests against the code, so a wrong implementation gets a green suite that agrees with it.' },
+          drop: { zh: '顺着答"我同意，我会保证覆盖率"。', en: 'Goes along: "Agreed, I will keep coverage up."' },
+          why: { zh: '这正是现场架构题里 C 那份 PR 的病，压缩成一道 50 字的初筛题。', en: 'The exact disease of PR C in the live architecture question, compressed into a 50-word screener.' }
+        },
+        {
+          id: 'e3',
+          tag: { zh: '验证', en: 'Verification' },
+          q: { zh: '除了跑测试，你还怎么确认 agent 改的代码是对的？（30 字以内）', en: 'Besides running the tests, how do you confirm code an agent wrote is correct? (30 words max)' },
+          keep: { zh: '说得出第二种手段：自己跑一遍真实路径、对着需求逐条读、找它最可能错的边界。', en: 'Names a second method: exercising the real path, reading it against the requirement line by line, hunting the boundary it most likely got wrong.' },
+          drop: { zh: '"看一遍代码"；或者只会重复"跑测试"。', en: '"I read it over", or just repeating "run the tests".' },
+          why: { zh: '现场评分表第四项的异步版本，而第四项是四项里最能预测麻烦的。', en: 'The async version of row four of the live scorecard — the row that predicts trouble better than the other three.' }
+        }
+      ],
+      pm: [
+        {
+          id: 'p1',
+          tag: { zh: '陷阱', en: 'Trap' },
+          q: { zh: '我们希望用 AI 把内容产出效率提升 10 倍。你会怎么做？（50 字以内）', en: 'We want to use AI to increase our content output tenfold. How would you do it? (50 words max)' },
+          keep: { zh: '先反问产出是为了什么，或者指出产出量本身不是目标——十倍的内容如果没人看，是十倍的成本。', en: 'Asks what the output is for, or points out that volume is not the goal — ten times the content nobody reads is ten times the cost.' },
+          drop: { zh: '直接给一个十倍方案，答得越具体越糟糕。', en: 'Hands over a tenfold plan. The more detailed, the worse.' },
+          why: { zh: 'AI 会非常乐意帮他写出那个十倍方案。**顺着错误目标给出漂亮执行方案，是这个岗位最常见的失手方式。**', en: 'AI will happily write that plan for him. **Executing beautifully against the wrong goal is the standard failure mode of this role.**' }
+        },
+        {
+          id: 'p2',
+          tag: { zh: '取舍', en: 'Trade-off' },
+          q: { zh: '说一个你自己提出来、后来又自己砍掉的需求。（50 字以内）', en: 'Name a feature you proposed yourself and later killed yourself. (50 words max)' },
+          keep: { zh: '有具体需求 + 有转折点（看到了什么数据、听到了什么反馈）。', en: 'A specific feature and a turning point — the data or the feedback that changed it.' },
+          drop: { zh: '砍的是别人的需求；或者答不上来。', en: 'The killed feature was someone else’s; or nothing comes.' },
+          why: { zh: '砍别人的需求容易，砍自己的难。这是产品岗品味的核心测点。', en: 'Killing someone else’s idea is easy. Killing your own is the test.' }
+        },
+        {
+          id: 'p3',
+          tag: { zh: '指标', en: 'Metric' },
+          q: { zh: '你上一份工作里，哪个数字你盯了很久但它一直没动？（30 字以内）', en: 'In your last job, which number did you watch for a long time that never moved? (30 words max)' },
+          keep: { zh: '说得出具体的数字，并且没有替自己开脱。', en: 'Names the number, without an excuse attached.' },
+          drop: { zh: '答的全是涨了的数字——那说明他要么在挑好听的说，要么从来没认真盯过。', en: 'Only reports numbers that went up — either he is curating, or he never really watched.' },
+          why: { zh: '愿意说一个失败的数字，比说十个成功的数字更能证明他真的在看数据。', en: 'One number that failed proves he reads data better than ten that succeeded.' }
+        }
+      ]
+    },
+    comboTitle: { zh: '只能问三题的时候（大多数招聘平台的上限）', en: 'When you only get three (most job boards cap it there)' },
+    comboNote: {
+      zh: '三题的分工是固定的：一道测**判断**，一道测**胆量和品味**，一道测**可验证**。缺任何一个，剩下两道都会被漂亮的空话通过。',
+      en: 'The three roles are fixed: one tests **judgement**, one tests **nerve and taste**, one tests **verifiability**. Drop any of them and eloquent nothing gets through the other two.'
+    },
+    combos: {
+      general: ['s2', 's3', 's5'],
+      eng: ['s2', 'e2', 'e1'],
+      pm: ['s2', 'p1', 's5']
+    },
+    triageTitle: { zh: '两百份怎么扫', en: 'How to run two hundred of these' },
+    triage: [
+      { zh: '**第一遍只看陷阱题。** 顺着答的全部放进"待定"，不用读别的。这一遍通常能处理掉一半以上，而且几乎不花时间。', en: '**First pass: read only the trap question.** Everyone who answered inside the premise goes to "hold" and you read nothing else of theirs. This usually clears more than half, almost for free.' },
+      { zh: '**第二遍扫三条通用判据**（超字数、没有具体对象、四平八稳）。', en: '**Second pass: apply the three blanket rules** — over length, no concrete object, perfectly balanced.' },
+      { zh: '**第三遍才真正读。** 到这一步通常只剩十几份，一份给自己一分钟，够了。', en: '**Third pass is the only real reading.** By now there are a dozen or so; a minute each is enough.' },
+      { zh: '**不要给初筛题打分。** 初筛只做一件事：找淘汰的理由。打分会让你在两百份里试图排序，那件事做不到，也没必要。', en: '**Do not score screeners.** Screening does one thing: find reasons to reject. Scoring makes you try to rank two hundred people, which is neither possible nor useful.' }
+    ],
+    copyAll: { zh: '复制推荐的三题', en: 'Copy the recommended three' },
+    copyBank: { zh: '复制全部题面', en: 'Copy every question' },
+    limitNote: {
+      zh: '题面里的字数限制不要删——它既是给候选人的约束，也是你最省时间的一条判据。',
+      en: 'Keep the word limits in the text. They constrain the candidate and give you your cheapest rejection rule.'
+    }
   };
 
   /* ------------------------------------------------------------------ *
@@ -1026,15 +1178,16 @@
   var MARK = 'kellychan.im/ai-hire-guide';
 
   var UI = {
-    eyebrow: { zh: 'AI 时代的招聘工具包', en: 'A hiring toolkit for the AI era' },
-    title: { zh: '技能已经不值钱了，你在招的是品味', en: 'Skills are commoditised. What you are hiring is taste.' },
+    eyebrow: { zh: 'Kelly · AI 时代的招聘工具包', en: 'Kelly · a hiring toolkit for the AI era' },
+    title: { zh: 'Kelly 的 AI 时代招聘工具包', en: 'Kelly’s AI-Era Hiring Toolkit' },
+    claim: { zh: '技能已经不值钱了，你在招的是品味。', en: 'Skills are commoditised. What you are hiring is taste.' },
     lede: {
-      zh: '给老板和 HR 负责人的一套可直接使用的面试工具。不是文章——选好岗位和层级，它会给你简历追问、品味测试题、现场评分表，以及一份可以打印带进会议室的面试脚本。',
-      en: 'A working toolkit for founders and heads of people. Not an essay — pick a role and a level, and it hands you resume follow-ups, taste tests, a live scorecard, and a one-page interview script you can print and carry into the room.'
+      zh: 'Kelly 给老板和 HR 负责人的一套可直接使用的面试工具。不是文章——选好岗位和层级，它会给你招聘网站初筛题、简历追问、品味测试题、现场评分表，以及一份可以打印带进会议室的面试脚本。',
+      en: 'Kelly’s working toolkit for founders and heads of people. Not an essay — pick a role and a level, and it hands you job-board screeners, resume follow-ups, taste tests, a live scorecard, and a one-page interview script you can print and carry into the room.'
     },
     thesis: {
-      zh: '在 AI 时代，生成是免费的，选择是瓶颈。所以不要考察他能产出什么——考察他拒绝什么，以及凭什么拒绝。',
-      en: 'Generating is free now; choosing is the bottleneck. So do not test what a candidate can produce. Test what they reject, and on what grounds.'
+      zh: 'Kelly 的判断是：在 AI 时代，生成是免费的，选择是瓶颈。所以不要考察他能产出什么——考察他拒绝什么，以及凭什么拒绝。',
+      en: 'Kelly’s take: generating is free now, and choosing is the bottleneck. So do not test what a candidate can produce. Test what they reject, and on what grounds.'
     },
     knobRole: { zh: '我在招什么岗位', en: 'Role I am hiring for' },
     knobLevel: { zh: '我要哪一层的人', en: 'Level I need' },
@@ -1049,18 +1202,18 @@
     exitInterview: { zh: '退出', en: 'Exit' },
     m1: { zh: '你到底在招哪一层？', en: 'Which level are you actually hiring?' },
     m1sub: {
-      zh: '多数老板以为自己在招 L3，出的题却全在考 L1。先花两分钟把这件事定下来——后面所有题目和评分线都会跟着变。',
-      en: 'Most founders think they are hiring L3 and then run an interview that only tests L1. Spend two minutes settling this — every question and threshold below adjusts to your answer.'
+      zh: 'Kelly 见过的多数老板，以为自己在招 L3，出的题却全在考 L1。先花两分钟把这件事定下来——后面所有题目和评分线都会跟着变。',
+      en: 'In Kelly’s experience most founders think they are hiring L3 and then run an interview that only tests L1. Spend two minutes settling this — every question and threshold below adjusts to your answer.'
     },
     m2: { zh: '简历扫描器', en: 'Resume scanner' },
     m2sub: {
-      zh: '别看他会什么语言、会不会 Office。看他用什么 agent、什么模型、什么工具去完成工作——技能已经是 AI 在做的了。勾选你在这份简历里真正看到的东西。',
-      en: 'Ignore the language list and the software proficiencies. Look at which agents, models and tools they use to get work done — the skills themselves are AI’s job now. Tick what you can actually find in the resume.'
+      zh: 'Kelly 看简历不看他会什么语言、会不会 Office，只看他用什么 agent、什么模型、什么工具去完成工作——技能已经是 AI 在做的了。勾选你在这份简历里真正看到的东西。',
+      en: 'Kelly does not read the language list or the software proficiencies — only which agents, models and tools they use to get work done, because the skills themselves are AI’s job now. Tick what you can actually find in the resume.'
     },
-    mx: { zh: '异步笔试题', en: 'The take-home' },
+    mx: { zh: '初筛题与笔试', en: 'Screeners and take-home' },
     mxsub: {
-      zh: '在见面之前用，唯一的作用是筛掉。注意：这一节的前提是"允许他用 AI"——禁是禁不住的，而且禁了就是在考一个他入职后不存在的场景。',
-      en: 'Used before you meet, and only ever to screen out. The premise here is that AI is allowed — you cannot prevent it, and preventing it would test a situation that will never exist once he starts.'
+      zh: '分两段：贴在招聘网站上的初筛题，和通过初筛之后才发的正式笔试。Kelly 的前提是"允许他用 AI"——禁是禁不住的，而且禁了就是在考一个他入职后不存在的场景。',
+      en: 'Two stages: screeners you paste into a job posting, and the real take-home that only goes to people who cleared them. Kelly’s premise throughout is that AI is allowed — you cannot prevent it, and preventing it tests a situation that will never exist once he starts.'
     },
     m3: { zh: '品味测试题', en: 'Taste tests' },
     m3sub: {
@@ -1068,14 +1221,14 @@
       en: 'Skills and history are self-reported and unverifiable. Whether they can judge someone else’s work shows up in the room immediately — and is nearly impossible to fake.'
     },
     m4: { zh: '现场观察评分表', en: 'Live session scorecard' },
-    m4sub: { zh: '看他怎么和 agent 一起干活。这是 AI 时代版的"写段代码我看看"。', en: 'Watch them work with an agent. This is the AI-era version of "write some code for me".' },
+    m4sub: { zh: 'Kelly 的做法是看他怎么和 agent 一起干活——这是 AI 时代版的"写段代码我看看"。', en: 'Kelly’s move here is to watch them work with an agent — the AI-era version of "write some code for me".' },
     m5: { zh: '反向面试提示卡', en: 'Reverse interview card' },
-    m5sub: { zh: '让他问你。', en: 'Let them ask you.' },
+    m5sub: { zh: 'Kelly 认为问题比答案更能暴露品味——所以这一段也算分。', en: 'Kelly holds that questions expose taste better than answers, so this part is scored too.' },
     m6: { zh: '对比与导出', en: 'Compare and export' },
     m6sub: { zh: '把所有候选人横过来看，然后把这一场的选择汇总成一份面试脚本。', en: 'Lay every candidate side by side, then assemble this session into one interview script.' },
     navTitles: {
-      zh: ['① 层级', '② 简历', '③ 笔试', '④ 品味题', '⑤ 评分', '⑥ 反向面试', '⑦ 对比导出'],
-      en: ['① Level', '② Resume', '③ Take-home', '④ Taste', '⑤ Score', '⑥ Reverse', '⑦ Export']
+      zh: ['① 层级', '② 简历', '③ 初筛/笔试', '④ 品味题', '⑤ 评分', '⑥ 反向面试', '⑦ 对比导出'],
+      en: ['① Level', '② Resume', '③ Screen', '④ Taste', '⑤ Score', '⑥ Reverse', '⑦ Export']
     },
     ivDefense: { zh: '笔试复核', en: 'Take-home defence' },
     posTitle: { zh: '正向信号', en: 'Positive signals' },
@@ -1095,6 +1248,12 @@
     materialLabel: { zh: '准备什么材料', en: 'What to prepare' },
     briefLabel: { zh: '给候选人看的原始材料', en: 'What the candidate sees' },
     promptLabel: { zh: '题面（原样发给他）', en: 'The paper, verbatim' },
+    partScreen: { zh: '第一段 · 招聘网站初筛（30 秒答完，15 秒判完）', en: 'Stage one — job-board screeners (30 seconds to answer, 15 to judge)' },
+    partExam: { zh: '第二段 · 正式笔试（只发给通过初筛的人）', en: 'Stage two — the real take-home (only for those who cleared screening)' },
+    bankTitle: { zh: '题库', en: 'The bank' },
+    bankNote: { zh: '按岗位自动切换。每道题都标了"留下 / 淘汰"，你不需要读完就能判。', en: 'Switches with the role. Every question carries a keep/reject line so you can judge without reading it twice.' },
+    kdKeep: { zh: '留下', en: 'Keep' },
+    kdDrop: { zh: '淘汰', en: 'Reject' },
     artLabel: { zh: '三份材料', en: 'The three artefacts' },
     artNote: { zh: '标签只有你看得到。「复制材料」导出的版本不含标签，可以直接发给候选人。', en: 'The labels are for your eyes only. The copy button emits a version without them, ready to send to the candidate.' },
     copyCase: { zh: '复制材料（不含标签）', en: 'Copy the material (no labels)' },
@@ -1150,8 +1309,8 @@
     rowDecision: { zh: '结论', en: 'Decision' },
     open: { zh: '打开', en: 'Open' },
     footer: {
-      zh: '这套工具不收集任何数据。用得上就拿走，改成你自己的版本。',
-      en: 'This toolkit collects nothing. Take it, and make it yours.'
+      zh: '这套工具由 Kelly 编写，不收集任何数据。用得上就拿走，改成你自己的版本。',
+      en: 'Written by Kelly. It collects nothing. Take it, and make it yours.'
     },
     /* interview mode */
     ivStepOf: { zh: '第 {a} / {b} 步', en: 'Step {a} of {b}' },
@@ -1159,7 +1318,7 @@
     ivNext: { zh: '下一步 →', en: 'Next →' },
     ivOpenTitle: { zh: '这一场你要评估的是品味', en: 'This session is about taste' },
     ivOpenBody: {
-      zh: '不是他会什么，是他能不能品味别人做出来的东西。三件事贯穿全程：他拒绝了什么、他凭什么拒绝、他怎么知道自己是对的。\n\n笔记随时可以记，按 → 进入下一步，按 Esc 退出。',
+      zh: 'Kelly 的提醒：不是他会什么，是他能不能品味别人做出来的东西。三件事贯穿全程——他拒绝了什么、他凭什么拒绝、他怎么知道自己是对的。\n\n笔记随时可以记，按 → 进入下一步，按 Esc 退出。',
       en: 'Not what they know — whether they can judge someone else’s work. Three things run through the whole session: what they reject, on what grounds, and how they know they are right.\n\nNotes are always available. Press → to advance, Esc to exit.'
     },
     ivAsk: { zh: '简历追问', en: 'Resume follow-ups' },
@@ -1580,9 +1739,56 @@
     }).join('') + '</div>';
   }
 
+  function screenerById(id) {
+    var all = SCREEN.bank.common.concat(SCREEN.bank[S.role] || []);
+    for (var i = 0; i < all.length; i++) { if (all[i].id === id) return all[i]; }
+    return null;
+  }
+  function comboQuestions() {
+    return (SCREEN.combos[S.role] || SCREEN.combos.general).map(screenerById).filter(Boolean);
+  }
+  function screenerText(list) {
+    return list.map(function (x, i) { return (i + 1) + '. ' + t(x.q); }).join('\n\n') + '\n\n— ' + MARK;
+  }
+  function screenerCard(x) {
+    return '<div class="qcard"><div class="qtag">' + esc(t(x.tag)) + '</div>' +
+      '<div class="qcard-q">' + esc(t(x.q)) + '</div>' +
+      '<div class="keepdrop">' +
+      '<div class="kd kd-keep"><span class="kd-label">✓ ' + esc(t(UI.kdKeep)) + '</span>' + md(t(x.keep)) + '</div>' +
+      '<div class="kd kd-drop"><span class="kd-label">✕ ' + esc(t(UI.kdDrop)) + '</span>' + md(t(x.drop)) + '</div>' +
+      '</div><div class="qcard-why">' + md(t(x.why)) + '</div></div>';
+  }
+
   function renderMX() {
     var c = cur();
-    var html = '<div class="card" style="border-left:3px solid var(--kelly-rust)"><div class="card-note">' + md(t(EXAM.note)) + '</div></div>';
+    var combo = comboQuestions();
+    var bank = SCREEN.bank.common.concat(SCREEN.bank[S.role] || []);
+
+    var html = '<h3 class="part"><span class="lens">' + esc(t(UI.partScreen)) + '</span></h3>';
+    html += '<div class="card" style="border-left:3px solid var(--kelly-rust)"><div class="card-note">' + md(t(SCREEN.note)) + '</div></div>';
+
+    html += '<div class="card checklist"><h3>' + esc(t(SCREEN.comboTitle)) + '</h3>' +
+      '<div class="card-note">' + esc(t(SCREEN.comboNote)) + '</div>' +
+      '<div class="qblock">' + combo.map(function (x, i) {
+        return '<div class="qitem"><div class="qnum">' + (i + 1) + '</div><div><div class="qtext">' + esc(t(x.q)) + '</div>' +
+          '<div class="qwhy">' + esc(t(x.tag)) + '</div></div></div>';
+      }).join('') + '</div>' +
+      '<div class="card-note" style="margin-top:10px">' + esc(t(SCREEN.limitNote)) + '</div>' +
+      '<div class="actions no-print"><button type="button" class="btn btn-primary" id="copyCombo">' + esc(t(SCREEN.copyAll)) + '</button>' +
+      '<button type="button" class="btn" id="copyBank">' + esc(t(SCREEN.copyBank)) + '</button></div></div>';
+
+    html += '<div class="card"><h3>' + esc(t(UI.bankTitle)) + '</h3>' +
+      '<div class="card-note">' + esc(t(UI.bankNote)) + '</div>' +
+      bank.map(screenerCard).join('') + '</div>';
+
+    html += '<div class="card"><h3>' + esc(t(SCREEN.rulesTitle)) + '</h3><ul class="check-list">' +
+      SCREEN.rules.map(function (x) { return '<li>' + md(t(x)) + '</li>'; }).join('') + '</ul></div>';
+
+    html += '<div class="card checklist"><h3>' + esc(t(SCREEN.triageTitle)) + '</h3><ol class="check-list">' +
+      SCREEN.triage.map(function (x) { return '<li>' + md(t(x)) + '</li>'; }).join('') + '</ol></div>';
+
+    html += '<h3 class="part"><span class="lens">' + esc(t(UI.partExam)) + '</span></h3>';
+    html += '<div class="card" style="border-left:3px solid var(--kelly-rust)"><div class="card-note">' + md(t(EXAM.note)) + '</div></div>';
 
     html += '<div class="card"><h3>' + esc(t(EXAM.rulesTitle)) + '</h3><ol class="check-list">' +
       EXAM.rules.map(function (x) { return '<li>' + esc(t(x)) + '</li>'; }).join('') + '</ol>' +
@@ -1611,6 +1817,8 @@
 
     var b = body('mx');
     b.innerHTML = html;
+    b.querySelector('#copyCombo').addEventListener('click', function () { copyText(screenerText(combo)); });
+    b.querySelector('#copyBank').addEventListener('click', function () { copyText(screenerText(bank)); });
     b.querySelector('#copyRules').addEventListener('click', function () {
       copyText(EXAM.rules.map(function (x, i) { return (i + 1) + '. ' + t(x); }).join('\n') + '\n\n— ' + MARK);
     });
@@ -2068,7 +2276,7 @@
     var st = scoreTotal(c), r = resumeScore(c);
     var out = [];
 
-    out.push('# ' + (zh ? 'AI 时代面试脚本' : 'AI-era interview script') + (c.name ? ' — ' + c.name : ''));
+    out.push('# ' + (zh ? 'Kelly 的 AI 时代面试脚本' : 'Kelly’s AI-era interview script') + (c.name ? ' — ' + c.name : ''));
     out.push('');
     out.push((zh ? '岗位' : 'Role') + ': ' + roleName(S.role) + '　|　' +
       (zh ? '目标层级' : 'Target level') + ': ' + L.key + ' ' + t(L.name) + '　|　' + new Date().toISOString().slice(0, 10));
@@ -2091,7 +2299,20 @@
     });
     out.push('');
 
-    out.push('## ' + (zh ? '③ 异步笔试' : '③ Take-home'));
+    out.push('## ' + (zh ? '③ 初筛与笔试' : '③ Screening and take-home'));
+    out.push('**' + t(UI.partScreen) + '**');
+    out.push('');
+    out.push(t(SCREEN.comboTitle));
+    comboQuestions().forEach(function (x, i) {
+      out.push((i + 1) + '. ' + t(x.q));
+      out.push('   - ✓ ' + t(x.keep).replace(/\*\*/g, ''));
+      out.push('   - ✕ ' + t(x.drop).replace(/\*\*/g, ''));
+    });
+    out.push('');
+    out.push(t(SCREEN.rulesTitle));
+    SCREEN.rules.forEach(function (x, i) { out.push((i + 1) + '. ' + t(x).replace(/\*\*/g, '')); });
+    out.push('');
+    out.push('**' + t(UI.partExam) + '**');
     out.push(t(EXAM.note).replace(/\*\*/g, '').replace(/\n\n/g, ' '));
     out.push('');
     out.push('**' + t(EXAM.rulesTitle) + '**');
@@ -2222,7 +2443,7 @@
 
     out.push('');
     out.push('---');
-    out.push((zh ? '工具来源：' : 'Toolkit: ') + 'https://' + MARK + '/');
+    out.push((zh ? '工具来源：Kelly · ' : 'Toolkit by Kelly · ') + 'https://' + MARK + '/');
     return out.join('\n');
   }
 
