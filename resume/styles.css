@@ -762,6 +762,22 @@ h1 {
 .tradeoff p {
   margin: 0;
 }
+.tradeoff-group {
+  margin: 1.4rem 0 0.75rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  opacity: 0.65;
+}
+.tradeoff-intro + .tradeoff-group { margin-top: 0; }
+.tradeoff-thread {
+  margin: 1.1rem 0 0;
+  padding: 0.85rem 1.05rem;
+  background: var(--kelly-moss-soft, #e4e8df);
+  border-radius: 4px;
+  font-size: 0.93rem;
+}
 .tradeoff-intro {
   margin: 0 0 1.15rem;
   opacity: 0.8;
