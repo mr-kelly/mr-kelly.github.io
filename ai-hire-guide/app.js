@@ -283,7 +283,7 @@
     return found;
   }
 
-  function secNo(n) { return '<span class="secno">3.' + n + '</span>'; }
+  function secNo(n) { return '<span class="secno">4.' + n + '</span>'; }
 
   function signalsFor(role) {
     return SIGNALS_COMMON.concat(SIGNALS_ROLE[role] || []);
@@ -752,6 +752,169 @@
   };
 
   /* ------------------------------------------------------------------ *
+   * The take-home — what still works when the candidate has AI
+   * ------------------------------------------------------------------ */
+
+  var EXAM = {
+    note: {
+      zh: '「做一个 X」类型的笔试题已经死了。候选人三十秒就能让 AI 做完，你收到的是 AI 的水平，而且你分辨不出来。\n\n还能用的只剩三种形态：**让他评审、让他砍、让他交出过程**。前两种 AI 做不好，第三种 AI 做不了。',
+      en: 'The "build me an X" take-home is dead. A candidate has AI finish it in thirty seconds, what you receive is AI’s standard of work, and you cannot tell the difference.\n\nThree forms still survive: **make them review, make them cut, make them show the process.** AI is bad at the first two and cannot do the third at all.'
+    },
+    rulesTitle: { zh: '题面上原样写给候选人的三条', en: 'Three lines to put on the paper, verbatim' },
+    rules: [
+      { zh: '请使用 AI。我们不介意，也不打算测你会不会自己写——你入职之后每天都会用它。', en: 'Please use AI. We do not mind, and we are not testing whether you can do it unaided — you will use it every day here.' },
+      { zh: '请把完整的 AI 对话记录一起交回来。我们看的是对话，不只是结果。', en: 'Send the full transcript of your AI conversation along with the work. We read the conversation, not just the result.' },
+      { zh: '交回来的每一句话，你要能在五分钟内当面为它辩护。', en: 'Be ready to defend every sentence you send, in person, in five minutes.' }
+    ],
+    rulesNote: {
+      zh: '第三条是唯一真正起作用的威慑。它不禁止任何事，但让"整段粘贴"变成一件有风险的事。',
+      en: 'The third line is the only real deterrent. It forbids nothing, and it makes wholesale pasting risky.'
+    },
+    papers: {
+      general: [
+        {
+          type: { zh: '评审题', en: 'The review' },
+          prompt: {
+            zh: '「附件是我们真实发给客户的一份方案（已脱敏）。请写一段 200 字以内的评审：最大的问题是什么？你会改哪一处？哪些地方看起来该改、其实不用改？」',
+            en: '"Attached is a proposal we actually sent a client (redacted). In 200 words or fewer: what is the biggest problem with it? What one thing would you change? And what looks like it needs changing but does not?"'
+          },
+          why: {
+            zh: '200 字的限制是考题本身。AI 写的评审一定面面俱到；有品味的评审只说一件事。第三问「哪些不用改」几乎无法作弊——它要求他主动放弃可以显得聪明的地方。',
+            en: 'The word limit is the test. An AI-written review covers everything; a review with taste says one thing. The third question is nearly uncheatable — it asks him to give up ground where he could have looked clever.'
+          }
+        },
+        {
+          type: { zh: '砍范围题', en: 'The cut' },
+          prompt: {
+            zh: '「这是我们下季度的六件事和现有人手。假设时间只有一半，你砍哪两件？砍掉之后我们具体会失去什么？」',
+            en: '"Here are the six things on our next quarter and the people we have. If you had half the time, which two would you cut — and what specifically do we lose?"'
+          },
+          why: {
+            zh: '考的不是他砍得对不对，是他敢不敢把代价写出来。只砍不写代价的，等于没做取舍。',
+            en: 'Not whether he cuts the right two — whether he will write down the cost. Cutting without naming the cost is not a trade-off.'
+          }
+        },
+        {
+          type: { zh: '过程题', en: 'The process' },
+          prompt: {
+            zh: '「用 AI 帮我们做一份 XX，两小时以内。产物之外，请把完整对话记录一起发回，并写三行：AI 哪里给错了，你是怎么发现的。」',
+            en: '"Use AI to produce X for us, under two hours. Besides the work itself, send the full transcript, plus three lines: where did AI get it wrong, and how did you notice?"'
+          },
+          why: {
+            zh: '「AI 哪里错了、你怎么发现的」这两句，是整份笔试里唯一 AI 替他写不了的部分。',
+            en: 'Those last two questions are the only part of the whole take-home that AI cannot write for him.'
+          }
+        }
+      ],
+      eng: [
+        {
+          type: { zh: '评审题（材料直接用第 ④ 节 4.1 里的 C 那份 PR）', en: 'The review (reuse PR C from section 4.1 below)' },
+          prompt: {
+            zh: '「附件是一个真实的 PR。请写一段 200 字以内的 review comment：你会 approve 吗？如果不会，最重要的那一条意见是什么？」',
+            en: '"Attached is a real PR. Write a review comment of 200 words or fewer: would you approve it? If not, what is the single most important objection?"'
+          },
+          why: {
+            zh: '"最重要的那一条"是考点。AI 会给你十条都对的意见，等于没给。能收敛到一条并且排对优先级，是这道题唯一在测的东西。',
+            en: '"The single most important" is the whole question. AI will hand you ten correct objections, which is the same as none. Converging on one, and picking the right one, is all this measures.'
+          }
+        },
+        {
+          type: { zh: '砍范围题', en: 'The cut' },
+          prompt: {
+            zh: '「这是一个需求的六条验收标准，工期砍一半。你砍哪几条？哪几条砍了会在半年后回来咬我们？」',
+            en: '"Here are six acceptance criteria for one feature, and half the time. Which do you drop? And which of those will come back to bite us in six months?"'
+          },
+          why: {
+            zh: '第二问在分辨"会砍"和"知道砍了会怎样"。后者才是工程判断力。',
+            en: 'The second half separates "will cut" from "knows what cutting costs". Only the latter is engineering judgement.'
+          }
+        },
+        {
+          type: { zh: '过程题', en: 'The process' },
+          prompt: {
+            zh: '「用 agent 做一个两小时以内的小任务。交代码、交完整对话记录，另外写三行：AI 哪里错了，你是怎么发现的。」',
+            en: '"Use an agent on a task under two hours. Send the code, the full transcript, and three lines: where did the agent get it wrong, and how did you catch it?"'
+          },
+          why: {
+            zh: '对话记录里最值钱的是"他在第几轮叫停"。这和现场评分表的第二项是同一个东西，只是异步版本。',
+            en: 'The valuable thing in a transcript is which turn he interrupted on. It is the same measurement as the second row of the live scorecard, taken asynchronously.'
+          }
+        }
+      ],
+      pm: [
+        {
+          type: { zh: '反对题', en: 'The objection' },
+          prompt: {
+            zh: '「附件是一个已经立项的功能提案。请写 200 字以内：你建议做还是不做？如果做，只做哪一部分？」',
+            en: '"Attached is a feature proposal that is already approved. In 200 words or fewer: should we build it? If yes, which part only?"'
+          },
+          why: {
+            zh: '「已经立项」四个字是陷阱。敢不敢写"不做"，本身就是答案的一半——而且他不知道你想听什么，AI 也猜不出来。',
+            en: '"Already approved" is the trap. Whether he will write "no" is half the answer — and he cannot tell what you want to hear, so AI cannot guess it either.'
+          }
+        },
+        {
+          type: { zh: '失败条件题', en: 'The failure condition' },
+          prompt: {
+            zh: '「如果这个功能上线了，你会盯哪一个数字？多久之后这个数字如果没动，你会认为它失败了？」',
+            en: '"If this ships, which single number would you watch? How long until that number failing to move means the feature failed?"'
+          },
+          why: {
+            zh: '这道题只有一个正确形态：一个具体的数字 + 一个具体的期限。给不出期限的人，永远不会承认自己做错过。',
+            en: 'There is one correct shape of answer: a specific number and a specific deadline. People who will not give a deadline never admit a feature failed.'
+          }
+        },
+        {
+          type: { zh: '过程题', en: 'The process' },
+          prompt: {
+            zh: '「用 AI 做一份这个需求的 PRD，一小时以内。交 PRD、交完整对话记录，另外写三行：AI 编了什么，你是怎么发现的。」',
+            en: '"Use AI to draft a PRD for this, under an hour. Send the PRD, the full transcript, and three lines: what did AI make up, and how did you catch it?"'
+          },
+          why: {
+            zh: '「AI 编了什么」这一问对产品岗特别有效——AI 最爱编的就是用户需求和行业数据，而这正是这个岗位最该有免疫力的地方。',
+            en: 'This lands hard for product roles: what AI invents most readily is user needs and industry statistics, which is exactly what this job must be immune to.'
+          }
+        }
+      ]
+    },
+    readsTitle: { zh: '怎么判', en: 'How to read what comes back' },
+    reads: [
+      { zh: '**只说一件事的赢。** AI 写的评审面面俱到、每条都对、四平八稳；有品味的人会说"最大的问题是 X，其他都不重要"。能不能收敛到一件事，是整份笔试里最强的单一信号。', en: '**The one-thing answer wins.** AI-written reviews are comprehensive, individually correct and completely flat. A person with taste says "the biggest problem is X and the rest does not matter". Convergence is the strongest single signal in the whole exercise.' },
+      { zh: '**看他在对话里有没有反对过 AI。** 一次都没有，说明他把 AI 当权威而不是当同事。', en: '**Look for a moment where he pushed back.** If he never contradicts the AI once, he treats it as an authority rather than a colleague.' },
+      { zh: '**看他给 AI 的第一句话。** 那一句里的约束密度，基本决定了他的水平上限——和现场评分表的第一项完全对应。', en: '**Read his opening message.** The density of constraint in that first instruction sets his ceiling — the same measurement as row one of the live scorecard.' },
+      { zh: '**敢写"不做"、敢写失败条件的，加分。** 那是他在给你一个可以事后追究他的把柄，只有真的相信自己的判断才会这么做。', en: '**Reward anyone who writes "do not build it" or commits to a failure condition.** He is handing you something to hold him to later, which people only do when they believe their own judgement.' }
+    ],
+    flagsTitle: { zh: '红旗', en: 'Red flags' },
+    flags: [
+      { zh: '对话记录只有一两轮，或者干脆说"我没用 AI"——通常不是诚实，是不敢让你看。', en: 'A transcript of one or two turns, or "I did not use AI" — usually not honesty, but not wanting to be seen.' },
+      { zh: '评审写得像检查清单：命名、注释、测试覆盖率、性能……全提了一遍，等于什么都没提。', en: 'A review that reads as a checklist — naming, comments, coverage, performance — mentions everything and therefore nothing.' },
+      { zh: '字数用满、结构工整、通篇找不到一句有风险的判断。', en: 'Word count filled, structure immaculate, and not one sentence that takes a risk.' },
+      { zh: '整份材料里找不到一处他和 AI 意见不一致的地方。', en: 'Nowhere in the whole submission does he disagree with the AI.' }
+    ],
+    defenseTitle: { zh: '当面复核（笔试真正的用途）', en: 'The defence — what the take-home is actually for' },
+    defenseNote: {
+      zh: '笔试只用来筛掉，永远不要用来录用。真正的裁决在于他能不能当面为自己写的东西辩护。**任何不能当面复核的笔试题都是无效的**——因为你根本不知道那是谁写的。',
+      en: 'A take-home screens out; it must never select. The verdict comes from whether he can defend it in the room. **A take-home you cannot cross-examine is worthless**, because you do not know who wrote it.'
+    },
+    defense: [
+      {
+        q: { zh: '「你说最大的问题是 X。如果我告诉你 X 是产品经理明确要求的，你还坚持吗？」', en: '"You said the biggest problem is X. If I told you X was explicitly requested by the PM, would you still hold that view?"' },
+        why: { zh: '考他的判断有没有根。立刻改口的，说明那句话本来就不是他的。反过来，死不松口也不对——好的回答是"我还是这么看，但我想知道当时的理由是什么"。', en: 'Tests whether the judgement is grounded. Instant reversal means the sentence was never his. Refusing to move is not right either — the good answer is "I still think so, but I want to know the reasoning behind the request."' }
+      },
+      {
+        q: { zh: '「你的对话记录第三轮，AI 给了你一个方案，你直接用了。你当时怎么确认它是对的？」', en: '"On turn three of your transcript, the AI proposed something and you used it as-is. How did you confirm it was right?"' },
+        why: { zh: '考验证习惯。"我看了一遍觉得没问题"和"我跑了一下"是两种人。', en: 'Tests verification habit. "I read it and it looked fine" and "I ran it" are two different people.' }
+      },
+      {
+        q: { zh: '「这份东西里，哪一句是你写的，不是 AI 写的？」', en: '"Which sentence in here is yours, not the AI’s?"' },
+        why: { zh: '最狠的一句，而且完全公平——你事先就说了允许用 AI。答不上来的，前面的所有分作废。', en: 'The hardest question, and a fair one — you said up front that AI was allowed. If he cannot answer it, nothing else in the submission counts.' }
+      }
+    ],
+    sent: { zh: '我给这位候选人发了笔试', en: 'I sent this candidate a take-home' },
+    sentNote: { zh: '勾上之后，面试模式里会多一步「笔试复核」。', en: 'Ticking this adds a defence step to interview mode.' }
+  };
+
+  /* ------------------------------------------------------------------ *
    * Module 4 — live session scorecard
    * ------------------------------------------------------------------ */
 
@@ -894,6 +1057,11 @@
       zh: '别看他会什么语言、会不会 Office。看他用什么 agent、什么模型、什么工具去完成工作——技能已经是 AI 在做的了。勾选你在这份简历里真正看到的东西。',
       en: 'Ignore the language list and the software proficiencies. Look at which agents, models and tools they use to get work done — the skills themselves are AI’s job now. Tick what you can actually find in the resume.'
     },
+    mx: { zh: '异步笔试题', en: 'The take-home' },
+    mxsub: {
+      zh: '在见面之前用，唯一的作用是筛掉。注意：这一节的前提是"允许他用 AI"——禁是禁不住的，而且禁了就是在考一个他入职后不存在的场景。',
+      en: 'Used before you meet, and only ever to screen out. The premise here is that AI is allowed — you cannot prevent it, and preventing it would test a situation that will never exist once he starts.'
+    },
     m3: { zh: '品味测试题', en: 'Taste tests' },
     m3sub: {
       zh: '技能和履历都是他自己说的，你无法核实。但"他能不能品味别人做的东西"当场就能看出来，而且几乎无法作弊。',
@@ -906,9 +1074,10 @@
     m6: { zh: '对比与导出', en: 'Compare and export' },
     m6sub: { zh: '把所有候选人横过来看，然后把这一场的选择汇总成一份面试脚本。', en: 'Lay every candidate side by side, then assemble this session into one interview script.' },
     navTitles: {
-      zh: ['① 层级', '② 简历', '③ 品味题', '④ 评分', '⑤ 反向面试', '⑥ 对比导出'],
-      en: ['① Level', '② Resume', '③ Taste', '④ Score', '⑤ Reverse', '⑥ Export']
+      zh: ['① 层级', '② 简历', '③ 笔试', '④ 品味题', '⑤ 评分', '⑥ 反向面试', '⑦ 对比导出'],
+      en: ['① Level', '② Resume', '③ Take-home', '④ Taste', '⑤ Score', '⑥ Reverse', '⑦ Export']
     },
+    ivDefense: { zh: '笔试复核', en: 'Take-home defence' },
     posTitle: { zh: '正向信号', en: 'Positive signals' },
     negTitle: { zh: '负向信号', en: 'Negative signals' },
     followups: { zh: '给这位候选人的追问', en: 'Follow-ups for this candidate' },
@@ -925,6 +1094,7 @@
     tasteCal: { zh: '品味校准题', en: 'The calibration test' },
     materialLabel: { zh: '准备什么材料', en: 'What to prepare' },
     briefLabel: { zh: '给候选人看的原始材料', en: 'What the candidate sees' },
+    promptLabel: { zh: '题面（原样发给他）', en: 'The paper, verbatim' },
     artLabel: { zh: '三份材料', en: 'The three artefacts' },
     artNote: { zh: '标签只有你看得到。「复制材料」导出的版本不含标签，可以直接发给候选人。', en: 'The labels are for your eyes only. The copy button emits a version without them, ready to send to the candidate.' },
     copyCase: { zh: '复制材料（不含标签）', en: 'Copy the material (no labels)' },
@@ -1025,7 +1195,7 @@
     return 'c' + (S.candidates.length + 1) + '-' + Math.random().toString(36).slice(2, 7);
   }
   function blankCandidate(name) {
-    return { id: uid(), name: name || '', sigs: {}, scores: {}, theirQuestions: '', notes: '', decision: '' };
+    return { id: uid(), name: name || '', sigs: {}, scores: {}, theirQuestions: '', notes: '', decision: '', tookTest: false };
   }
   function cur() {
     var c = null;
@@ -1191,10 +1361,11 @@
   var MODULES = [
     { id: 'm1', num: '①', title: UI.m1, sub: UI.m1sub },
     { id: 'm2', num: '②', title: UI.m2, sub: UI.m2sub },
-    { id: 'm3', num: '③', title: UI.m3, sub: UI.m3sub },
-    { id: 'm4', num: '④', title: UI.m4, sub: UI.m4sub },
-    { id: 'm5', num: '⑤', title: UI.m5, sub: UI.m5sub },
-    { id: 'm6', num: '⑥', title: UI.m6, sub: UI.m6sub }
+    { id: 'mx', num: '③', title: UI.mx, sub: UI.mxsub },
+    { id: 'm3', num: '④', title: UI.m3, sub: UI.m3sub },
+    { id: 'm4', num: '⑤', title: UI.m4, sub: UI.m4sub },
+    { id: 'm5', num: '⑥', title: UI.m5, sub: UI.m5sub },
+    { id: 'm6', num: '⑦', title: UI.m6, sub: UI.m6sub }
   ];
 
   function body(id) { return document.querySelector('#' + id + ' .module-body'); }
@@ -1276,8 +1447,8 @@
     n.querySelectorAll('[data-role]').forEach(function (b) {
       b.addEventListener('click', function () {
         S.role = b.getAttribute('data-role');
-        save(); renderKnobs(); renderM2(); renderM3(); renderM5(); renderM6(); renderStatus();
-        flash(['m2', 'm3', 'm5']);
+        save(); renderKnobs(); renderM2(); renderMX(); renderM3(); renderM5(); renderM6(); renderStatus();
+        flash(['m2', 'mx', 'm3', 'm5']);
       });
     });
     n.querySelectorAll('[data-level]').forEach(function (b) {
@@ -1319,7 +1490,7 @@
     n.querySelector('#resetPerson').addEventListener('click', function () {
       if (!window.confirm(t(UI.resetConfirm))) return;
       var c = cur();
-      c.sigs = {}; c.scores = {}; c.theirQuestions = ''; c.notes = ''; c.decision = '';
+      c.sigs = {}; c.scores = {}; c.theirQuestions = ''; c.notes = ''; c.decision = ''; c.tookTest = false;
       save(); renderAllCandidate();
     });
   }
@@ -1400,7 +1571,56 @@
     });
   }
 
-  /* --- module 3 --- */
+  /* --- module 3: the take-home --- */
+  function defenceHtml() {
+    return '<div class="qblock">' + EXAM.defense.map(function (x, i) {
+      return '<div class="qitem"><div class="qnum">Q' + (i + 1) + '</div><div>' +
+        '<div class="qtext">' + esc(t(x.q)) + '</div>' +
+        '<div class="qwhy">' + esc(t(x.why)) + '</div></div></div>';
+    }).join('') + '</div>';
+  }
+
+  function renderMX() {
+    var c = cur();
+    var html = '<div class="card" style="border-left:3px solid var(--kelly-rust)"><div class="card-note">' + md(t(EXAM.note)) + '</div></div>';
+
+    html += '<div class="card"><h3>' + esc(t(EXAM.rulesTitle)) + '</h3><ol class="check-list">' +
+      EXAM.rules.map(function (x) { return '<li>' + esc(t(x)) + '</li>'; }).join('') + '</ol>' +
+      '<div class="card-note" style="margin-top:10px">' + esc(t(EXAM.rulesNote)) + '</div>' +
+      '<div class="actions no-print"><button type="button" class="btn" id="copyRules">' + esc(t(UI.copy)) + '</button></div></div>';
+
+    EXAM.papers[S.role].forEach(function (paper, i) {
+      html += '<div class="card"><h3><span class="secno">3.' + (i + 1) + '</span>' + esc(t(paper.type)) + '</h3>' +
+        '<div class="brief"><div class="brief-label">' + esc(t(UI.promptLabel)) + '</div>' +
+        '<div class="brief-body">' + esc(t(paper.prompt)) + '</div></div>' +
+        '<div class="card-note">' + esc(t(paper.why)) + '</div></div>';
+    });
+
+    html += '<div class="card"><h3>' + esc(t(EXAM.readsTitle)) + '</h3><ul class="check-list">' +
+      EXAM.reads.map(function (x) { return '<li>' + md(t(x)) + '</li>'; }).join('') + '</ul></div>';
+
+    html += '<div class="card" style="border-left:3px solid var(--kelly-rust)"><h3 class="sig-neg">' + esc(t(EXAM.flagsTitle)) + '</h3><ul class="check-list">' +
+      EXAM.flags.map(function (x) { return '<li>' + esc(t(x)) + '</li>'; }).join('') + '</ul></div>';
+
+    html += '<div class="card checklist"><h3>' + esc(t(EXAM.defenseTitle)) + '</h3>' +
+      '<div class="card-note">' + md(t(EXAM.defenseNote)) + '</div>' + defenceHtml() +
+      '<label class="check" style="margin-top:14px;border-top:1px dashed var(--kelly-line)">' +
+      '<input type="checkbox" id="sentExam"' + (c.tookTest ? ' checked' : '') + '>' +
+      '<span class="check-body"><span class="check-text">' + esc(t(EXAM.sent)) + '</span>' +
+      '<span class="check-hint">' + esc(t(EXAM.sentNote)) + '</span></span></label></div>';
+
+    var b = body('mx');
+    b.innerHTML = html;
+    b.querySelector('#copyRules').addEventListener('click', function () {
+      copyText(EXAM.rules.map(function (x, i) { return (i + 1) + '. ' + t(x); }).join('\n') + '\n\n— ' + MARK);
+    });
+    b.querySelector('#sentExam').addEventListener('change', function (e) {
+      cur().tookTest = e.target.checked;
+      save(); renderStatus();
+    });
+  }
+
+  /* --- module 4: taste --- */
   function artName(k, a, i) {
     return t(a.name || TASTE[S.role].abc[i].name);
   }
@@ -1714,6 +1934,15 @@
       });
     });
 
+    if (cur().tookTest) {
+      steps.splice(2, 0, {
+        key: 'defense', title: UI.ivDefense,
+        html: function () {
+          return '<div class="iv-lead">' + esc(t(EXAM.defenseNote).replace(/\*\*/g, '')) + '</div>' + defenceHtml();
+        }
+      });
+    }
+
     if (S.level === 'L3') {
       steps.push({
         key: 'l3', title: L3_EXTRA.title,
@@ -1862,11 +2091,31 @@
     });
     out.push('');
 
-    out.push('## ' + (zh ? '③ 品味题' : '③ Taste tests'));
+    out.push('## ' + (zh ? '③ 异步笔试' : '③ Take-home'));
+    out.push(t(EXAM.note).replace(/\*\*/g, '').replace(/\n\n/g, ' '));
+    out.push('');
+    out.push('**' + t(EXAM.rulesTitle) + '**');
+    EXAM.rules.forEach(function (x, i) { out.push((i + 1) + '. ' + t(x)); });
+    EXAM.papers[S.role].forEach(function (paper, i) {
+      out.push('');
+      out.push('**3.' + (i + 1) + ' ' + t(paper.type) + '**');
+      out.push(t(paper.prompt));
+      out.push('- ' + t(paper.why));
+    });
+    out.push('');
+    out.push('**' + t(EXAM.defenseTitle) + '**');
+    out.push(t(EXAM.defenseNote).replace(/\*\*/g, ''));
+    EXAM.defense.forEach(function (x, i) {
+      out.push((i + 1) + '. ' + t(x.q));
+      out.push('   - ' + t(x.why));
+    });
+    out.push('');
+
+    out.push('## ' + (zh ? '④ 品味题' : '④ Taste tests'));
     var n = 0;
     CASES[S.role].forEach(function (kase) {
       n++;
-      out.push('### 3.' + n + ' ' + t(UI.tasteReverse) + (kase.lens ? ' · ' + t(kase.lens) : ''));
+      out.push('### 4.' + n + ' ' + t(UI.tasteReverse) + (kase.lens ? ' · ' + t(kase.lens) : ''));
       if (kase.note) out.push(t(kase.note));
       out.push('');
       out.push('**' + t(UI.scriptLabel) + '** ' + t(kase.say));
@@ -1901,13 +2150,13 @@
       out.push('');
     });
 
-    out.push('### 3.' + (++n) + ' ' + t(UI.tasteWhy));
+    out.push('### 4.' + (++n) + ' ' + t(UI.tasteWhy));
     out.push(t(THREE_WHY.intro));
     SAY.why.forEach(function (x) { out.push('- ' + t(x)); });
     out.push('- ' + (zh ? '有品味会落在：' : 'Taste lands on: ') + THREE_WHY.good.map(function (x) { return t(x).replace(/\*\*/g, ''); }).join(' / '));
     out.push('- ' + (zh ? '没品味会落在：' : 'No taste lands on: ') + THREE_WHY.bad.map(function (x) { return t(x).replace(/\*\*/g, ''); }).join(' / '));
     out.push('');
-    out.push('### 3.' + (++n) + ' ' + t(UI.tasteCal));
+    out.push('### 4.' + (++n) + ' ' + t(UI.tasteCal));
     out.push(t(CALIBRATION.setup[S.role]));
     out.push('**' + t(UI.scriptLabel) + '** ' + t(SAY.cal));
     CALIBRATION.questions.forEach(function (q, i) { out.push((i + 1) + '. ' + t(q)); });
@@ -1921,7 +2170,7 @@
     }
     out.push('');
 
-    out.push('## ' + (zh ? '④ 现场评分' : '④ Live scorecard') + (st.n ? ' — ' + st.sum + '/16' : ''));
+    out.push('## ' + (zh ? '⑤ 现场评分' : '⑤ Live scorecard') + (st.n ? ' — ' + st.sum + '/16' : ''));
     out.push(t(SCORE_INTRO).replace(/\*\*/g, ''));
     out.push('');
     SCORE_DIMS.forEach(function (dim) {
@@ -1939,7 +2188,7 @@
     }
     out.push('');
 
-    out.push('## ' + (zh ? '⑤ 反向面试' : '⑤ Reverse interview'));
+    out.push('## ' + (zh ? '⑥ 反向面试' : '⑥ Reverse interview'));
     out.push(t(REVERSE.intro).replace(/\*\*/g, ''));
     goodQuestions().forEach(function (x) { out.push('- ' + t(x)); });
     if (c.theirQuestions) {
@@ -1955,7 +2204,7 @@
       out.push('');
     }
 
-    out.push('## ' + (zh ? '⑥ 结论' : '⑥ Decision'));
+    out.push('## ' + (zh ? '⑦ 结论' : '⑦ Decision'));
     var dec = UI.decisions.filter(function (x) { return x.v === c.decision; })[0];
     out.push('- ' + (dec ? t(dec.t) : '____'));
 
@@ -1982,11 +2231,11 @@
    * ------------------------------------------------------------------ */
 
   function renderAllCandidate() {
-    renderKnobs(); renderM2(); renderM4(); renderM5(); renderM6(); renderStatus();
+    renderKnobs(); renderM2(); renderMX(); renderM4(); renderM5(); renderM6(); renderStatus();
   }
   function renderAll() {
     renderHeaders(); renderRail(); renderKnobs();
-    renderM1(); renderM2(); renderM3(); renderM4(); renderM5(); renderM6();
+    renderM1(); renderM2(); renderMX(); renderM3(); renderM4(); renderM5(); renderM6();
     renderStatus();
     if (IV.on) renderInterview();
   }
