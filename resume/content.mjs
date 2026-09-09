@@ -103,8 +103,8 @@ export const DOCS = {
       ],
       "envNowLabel": "Daily operating environment",
       "envNow": "Buda · Paseo · Codex · Claude Code · opencode · pi — mixed per task",
-      "envWasLabel": "Where it started",
-      "envWas": "Kiro and GitHub Copilot, when the unit of work was still a completion rather than a delegated task."
+      "envWasLabel": "How it got here",
+      "envWas": "It started with AI as an assistant inside an IDE (Kiro, GitHub Copilot). Then as an employee. Now as a company of them — with the human sitting where a board sits."
     },
     "experience": {
       "title": "Experience",
@@ -430,8 +430,8 @@ export const DOCS = {
       ],
       "envNowLabel": "日常实战环境",
       "envNow": "Buda · Paseo · Codex · Claude Code · opencode · pi coding agent，按任务混用",
-      "envWasLabel": "起点",
-      "envWas": "最早以 Kiro 和 GitHub Copilot 为主——那时候工作的最小单位还是一次补全，不是一个可以委派出去的任务。"
+      "envWasLabel": "工具栈怎么变的",
+      "envWas": "最早在 IDE 里把 AI 当助手（Kiro、GitHub Copilot），后来当员工，现在当一家公司的员工——人该坐的位置是董事会。"
     },
     "experience": {
       "title": "工作经历",
@@ -757,8 +757,8 @@ export const DOCS = {
       ],
       "envNowLabel": "日常實戰環境",
       "envNow": "Buda · Paseo · Codex · Claude Code · opencode · pi coding agent，按任務混用",
-      "envWasLabel": "起點",
-      "envWas": "最早以 Kiro 和 GitHub Copilot 為主——那時候工作的最小單位還是一次補全，不是一個可以委派出去的任務。"
+      "envWasLabel": "工具棧怎麼變的",
+      "envWas": "最早在 IDE 裡把 AI 當助手（Kiro、GitHub Copilot），後來當員工，現在當一家公司的員工——人該坐的位置是董事會。"
     },
     "experience": {
       "title": "工作經歷",
@@ -1101,8 +1101,8 @@ export const DOCS = {
       ],
       "envNowLabel": "Daily operating environment",
       "envNow": "Buda · Paseo · Codex · Claude Code · opencode · pi — mixed per task",
-      "envWasLabel": "Where it started",
-      "envWas": "Kiro and GitHub Copilot, when the unit of work was still a completion rather than a delegated task."
+      "envWasLabel": "How it got here",
+      "envWas": "It started with AI as an assistant inside an IDE (Kiro, GitHub Copilot). Then as an employee. Now as a company of them — with the human sitting where a board sits."
     },
     "experience": {
       "title": "Experience",
@@ -1445,8 +1445,8 @@ export const DOCS = {
       ],
       "envNowLabel": "日常实战环境",
       "envNow": "Buda · Paseo · Codex · Claude Code · opencode · pi coding agent，按任务混用",
-      "envWasLabel": "起点",
-      "envWas": "最早以 Kiro 和 GitHub Copilot 为主——那时候工作的最小单位还是一次补全，不是一个可以委派出去的任务。"
+      "envWasLabel": "工具栈怎么变的",
+      "envWas": "最早在 IDE 里把 AI 当助手（Kiro、GitHub Copilot），后来当员工，现在当一家公司的员工——人该坐的位置是董事会。"
     },
     "experience": {
       "title": "工作经历",
@@ -1789,8 +1789,8 @@ export const DOCS = {
       ],
       "envNowLabel": "日常實戰環境",
       "envNow": "Buda · Paseo · Codex · Claude Code · opencode · pi coding agent，按任務混用",
-      "envWasLabel": "起點",
-      "envWas": "最早以 Kiro 和 GitHub Copilot 為主——那時候工作的最小單位還是一次補全，不是一個可以委派出去的任務。"
+      "envWasLabel": "工具棧怎麼變的",
+      "envWas": "最早在 IDE 裡把 AI 當助手（Kiro、GitHub Copilot），後來當員工，現在當一家公司的員工——人該坐的位置是董事會。"
     },
     "experience": {
       "title": "工作經歷",
