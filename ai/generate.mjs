@@ -44,9 +44,8 @@ const pages = {
       ["training", "定制", "企业 AI 定制工作坊", "围绕行业、岗位和业务目标设计专属落地课程", "线下 1–3 天", "人民币 30,000–150,000 元 / 项目"],
       ["caio", "CAIO", "CAIO Office（企业 AI 转型与执行办公室）", "提供企业 AI 转型与研发 AI 原生转型两条路径；由 Kelly 担任 CAIO Lead，每周确定优先级、拆解任务、带队执行并验收复盘", "嵌入式持续合作：每周工作会 + 持续推进，建议 3 个月起", "按月定制报价"],
       ["coding", "编程", "Vibe Coding 软件开发实战工作坊", "使用真实业务题，从需求拆解到完成一个可运行、可继续迭代的产品", "线下 1 天", "人民币 30,000 元 / 场"],
-      ["coding", "陪跑", "Vibe Coding 项目陪跑", "围绕客户项目提供需求、架构、代码审查、测试、部署和迭代指导，代码与成果归客户", "线上 4 周起", "按月定制报价"],
-      ["coding", "顾问", "Vibe Coding 工程顾问", "针对复杂系统、遗留代码或关键上线提供技术方案、风险审查与工程决策支持", "月度或项目制", "按月定制报价"],
-      ["build", "落地", "AI 数字员工 / Agents 公司搭建", "按业务场景组合 Codex、OpenClaw、Buda AI 等 Agent 工具与平台，交付 1 个数字员工、1 条核心工作流、团队培训与 1 个月运营维护起", "定制交付", "国内人民币 12,000 元起 / 海外 US$2,000 起"],
+      ["coding", "陪跑", "Vibe Coding 项目陪跑", "围绕客户项目提供需求、架构、代码审查、测试、部署和迭代指导，也覆盖遗留系统与关键上线的风险评审，代码与成果归客户", "线上 4 周起", "按月定制报价"],
+      ["build", "落地", "AI 数字员工 / Agents 公司搭建", "按业务场景组合 Codex、OpenClaw、Buda AI 等 Agent 工具与平台，交付 1 个数字员工、1 条核心工作流、团队培训与 1 个月运营维护起", "定制交付", "按业务场景定制报价"],
       ["data", "资产", "企业 AI 资产中枢", "搭建企业 AI 资产库，统一沉淀企业数据、知识库、Agent Skills 与 AI Apps；通过 Agent 提交、人工审核、权限、版本和审计治理，让每份产出可信、可追溯、可复用", "项目制", "人民币 12,000 元起 / 按项目报价"],
       ["platform", "模型", "国际大模型中转服务（MoonRouter）", "统一使用 GPT、Claude、Gemini，无需自行处理海外账号与支付采购", "在线充值，按量使用", "官方 API 价格 5 折"],
       ["brand", "品牌", "企业品牌专属 Agent 小程序", "企业品牌微信 Agent 小程序，用于培训、内部服务或会员式对外服务", "品牌定制", "人民币 99,999 元起"]
@@ -128,8 +127,7 @@ const pages = {
     ],
     vibeOffers: [
       ["01", "Vibe Coding 软件开发实战工作坊", "适合需要统一方法的产品、技术与业务团队", "用一个真实业务题完成从需求描述、Agent 协作到可运行产品的全过程。", ["团队共用的 Vibe Coding 工作流", "一个现场完成的可运行成果", "代码质量、安全与上线检查清单"], "1 天｜人民币 30,000 元 / 场"],
-      ["02", "Vibe Coding 软件项目陪跑（4 周）", "适合已有想法、原型或在建项目的团队", "团队主导开发，Kelly 在关键节点拆需求、定架构、审代码、处理难题并带领上线。", ["每周项目推进与技术评审", "架构、测试、部署与文档指导", "代码和项目成果由客户完整保有"], "4 周起｜按月定制报价"],
-      ["03", "Vibe Coding 复杂项目工程顾问", "适合遗留系统、关键集成或高风险上线", "在 AI 生成代码之外补足资深工程判断，识别系统边界、技术债与交付风险。", ["技术方案与架构评审", "关键代码、性能与安全审查", "疑难问题与工程决策支持"], "按月定制报价" ]
+      ["02", "Vibe Coding 软件项目陪跑（4 周）", "适合已有想法、原型或在建项目的团队，也适合遗留系统、关键集成或高风险上线", "团队主导开发，Kelly 在关键节点拆需求、定架构、审代码、处理难题并带领上线；也可单独介入复杂系统与遗留代码，补足资深工程判断、识别技术债与交付风险。", ["每周项目推进与技术评审", "架构、测试、部署与文档指导", "复杂系统与高风险发布的风险评审", "代码和项目成果由客户完整保有"], "4 周起｜按月定制报价"]
     ],
     vibeTrust: "Kelly 有百万行级企业软件研发与交付经验，做过游戏、App、小程序、大型网游与大型企业软件，同时深度使用 AI 编程工具——知道哪些是 AI 能自己搞定的，哪些必须靠工程判断。",
     deployLabel: "AI 数字员工",
@@ -146,7 +144,7 @@ const pages = {
     ],
     deployOutputLabel: "交付内容",
     deployOutputs: ["1 个可运行的数字员工", "1 条接入业务的核心工作流", "团队培训与 1 个月运营维护"],
-    deployMeta: "定制交付｜国内人民币 12,000 元起，海外 US$2,000 起｜按业务场景与系统连接复杂度报价",
+    deployMeta: "定制交付｜按业务场景与系统连接复杂度定制报价",
     deployTrust: "Kelly 是 Buda AI 的创始人，Buda 本身就是用来搭建和运行 AI 数字员工与 Agents 公司的平台——这不是纸面上的方案，是 Kelly 自己每天在用、也在卖的系统。",
     assetsLabel: "AI 资产中枢",
     assetsTitle: "让企业的数据、知识和 Agent 产出真正沉淀下来",
@@ -248,9 +246,8 @@ const pages = {
       ["training", "Custom", "Enterprise AI Custom Workshop", "A tailored program around the company's industry, roles, and operating goals", "On-site, 1–3 days", "RMB 30,000–150,000 / project"],
       ["caio", "CAIO", "CAIO Office (Enterprise AI Transformation & Execution)", "Choose Enterprise AI Transformation or AI-Native R&D Transformation; Kelly serves as CAIO Lead to set priorities, assign owners, lead execution, and review outcomes every week", "Embedded continuous engagement: weekly working session + ongoing execution; 3-month minimum recommended", "Custom monthly retainer"],
       ["coding", "Coding", "Vibe Coding Software Development Workshop", "Use a real business challenge to move from requirements to a working product the team can keep improving", "On-site, 1 day", "RMB 30,000 / session"],
-      ["coding", "Coaching", "Vibe Coding Project Coaching", "Requirements, architecture, code review, testing, deployment, and iteration guidance around the client's project; the client owns the code and output", "Online, from 4 weeks", "Custom monthly retainer"],
-      ["coding", "Advisory", "Vibe Coding Engineering Advisory", "Technical planning, risk review, and engineering decisions for complex systems, legacy code, or critical releases", "Monthly or project-based", "Custom monthly retainer"],
-      ["build", "Deploy", "AI Employees / Agents Company Build", "Combine Codex, OpenClaw, Buda AI, and other Agent tools for the business scenario; deliver 1 AI employee, 1 core workflow, team enablement, and 1 month of operational support", "Custom delivery", "RMB 12,000+ domestic / US$2,000+ overseas"],
+      ["coding", "Coaching", "Vibe Coding Project Coaching", "Requirements, architecture, code review, testing, deployment, and iteration guidance around the client's project — including risk review for legacy systems and critical releases; the client owns the code and output", "Online, from 4 weeks", "Custom monthly retainer"],
+      ["build", "Deploy", "AI Employees / Agents Company Build", "Combine Codex, OpenClaw, Buda AI, and other Agent tools for the business scenario; deliver 1 AI employee, 1 core workflow, team enablement, and 1 month of operational support", "Custom delivery", "Custom pricing by scenario"],
       ["data", "Assets", "Enterprise AI Asset Hub", "Build an enterprise AI asset library for data, knowledge bases, Agent Skills, and AI Apps; use Agent submissions, human review, permissions, versioning, and audit trails to keep every output trusted, traceable, and reusable", "Project-based", "RMB 12,000+ / scoped quote"],
       ["platform", "Models", "International Model Access (MoonRouter)", "Unified GPT, Claude, and Gemini access without managing overseas vendor accounts and payments", "Online credit, usage-based", "50% of official API pricing"],
       ["brand", "Brand", "Branded Enterprise Agent Mini Program", "A branded WeChat Agent mini program for training, internal service, or member-facing delivery", "Custom build", "RMB 99,999+"]
@@ -332,8 +329,7 @@ const pages = {
     ],
     vibeOffers: [
       ["01", "Vibe Coding Software Development Workshop", "For product, engineering, and business teams adopting a shared method", "Use one real business challenge to practice the full path from requirements and Agent collaboration to a working product.", ["A shared Vibe Coding workflow", "One working outcome built during the session", "Code quality, security, and release checklists"], "1 day | RMB 30,000 / session"],
-      ["02", "Vibe Coding Software Project Coaching (4 Weeks)", "For teams with an idea, prototype, or active build", "The team owns development while Kelly guides requirements, architecture, reviews, hard problems, and release at critical points.", ["Weekly delivery and technical reviews", "Architecture, testing, deployment, and documentation guidance", "The client retains all code and project output"], "From 4 weeks | Custom monthly retainer"],
-      ["03", "Vibe Coding Complex-Project Engineering Advisory", "For legacy systems, critical integrations, or high-risk releases", "Add senior engineering judgment beyond AI-generated code to expose system boundaries, technical debt, and delivery risk.", ["Technical plan and architecture review", "Critical code, performance, and security review", "Complex debugging and engineering decisions"], "Custom monthly retainer"]
+      ["02", "Vibe Coding Software Project Coaching (4 Weeks)", "For teams with an idea, prototype, or active build — also for legacy systems, critical integrations, or high-risk releases", "The team owns development while Kelly guides requirements, architecture, reviews, hard problems, and release at critical points; also engages standalone on complex or legacy systems, adding senior engineering judgment to expose technical debt and delivery risk.", ["Weekly delivery and technical reviews", "Architecture, testing, deployment, and documentation guidance", "Risk review for complex or high-risk releases", "The client retains all code and project output"], "From 4 weeks | Custom monthly retainer"]
     ],
     vibeTrust: "Kelly has million-line-scale enterprise software engineering and delivery experience across games, apps, mini programs, large online games, and enterprise systems, alongside deep daily use of AI coding tools — knowing exactly what AI can own outright and what still needs engineering judgment.",
     deployLabel: "AI Employees",
@@ -350,7 +346,7 @@ const pages = {
     ],
     deployOutputLabel: "What's delivered",
     deployOutputs: ["1 working AI employee", "1 core workflow connected to the business", "Team enablement and 1 month of operational support"],
-    deployMeta: "Custom delivery | RMB 12,000+ domestic, US$2,000+ overseas | Priced by scenario and integration complexity",
+    deployMeta: "Custom delivery | Priced by scenario and integration complexity",
     deployTrust: "Kelly is the founder of Buda AI, the platform this service uses to build and run AI employees and Agents companies — this isn't a slide-deck plan, it's the system Kelly uses and sells every day.",
     assetsLabel: "AI Asset Hub",
     assetsTitle: "Make the company's data, knowledge, and Agent output actually stick",
@@ -452,9 +448,8 @@ const pages = {
       ["training", "定制", "企業 AI 定制工作坊", "圍繞行業、崗位和業務目標設計專屬落地課程", "線下 1–3 天", "人民幣 30,000–150,000 元 / 項目"],
       ["caio", "CAIO", "CAIO Office（企業 AI 轉型與執行辦公室）", "提供企業 AI 轉型與研發 AI 原生轉型兩條路徑；由 Kelly 擔任 CAIO Lead，每週確定優先級、拆解任務、帶隊執行並驗收複盤", "嵌入式持續合作：每週工作會 + 持續推進，建議 3 個月起", "按月定制報價"],
       ["coding", "編程", "Vibe Coding 軟件開發實戰工作坊", "使用真實業務題，從需求拆解到完成一個可運行、可繼續迭代的產品", "線下 1 天", "人民幣 30,000 元 / 場"],
-      ["coding", "陪跑", "Vibe Coding 項目陪跑", "圍繞客戶項目提供需求、架構、代碼審查、測試、部署和迭代指導，代碼與成果歸客戶", "網上 4 週起", "按月定制報價"],
-      ["coding", "顧問", "Vibe Coding 工程顧問", "針對複雜系統、遺留代碼或關鍵上線提供技術方案、風險審查與工程決策支援", "月度或項目制", "按月定制報價"],
-      ["build", "落地", "AI 數碼員工 / Agents 公司搭建", "按業務場景組合 Codex、OpenClaw、Buda AI 等 Agent 工具與平台，交付 1 個數碼員工、1 條核心工作流程、團隊培訓與 1 個月營運維護起", "定制交付", "國內人民幣 12,000 元起 / 海外 US$2,000 起"],
+      ["coding", "陪跑", "Vibe Coding 項目陪跑", "圍繞客戶項目提供需求、架構、代碼審查、測試、部署和迭代指導，也涵蓋遺留系統與關鍵上線的風險評審，代碼與成果歸客戶", "網上 4 週起", "按月定制報價"],
+      ["build", "落地", "AI 數碼員工 / Agents 公司搭建", "按業務場景組合 Codex、OpenClaw、Buda AI 等 Agent 工具與平台，交付 1 個數碼員工、1 條核心工作流程、團隊培訓與 1 個月營運維護起", "定制交付", "按業務場景定制報價"],
       ["data", "資產", "企業 AI 資產中樞", "搭建企業 AI 資產庫，統一沉澱企業數據、知識庫、Agent Skills 與 AI Apps；通過 Agent 提交、人工審核、權限、版本和審計治理，讓每份產出可信、可追溯、可重用", "項目制", "人民幣 12,000 元起 / 按項目報價"],
       ["platform", "模型", "國際大模型中轉服務（MoonRouter）", "統一使用 GPT、Claude、Gemini，毋須自行處理海外帳戶與付款採購", "網上充值，按量使用", "官方 API 價格 5 折"],
       ["brand", "品牌", "企業品牌專屬 Agent 小程式", "企業品牌微信 Agent 小程式，用於培訓、內部服務或會員式對外服務", "品牌定制", "人民幣 99,999 元起"]
@@ -536,8 +531,7 @@ const pages = {
     ],
     vibeOffers: [
       ["01", "Vibe Coding 軟件開發實戰工作坊", "適合需要統一方法的產品、技術與業務團隊", "用一個真實業務題完成從需求描述、Agent 協作到可運行產品的全過程。", ["團隊共用的 Vibe Coding 工作流程", "一個現場完成的可運行成果", "代碼質量、安全與上線檢查清單"], "1 天｜人民幣 30,000 元 / 場"],
-      ["02", "Vibe Coding 軟件項目陪跑（4 週）", "適合已有想法、原型或在建項目的團隊", "團隊主導開發，Kelly 在關鍵節點拆需求、定架構、審代碼、處理難題並帶領上線。", ["每週項目推進與技術評審", "架構、測試、部署與文檔指導", "代碼和項目成果由客戶完整保有"], "4 週起｜按月定制報價"],
-      ["03", "Vibe Coding 複雜項目工程顧問", "適合遺留系統、關鍵整合或高風險上線", "在 AI 生成代碼之外補足資深工程判斷，識別系統邊界、技術債與交付風險。", ["技術方案與架構評審", "關鍵代碼、效能與安全審查", "疑難問題與工程決策支援"], "按月定制報價"]
+      ["02", "Vibe Coding 軟件項目陪跑（4 週）", "適合已有想法、原型或在建項目的團隊，也適合遺留系統、關鍵整合或高風險上線", "團隊主導開發，Kelly 在關鍵節點拆需求、定架構、審代碼、處理難題並帶領上線；也可單獨介入複雜系統與遺留代碼，補足資深工程判斷、識別技術債與交付風險。", ["每週項目推進與技術評審", "架構、測試、部署與文檔指導", "複雜系統與高風險發布的風險評審", "代碼和項目成果由客戶完整保有"], "4 週起｜按月定制報價"]
     ],
     vibeTrust: "Kelly 有百萬行級企業軟件研發與交付經驗，做過遊戲、App、小程式、大型網遊與大型企業軟件，同時深度使用 AI 編程工具——知道哪些是 AI 能自己搞定的，哪些必須靠工程判斷。",
     deployLabel: "AI 數碼員工",
@@ -554,7 +548,7 @@ const pages = {
     ],
     deployOutputLabel: "交付內容",
     deployOutputs: ["1 個可運行的數碼員工", "1 條接入業務的核心工作流程", "團隊培訓與 1 個月營運維護"],
-    deployMeta: "定制交付｜國內人民幣 12,000 元起，海外 US$2,000 起｜按業務場景與系統連接複雜度報價",
+    deployMeta: "定制交付｜按業務場景與系統連接複雜度定制報價",
     deployTrust: "Kelly 是 Buda AI 的創辦人，Buda 本身就是用來搭建和運行 AI 數碼員工與 Agents 公司的平台——這不是紙面上的方案，是 Kelly 自己每天在用、也在賣的系統。",
     assetsLabel: "AI 資產中樞",
     assetsTitle: "讓企業的數據、知識和 Agent 產出真正沉澱下來",
@@ -640,7 +634,7 @@ const serviceDetailTargets = [
   ["consult"],
   ["training", "training-4"], ["training", "training-1"], ["training", "training-2"], ["training", "training-3"],
   ["caio"],
-  ["vibe-coding", "vibe-1"], ["vibe-coding", "vibe-2"], ["vibe-coding", "vibe-3"],
+  ["vibe-coding", "vibe-1"], ["vibe-coding", "vibe-2"],
   ["ai-employees"],
   ["ai-assets"],
   ["products", "product-1"], ["products", "product-2"]
