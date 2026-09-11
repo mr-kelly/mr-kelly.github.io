@@ -27,12 +27,13 @@ const pages = {
     serviceIntro: "可以从培训、Vibe Coding 工作坊或项目陪跑开始，也可以引入 CAIO Office 持续带队，或直接落地 Agent、AI 资产中枢与企业品牌小程序。以下为客户参考报价。",
     insightsLabel: "观点文章",
     insightsTitle: "先看方法，再决定需要什么服务",
-    insightsIntro: "三篇长文分别从企业 AI 落地、研发团队优化和 Agents 公司管理切入，讲清问题为什么发生、应该怎样推进，以及 CAIO Office 与 FDE 在其中承担什么角色。",
+    insightsIntro: "四篇长文分别从企业 AI 落地、研发团队优化、Agents 公司管理和交付验收切入，讲清问题为什么发生、应该怎样推进，以及 CAIO Office 与 FDE 在其中承担什么角色。",
     insightsCta: "阅读全文",
     insightsItems: [
       ["企业做 AI，最缺的不是工具，而是一个把结果逼出来的人", "从“AI 落地断层”拆解目标、执行、验收和资产沉淀，适合正在推动公司级 AI 转型的管理者。", "企业 AI · CAIO", "/articles/enterprise-ai-needs-caio-and-fde.html"],
       ["研发团队越招越多，产品为什么还是做不快？", "从“研发黑箱”解释交付透明、AI Coding、测试验收和技术资产，适合 CEO、CTO 与研发负责人。", "研发转型 · AI Coding", "/articles/ai-native-rd-team-optimization.html"],
-      ["你越努力学 AI，越可能一直做那个超级打工人", "从“超级打工人陷阱”解释为什么工具越多反而越忙，以及怎样用岗位、资料、流程和验收真正把工作交出去。", "Agents 公司 · 管理", "/articles/stop-learning-ai-start-managing-it.html"]
+      ["你越努力学 AI，越可能一直做那个超级打工人", "从“超级打工人陷阱”解释为什么工具越多反而越忙，以及怎样用岗位、资料、流程和验收真正把工作交出去。", "Agents 公司 · 管理", "/articles/stop-learning-ai-start-managing-it.html"],
+      ["AI 研发的下一道瓶颈：不是做不过来，而是验不过来", "用五个问答讲清多 Agent、PRD、产品会议、仓库地图与人工验收怎样配合。", "研发转型 · 交付验收", "/articles/ai-rd-next-bottleneck-acceptance.html"]
     ],
     headers: ["类别", "服务", "核心交付", "形式 / 时长", "服务报价"],
     mobileLabels: ["类别", "服务", "交付", "形式", "报价"],
@@ -229,12 +230,13 @@ const pages = {
     serviceIntro: "Begin with training, a Vibe Coding workshop, or project coaching; bring in a CAIO Office to lead weekly execution; or deploy an Agent, AI asset hub, or branded mini-program. Prices below are for reference.",
     insightsLabel: "Insights · Chinese",
     insightsTitle: "Read the method before choosing the service",
-    insightsIntro: "Three Chinese long-form essays explain enterprise AI deployment, AI-native R&D transformation, and managing an Agents company: why the problem occurs, how to move it forward, and where a CAIO Office or FDE fits.",
+    insightsIntro: "Four Chinese long-form essays cover enterprise AI deployment, AI-native R&D transformation, managing an Agents company, and the new acceptance bottleneck.",
     insightsCta: "Read article",
     insightsItems: [
       ["Enterprise AI needs someone who drives the result", "A practical diagnosis of the gap between AI strategy, weekly execution, acceptance, and reusable company assets.", "Enterprise AI · CAIO", "/articles/enterprise-ai-needs-caio-and-fde.html"],
       ["Why a larger R&D team still may not ship faster", "A practical view of delivery visibility, AI coding, testing, acceptance, documentation, and R&D operating systems.", "AI-Native R&D Transformation · AI Coding", "/articles/ai-native-rd-team-optimization.html"],
-      ["Why learning more AI can keep you trapped as a super-worker", "A Chinese essay on moving from tool learning to managing AI through roles, context, workflow, and acceptance.", "Agents company · Management", "/articles/stop-learning-ai-start-managing-it.html"]
+      ["Why learning more AI can keep you trapped as a super-worker", "A Chinese essay on moving from tool learning to managing AI through roles, context, workflow, and acceptance.", "Agents company · Management", "/articles/stop-learning-ai-start-managing-it.html"],
+      ["The next bottleneck in AI-native R&D is acceptance", "A Chinese Q&A on multi-Agent design, PRDs, product meetings, repository maps, and human sign-off.", "AI-Native R&D · Acceptance", "/articles/ai-rd-next-bottleneck-acceptance.html"]
     ],
     headers: ["Type", "Service", "Core delivery", "Format / duration", "Price"],
     mobileLabels: ["Type", "Service", "Delivery", "Format", "Price"],
@@ -431,12 +433,13 @@ const pages = {
     serviceIntro: "可以從培訓、Vibe Coding 工作坊或項目陪跑開始，也可以引入 CAIO Office 持續帶隊，或直接落地 Agent、AI 資產中樞與企業品牌小程式。以下為客戶參考報價。",
     insightsLabel: "觀點文章 · 中文",
     insightsTitle: "先看方法，再決定需要什麼服務",
-    insightsIntro: "三篇長文分別從企業 AI 落地、研發團隊優化和 Agents 公司管理切入，講清問題為什麼發生、應該怎樣推進，以及 CAIO Office 與 FDE 在其中承擔什麼角色。",
+    insightsIntro: "四篇長文分別從企業 AI 落地、研發團隊優化、Agents 公司管理和交付驗收切入，講清問題為什麼發生、應該怎樣推進，以及 CAIO Office 與 FDE 在其中承擔什麼角色。",
     insightsCta: "閱讀全文",
     insightsItems: [
       ["企業做 AI，最缺的不是工具，而是一個把結果逼出來的人", "從「AI 落地斷層」拆解目標、執行、驗收和資產沉澱，適合正在推動公司級 AI 轉型的管理者。", "企業 AI · CAIO", "/articles/enterprise-ai-needs-caio-and-fde.html"],
       ["研發團隊越招越多，產品為什麼還是做不快？", "從「研發黑箱」解釋交付透明、AI Coding、測試驗收和技術資產，適合 CEO、CTO 與研發負責人。", "研發轉型 · AI Coding", "/articles/ai-native-rd-team-optimization.html"],
-      ["你越努力學 AI，越可能一直做那個超級打工人", "從「超級打工人陷阱」解釋為什麼工具越多反而越忙，以及怎樣用崗位、資料、流程和驗收真正把工作交出去。", "Agents 公司 · 管理", "/articles/stop-learning-ai-start-managing-it.html"]
+      ["你越努力學 AI，越可能一直做那個超級打工人", "從「超級打工人陷阱」解釋為什麼工具越多反而越忙，以及怎樣用崗位、資料、流程和驗收真正把工作交出去。", "Agents 公司 · 管理", "/articles/stop-learning-ai-start-managing-it.html"],
+      ["AI 研發的下一道瓶頸：不是做不過來，而是驗不過來", "用五個問答講清多 Agent、PRD、產品會議、程式碼倉庫地圖與人工驗收怎樣配合。", "研發轉型 · 交付驗收", "/articles/ai-rd-next-bottleneck-acceptance.html"]
     ],
     headers: ["類別", "服務", "核心交付", "形式 / 時長", "服務報價"],
     mobileLabels: ["類別", "服務", "交付", "形式", "報價"],
@@ -796,7 +799,7 @@ function renderPage(lang, page) {
   <link rel="canonical" href="${page.canonical}">
 ${alternates}
   <link rel="icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/ai/styles.css?v=20260803">
+  <link rel="stylesheet" href="/ai/styles.css?v=20260911">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Kelly AI Deployment Service">
   <meta property="og:title" content="${page.title}">

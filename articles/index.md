@@ -19,6 +19,10 @@ description: Kelly 陈霈霖关于企业 AI 落地、研发 AI 原生转型，�
 
 你买了课，存了几百条提示词，工具换了一轮，时间还是没省下来。因为 AI 早就不缺能力，缺的是你敢不敢把一件事完整交出去。这篇讲第一周怎么交出第一件事，以及什么算做完。
 
+## [AI 研发的下一道瓶颈：不是做不过来，而是验不过来](./ai-rd-next-bottleneck-acceptance.html)
+
+AI 写代码越来越快，新的瓶颈却出现在验收端。这篇用五个问答讲清多 Agent、PRD、产品会议、仓库地图和人工验收应该怎样配合。
+
 ---
 
 [了解 Kelly](https://kellychan.im/resume/zh-cn/)｜[企业 AI 服务](https://kellychan.im/ai/)｜[CAIO Office](https://kellychan.im/ai/caio/)

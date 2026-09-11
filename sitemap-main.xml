@@ -8,7 +8,7 @@
   </url>
   <url>
     <loc>https://mr-kelly.github.io/ai/</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mr-kelly.github.io/ai/en/"/>
@@ -18,7 +18,7 @@
   </url>
   <url>
     <loc>https://mr-kelly.github.io/ai/en/</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mr-kelly.github.io/ai/en/"/>
@@ -28,7 +28,7 @@
   </url>
   <url>
     <loc>https://mr-kelly.github.io/ai/zh-hk/</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mr-kelly.github.io/ai/en/"/>
@@ -60,6 +60,7 @@
   <url><loc>https://mr-kelly.github.io/articles/enterprise-ai-needs-caio-and-fde.html</loc><lastmod>2026-09-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://mr-kelly.github.io/articles/ai-native-rd-team-optimization.html</loc><lastmod>2026-09-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://mr-kelly.github.io/articles/stop-learning-ai-start-managing-it.html</loc><lastmod>2026-09-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mr-kelly.github.io/articles/ai-rd-next-bottleneck-acceptance.html</loc><lastmod>2026-09-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url>
     <loc>https://mr-kelly.github.io/resume/</loc>
     <lastmod>2026-07-30</lastmod>
