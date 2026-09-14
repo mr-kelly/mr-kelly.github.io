@@ -117,7 +117,7 @@ export const DOCS = {
           "lead": "Building “Agents as a Company”: coordinated AI employees that execute real work while people retain direction, taste and critical judgment.",
           "bullets": [
             "Personally operating a 30+ Agent model across engineering, operations, marketing, sales and administration, translating business goals into roles, tasks, owners and acceptance outcomes.",
-            "Shipped the product family that runs it: <a href=\"https://buda.im\">Buda</a> (the Agent workspace), <a href=\"https://busabase.com\">Busabase</a> (approval-first knowledge base for AI-generated content), <a href=\"https://sandock.ai\">Sandock</a> (long-running sandboxes for coding agents) and <a href=\"https://moonrouter.dev\">MoonRouter</a> (unified model gateway).",
+            "Shipped the product family that runs it: <a href=\"https://buda.im\">Buda</a> (the Agent workspace), <a href=\"https://busabase.com\">Busabase</a> (the database and workspace where Agents turn work into reusable data, docs, skills, and apps), <a href=\"https://sandock.ai\">Sandock</a> (long-running sandboxes for coding agents) and <a href=\"https://moonrouter.dev\">MoonRouter</a> (unified model gateway).",
             "Designed the full operating loop for parallel Agent execution, context handoffs, tool use, human review and iterative retrospectives.",
             "Applying the Agent operating model to media, e-commerce, consulting and manufacturing workflows."
           ]
@@ -444,7 +444,7 @@ export const DOCS = {
           "lead": "围绕“Agents as a Company”构建 AI 原生公司：人类负责方向、品位和关键判断，协同 AI 数字员工负责具体执行。",
           "bullets": [
             "亲自运营覆盖研发、运营、市场、销售与行政的 30+ Agents 模式，将业务目标拆成角色、任务、负责人和验收结果。",
-            "发布支撑这套模式的产品矩阵：<a href=\"https://buda.im\">Buda</a>（Agent 工作空间）、<a href=\"https://busabase.com\">Busabase</a>（AI 内容审批优先知识库）、<a href=\"https://sandock.ai\">Sandock</a>（面向编程 Agent 的长时沙箱）与 <a href=\"https://moonrouter.dev\">MoonRouter</a>（统一模型网关）。",
+            "发布支撑这套模式的产品矩阵：<a href=\"https://buda.im\">Buda</a>（Agent 工作空间）、<a href=\"https://busabase.com\">Busabase</a>（面向 Agent 的数据库与工作空间，将 Agent 产出沉淀为可复用的数据、文档、技能与应用）、<a href=\"https://sandock.ai\">Sandock</a>（面向编程 Agent 的长时沙箱）与 <a href=\"https://moonrouter.dev\">MoonRouter</a>（统一模型网关）。",
             "设计多 Agent 并行、上下文交接、工具调用、人工审核与复盘迭代的完整工作闭环。",
             "将 Agent 工作方式落地到自媒体、电商、咨询和制造等行业。"
           ]
@@ -771,7 +771,7 @@ export const DOCS = {
           "lead": "圍繞「Agents as a Company」建立 AI 原生公司：人類負責方向、品味及關鍵判斷，協同 AI 數碼員工負責具體執行。",
           "bullets": [
             "親自營運涵蓋研發、營運、市場、銷售與行政的 30+ Agents 模式，將業務目標拆成角色、任務、負責人和驗收結果。",
-            "發佈支撐這套模式的產品矩陣：<a href=\"https://buda.im\">Buda</a>（Agent 工作空間）、<a href=\"https://busabase.com\">Busabase</a>（AI 內容審批優先知識庫）、<a href=\"https://sandock.ai\">Sandock</a>（面向編程 Agent 的長時沙箱）與 <a href=\"https://moonrouter.dev\">MoonRouter</a>（統一模型網關）。",
+            "發佈支撐這套模式的產品矩陣：<a href=\"https://buda.im\">Buda</a>（Agent 工作空間）、<a href=\"https://busabase.com\">Busabase</a>（面向 Agent 的資料庫與工作空間，將 Agent 產出沉澱為可重用的資料、文件、技能與應用）、<a href=\"https://sandock.ai\">Sandock</a>（面向編程 Agent 的長時沙箱）與 <a href=\"https://moonrouter.dev\">MoonRouter</a>（統一模型網關）。",
             "設計多 Agent 並行、上下文交接、工具調用、人工審核與複盤迭代的完整工作閉環。",
             "將 Agent 工作方式落地到自媒體、電商、顧問及製造等行業。"
           ]
@@ -1115,7 +1115,7 @@ export const DOCS = {
           "lead": "Building “Agents as a Company”: coordinated AI employees that execute real work while people retain direction, taste and critical judgment.",
           "bullets": [
             "Personally operating a 30+ Agent model across engineering, operations, marketing, sales and administration, translating business goals into roles, tasks, owners and acceptance outcomes.",
-            "Shipped the product family that runs it: <a href=\"https://buda.im\">Buda</a> (the Agent workspace), <a href=\"https://busabase.com\">Busabase</a> (approval-first knowledge base for AI-generated content), <a href=\"https://sandock.ai\">Sandock</a> (long-running sandboxes for coding agents) and <a href=\"https://moonrouter.dev\">MoonRouter</a> (unified model gateway).",
+            "Shipped the product family that runs it: <a href=\"https://buda.im\">Buda</a> (the Agent workspace), <a href=\"https://busabase.com\">Busabase</a> (the database and workspace where Agents turn work into reusable data, docs, skills, and apps), <a href=\"https://sandock.ai\">Sandock</a> (long-running sandboxes for coding agents) and <a href=\"https://moonrouter.dev\">MoonRouter</a> (unified model gateway).",
             "Designed the full operating loop for parallel Agent execution, context handoffs, tool use, human review and iterative retrospectives.",
             "Applying the Agent operating model to media, e-commerce, consulting and manufacturing workflows."
           ]
@@ -1459,7 +1459,7 @@ export const DOCS = {
           "lead": "围绕“Agents as a Company”构建 AI 原生公司：人类负责方向、品位和关键判断，协同 AI 数字员工负责具体执行。",
           "bullets": [
             "亲自运营覆盖研发、运营、市场、销售与行政的 30+ Agents 模式，将业务目标拆成角色、任务、负责人和验收结果。",
-            "发布支撑这套模式的产品矩阵：<a href=\"https://buda.im\">Buda</a>（Agent 工作空间）、<a href=\"https://busabase.com\">Busabase</a>（AI 内容审批优先知识库）、<a href=\"https://sandock.ai\">Sandock</a>（面向编程 Agent 的长时沙箱）与 <a href=\"https://moonrouter.dev\">MoonRouter</a>（统一模型网关）。",
+            "发布支撑这套模式的产品矩阵：<a href=\"https://buda.im\">Buda</a>（Agent 工作空间）、<a href=\"https://busabase.com\">Busabase</a>（面向 Agent 的数据库与工作空间，将 Agent 产出沉淀为可复用的数据、文档、技能与应用）、<a href=\"https://sandock.ai\">Sandock</a>（面向编程 Agent 的长时沙箱）与 <a href=\"https://moonrouter.dev\">MoonRouter</a>（统一模型网关）。",
             "设计多 Agent 并行、上下文交接、工具调用、人工审核与复盘迭代的完整工作闭环。",
             "将 Agent 工作方式落地到自媒体、电商、咨询和制造等行业。"
           ]
@@ -1803,7 +1803,7 @@ export const DOCS = {
           "lead": "圍繞「Agents as a Company」建立 AI 原生公司：人類負責方向、品味及關鍵判斷，協同 AI 數碼員工負責具體執行。",
           "bullets": [
             "親自營運涵蓋研發、營運、市場、銷售與行政的 30+ Agents 模式，將業務目標拆成角色、任務、負責人和驗收結果。",
-            "發佈支撐這套模式的產品矩陣：<a href=\"https://buda.im\">Buda</a>（Agent 工作空間）、<a href=\"https://busabase.com\">Busabase</a>（AI 內容審批優先知識庫）、<a href=\"https://sandock.ai\">Sandock</a>（面向編程 Agent 的長時沙箱）與 <a href=\"https://moonrouter.dev\">MoonRouter</a>（統一模型網關）。",
+            "發佈支撐這套模式的產品矩陣：<a href=\"https://buda.im\">Buda</a>（Agent 工作空間）、<a href=\"https://busabase.com\">Busabase</a>（面向 Agent 的資料庫與工作空間，將 Agent 產出沉澱為可重用的資料、文件、技能與應用）、<a href=\"https://sandock.ai\">Sandock</a>（面向編程 Agent 的長時沙箱）與 <a href=\"https://moonrouter.dev\">MoonRouter</a>（統一模型網關）。",
             "設計多 Agent 並行、上下文交接、工具調用、人工審核與複盤迭代的完整工作閉環。",
             "將 Agent 工作方式落地到自媒體、電商、顧問及製造等行業。"
           ]
