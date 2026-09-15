@@ -3,7 +3,7 @@ layout: article
 variant: master
 title: FDE究竟每天在做什么？我拆解了北上广深34份真实JD
 subtitle: 从客户访谈到 Agent 上线，企业到底想让 FDE 负责什么
-description: 你组了团队，项目却总停在演示和汇报。问题通常不在执行力，而在没人同时负责发现问题、亲手解决和验收结果。这篇讲34份真实招聘信息揭示的新岗位日常。
+description: 你以为 FDE 只是负责部署模型，34份真实JD却显示：94%先找业务问题，91%还要亲手开发。这个岗位为什么像售前、产品、工程和实施的混合体？这篇讲企业真正想让他负责什么。
 author: Kelly 陈霈霖
 channel: 微信公众号
 status: draft
