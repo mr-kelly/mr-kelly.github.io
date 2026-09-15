@@ -75,30 +75,33 @@ const relatedContent = {
   "zh-CN": {
     label: "延伸阅读",
     title: "从观点文章继续理解 CAIO Office 的价值",
-    intro: "一篇讲企业级 AI 落地，一篇讲研发团队改造。先看问题与方法，再判断从哪条服务路径切入。",
+    intro: "三篇长文分别讲企业 AI 落地、FDE 岗位真相和研发团队改造。先看问题与方法，再判断从哪条服务路径切入。",
     cta: "阅读全文",
     items: [
       ["企业做 AI，最缺的不是工具，而是一个把结果逼出来的人", "企业 AI · CAIO", "/articles/enterprise-ai-needs-caio-and-fde.html"],
+      ["FDE究竟每天在做什么？我拆解了北上广深34份真实JD", "企业 AI · FDE", "/articles/what-fde-does-34-job-descriptions.html"],
       ["研发团队越招越多，产品为什么还是做不快？", "研发 AI 原生转型 · AI Coding", "/articles/ai-native-rd-team-optimization.html"]
     ]
   },
   en: {
     label: "Insights · Chinese",
     title: "Explore the thinking behind the CAIO Office offer",
-    intro: "Two Chinese long-form essays cover enterprise AI deployment and AI-native R&D transformation before you choose an engagement track.",
+    intro: "Three Chinese long-form essays cover enterprise AI deployment, the FDE role, and AI-native R&D transformation before you choose an engagement track.",
     cta: "Read article",
     items: [
       ["Enterprise AI needs someone who drives the result", "Enterprise AI · CAIO", "/articles/enterprise-ai-needs-caio-and-fde.html"],
+      ["What does an FDE actually do every day?", "Enterprise AI · FDE", "/articles/what-fde-does-34-job-descriptions.html"],
       ["Why a larger R&D team still may not ship faster", "AI-Native R&D Transformation · AI Coding", "/articles/ai-native-rd-team-optimization.html"]
     ]
   },
   "zh-HK": {
     label: "延伸閱讀 · 中文",
     title: "從觀點文章繼續理解 CAIO Office 的價值",
-    intro: "一篇講企業級 AI 落地，一篇講研發團隊改造。先看問題與方法，再判斷從哪條服務路徑切入。",
+    intro: "三篇長文分別講企業 AI 落地、FDE 崗位真相和研發團隊改造。先看問題與方法，再判斷從哪條服務路徑切入。",
     cta: "閱讀全文",
     items: [
       ["企業做 AI，最缺的不是工具，而是一個把結果逼出來的人", "企業 AI · CAIO", "/articles/enterprise-ai-needs-caio-and-fde.html"],
+      ["FDE究竟每天在做什麼？我拆解了北上廣深34份真實JD", "企業 AI · FDE", "/articles/what-fde-does-34-job-descriptions.html"],
       ["研發團隊越招越多，產品為什麼還是做不快？", "研發 AI 原生轉型 · AI Coding", "/articles/ai-native-rd-team-optimization.html"]
     ]
   }
