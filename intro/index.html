@@ -80,6 +80,7 @@
     /* The square that gets exported as an image. */
     .intro-capture {
       --accent: var(--kelly-moss);
+      --accent-soft: var(--kelly-moss-soft);
       aspect-ratio: 1 / 1;
       display: flex;
       flex-direction: column;
@@ -91,8 +92,8 @@
       overflow: hidden;
     }
 
-    .intro-card.media .intro-capture { --accent: var(--kelly-gold); }
-    .intro-card.intl .intro-capture { --accent: var(--kelly-blue); }
+    .intro-card.media .intro-capture { --accent: var(--kelly-gold); --accent-soft: var(--kelly-gold-soft); }
+    .intro-card.intl .intro-capture { --accent: var(--kelly-blue); --accent-soft: var(--kelly-blue-soft); }
 
     .intro-person { display: flex; align-items: center; gap: 13px; flex: none; }
 
@@ -154,75 +155,85 @@
       line-height: 1.6;
     }
 
-    /* Offer-first variant: what Kelly can do for the reader leads, and
-       the credentials drop underneath as supporting evidence. */
-    /* Beats the `.intro-fields > div` grid rule, which would otherwise
-       drop the label into the narrow label column and wrap it. */
-    .intro-fields > .intro-offer { display: block; flex: none; }
-
-    /* Credential rows under an offer block: same look as .intro-fields
-       rows, but they sit at their natural height instead of expanding. */
-    .intro-subfields {
-      margin: 16px 0 0;
+    /* Who-plus-offer layout: identity compresses to a few tight rows so
+       the tinted "我可以帮你" block fits in the same square below it. */
+    .intro-both {
+      flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      justify-content: center;
+      gap: 15px;
+      min-height: 0;
+      padding: 14px 0;
     }
 
-    .intro-subfields > div {
+    .intro-compact {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .intro-compact > div {
       display: grid;
       grid-template-columns: 36px 1fr;
       gap: 11px;
       align-items: baseline;
     }
 
-    .intro-subfields dt {
-      font-size: 11px;
+    .intro-compact dt {
+      font-size: 10.5px;
       line-height: 1.5;
       color: var(--accent);
       white-space: nowrap;
     }
 
-    .intro-subfields dd { margin: 0; font-size: 12.5px; line-height: 1.6; }
+    .intro-compact dd { margin: 0; font-size: 12px; line-height: 1.55; }
 
-    .intro-offer-label {
+    .intro-help {
+      background: var(--accent-soft);
+      border-radius: var(--kelly-radius-sm);
+      padding: 13px 15px 14px;
+    }
+
+    .intro-help-label {
       margin: 0 0 9px;
       font-size: 11px;
-      line-height: 1.5;
+      line-height: 1.4;
       color: var(--accent);
     }
 
-    .intro-offer ul {
+    .intro-help ul {
       margin: 0;
       padding: 0;
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 9px;
+      gap: 8px;
     }
 
-    .intro-offer li {
+    .intro-help li {
       position: relative;
-      padding-left: 15px;
-      font-size: 13.5px;
-      line-height: 1.6;
+      padding-left: 14px;
+      font-size: 13px;
+      line-height: 1.5;
     }
 
-    .intro-offer li::before {
+    .intro-help li::before {
       content: "";
       position: absolute;
       left: 0;
-      top: 0.78em;
+      top: 0.72em;
       width: 7px;
       height: 1px;
       background: var(--accent);
     }
 
-    .intro-offer li span {
+    .intro-help li span {
       display: block;
       color: var(--kelly-muted-text);
-      font-size: 12px;
-      line-height: 1.5;
+      font-size: 11.5px;
+      line-height: 1.45;
     }
 
     .intro-foot {
@@ -345,19 +356,20 @@
                 <p class="intro-role">Buda.im 创始人 / CAIO Office</p>
               </div>
             </div>
-            <div class="intro-fields">
-              <div class="intro-offer">
-                <p class="intro-offer-label">我可以帮你——</p>
+            <div class="intro-both">
+              <dl class="intro-compact">
+                <div><dt>地方</dt><dd>香港 / 珠海 / 深圳</dd></div>
+                <div><dt>背景</dt><dd>前喜茶创始 CTO、二号位与董事会成员；维格创始人</dd></div>
+                <div><dt>客户</dt><dd>腾讯、百度、南方电网等企业团队</dd></div>
+              </dl>
+              <div class="intro-help">
+                <p class="intro-help-label">我可以帮你</p>
                 <ul>
                   <li>研发 AI 原生转型<span>交付透明、可验收，方法沉淀成团队资产</span></li>
                   <li>让业务人人有 AI<span>客服、销售、运营不写代码也能用起来</span></li>
                   <li>数字员工上岗<span>Agent 接手重复执行，人做判断与审核</span></li>
                 </ul>
               </div>
-              <dl class="intro-subfields">
-                <div><dt>身份</dt><dd>Buda.im 创始人；前喜茶创始 CTO、二号位与董事会成员</dd></div>
-                <div><dt>做过</dt><dd>维格创始人，服务腾讯、百度、南方电网等企业团队</dd></div>
-              </dl>
             </div>
             <div class="intro-foot"><strong>18688180270</strong><span>kellychan.im</span></div>
           </div>
