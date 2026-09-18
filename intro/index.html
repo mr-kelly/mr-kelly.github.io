@@ -136,7 +136,7 @@
 
     .intro-fields > div {
       display: grid;
-      grid-template-columns: 30px 1fr;
+      grid-template-columns: 36px 1fr;
       gap: 11px;
       align-items: baseline;
     }
@@ -152,6 +152,77 @@
       margin: 0;
       font-size: 13px;
       line-height: 1.6;
+    }
+
+    /* Offer-first variant: what Kelly can do for the reader leads, and
+       the credentials drop underneath as supporting evidence. */
+    /* Beats the `.intro-fields > div` grid rule, which would otherwise
+       drop the label into the narrow label column and wrap it. */
+    .intro-fields > .intro-offer { display: block; flex: none; }
+
+    /* Credential rows under an offer block: same look as .intro-fields
+       rows, but they sit at their natural height instead of expanding. */
+    .intro-subfields {
+      margin: 16px 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .intro-subfields > div {
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 11px;
+      align-items: baseline;
+    }
+
+    .intro-subfields dt {
+      font-size: 11px;
+      line-height: 1.5;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .intro-subfields dd { margin: 0; font-size: 12.5px; line-height: 1.6; }
+
+    .intro-offer-label {
+      margin: 0 0 9px;
+      font-size: 11px;
+      line-height: 1.5;
+      color: var(--accent);
+    }
+
+    .intro-offer ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .intro-offer li {
+      position: relative;
+      padding-left: 15px;
+      font-size: 13.5px;
+      line-height: 1.6;
+    }
+
+    .intro-offer li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.78em;
+      width: 7px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .intro-offer li span {
+      display: block;
+      color: var(--kelly-muted-text);
+      font-size: 12px;
+      line-height: 1.5;
     }
 
     .intro-foot {
@@ -209,7 +280,7 @@
       .intro-name { font-size: 16px; }
       .intro-role { font-size: 10.5px; }
       .intro-fields { gap: 7px; padding: 12px 0; }
-      .intro-fields > div { grid-template-columns: 26px 1fr; gap: 8px; }
+      .intro-fields > div { grid-template-columns: 30px 1fr; gap: 8px; }
       .intro-fields dt { font-size: 9.5px; }
       .intro-fields dd { font-size: 11px; }
       .intro-foot { font-size: 9.5px; }
@@ -245,7 +316,7 @@
               <div><dt>职业</dt><dd>Buda.im 创始人（AI 落地）；Vika.cn 维格创始人</dd></div>
               <div><dt>维格</dt><dd>100 万+ 用户、3000+ 企业客户（腾讯、百度、南方电网等）</dd></div>
               <div><dt>融资</dt><dd>IDG / 天图 / 五源（晨兴）/ 靖亚 / 高瓴</dd></div>
-              <div><dt>经历</dt><dd>前喜茶创始 CTO（0→1 搭建喜茶 GO）、前金山游戏架构师</dd></div>
+              <div><dt>喜茶</dt><dd>创始 CTO、二号位与董事会成员；0→1 搭建喜茶 GO，平台现用户过亿</dd></div>
               <div><dt>在做</dt><dd>用一群 AI Agents 数字员工组建公司</dd></div>
             </dl>
             <div class="intro-foot"><strong>18688180270</strong><span>kellychan.im</span></div>
@@ -254,7 +325,7 @@
             <button class="intro-btn intro-copy" type="button" data-copy="【姓名】Kelly 陈霈霖
 【地方】香港 / 珠海 / 深圳
 【职业】AI 行业，Buda.im 创始人（AI 落地），Vika.cn 维格创始人（企业数字化转型，100 万+ 用户，3000+ 企业客户：腾讯、百度、南方电网等），获 IDG / 天图 / 五源（晨兴）/ 靖亚 / 高瓴 投资
-【经历】前喜茶创始 CTO（从 0 到 1 搭建喜茶 GO）、前金山游戏架构师、北师大金融专业
+【经历】前喜茶创始 CTO、公司二号位与董事会成员（从 0 到 1 搭建喜茶 GO，平台现用户过亿）、前金山游戏架构师、北师大金融专业
 【标签】连续创业者 / 产品 &amp; 技术 / AI 原生组织探索者
 【在做】用一群 AI Agents 数字员工组建公司，适用于自媒体、电商、咨询、制造
 【联系方式】18688180270
@@ -274,22 +345,32 @@
                 <p class="intro-role">Buda.im 创始人 / CAIO Office</p>
               </div>
             </div>
-            <dl class="intro-fields">
-              <div><dt>地方</dt><dd>香港 / 珠海 / 深圳</dd></div>
-              <div><dt>职业</dt><dd>AI 行业，Buda.im 创始人（企业 AI 落地）</dd></div>
-              <div><dt>在做</dt><dd>用一群 AI Agents 数字员工组建公司，适用于自媒体、电商、咨询、制造</dd></div>
-              <div><dt>服务</dt><dd>CAIO Office — 嵌入企业，每周定优先级、带队执行、验收结果</dd></div>
-              <div><dt>经历</dt><dd>前喜茶创始 CTO；维格创始人，3000+ 企业客户（腾讯、百度、南方电网等）</dd></div>
-            </dl>
+            <div class="intro-fields">
+              <div class="intro-offer">
+                <p class="intro-offer-label">我可以帮你——</p>
+                <ul>
+                  <li>研发 AI 原生转型<span>交付透明、可验收，方法沉淀成团队资产</span></li>
+                  <li>让业务人人有 AI<span>客服、销售、运营不写代码也能用起来</span></li>
+                  <li>数字员工上岗<span>Agent 接手重复执行，人做判断与审核</span></li>
+                </ul>
+              </div>
+              <dl class="intro-subfields">
+                <div><dt>身份</dt><dd>Buda.im 创始人；前喜茶创始 CTO、二号位与董事会成员</dd></div>
+                <div><dt>做过</dt><dd>维格创始人，服务腾讯、百度、南方电网等企业团队</dd></div>
+              </dl>
+            </div>
             <div class="intro-foot"><strong>18688180270</strong><span>kellychan.im</span></div>
           </div>
           <div class="intro-actions">
             <button class="intro-btn intro-copy" type="button" data-copy="【姓名】Kelly 陈霈霖
 【地方】香港 / 珠海 / 深圳
 【职业】AI 行业，Buda.im 创始人（企业 AI 落地）
-【在做】用一群 AI Agents 数字员工组建公司，适用于自媒体、电商、咨询、制造
+【可以帮你】
+　① 研发 AI 原生转型 —— 交付透明、可验收，方法沉淀成团队资产
+　② 让业务人人有 AI —— 客服、销售、运营不写代码也能用起来
+　③ 数字员工上岗 —— Agent 接手重复执行，人做判断与审核
 【服务】CAIO Office — 嵌入企业，每周定优先级、带队执行、验收结果
-【经历】前喜茶创始 CTO（从 0 到 1 搭建喜茶 GO）；Vika.cn 维格创始人（3000+ 企业客户：腾讯、百度、南方电网等）
+【经历】前喜茶创始 CTO、公司二号位与董事会成员（从 0 到 1 搭建喜茶 GO，平台现用户过亿）；Vika.cn 维格创始人（服务腾讯、百度、南方电网等）
 【标签】连续创业者 / 产品 &amp; 技术 / AI 原生组织探索者
 【联系方式】18688180270
 个人官网：https://kellychan.im/resume/zh-cn">复制文字</button>
@@ -403,6 +484,39 @@
           </div>
         </article>
 
+        <article class="intro-card intl">
+          <p class="intro-hint">用于：已经聊过一轮、想建立真正信任的场合。成绩单人人有，肯讲判断错的没几个</p>
+          <p class="intro-opener">开场白：“成绩单就不贴了，讲几个我判断错的吧。”</p>
+          <div class="intro-capture">
+            <div class="intro-person">
+              <img class="intro-avatar" src="/resume/kelly-chan-portrait.webp" alt="Kelly 陈霈霖">
+              <div>
+                <p class="intro-name">Kelly 陈霈霖</p>
+                <p class="intro-role">连续创业者 / 也讲讲判断错的</p>
+              </div>
+            </div>
+            <dl class="intro-fields">
+              <div><dt>喜茶</dt><dd>对外做对了，对内投多了——精心优化的内部流程，被那个对外产品改写掉了</dd></div>
+              <div><dt>维格</dt><dd>体验做过了，大客户做漏了——大数据场景里，企业买的根本不是体验</dd></div>
+              <div><dt>bika</dt><dd>判断早了——错的不是能力，是交互停在接口式，没走到对话式</dd></div>
+              <div><dt>共同点</dt><dd>我判断错的从来不是能力，是「这件事到底为谁做」</dd></div>
+            </dl>
+            <div class="intro-foot"><strong>Kelly Peilin Chan</strong><span>kellychan.im</span></div>
+          </div>
+          <div class="intro-actions">
+            <button class="intro-btn intro-copy" type="button" data-copy="聊聊我判断错的几件事：
+
+【喜茶】对外做对了，对内投多了。喜茶 GO 上线后直接把很多内部流程顶翻了，但后面我们把大量精力投在优化内部存量流程上——而那部分存量，正在被这个对外产品改写。很多精心优化过的内部工作，最后本身就不成立了。
+
+【维格】体验做过了，大客户做漏了。我们在交互体验上花了过多力气、过度向个人用户倾斜，忽略了大企业真正要的东西。到了 AI 时代这个判断错得更彻底：今天在用软件的已经不是人，是 agent——它要的是接口、约束和可验证的结果，不是体验。
+
+【bika.ai】判断早了。工具本身很强，错的是交互：它停在接口式交互，而 coding agent 那边已经走到流畅的对话式。决定采用率的是这道交互差距，不是能力差距。
+
+共同点：我判断错的从来不是能力，是「这件事到底为谁做」——对外还是对内，人还是 agent，个人用户还是企业。">复制文字</button>
+            <button class="intro-btn intro-download" type="button" data-name="判断错的">下载图片</button>
+          </div>
+        </article>
+
         <article class="intro-card media">
           <p class="intro-hint">用于：主持人念的开场白、活动介绍稿（第三人称，不含手机号）</p>
           <p class="intro-opener">开场白：“@主持人 这段你直接用就行，我的介绍。”</p>
@@ -417,13 +531,13 @@
             <dl class="intro-fields">
               <div><dt>现任</dt><dd>Buda.im 创始人，做企业 AI 落地与 CAIO Office</dd></div>
               <div><dt>创办</dt><dd>Vika.cn 维格，100 万+ 用户、3000+ 企业客户，获 IDG、天图、五源、靖亚、高瓴投资</dd></div>
-              <div><dt>曾任</dt><dd>喜茶创始 CTO，从 0 到 1 搭建喜茶 GO；金山游戏架构师</dd></div>
+              <div><dt>曾任</dt><dd>喜茶创始 CTO、二号位与董事会成员，0→1 搭建喜茶 GO，平台现用户过亿</dd></div>
               <div><dt>报道</dt><dd>《纽约时报》、极客公园、界面新闻等</dd></div>
             </dl>
             <div class="intro-foot"><strong>Kelly Peilin Chan</strong><span>kellychan.im</span></div>
           </div>
           <div class="intro-actions">
-            <button class="intro-btn intro-copy" type="button" data-copy="Kelly 陈霈霖，连续创业者与科技高管，现任 Buda.im 创始人，专注企业 AI 落地与 CAIO Office。他创办的 Vika.cn 维格服务 100 万+ 用户、3000+ 企业客户（腾讯、百度、南方电网等），获 IDG 资本、天图资本、五源资本、靖亚资本与高瓴创投投资。此前他担任喜茶创始 CTO，从 0 到 1 搭建喜茶 GO，更早曾任金山游戏架构师。他的工作与创业经历曾被《纽约时报》、极客公园、界面新闻等媒体报道。目前他在探索用一群 AI Agents 数字员工组建公司。">复制文字</button>
+            <button class="intro-btn intro-copy" type="button" data-copy="Kelly 陈霈霖，连续创业者与科技高管，现任 Buda.im 创始人，专注企业 AI 落地与 CAIO Office。他创办的 Vika.cn 维格服务 100 万+ 用户、3000+ 企业客户（腾讯、百度、南方电网等），获 IDG 资本、天图资本、五源资本、靖亚资本与高瓴创投投资。此前他担任喜茶创始 CTO、公司二号位与董事会成员，从 0 到 1 搭建喜茶 GO，该平台现用户已过亿；更早曾任金山游戏架构师。他的工作与创业经历曾被《纽约时报》、极客公园、界面新闻等媒体报道。目前他在探索用一群 AI Agents 数字员工组建公司。">复制文字</button>
             <button class="intro-btn intro-download" type="button" data-name="媒体">下载图片</button>
           </div>
         </article>
