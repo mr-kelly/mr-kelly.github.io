@@ -231,6 +231,16 @@
       line-height: 1.45;
     }
 
+    /* Optional closing line under a right-column list. */
+    .intro-help-note {
+      margin: 12px 0 0;
+      padding-top: 10px;
+      border-top: 1px solid var(--kelly-line);
+      font-size: 11.5px;
+      line-height: 1.5;
+      color: var(--kelly-muted-text);
+    }
+
     .intro-foot {
       flex: none;
       display: flex;
@@ -317,14 +327,23 @@
                 <p class="intro-role">连续创业者 / 产品 &amp; 技术 / AI 原生组织探索者</p>
               </div>
             </div>
-            <dl class="intro-fields">
-              <div><dt>地方</dt><dd>香港 / 珠海 / 深圳</dd></div>
-              <div><dt>职业</dt><dd>Buda.im 创始人（AI 落地）；Vika.cn 维格创始人</dd></div>
-              <div><dt>维格</dt><dd>100 万+ 用户、3000+ 企业客户（腾讯、百度、南方电网等）</dd></div>
-              <div><dt>融资</dt><dd>IDG / 天图 / 五源（晨兴）/ 靖亚 / 高瓴</dd></div>
-              <div><dt>喜茶</dt><dd>创始 CTO、二号位与董事会成员；0→1 搭建喜茶 GO，平台现用户过亿</dd></div>
-              <div><dt>在做</dt><dd>用一群 AI Agents 数字员工组建公司</dd></div>
-            </dl>
+            <div class="intro-split">
+              <dl class="intro-stack">
+                <div><dt>地方</dt><dd>香港 / 珠海 / 深圳</dd></div>
+                <div><dt>维格</dt><dd>100 万+ 用户、3000+ 企业客户</dd></div>
+                <div><dt>融资</dt><dd>IDG / 天图 / 五源 / 靖亚 / 高瓴</dd></div>
+                <div><dt>喜茶</dt><dd>创始 CTO、二号位与董事会成员</dd></div>
+              </dl>
+              <div class="intro-rule-v" aria-hidden="true"></div>
+              <div class="intro-help">
+                <p class="intro-help-label">我在做什么</p>
+                <ul>
+                  <li>Agents as a Company<span>人定方向和判断，Agent 做执行</span></li>
+                  <li>先在自己公司跑通<span>30+ Agent 覆盖研发到行政</span></li>
+                  <li>产品矩阵<span>Buda、Busabase、Sandock、MoonRouter</span></li>
+                </ul>
+              </div>
+            </div>
             <div class="intro-foot"><strong>18688180270</strong><span>kellychan.im</span></div>
           </div>
           <div class="intro-actions">
@@ -333,7 +352,9 @@
 【职业】AI 行业，Buda.im 创始人（AI 落地），Vika.cn 维格创始人（企业数字化转型，100 万+ 用户，3000+ 企业客户：腾讯、百度、南方电网等），获 IDG / 天图 / 五源（晨兴）/ 靖亚 / 高瓴 投资
 【经历】前喜茶创始 CTO、公司二号位与董事会成员（从 0 到 1 搭建喜茶 GO，平台现用户过亿）、前金山游戏架构师、北师大金融专业
 【标签】连续创业者 / 产品 &amp; 技术 / AI 原生组织探索者
-【在做】用一群 AI Agents 数字员工组建公司，适用于自媒体、电商、咨询、制造
+【在做】Agents as a Company —— 人定方向和判断，Agent 做执行
+　· 先在自己公司跑通：30+ Agent 覆盖研发到行政
+　· 产品矩阵：Buda、Busabase、Sandock、MoonRouter
 【联系方式】18688180270
 个人官网：https://kellychan.im/resume/zh-cn">复制文字</button>
             <button class="intro-btn intro-download" type="button" data-name="投资人">下载图片</button>
@@ -398,13 +419,23 @@
                 <p class="intro-role">产品 &amp; 技术 / AI 原生组织探索者</p>
               </div>
             </div>
-            <dl class="intro-fields">
-              <div><dt>地方</dt><dd>香港 / 珠海 / 深圳</dd></div>
-              <div><dt>职业</dt><dd>Buda.im 创始人（AI 落地）；Vika.cn 维格创始人</dd></div>
-              <div><dt>开源</dt><dd>APITable 1.5 万+ Stars、KSFramework 1000+ Stars</dd></div>
-              <div><dt>经历</dt><dd>前喜茶创始 CTO（0→1 搭建喜茶 GO）、前金山游戏架构师</dd></div>
-              <div><dt>在做</dt><dd>用一群 AI Agents 数字员工组建公司，每天跑 30+ 个 Agent</dd></div>
-            </dl>
+            <div class="intro-split">
+              <dl class="intro-stack">
+                <div><dt>地方</dt><dd>香港 / 珠海 / 深圳</dd></div>
+                <div><dt>职业</dt><dd>Buda.im 创始人；维格创始人</dd></div>
+                <div><dt>开源</dt><dd>APITable 1.5 万+ Stars、KSFramework 1000+ Stars</dd></div>
+                <div><dt>经历</dt><dd>前喜茶创始 CTO、前金山游戏架构师</dd></div>
+              </dl>
+              <div class="intro-rule-v" aria-hidden="true"></div>
+              <div class="intro-help">
+                <p class="intro-help-label">可以和你聊</p>
+                <ul>
+                  <li>AI Coding 与 Agent 工程<span>每天跑 30+ 个 Agent 的实操</span></li>
+                  <li>怎么落到生产环境<span>测试、安全、上线质量</span></li>
+                  <li>多 Agent 编排<span>上下文交接与人工审核</span></li>
+                </ul>
+              </div>
+            </div>
             <div class="intro-foot"><strong>18688180270</strong><span>kellychan.im</span></div>
           </div>
           <div class="intro-actions">
@@ -415,6 +446,7 @@
 【经历】前喜茶创始 CTO（从 0 到 1 搭建喜茶 GO）、前金山游戏架构师、北师大金融专业
 【在做】用一群 AI Agents 数字员工组建公司，每天跑 30+ 个 Agent
 【标签】产品 &amp; 技术 / AI 原生组织探索者
+【可以聊】AI Coding 与 Agent 工程；怎么把 AI 生成代码落到生产环境；多 Agent 编排、上下文交接与人工审核
 【爱好】产品、AI、篮球、音乐（QQ 音乐搜：陈凯利）
 【联系方式】18688180270
 个人官网：https://kellychan.im/resume/zh-cn">复制文字</button>
@@ -433,13 +465,23 @@
                 <p class="intro-role">连续创业者 / 产品 &amp; 技术</p>
               </div>
             </div>
-            <dl class="intro-fields">
-              <div><dt>地方</dt><dd>香港 / 珠海 / 深圳</dd></div>
-              <div><dt>职业</dt><dd>AI 行业，Buda.im 创始人</dd></div>
-              <div><dt>经历</dt><dd>前喜茶创始 CTO、Vika.cn 维格创始人</dd></div>
-              <div><dt>在做</dt><dd>用一群 AI Agents 数字员工组建公司</dd></div>
-              <div><dt>爱好</dt><dd>产品、AI、篮球、音乐（QQ 音乐搜：陈凯利）</dd></div>
-            </dl>
+            <div class="intro-split">
+              <dl class="intro-stack">
+                <div><dt>地方</dt><dd>香港 / 珠海 / 深圳</dd></div>
+                <div><dt>职业</dt><dd>AI 行业，Buda.im 创始人</dd></div>
+                <div><dt>经历</dt><dd>前喜茶创始 CTO、维格创始人</dd></div>
+                <div><dt>爱好</dt><dd>产品、AI、篮球、音乐</dd></div>
+              </dl>
+              <div class="intro-rule-v" aria-hidden="true"></div>
+              <div class="intro-help">
+                <p class="intro-help-label">可以找我聊</p>
+                <ul>
+                  <li>AI 怎么真的帮上忙<span>不是聊概念，是聊怎么用</span></li>
+                  <li>打球<span>常约</span></li>
+                  <li>做音乐<span>QQ 音乐搜：陈凯利</span></li>
+                </ul>
+              </div>
+            </div>
             <div class="intro-foot"><strong>18688180270</strong><span>kellychan.im</span></div>
           </div>
           <div class="intro-actions">
@@ -467,15 +509,23 @@
                 <p class="intro-role">产品 &amp; 技术 / 开源作者</p>
               </div>
             </div>
-            <dl class="intro-fields">
-              <div><dt>地方</dt><dd>香港 / 珠海 / 深圳</dd></div>
-              <div><dt>经历</dt><dd>前喜茶创始 CTO（0→1 搭建喜茶 GO）、维格创始人、前金山游戏架构师</dd></div>
-              <div><dt>开源</dt><dd>APITable 1.5 万+ Stars、KSFramework 1000+ Stars</dd></div>
-              <div><dt>教育</dt><dd>北京师范大学 金融学</dd></div>
-              <div><dt>语言</dt><dd>粤语 / 普通话 / 英语</dd></div>
-              <div><dt>在做</dt><dd>研究 AI Agent 怎么真正进入公司的日常运作</dd></div>
-              <div><dt>爱好</dt><dd>产品、AI、篮球、音乐（QQ 音乐搜：陈凯利）</dd></div>
-            </dl>
+            <div class="intro-split">
+              <dl class="intro-stack">
+                <div><dt>地方</dt><dd>香港 / 珠海 / 深圳</dd></div>
+                <div><dt>经历</dt><dd>前喜茶创始 CTO、维格创始人、前金山游戏架构师</dd></div>
+                <div><dt>开源</dt><dd>APITable 1.5 万+ Stars、KSFramework 1000+ Stars</dd></div>
+                <div><dt>语言</dt><dd>粤语 / 普通话 / 英语</dd></div>
+              </dl>
+              <div class="intro-rule-v" aria-hidden="true"></div>
+              <div class="intro-help">
+                <p class="intro-help-label">可以和你聊</p>
+                <ul>
+                  <li>AI Agent 怎么进公司<span>让它真进日常运作，不是演示</span></li>
+                  <li>开源与产品工程<span>从游戏到企业软件</span></li>
+                  <li>篮球与音乐<span>北师大金融专业出身</span></li>
+                </ul>
+              </div>
+            </div>
             <div class="intro-foot"><strong>18688180270</strong><span>kellychan.im</span></div>
           </div>
           <div class="intro-actions">
@@ -504,12 +554,23 @@
                 <p class="intro-role">连续创业者 / 也讲讲判断错的</p>
               </div>
             </div>
-            <dl class="intro-fields">
-              <div><dt>喜茶</dt><dd>对外做对了，对内投多了——精心优化的内部流程，被那个对外产品改写掉了</dd></div>
-              <div><dt>维格</dt><dd>体验做过了，大客户做漏了——大数据场景里，企业买的根本不是体验</dd></div>
-              <div><dt>bika</dt><dd>判断早了——错的不是能力，是交互停在接口式，没走到对话式</dd></div>
-              <div><dt>共同点</dt><dd>我判断错的从来不是能力，是「这件事到底为谁做」</dd></div>
-            </dl>
+            <div class="intro-split">
+              <dl class="intro-stack">
+                <div><dt>身份</dt><dd>连续创业者</dd></div>
+                <div><dt>做过</dt><dd>喜茶创始 CTO、维格创始人</dd></div>
+                <div><dt>现在</dt><dd>用一群 AI Agents 组建公司</dd></div>
+              </dl>
+              <div class="intro-rule-v" aria-hidden="true"></div>
+              <div class="intro-help">
+                <p class="intro-help-label">判断错的</p>
+                <ul>
+                  <li>喜茶：对外做对了，对内投多了<span>精心优化的内部流程，被那个对外产品改写掉了</span></li>
+                  <li>维格：体验做过了，大客户做漏了<span>大数据场景里，企业买的根本不是体验</span></li>
+                  <li>bika：判断早了<span>错的不是能力，是交互停在接口式</span></li>
+                </ul>
+                <p class="intro-help-note">共同点：我判断错的从来不是能力，是「这件事到底为谁做」</p>
+              </div>
+            </div>
             <div class="intro-foot"><strong>Kelly Peilin Chan</strong><span>kellychan.im</span></div>
           </div>
           <div class="intro-actions">
@@ -537,16 +598,29 @@
                 <p class="intro-role">连续创业者 / 科技高管</p>
               </div>
             </div>
-            <dl class="intro-fields">
-              <div><dt>现任</dt><dd>Buda.im 创始人，做企业 AI 落地与 CAIO Office</dd></div>
-              <div><dt>创办</dt><dd>Vika.cn 维格，100 万+ 用户、3000+ 企业客户，获 IDG、天图、五源、靖亚、高瓴投资</dd></div>
-              <div><dt>曾任</dt><dd>喜茶创始 CTO、二号位与董事会成员，0→1 搭建喜茶 GO，平台现用户过亿</dd></div>
-              <div><dt>报道</dt><dd>《纽约时报》、极客公园、界面新闻等</dd></div>
-            </dl>
+            <div class="intro-split">
+              <dl class="intro-stack">
+                <div><dt>现任</dt><dd>Buda.im 创始人，做企业 AI 落地</dd></div>
+                <div><dt>创办</dt><dd>维格，100 万+ 用户、3000+ 企业客户</dd></div>
+                <div><dt>曾任</dt><dd>喜茶创始 CTO、二号位与董事会成员；金山游戏架构师</dd></div>
+                <div><dt>报道</dt><dd>《纽约时报》、极客公园、界面新闻</dd></div>
+              </dl>
+              <div class="intro-rule-v" aria-hidden="true"></div>
+              <div class="intro-help">
+                <p class="intro-help-label">常讲的话题</p>
+                <ul>
+                  <li>企业 AI 落地<span>为什么缺的不是工具，是把结果逼出来的人</span></li>
+                  <li>研发 AI 原生转型<span>团队越招越多，产品为什么还是慢</span></li>
+                  <li>Agents 公司管理<span>工具越多为什么反而越忙</span></li>
+                </ul>
+              </div>
+            </div>
             <div class="intro-foot"><strong>Kelly Peilin Chan</strong><span>kellychan.im</span></div>
           </div>
           <div class="intro-actions">
-            <button class="intro-btn intro-copy" type="button" data-copy="Kelly 陈霈霖，连续创业者与科技高管，现任 Buda.im 创始人，专注企业 AI 落地与 CAIO Office。他创办的 Vika.cn 维格服务 100 万+ 用户、3000+ 企业客户（腾讯、百度、南方电网等），获 IDG 资本、天图资本、五源资本、靖亚资本与高瓴创投投资。此前他担任喜茶创始 CTO、公司二号位与董事会成员，从 0 到 1 搭建喜茶 GO，该平台现用户已过亿；更早曾任金山游戏架构师。他的工作与创业经历曾被《纽约时报》、极客公园、界面新闻等媒体报道。目前他在探索用一群 AI Agents 数字员工组建公司。">复制文字</button>
+            <button class="intro-btn intro-copy" type="button" data-copy="Kelly 陈霈霖，连续创业者与科技高管，现任 Buda.im 创始人，专注企业 AI 落地与 CAIO Office。他创办的 Vika.cn 维格服务 100 万+ 用户、3000+ 企业客户（腾讯、百度、南方电网等），获 IDG 资本、天图资本、五源资本、靖亚资本与高瓴创投投资。此前他担任喜茶创始 CTO、公司二号位与董事会成员，从 0 到 1 搭建喜茶 GO，该平台现用户已过亿；更早曾任金山游戏架构师。他的工作与创业经历曾被《纽约时报》、极客公园、界面新闻等媒体报道。目前他在探索用一群 AI Agents 数字员工组建公司。
+
+常讲的话题：企业 AI 落地（为什么缺的不是工具，是把结果逼出来的人）、研发 AI 原生转型（团队越招越多，产品为什么还是慢）、Agents 公司管理（工具越多为什么反而越忙）。">复制文字</button>
             <button class="intro-btn intro-download" type="button" data-name="媒体">下载图片</button>
           </div>
         </article>
@@ -562,13 +636,23 @@
                 <p class="intro-role">Serial Founder / Product &amp; Engineering</p>
               </div>
             </div>
-            <dl class="intro-fields">
-              <div><dt>Based</dt><dd>Hong Kong / Zhuhai / Shenzhen</dd></div>
-              <div><dt>Now</dt><dd>Founder of Buda.im — enterprise AI deployment</dd></div>
-              <div><dt>Built</dt><dd>Vika.cn — 1M+ users, 3,000+ enterprise clients (Tencent, Baidu, CSG), backed by IDG, Tiantu, 5Y, Jingya, Hillhouse</dd></div>
-              <div><dt>Before</dt><dd>Founding CTO at HEYTEA (built HEYTEA GO 0→1); game architect at Seasun</dd></div>
-              <div><dt>Doing</dt><dd>Running a company staffed by AI agents</dd></div>
-            </dl>
+            <div class="intro-split">
+              <dl class="intro-stack">
+                <div><dt>Based</dt><dd>Hong Kong / Zhuhai / Shenzhen</dd></div>
+                <div><dt>Now</dt><dd>Founder of Buda.im — enterprise AI</dd></div>
+                <div><dt>Built</dt><dd>Vika.cn — 1M+ users, 3,000+ enterprise clients</dd></div>
+                <div><dt>Before</dt><dd>Founding CTO at HEYTEA; architect at Seasun</dd></div>
+              </dl>
+              <div class="intro-rule-v" aria-hidden="true"></div>
+              <div class="intro-help">
+                <p class="intro-help-label">How I can help</p>
+                <ul>
+                  <li>R&amp;D goes AI-native<span>Transparent, verifiable delivery</span></li>
+                  <li>AI for every business team<span>Support, sales, ops — no code needed</span></li>
+                  <li>Agents on the job<span>They execute, people review</span></li>
+                </ul>
+              </div>
+            </div>
             <div class="intro-foot"><strong>Kelly Peilin Chan</strong><span>kellychan.im</span></div>
           </div>
           <div class="intro-actions">
