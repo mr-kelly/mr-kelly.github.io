@@ -66,6 +66,8 @@
 
     .intro-card { display: flex; flex-direction: column; }
 
+    /* Page-only label: which audience this card is for. Deliberately
+       outside .intro-capture so it never lands in the exported image. */
     .intro-hint {
       margin: 0 0 var(--kelly-space-3);
       color: var(--kelly-muted-text);
@@ -75,7 +77,6 @@
     /* The square that gets exported as an image. */
     .intro-capture {
       --accent: var(--kelly-moss);
-      position: relative;
       aspect-ratio: 1 / 1;
       display: flex;
       flex-direction: column;
@@ -98,8 +99,8 @@
     }
 
     .intro-avatar {
-      width: 54px;
-      height: 54px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
       object-fit: cover;
       flex: none;
@@ -111,43 +112,68 @@
       margin: 0;
       font-family: var(--kelly-font-display);
       font-weight: 500;
-      font-size: 19px;
+      font-size: 20px;
       line-height: 1.3;
     }
 
-    .intro-scenario {
+    /* A real title, not the audience label. */
+    .intro-role {
       margin: 3px 0 0;
-      color: var(--accent);
+      color: var(--kelly-muted-text);
       font-size: 12.5px;
-      line-height: 1.4;
+      line-height: 1.5;
+    }
+
+    .intro-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 0;
+      padding: 18px 0;
     }
 
     .intro-rule {
       width: 26px;
       height: 2px;
       background: var(--accent);
-      margin: 0 0 18px;
+      margin: 0 0 16px;
       border: 0;
     }
 
-    /* The rule and the text travel together in the flexible middle so
-       short and long intros both stay optically centred in the square. */
-    .intro-body {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      min-height: 0;
-      padding: 20px 0;
-    }
-
-    .intro-text {
+    .intro-hook {
       margin: 0;
-      font-size: 15px;
-      line-height: 1.85;
-      white-space: pre-line;
+      font-family: var(--kelly-font-display);
+      font-size: 18px;
+      line-height: 1.65;
     }
 
-    .intro-card.is-long .intro-text { font-size: 14px; }
+    .intro-points {
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .intro-points li {
+      position: relative;
+      padding-left: 16px;
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--kelly-muted-text);
+    }
+
+    .intro-points li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.85em;
+      width: 7px;
+      height: 1px;
+      background: var(--accent);
+    }
 
     .intro-foot {
       flex: none;
@@ -204,10 +230,10 @@
 
     @media (max-width: 420px) {
       .intro-capture { padding: 26px 24px 20px; }
-      .intro-text { font-size: 13.5px; line-height: 1.8; }
-      .intro-card.is-long .intro-text { font-size: 12.5px; }
       .intro-avatar { width: 46px; height: 46px; }
       .intro-name { font-size: 17px; }
+      .intro-hook { font-size: 15px; }
+      .intro-points li { font-size: 12.5px; }
     }
   </style>
 </head>
@@ -216,7 +242,7 @@
     <div class="shell">
       <a class="wordmark" href="/">← Kelly Peilin Chan</a>
       <h1>自我介绍库</h1>
-      <p class="page-lead">按见面场景分类的快速自我介绍。见人前直接复制文字，或下载成方形卡片图发到群里。内部使用，不收录进站内地图与搜索结果。</p>
+      <p class="page-lead">按见面场景分类的快速自我介绍。见人前直接复制文字，或下载成方形卡片图发给对方。灰色小字的场景标注只在这个页面上，不会出现在图片里。</p>
     </div>
   </header>
 
@@ -231,20 +257,23 @@
               <img class="intro-avatar" src="/resume/kelly-chan-portrait.webp" alt="Kelly 陈霈霖">
               <div>
                 <p class="intro-name">Kelly 陈霈霖</p>
-                <p class="intro-scenario">投资人 / 潜在合伙人</p>
+                <p class="intro-role">连续创业者 · 前喜茶创始 CTO</p>
               </div>
             </div>
             <div class="intro-body">
-              <div>
-                <hr class="intro-rule">
-                <p class="intro-text" data-text>我是 Kelly，连续创业者，14 年研发、产品、增长与运营经验。做过喜茶创始 CTO，带 150 人团队把它做成 3000 万会员的私域电商与会员平台，公司后来完成数十亿元融资。自己创办维格 Vika 和 AITable，累计融资数千万美元。现在做 Kelly AI 和 CAIO Office，每天用 30+ 个 Agent 经营一家公司，把这套方法带给正在做 AI 转型的企业。</p>
-              </div>
+              <hr class="intro-rule">
+              <p class="intro-hook">做过 3000 万会员的平台，也融过数千万美元。</p>
+              <ul class="intro-points">
+                <li>喜茶创始 CTO，带 150 人团队完成数字化转型</li>
+                <li>创办维格 Vika、AITable，累计融资数千万美元</li>
+                <li>现在做 Kelly AI，每天用 30+ 个 Agent 经营公司</li>
+              </ul>
             </div>
             <div class="intro-foot"><strong>Kelly Peilin Chan</strong><span>kellychan.im</span></div>
           </div>
           <div class="intro-actions">
-            <button class="intro-btn intro-copy" type="button">复制文字</button>
-            <button class="intro-btn intro-download" type="button">下载图片</button>
+            <button class="intro-btn intro-copy" type="button" data-copy="我是 Kelly，连续创业者，14 年研发、产品、增长与运营经验。做过喜茶创始 CTO，带 150 人团队把它做成 3000 万会员的私域电商与会员平台，公司后来完成数十亿元融资。自己创办维格 Vika 和 AITable，累计融资数千万美元。现在做 Kelly AI 和 CAIO Office，每天用 30+ 个 Agent 经营一家公司，把这套方法带给正在做 AI 转型的企业。">复制文字</button>
+            <button class="intro-btn intro-download" type="button" data-name="投资人">下载图片</button>
           </div>
         </article>
 
@@ -255,20 +284,23 @@
               <img class="intro-avatar" src="/resume/kelly-chan-portrait.webp" alt="Kelly 陈霈霖">
               <div>
                 <p class="intro-name">Kelly 陈霈霖</p>
-                <p class="intro-scenario">企业客户 / AI 落地合作</p>
+                <p class="intro-role">Kelly AI 创始人 · CAIO Office</p>
               </div>
             </div>
             <div class="intro-body">
-              <div>
-                <hr class="intro-rule">
-                <p class="intro-text" data-text>我是 Kelly，现在做 CAIO Office——不是讲 AI 概念，而是嵌入企业，每周确定优先级、带队执行、验收结果。之前是喜茶创始 CTO，带 150 人团队完成数字化转型；现在每天运行 30+ 个 Agent 的团队，知道 AI 落地卡在哪、该怎么推进。如果你们在做 AI 转型，但缺一个把结果逼出来的人，可以聊聊。</p>
-              </div>
+              <hr class="intro-rule">
+              <p class="intro-hook">不讲 AI 概念，嵌进你的公司把结果做出来。</p>
+              <ul class="intro-points">
+                <li>每周定优先级、带队执行、验收结果</li>
+                <li>前喜茶创始 CTO，做过 3 万人企业的数字化转型</li>
+                <li>自己每天在运行 30+ 个 Agent 的团队</li>
+              </ul>
             </div>
             <div class="intro-foot"><strong>Kelly Peilin Chan</strong><span>kellychan.im</span></div>
           </div>
           <div class="intro-actions">
-            <button class="intro-btn intro-copy" type="button">复制文字</button>
-            <button class="intro-btn intro-download" type="button">下载图片</button>
+            <button class="intro-btn intro-copy" type="button" data-copy="我是 Kelly，现在做 CAIO Office——不是讲 AI 概念，而是嵌入企业，每周确定优先级、带队执行、验收结果。之前是喜茶创始 CTO，带 150 人团队完成数字化转型；现在每天运行 30+ 个 Agent 的团队，知道 AI 落地卡在哪、该怎么推进。如果你们在做 AI 转型，但缺一个把结果逼出来的人，可以聊聊。">复制文字</button>
+            <button class="intro-btn intro-download" type="button" data-name="企业客户">下载图片</button>
           </div>
         </article>
 
@@ -279,20 +311,23 @@
               <img class="intro-avatar" src="/resume/kelly-chan-portrait.webp" alt="Kelly 陈霈霖">
               <div>
                 <p class="intro-name">Kelly 陈霈霖</p>
-                <p class="intro-scenario">技术圈 / 工程师同行</p>
+                <p class="intro-role">前喜茶创始 CTO · Buda AI 创始人</p>
               </div>
             </div>
             <div class="intro-body">
-              <div>
-                <hr class="intro-rule">
-                <p class="intro-text" data-text>我是 Kelly，写过百万行级企业软件，做过游戏、App、小程序、大型网游和企业系统。喜茶创始 CTO 出身，现在用 Codex、OpenClaw 这些工具跑 30+ 个 Agent 经营公司，也在做 Buda AI——一个搭建和运行 AI 数字员工的平台。AI Coding、Agent 工程、怎么把 AI 生成代码落到生产环境，这些话题都很有得聊。</p>
-              </div>
+              <hr class="intro-rule">
+              <p class="intro-hook">写过百万行级企业软件，现在用 Agent 写。</p>
+              <ul class="intro-points">
+                <li>做过游戏、App、小程序、大型网游与企业系统</li>
+                <li>Buda AI 创始人——搭建和运行 AI 数字员工的平台</li>
+                <li>每天用 Codex、OpenClaw 跑 30+ 个 Agent</li>
+              </ul>
             </div>
             <div class="intro-foot"><strong>Kelly Peilin Chan</strong><span>kellychan.im</span></div>
           </div>
           <div class="intro-actions">
-            <button class="intro-btn intro-copy" type="button">复制文字</button>
-            <button class="intro-btn intro-download" type="button">下载图片</button>
+            <button class="intro-btn intro-copy" type="button" data-copy="我是 Kelly，写过百万行级企业软件，做过游戏、App、小程序、大型网游和企业系统。喜茶创始 CTO 出身，现在用 Codex、OpenClaw 这些工具跑 30+ 个 Agent 经营公司，也在做 Buda AI——一个搭建和运行 AI 数字员工的平台。AI Coding、Agent 工程、怎么把 AI 生成代码落到生产环境，这些话题都很有得聊。">复制文字</button>
+            <button class="intro-btn intro-download" type="button" data-name="技术圈">下载图片</button>
           </div>
         </article>
 
@@ -303,68 +338,77 @@
               <img class="intro-avatar" src="/resume/kelly-chan-portrait.webp" alt="Kelly 陈霈霖">
               <div>
                 <p class="intro-name">Kelly 陈霈霖</p>
-                <p class="intro-scenario">社交场合 / 轻松认识</p>
+                <p class="intro-role">创业者 · 香港 ↔ 旧金山</p>
               </div>
             </div>
             <div class="intro-body">
-              <div>
-                <hr class="intro-rule">
-                <p class="intro-text" data-text>我是 Kelly，香港和旧金山两边跑。做过喜茶的技术负责人，现在自己创业做 AI，平时也打篮球、做音乐——用「陈凯利」这个艺名在 QQ 音乐发过歌。最近在忙的事是让 AI Agent 真正帮企业把活干出来，而不只是聊概念。</p>
-              </div>
+              <hr class="intro-rule">
+              <p class="intro-hook">白天做 AI，晚上打球和写歌。</p>
+              <ul class="intro-points">
+                <li>做过喜茶的技术负责人，现在自己创业做 AI</li>
+                <li>以「陈凯利」为艺名在 QQ 音乐发过作品</li>
+                <li>香港和旧金山两边跑</li>
+              </ul>
             </div>
             <div class="intro-foot"><strong>Kelly Peilin Chan</strong><span>kellychan.im</span></div>
           </div>
           <div class="intro-actions">
-            <button class="intro-btn intro-copy" type="button">复制文字</button>
-            <button class="intro-btn intro-download" type="button">下载图片</button>
+            <button class="intro-btn intro-copy" type="button" data-copy="我是 Kelly，香港和旧金山两边跑。做过喜茶的技术负责人，现在自己创业做 AI，平时也打篮球、做音乐——用「陈凯利」这个艺名在 QQ 音乐发过歌。最近在忙的事是让 AI Agent 真正帮企业把活干出来，而不只是聊概念。">复制文字</button>
+            <button class="intro-btn intro-download" type="button" data-name="社交">下载图片</button>
           </div>
         </article>
 
-        <article class="intro-card media is-long">
+        <article class="intro-card media">
           <p class="intro-hint">用于：演讲开场白、活动介绍稿、媒体采访前的背景介绍</p>
           <div class="intro-capture">
             <div class="intro-person">
               <img class="intro-avatar" src="/resume/kelly-chan-portrait.webp" alt="Kelly 陈霈霖">
               <div>
                 <p class="intro-name">Kelly 陈霈霖</p>
-                <p class="intro-scenario">主持人 / 媒体介绍（第三人称）</p>
+                <p class="intro-role">连续创业者 · 科技高管</p>
               </div>
             </div>
             <div class="intro-body">
-              <div>
-                <hr class="intro-rule">
-                <p class="intro-text" data-text>Kelly 陈霈霖，连续创业者与科技高管，14 年研发、产品、增长与运营经验。曾任喜茶创始 CTO，带领 150 人跨职能团队，从零搭建 3000 万会员的私域电商与会员平台；之后创办维格 Vika 与 AITable，累计完成数千万美元融资。他的工作与创业经历曾被《纽约时报》、极客公园、界面新闻等媒体报道。目前专注于 Kelly AI 与 CAIO Office，帮助企业把 AI 从认知带进真实业务。</p>
-              </div>
+              <hr class="intro-rule">
+              <p class="intro-hook">14 年研发、产品、增长与运营经验。</p>
+              <ul class="intro-points">
+                <li>曾任喜茶创始 CTO，带领 150 人跨职能团队</li>
+                <li>创办维格 Vika 与 AITable，融资数千万美元</li>
+                <li>曾被《纽约时报》、极客公园、界面新闻报道</li>
+              </ul>
             </div>
             <div class="intro-foot"><strong>Kelly Peilin Chan</strong><span>kellychan.im</span></div>
           </div>
           <div class="intro-actions">
-            <button class="intro-btn intro-copy" type="button">复制文字</button>
-            <button class="intro-btn intro-download" type="button">下载图片</button>
+            <button class="intro-btn intro-copy" type="button" data-copy="Kelly 陈霈霖，连续创业者与科技高管，14 年研发、产品、增长与运营经验。曾任喜茶创始 CTO，带领 150 人跨职能团队，从零搭建 3000 万会员的私域电商与会员平台；之后创办维格 Vika 与 AITable，累计完成数千万美元融资。他的工作与创业经历曾被《纽约时报》、极客公园、界面新闻等媒体报道。目前专注于 Kelly AI 与 CAIO Office，帮助企业把 AI 从认知带进真实业务。">复制文字</button>
+            <button class="intro-btn intro-download" type="button" data-name="媒体">下载图片</button>
           </div>
         </article>
 
-        <article class="intro-card intl is-long">
+        <article class="intro-card intl">
           <p class="intro-hint">Use for: investors, SF crowd, or anyone who needs the English version</p>
           <div class="intro-capture">
             <div class="intro-person">
               <img class="intro-avatar" src="/resume/kelly-chan-portrait.webp" alt="Kelly Chan">
               <div>
                 <p class="intro-name">Kelly Chan</p>
-                <p class="intro-scenario">English / International</p>
+                <p class="intro-role">Serial Founder · Ex-Founding CTO, HEYTEA</p>
               </div>
             </div>
             <div class="intro-body">
-              <div>
-                <hr class="intro-rule">
-                <p class="intro-text" data-text>I'm Kelly — a full-stack product builder and serial founder based between Hong Kong and San Francisco. I was founding CTO at HEYTEA, took a 30,000-person retail company digital, and built its 30M-member platform from zero. I went on to found Vika and AITable, raising tens of millions of dollars. These days I run a 30+ agent operation daily and help enterprises make the same shift through Kelly AI and the CAIO Office.</p>
-              </div>
+              <hr class="intro-rule">
+              <p class="intro-hook">I make AI something a company runs on, not a demo.</p>
+              <ul class="intro-points">
+                <li>Founding CTO at HEYTEA — 30M-member platform from zero</li>
+                <li>Founded Vika &amp; AITable, raised tens of millions USD</li>
+                <li>Running a 30+ agent operation daily, HK ↔ SF</li>
+              </ul>
             </div>
             <div class="intro-foot"><strong>Kelly Peilin Chan</strong><span>kellychan.im</span></div>
           </div>
           <div class="intro-actions">
-            <button class="intro-btn intro-copy" type="button">复制文字</button>
-            <button class="intro-btn intro-download" type="button">下载图片</button>
+            <button class="intro-btn intro-copy" type="button" data-copy="I'm Kelly — a full-stack product builder and serial founder based between Hong Kong and San Francisco. I was founding CTO at HEYTEA, took a 30,000-person retail company digital, and built its 30M-member platform from zero. I went on to found Vika and AITable, raising tens of millions of dollars. These days I run a 30+ agent operation daily and help enterprises make the same shift through Kelly AI and the CAIO Office.">复制文字</button>
+            <button class="intro-btn intro-download" type="button" data-name="english">下载图片</button>
           </div>
         </article>
 
@@ -393,11 +437,12 @@
       button.dataset.label = button.textContent;
     });
 
+    // The card is laid out to be scanned; the clipboard gets the flowing
+    // prose version, which is what reads well pasted into a chat.
     document.querySelectorAll(".intro-copy").forEach((button) => {
       button.addEventListener("click", async () => {
-        const text = button.closest(".intro-card").querySelector("[data-text]").innerText;
         try {
-          await navigator.clipboard.writeText(text);
+          await navigator.clipboard.writeText(button.dataset.copy);
           flash(button, "已复制", "done");
         } catch {
           flash(button, "复制失败，请手动选取", "error");
@@ -407,23 +452,18 @@
 
     document.querySelectorAll(".intro-download").forEach((button) => {
       button.addEventListener("click", async () => {
-        const card = button.closest(".intro-card");
-        const capture = card.querySelector(".intro-capture");
-        const name = card.querySelector(".intro-scenario").textContent
-          .trim().replace(/[（）()]/g, "").replace(/\s*\/\s*/g, "-").replace(/\s+/g, "");
+        const capture = button.closest(".intro-card").querySelector(".intro-capture");
         button.disabled = true;
         button.textContent = "生成中…";
         try {
-          // Render at a fixed 1080px square so every card exports at the
-          // same size no matter what width it happened to be on screen.
-          const side = capture.offsetWidth;
+          // Always export a 1080px square regardless of on-screen width.
           const canvas = await html2canvas(capture, {
-            scale: 1080 / side,
+            scale: 1080 / capture.offsetWidth,
             backgroundColor: "#f1f0ea",
             useCORS: true
           });
           const link = document.createElement("a");
-          link.download = `kelly-intro-${name}.png`;
+          link.download = `kelly-intro-${button.dataset.name}.png`;
           link.href = canvas.toDataURL("image/png");
           link.click();
           flash(button, "已下载", "done");
