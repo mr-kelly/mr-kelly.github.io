@@ -155,50 +155,45 @@
       line-height: 1.6;
     }
 
-    /* Who-plus-offer layout: identity compresses to a few tight rows so
-       the tinted "我可以帮你" block fits in the same square below it. */
-    .intro-both {
+    /* Who-plus-offer layout: side by side, so neither the identity nor
+       the offer has to give up lines to make room for the other. The
+       square's width was going unused when both were stacked. */
+    .intro-split {
       flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: 1fr 1px 1.18fr;
       gap: 15px;
       min-height: 0;
-      padding: 14px 0;
+      padding: 16px 0 12px;
+      align-content: center;
     }
 
-    .intro-compact {
+    .intro-rule-v { background: var(--kelly-line); align-self: stretch; }
+
+    .intro-stack {
       margin: 0;
       display: flex;
       flex-direction: column;
-      gap: 6px;
-    }
-
-    .intro-compact > div {
-      display: grid;
-      grid-template-columns: 36px 1fr;
       gap: 11px;
-      align-items: baseline;
     }
 
-    .intro-compact dt {
+    .intro-stack dt {
       font-size: 10.5px;
-      line-height: 1.5;
+      line-height: 1.4;
       color: var(--accent);
-      white-space: nowrap;
+      margin-bottom: 2px;
     }
 
-    .intro-compact dd { margin: 0; font-size: 12px; line-height: 1.55; }
+    .intro-stack dd { margin: 0; font-size: 12px; line-height: 1.55; }
 
     .intro-help {
-      background: var(--accent-soft);
       border-radius: var(--kelly-radius-sm);
-      padding: 13px 15px 14px;
+      padding: 0;
     }
 
     .intro-help-label {
-      margin: 0 0 9px;
-      font-size: 11px;
+      margin: 0 0 11px;
+      font-size: 10.5px;
       line-height: 1.4;
       color: var(--accent);
     }
@@ -209,13 +204,13 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 11px;
     }
 
     .intro-help li {
       position: relative;
-      padding-left: 14px;
-      font-size: 13px;
+      padding-left: 13px;
+      font-size: 12.5px;
       line-height: 1.5;
     }
 
@@ -356,18 +351,20 @@
                 <p class="intro-role">Buda.im 创始人 / CAIO Office</p>
               </div>
             </div>
-            <div class="intro-both">
-              <dl class="intro-compact">
+            <div class="intro-split">
+              <dl class="intro-stack">
                 <div><dt>地方</dt><dd>香港 / 珠海 / 深圳</dd></div>
-                <div><dt>背景</dt><dd>前喜茶创始 CTO、二号位与董事会成员；维格创始人</dd></div>
-                <div><dt>客户</dt><dd>腾讯、百度、南方电网等企业团队</dd></div>
+                <div><dt>背景</dt><dd>前喜茶创始 CTO、二号位与董事会成员</dd></div>
+                <div><dt>做过</dt><dd>维格创始人，服务腾讯、百度、南方电网</dd></div>
+                <div><dt>在做</dt><dd>用一群 AI Agents 数字员工组建公司</dd></div>
               </dl>
+              <div class="intro-rule-v" aria-hidden="true"></div>
               <div class="intro-help">
                 <p class="intro-help-label">我可以帮你</p>
                 <ul>
-                  <li>研发 AI 原生转型<span>交付透明、可验收，方法沉淀成团队资产</span></li>
-                  <li>让业务人人有 AI<span>客服、销售、运营不写代码也能用起来</span></li>
-                  <li>数字员工上岗<span>Agent 接手重复执行，人做判断与审核</span></li>
+                  <li>研发 AI 原生转型<span>交付透明、可验收，方法沉淀成资产</span></li>
+                  <li>让业务人人有 AI<span>客服、销售、运营不写代码也能用</span></li>
+                  <li>数字员工上岗<span>Agent 接手重复执行，人做审核</span></li>
                 </ul>
               </div>
             </div>
@@ -630,11 +627,21 @@ Site: https://kellychan.im/resume/">复制文字</button>
         button.disabled = true;
         button.textContent = "生成中…";
         try {
-          // Always export a 1080px square regardless of on-screen width.
+          // Render the clone at the full 460px desktop width, whatever the
+          // real card measures. Downloading on a phone would otherwise bake
+          // the cramped narrow-column layout into the shared image.
+          const CARD = 460;
           const canvas = await html2canvas(capture, {
-            scale: 1080 / capture.offsetWidth,
+            scale: 1080 / CARD,
+            width: CARD,
+            height: CARD,
+            windowWidth: 1200,
             backgroundColor: "#f1f0ea",
-            useCORS: true
+            useCORS: true,
+            onclone: (doc, el) => {
+              el.style.width = `${CARD}px`;
+              el.style.height = `${CARD}px`;
+            }
           });
           const link = document.createElement("a");
           link.download = `kelly-intro-${button.dataset.name}.png`;
