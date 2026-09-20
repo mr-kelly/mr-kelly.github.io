@@ -98,6 +98,7 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; }
 .type-code { font-family: var(--kelly-font-display, Georgia, serif); font-size: clamp(56px, 12vw, 96px); line-height: 1; letter-spacing: .04em; margin: 0 0 6px; font-weight: 700; }
 .type-name { font-size: 22px; font-family: var(--kelly-font-display, Georgia, serif); margin: 0 0 6px; }
 .type-group { font-size: 13px; color: var(--kelly-muted, #687069); letter-spacing: .06em; }
+.type-unofficial { font-size: 12px; color: var(--kelly-muted, #687069); margin: 10px 0 0; }
 .type-tagline { font-size: 18px; color: var(--kelly-muted-text, #5f665f); max-width: 54ch; margin: 18px auto 0; }
 
 .axes { display: grid; gap: 18px; margin: 32px 0 8px; }
@@ -208,6 +209,7 @@ footer.page-footer p { margin: 0 0 6px; }
       <p class="type-code" id="r-code">INFP</p>
       <p class="type-name" id="r-name"></p>
       <p class="type-group" id="r-group"></p>
+      <p class="type-unofficial" data-i="unofficial"></p>
       <p class="type-tagline" id="r-tagline"></p>
     </div>
 
@@ -336,7 +338,7 @@ const I18N = {
     start: "开始测试",
     beforeTitle: "测之前，先说清楚四件事",
     before: [
-      "这<strong>不是</strong>官方 MBTI®。官方量表是 The Myers-Briggs Company 的版权内容，需付费并由认证师解读。这里用的是 Eric Jorgenson 于 2015 年公开发表的 OEJTS 1.2，一份独立的、可自由使用的替代量表。",
+      "这<strong>不是</strong>官方 MBTI®。MBTI 是 Myers &amp; Briggs Foundation, Inc. 的注册商标，官方量表由 The Myers-Briggs Company 独家出版，需付费并由认证师解读。本页与两者都没有关系，用的是 Eric Jorgenson 于 2015 年公开发表的 OEJTS 1.2 —— 量表作者本人在原始 PDF 里就写明：“this test is not the MBTI and has no affiliation with it”。",
       "MBTI 类框架测的是<strong>偏好</strong>，不是能力，也不是天花板。内向不等于不会社交，J 不等于更自律。",
       "没有“更好”的类型。16 种都是描述，不是评分。",
       "它是自我反思的工具，不是临床诊断。别拿它筛人，也别拿它给自己判刑。"
@@ -346,7 +348,7 @@ const I18N = {
     faqTitle: "常见问题",
     faq: [
       ["这套题是从哪儿来的？", "Open Extended Jungian Type Scales 1.2（OEJTS 1.2），作者 Eric Jorgenson，2015 年 3 月 3 日发布于 personality-testing.info。32 道题、四条计分公式都按作者原始 PDF 逐条核对过。英文是原版题目，中文是本站翻译。"],
-      ["它比别的免费 MBTI 测试准吗？", "一项把几个免费 MBTI 替代量表放在一起的对比研究里，OEJTS 是最准的那个。但作者本人在 PDF 里写明：本量表不对信度或准确度作任何担保。请照这个标准理解结果。"],
+      ["它比别的免费 MBTI 测试准吗？", "有一项对比，把 OEJTS 和 HumanMetrics、SimilarMinds、16Personalities 放在一起，结论是 OEJTS 在 IE、FT、JP 三条轴上的区分力比次优者高 25–40%（注意：SN 轴不在其中）。但有三点必须说清楚：这项对比是量表作者本人发表的，不是独立第三方；数据来自受试者自己跑去别的网站测完再回报的结果；对照组只有三个，按“在 MBTI 爱好者社群里的流行度”挑的，不是随机抽样。作者本人也在 PDF 里写明：本量表不对信度或准确度作任何担保。"],
       ["为什么是“在两句话之间选位置”，而不是“同意/不同意”？", "双极对照格式能大幅削弱迎合偏差——一路点“同意”不会把你推向任何一端，因为两端都是具体描述。"],
       ["为什么我每次测出来不一样？", "接近 50% 的维度本来就会来回跳，它说明你在那条轴上确实居中。看百分比和原始分，比看四个字母有信息量得多。"],
       ["我的答案会被上传吗？", "不会。计分全部在你的浏览器里完成，页面没有后端，也没有任何表单或埋点。"]
@@ -370,6 +372,7 @@ const I18N = {
     copy: "复制结果",
     restart: "重新测一次",
     allTypes: "16 型全览",
+    unofficial: "非官方结果 · 题目来自 OEJTS 1.2，与 MBTI® 官方量表无关",
     resultNote: "提醒：百分比接近 50%（原始分接近 24）的维度，说明你在那条轴上本来就居中，换一天测可能就翻面了。把它当成一面镜子，别当成标签。",
     hint: [ "几乎居中，两边都像你", "有倾向，但不极端", "倾向明显" ],
     copied: "结果已复制",
@@ -389,7 +392,7 @@ const I18N = {
     start: "Start the test",
     beforeTitle: "Four things to know first",
     before: [
-      "This is <strong>not</strong> the official MBTI®. The official instrument is copyrighted by The Myers-Briggs Company and requires payment and a certified practitioner. This page uses OEJTS 1.2, an independent, freely usable alternative published by Eric Jorgenson in 2015.",
+      "This is <strong>not</strong> the official MBTI®. MBTI is a registered trademark of the Myers &amp; Briggs Foundation, Inc., and the official instrument is published exclusively by The Myers-Briggs Company, for a fee and with a certified practitioner. This page is affiliated with neither. It uses OEJTS 1.2, published by Eric Jorgenson in 2015 — whose own PDF states that “this test is not the MBTI and has no affiliation with it”.",
       "MBTI-style frameworks measure <strong>preference</strong>, not ability and not potential. Introverted does not mean bad with people; J does not mean more disciplined.",
       "There is no “better” type. All sixteen are descriptions, not scores.",
       "It is a tool for self-reflection, not a clinical diagnosis. Don’t screen people with it, and don’t sentence yourself with it."
@@ -399,7 +402,7 @@ const I18N = {
     faqTitle: "Questions people ask",
     faq: [
       ["Where do these items come from?", "The Open Extended Jungian Type Scales 1.2 (OEJTS 1.2) by Eric Jorgenson, published 3 March 2015 at personality-testing.info. All 32 items and the four scoring formulas were checked line by line against the author’s original PDF. The English is the original wording; the Chinese is this site’s translation."],
-      ["Is it more accurate than other free MBTI tests?", "One comparison of several free MBTI alternatives found OEJTS the most accurate of them. That said, the author states plainly in the PDF that the scales come with no guarantees of reliability or accuracy of any kind. Read your result with that in mind."],
+      ["Is it more accurate than other free MBTI tests?", "There is a comparison against HumanMetrics, SimilarMinds and 16Personalities reporting 25–40% more differentiating power than the next best test on the IE, FT and JP dichotomies — note that SN was not among them. Three things to be clear about: the comparison was published by the scale’s own author, not an independent party; the data came from volunteers who went off to other sites and self-reported what they got; and the three comparison tests were picked by judged popularity in Myers-Briggs communities rather than sampled. The author also states plainly in the PDF that the scales come with no guarantees of reliability or accuracy of any kind."],
       ["Why pick a point between two statements instead of agree/disagree?", "A bipolar format largely defeats acquiescence bias. Leaning the same way every time can’t push you toward one pole, because both poles are concrete descriptions."],
       ["Why does my result change between attempts?", "Any dimension near 50% will flip back and forth — that is the finding, not a flaw. It means you genuinely sit near the middle of that axis. The percentages and raw scores tell you far more than the four letters do."],
       ["Are my answers uploaded anywhere?", "No. Scoring runs entirely in your browser. There is no backend, no form, and no tracking on this page."]
@@ -423,6 +426,7 @@ const I18N = {
     copy: "Copy result",
     restart: "Take it again",
     allTypes: "All sixteen types",
+    unofficial: "Unofficial result · items from OEJTS 1.2, not the official MBTI® instrument",
     resultNote: "A reminder: any dimension near 50% (a raw score near 24) means you sit close to the middle of that axis, and a different day could flip the letter. Treat this as a mirror, not a label.",
     hint: [ "Near the middle — both sides fit you", "A real lean, but not extreme", "A clear preference" ],
     copied: "Result copied",
@@ -932,7 +936,7 @@ applyHash();
     { "@type": "Question", "name": "Where do the items in this MBTI test come from?",
       "acceptedAnswer": { "@type": "Answer", "text": "The Open Extended Jungian Type Scales 1.2 (OEJTS 1.2) by Eric Jorgenson, published 3 March 2015. The English is the original wording; the Chinese is a translation made for this site. Items and translation are licensed CC BY-NC-SA 4.0." } },
     { "@type": "Question", "name": "Is this the official MBTI?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No. The official MBTI instrument is copyrighted by The Myers-Briggs Company and requires payment and a certified practitioner. This page uses OEJTS 1.2, an independent freely usable alternative, and has no affiliation with The Myers-Briggs Company." } },
+      "acceptedAnswer": { "@type": "Answer", "text": "No. MBTI is a registered trademark of the Myers & Briggs Foundation, Inc., and the official instrument is published exclusively by The Myers-Briggs Company, for a fee and with a certified practitioner. This page is affiliated with neither. It uses OEJTS 1.2 by Eric Jorgenson, whose own documentation states that the test is not the MBTI and has no affiliation with it." } },
     { "@type": "Question", "name": "Are my answers uploaded anywhere?",
       "acceptedAnswer": { "@type": "Answer", "text": "No. Scoring runs entirely in your browser. There is no backend, no form and no tracking on this page." } }
   ]
