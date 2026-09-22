@@ -7,6 +7,10 @@ description: Kelly 陈霈霖关于企业 AI 落地、研发 AI 原生转型，�
 
 关于企业 AI 落地、研发 AI 原生转型，以及怎样管理一支 AI 工作队。
 
+## [下一家万亿美元公司，卖的不是工具，是把活干完](./services-the-new-software.html)
+
+红杉那篇《Services: The New Software》的全文中译，一句不删，前后加一份买方视角的批注：你买不到“把活干完”，往往不是因为没人卖，而是因为你没写清什么算干完。
+
 ## [FDE究竟每天在做什么？我拆解了北上广深34份真实JD](./what-fde-does-34-job-descriptions.html)
 
 FDE不是部署服务器的工程师。34份真实招聘信息显示，企业真正需要的是一个能发现问题、亲手构建、推进上线并对结果负责的人。
