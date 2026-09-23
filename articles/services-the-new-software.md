@@ -8,7 +8,7 @@ author: Kelly 陈霈霖
 channel: 微信公众号
 status: draft
 created_on: 2026-09-21
-digest: 会用 AI 的人离业务很远，有业务的人追不上工具。断掉的不是工具，是中间没有人负责把它接到业务上。红杉那篇《Services: The New Software》，讲的就是谁来接。
+digest: 会用 AI 的人离业务很远，有业务的人追不上工具。断掉的不是工具，是中间没有人负责把它接到业务上。红杉那篇《Services：The New Software》，讲的就是谁来接。
 cover_title: 卖的不是工具，是把活干完
 cover_subtitle: 红杉写给创业者，买方更该读
 ---
