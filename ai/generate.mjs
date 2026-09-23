@@ -35,7 +35,7 @@ const pages = {
       ["你越努力学 AI，越可能一直做那个超级打工人", "从“超级打工人陷阱”解释为什么工具越多反而越忙，以及怎样用岗位、资料、流程和验收真正把工作交出去。", "Agents 公司 · 管理", "/articles/stop-learning-ai-start-managing-it.html"],
       ["AI 研发的下一道瓶颈：不是做不过来，而是验不过来", "用五个问答讲清多 Agent、PRD、产品会议、仓库地图与人工验收怎样配合。", "研发转型 · 交付验收", "/articles/ai-rd-next-bottleneck-acceptance.html"],
       ["FDE究竟每天在做什么？我拆解了北上广深34份真实JD", "从 34 份真实招聘信息拆解 FDE 的三种工作日、四种岗位原型和完整责任边界。", "企业 AI · FDE", "/articles/what-fde-does-34-job-descriptions.html"],
-      ["下一家万亿美元公司，卖的不是工具，是把活干完", "会用 AI 的人离业务很远，有业务的人追不上工具。断掉的是中间那一层——红杉原文全文中译，加一份买方视角的批注。", "企业 AI · 译文批注", "/articles/services-the-new-software.html"]
+      ["下一家万亿美元公司，卖的不是工具，是把活干完", "会用 AI 的人离业务很远，有业务的人追不上工具。断掉的不是工具，是中间没有人负责把它接到业务上。", "企业 AI · 服务即软件", "/articles/services-the-new-software.html"]
     ],
     headers: ["类别", "服务", "核心交付", "形式 / 时长", "服务报价"],
     mobileLabels: ["类别", "服务", "交付", "形式", "报价"],
@@ -240,7 +240,7 @@ const pages = {
       ["Why learning more AI can keep you trapped as a super-worker", "A Chinese essay on moving from tool learning to managing AI through roles, context, workflow, and acceptance.", "Agents company · Management", "/articles/stop-learning-ai-start-managing-it.html"],
       ["The next bottleneck in AI-native R&D is acceptance", "A Chinese Q&A on multi-Agent design, PRDs, product meetings, repository maps, and human sign-off.", "AI-Native R&D · Acceptance", "/articles/ai-rd-next-bottleneck-acceptance.html"],
       ["What does an FDE actually do every day?", "A Chinese analysis of 34 real job descriptions across Beijing, Shanghai, Guangzhou, and Shenzhen.", "Enterprise AI · FDE", "/articles/what-fde-does-34-job-descriptions.html"],
-      ["The next $1T company sells the work, not the tool", "The gap is not the tools — it is the missing layer between them and the business. Sequoia's essay in full Chinese, annotated from the buyer's side.", "Enterprise AI · Translation", "/articles/services-the-new-software.html"]
+      ["The next $1T company sells the work, not the tool", "The people fluent in AI sit far from the business; the people who own the business cannot keep pace with the tools. What is missing is anyone accountable for the outcome.", "Enterprise AI · Service-as-Software", "/articles/services-the-new-software.html"]
     ],
     headers: ["Type", "Service", "Core delivery", "Format / duration", "Price"],
     mobileLabels: ["Type", "Service", "Delivery", "Format", "Price"],
@@ -445,7 +445,7 @@ const pages = {
       ["你越努力學 AI，越可能一直做那個超級打工人", "從「超級打工人陷阱」解釋為什麼工具越多反而越忙，以及怎樣用崗位、資料、流程和驗收真正把工作交出去。", "Agents 公司 · 管理", "/articles/stop-learning-ai-start-managing-it.html"],
       ["AI 研發的下一道瓶頸：不是做不過來，而是驗不過來", "用五個問答講清多 Agent、PRD、產品會議、程式碼倉庫地圖與人工驗收怎樣配合。", "研發轉型 · 交付驗收", "/articles/ai-rd-next-bottleneck-acceptance.html"],
       ["FDE究竟每天在做什麼？我拆解了北上廣深34份真實JD", "從 34 份真實招聘資訊拆解 FDE 的三種工作日、四種崗位原型和完整責任邊界。", "企業 AI · FDE", "/articles/what-fde-does-34-job-descriptions.html"],
-      ["下一家萬億美元公司，賣的不是工具，是把活幹完", "會用 AI 的人離業務很遠，有業務的人追不上工具。斷掉的是中間那一層——紅杉原文全文中譯，加一份買方視角的批註。", "企業 AI · 譯文批註", "/articles/services-the-new-software.html"]
+      ["下一家萬億美元公司，賣的不是工具，是把活幹完", "會用 AI 的人離業務很遠，有業務的人追不上工具。斷掉的不是工具，是中間沒有人負責把它接到業務上。", "企業 AI · 服務即軟件", "/articles/services-the-new-software.html"]
     ],
     headers: ["類別", "服務", "核心交付", "形式 / 時長", "服務報價"],
     mobileLabels: ["類別", "服務", "交付", "形式", "報價"],
