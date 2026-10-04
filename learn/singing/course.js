@@ -617,8 +617,8 @@ window.COURSE = {
           "misconception": "混声不是把胸声和头声硬拼在一起，而是用窄元音和适当的共鸣把两者融在一起。窄元音让喉咙少代偿。",
           "videos": [
             {
-              "id": "FvP0U9o1NRs",
-              "title": "How I Learned to Sing in Mixed Voice with The Nay Exercise!",
+              "id": "ixPgpf4_EbA",
+              "title": "Mixed Voice Vocal Exercise Female | NYA TWANG",
               "lang": "英文"
             },
             {
@@ -890,23 +890,763 @@ window.COURSE = {
       n: 3, title: "流行演唱技巧", weeks: "4–6 周",
       why: "摆脱晚会腔，唱出当代流行的味道。",
       lessons: [
-        { id: "3.1", title: "咬字", goal: "字头清晰、字腹归韵、字尾干脆，有说话感。" },
-        { id: "3.2", title: "连音与断音", goal: "慢歌连贯、快歌律动。" },
-        { id: "3.3", title: "气声收放", goal: "同一句里气声与实声切换。" },
-        { id: "3.4", title: "颤音", goal: "气流驱动的自然颤音，不是下巴或喉头抖。" },
-        { id: "3.5", title: "滑音与转音", goal: "快速音阶跑动，音点准。" },
-        { id: "3.6", title: "撕裂音（选修）", goal: "安全的假声带介入。", optional: true }
+        {
+          "id": "3.1",
+          "title": "咬字",
+          "goal": "字头清晰、字腹归韵、字尾干脆，唱出说话的语感。",
+          "ready": true,
+          "misconception": "咬字不是把字咬得很重，而是字头快、字腹长、字尾轻收。声音要在字腹上唱，字不能挡住声音。",
+          "videos": [
+            {
+              "id": "4ivPE5AvqAY",
+              "title": "歌唱硬知識 字頭字腹字尾 ｜秀珠老師 中文歌唱秘方",
+              "lang": "中文"
+            },
+            {
+              "id": "zdkwgeAwC90",
+              "title": "【新手学唱歌】90%的人都会忽略的唱歌咬字的技巧",
+              "lang": "中文"
+            },
+            {
+              "id": "rpnJqUqj8Ww",
+              "title": "【唱歌教学】咬字第一步：4分钟学会正确的咬字动作",
+              "lang": "中文"
+            }
+          ],
+          "steps": [
+            {
+              "title": "字头",
+              "body": "唱之前把辅音轻快地打出来，不拖，不占拍。"
+            },
+            {
+              "title": "字腹",
+              "body": "把元音拉长，声音在这里唱出来。"
+            },
+            {
+              "title": "字尾",
+              "body": "收音轻、干脆，不多停留。"
+            }
+          ],
+          "troubleshooting": [
+            {
+              "symptom": "字头拖得很长",
+              "cause": "辅音占了拍子",
+              "fix": "辅音提前打，然后马上进元音"
+            },
+            {
+              "symptom": "字腹太短，声音断",
+              "cause": "元音没有拉开",
+              "fix": "在元音上唱，字尾再收"
+            },
+            {
+              "symptom": "咬字时喉咙僵硬",
+              "cause": "用喉咙去咬字",
+              "fix": "嘴唇和舌尖咬字，喉咙保持放松"
+            }
+          ],
+          "ladder": [
+            {
+              "id": "3.1-1",
+              "text": "能把一句歌词的字头、字腹、字尾分开说出来",
+              "target": null
+            },
+            {
+              "id": "3.1-2",
+              "text": "慢歌一句，每个字清楚但不僵",
+              "target": null
+            },
+            {
+              "id": "3.1-3",
+              "text": "快歌一句，字还清楚、节奏不乱",
+              "target": null
+            }
+          ]
+        },
+        {
+          "id": "3.2",
+          "title": "连音与断音",
+          "goal": "慢歌连贯、快歌律动：会连，也会切。",
+          "ready": true,
+          "misconception": "连音不是把字粘在一起含糊唱，断音也不是用喉咙顿一下。两者都靠气的支撑来控制。",
+          "videos": [
+            {
+              "id": "Z-r7I7gtT_U",
+              "title": "Ep: 33 - How to Sing Staccato to Legato - Jeff Alani Stanfill",
+              "lang": "英文"
+            },
+            {
+              "id": "Rf8cEBy_aQM",
+              "title": "Singing Staccato & Legato On One Breath (Eeeee Vowel Sound)",
+              "lang": "英文"
+            }
+          ],
+          "steps": [
+            {
+              "title": "连音",
+              "body": "用“呜”唱一串连续的音，气不断，像滑过去。"
+            },
+            {
+              "title": "断音",
+              "body": "同一串音，每个音用轻短的“哈”切开，不要喉咙一顿。"
+            },
+            {
+              "title": "同一句两种唱法",
+              "body": "一句歌词，慢歌用连音、快歌用断音，各唱一遍。"
+            }
+          ],
+          "troubleshooting": [
+            {
+              "symptom": "连音时声音断开",
+              "cause": "气断了",
+              "fix": "用同一力度，气一直流"
+            },
+            {
+              "symptom": "断音时喉咙卡住",
+              "cause": "用喉咙切",
+              "fix": "用气切，不用喉咙"
+            },
+            {
+              "symptom": "断得太重，像喊",
+              "cause": "力度太大",
+              "fix": "减力度，断在气上"
+            }
+          ],
+          "ladder": [
+            {
+              "id": "3.2-1",
+              "text": "连音一串音不断气",
+              "target": null
+            },
+            {
+              "id": "3.2-2",
+              "text": "断音清楚，喉咙不卡",
+              "target": null
+            },
+            {
+              "id": "3.2-3",
+              "text": "同一句歌词能切换两种唱法",
+              "target": null
+            }
+          ]
+        },
+        {
+          "id": "3.3",
+          "title": "气声收放",
+          "goal": "同一句里，气声与实声能自由切换。",
+          "ready": true,
+          "misconception": "气声不是漏气的虚声。它是有意的、受控的，关键是能收得回来。",
+          "videos": [
+            {
+              "id": "e2BE1N3FIAc",
+              "title": "How To Sing with a Breathy, Airy Tone - 1 Minute Vocal Technique",
+              "lang": "英文"
+            },
+            {
+              "id": "ptE7FwPI6d0",
+              "title": "如何唱气音？|唱歌技巧教学/aspirate",
+              "lang": "中文"
+            }
+          ],
+          "steps": [
+            {
+              "title": "句尾加气声",
+              "body": "先用实声唱一句，在句尾加一点点气声。"
+            },
+            {
+              "title": "句首气声",
+              "body": "反过来：气声开头，结尾收回实声。"
+            },
+            {
+              "title": "一句里切换",
+              "body": "同一句歌词，中间一个字用气声，其他实声。"
+            }
+          ],
+          "troubleshooting": [
+            {
+              "symptom": "气声收不回来",
+              "cause": "实声的闭合不够",
+              "fix": "先回到 1.4 和 2.1 练闭合"
+            },
+            {
+              "symptom": "声音太虚没力",
+              "cause": "气太多，支撑不够",
+              "fix": "少一点气，多一点支撑"
+            },
+            {
+              "symptom": "气声变成爆破的“哈”",
+              "cause": "力度太猛",
+              "fix": "放轻"
+            }
+          ],
+          "ladder": [
+            {
+              "id": "3.3-1",
+              "text": "句尾能加气声，并收回实声",
+              "target": null
+            },
+            {
+              "id": "3.3-2",
+              "text": "句首用气声开始，再收回实声",
+              "target": null
+            },
+            {
+              "id": "3.3-3",
+              "text": "一句里能切换两次",
+              "target": null
+            }
+          ]
+        },
+        {
+          "id": "3.4",
+          "title": "颤音（Vibrato）",
+          "goal": "气流驱动的自然颤音，不是下巴或喉头抖。",
+          "ready": true,
+          "misconception": "自然颤音是稳定的气息和放松的声带带来的。下巴抖、喉头抖是错的，会把音准也抖掉。",
+          "videos": [
+            {
+              "id": "gXVVQ-5o5YE",
+              "title": "How to Sing With Vibrato - Singing Lesson",
+              "lang": "英文"
+            },
+            {
+              "id": "uRtx9-AVFSA",
+              "title": "How to Sing with Vibrato | Easy Exercises for a Natural Vibrato",
+              "lang": "英文"
+            }
+          ],
+          "steps": [
+            {
+              "title": "先唱稳",
+              "body": "用“哦”唱一个长音，先保持不颤，声音稳定 5 秒。"
+            },
+            {
+              "title": "让它微微起伏",
+              "body": "像海浪一样，让音高和音量轻轻起伏。"
+            },
+            {
+              "title": "慢慢加快到自然速度",
+              "body": "不要用手去控制，让它自然出来。"
+            }
+          ],
+          "troubleshooting": [
+            {
+              "symptom": "下巴抖",
+              "cause": "下巴紧",
+              "fix": "下巴放松，手放在下巴上感觉有没有抖"
+            },
+            {
+              "symptom": "喉咙抖",
+              "cause": "喉咙在挤",
+              "fix": "声音放松，像叹气一样"
+            },
+            {
+              "symptom": "颤动时音准飘",
+              "cause": "幅度太大",
+              "fix": "减小幅度，慢一点"
+            }
+          ],
+          "ladder": [
+            {
+              "id": "3.4-1",
+              "text": "长音稳定 5 秒，不颤",
+              "target": null
+            },
+            {
+              "id": "3.4-2",
+              "text": "颤动来自气流，不靠下巴",
+              "target": null
+            },
+            {
+              "id": "3.4-3",
+              "text": "颤动幅度小，音准不飘",
+              "target": null
+            }
+          ]
+        },
+        {
+          "id": "3.5",
+          "title": "滑音与转音（Runs & Riffs）",
+          "goal": "快速音阶跑动的基础，每个音点都准。",
+          "ready": true,
+          "misconception": "转音不是把音唱快，而是每个音都准。先慢，再快。",
+          "videos": [
+            {
+              "id": "W_vveYOE-Fk",
+              "title": "滑音（riffs /runs）怎么唱？英文歌中最重要的技巧指南",
+              "lang": "中文"
+            },
+            {
+              "id": "DT4jWTk36Vo",
+              "title": "How to MASTER Riffs & Runs | My “RUN DOWN” METHOD for Singers",
+              "lang": "英文"
+            }
+          ],
+          "steps": [
+            {
+              "title": "慢速唱准",
+              "body": "选一个简单的小音阶，每个音都唱准。"
+            },
+            {
+              "title": "用 la 唱转音",
+              "body": "把音阶唱成一串小转音，每个音点停一下。"
+            },
+            {
+              "title": "慢慢提速",
+              "body": "保持音点准，不糊成一团。"
+            }
+          ],
+          "troubleshooting": [
+            {
+              "symptom": "音跑偏",
+              "cause": "太快",
+              "fix": "放慢，一个音一个音找"
+            },
+            {
+              "symptom": "糊成一团",
+              "cause": "音太多",
+              "fix": "减少音数，每个音都清楚"
+            },
+            {
+              "symptom": "喉咙跟不上",
+              "cause": "用喉咙冲",
+              "fix": "用气推，不用喉咙冲"
+            }
+          ],
+          "ladder": [
+            {
+              "id": "3.5-1",
+              "text": "慢速小音阶每个音都准",
+              "target": null
+            },
+            {
+              "id": "3.5-2",
+              "text": "用 la 唱出一串转音，音点清楚",
+              "target": null
+            },
+            {
+              "id": "3.5-3",
+              "text": "原速唱出一段流行歌里的转音",
+              "target": null
+            }
+          ]
+        },
+        {
+          "id": "3.6",
+          "title": "撕裂音（选修）",
+          "goal": "安全地加入一点沙感（grit）。",
+          "ready": true,
+          "misconception": "grit 需要成熟的闭合和支撑。没有老师面授的情况下，不要硬做。",
+          "videos": [
+            {
+              "id": "YGSnbHraAtQ",
+              "title": "How To Sing With Distortion and Rasp Or Grit - Ken Tamplin Vocal Academy Tutorial",
+              "lang": "英文"
+            },
+            {
+              "id": "VMCqabaXQKQ",
+              "title": "How to Add GRIT, Distortion & Power to Your MIXED VOICE! (3 Steps)",
+              "lang": "英文"
+            }
+          ],
+          "steps": [
+            {
+              "title": "先把强混声唱稳",
+              "body": "用 2.6 的方法，先唱稳中高音。"
+            },
+            {
+              "title": "从气泡音开始",
+              "body": "用 1.4 的气泡音作为起点，慢慢加一点沙感。"
+            },
+            {
+              "title": "只加一点点",
+              "body": "每次只做几秒，不超过几秒钟。"
+            }
+          ],
+          "troubleshooting": [
+            {
+              "symptom": "喉咙痛",
+              "cause": "用力过猛",
+              "fix": "立即停止，选修可以先放一放"
+            },
+            {
+              "symptom": "声音破碎",
+              "cause": "力度太大",
+              "fix": "回到气泡音，减少力度"
+            },
+            {
+              "symptom": "只能在一个音上做",
+              "cause": "正常",
+              "fix": "先从一个音开始"
+            }
+          ],
+          "ladder": [
+            {
+              "id": "3.6-1",
+              "text": "在气泡音上加一点沙感（自己听得出）",
+              "target": null
+            },
+            {
+              "id": "3.6-2",
+              "text": "在一个中音上加沙感 3 秒，喉咙不痛",
+              "target": null
+            }
+          ]
+        }
+      ],
+      pass: [
+        { id: "s3-1", text: "字头、字腹、字尾分得清，快歌也清楚" },
+        { id: "s3-2", text: "连音和断音能自如切换" },
+        { id: "s3-3", text: "句中能收放气声" },
+        { id: "s3-4", text: "颤音自然，不靠下巴" },
+        { id: "s3-5", text: "小转音的音点准" }
+      ],
+      redlines: [
+        "喉咙疼（不是累）：当天停，喝温水。",
+        "颤音带下巴抖或喉头抖：停止练习，回到 3.4 的先唱稳。",
+        "撕裂音（3.6）是选修，没有老师面授就先不做。"
       ]
     },
     {
       n: 4, title: "歌曲实战", weeks: "4 周",
       why: "从练声走到作品。",
       lessons: [
-        { id: "4.1", title: "歌曲结构拆解", goal: "主歌克制、副歌推进、桥段转折。" },
-        { id: "4.2", title: "强弱对比", goal: "渐强渐弱的精细控制。" },
-        { id: "4.3", title: "以情带声", goal: "呼吸声、叹息、表情传情绪。" },
-        { id: "4.4", title: "麦克风", goal: "距离控制、近讲效应、大音量避麦。" },
-        { id: "4.5", title: "结业作品", goal: "完整录一首《说谎》，和入学时对比。", optional: true }
+        {
+          "id": "4.1",
+          "title": "歌曲结构拆解",
+          "goal": "主歌克制、副歌推进、桥段转折。",
+          "ready": true,
+          "misconception": "好的演唱不是每句都唱最大声，而是知道每一段要做什么。",
+          "videos": [
+            {
+              "id": "JUszn04txes",
+              "title": "How Song Structure Works: Intro, Verse, Chorus, and Bridge Explained",
+              "lang": "英文"
+            }
+          ],
+          "steps": [
+            {
+              "title": "找结构",
+              "body": "拿一首歌，标出主歌、副歌、桥段。"
+            },
+            {
+              "title": "给每段一个词",
+              "body": "主歌“讲”，副歌“推”，桥段“转”。"
+            },
+            {
+              "title": "用词决定力度和音色",
+              "body": "每一段按这个词来唱。"
+            }
+          ],
+          "troubleshooting": [
+            {
+              "symptom": "从头到尾一个力度",
+              "cause": "没有分段",
+              "fix": "每段先定一个词"
+            },
+            {
+              "symptom": "副歌一下子太猛",
+              "cause": "前面没留空间",
+              "fix": "副歌前一段收一点"
+            },
+            {
+              "symptom": "桥段没有变化",
+              "cause": "没有换音色",
+              "fix": "桥段换力度或音色"
+            }
+          ],
+          "ladder": [
+            {
+              "id": "4.1-1",
+              "text": "能说出一首歌的段落结构",
+              "target": null
+            },
+            {
+              "id": "4.1-2",
+              "text": "每一段有一个情绪词",
+              "target": null
+            },
+            {
+              "id": "4.1-3",
+              "text": "按情绪词唱一遍，段落之间有明显对比",
+              "target": null
+            }
+          ]
+        },
+        {
+          "id": "4.2",
+          "title": "强弱对比",
+          "goal": "渐强渐弱的精细控制。",
+          "ready": true,
+          "misconception": "强弱靠的是气息，不是喉咙。音量大了就用力，是错的。",
+          "videos": [
+            {
+              "id": "kBgOa2DmsiA",
+              "title": "How to Sing with Dynamics",
+              "lang": "英文"
+            }
+          ],
+          "steps": [
+            {
+              "title": "渐强",
+              "body": "长音从弱到强，音准不飘。"
+            },
+            {
+              "title": "渐弱",
+              "body": "从强到弱，气慢慢放。"
+            },
+            {
+              "title": "一句里做对比",
+              "body": "歌词中间做一次渐强，一次渐弱。"
+            }
+          ],
+          "troubleshooting": [
+            {
+              "symptom": "渐强时音变高、喉咙紧",
+              "cause": "加了力，没有加气",
+              "fix": "加气，不加力"
+            },
+            {
+              "symptom": "渐弱时声音断",
+              "cause": "支撑没了",
+              "fix": "保持支撑，气慢慢放"
+            },
+            {
+              "symptom": "对比不明显",
+              "cause": "放得不够",
+              "fix": "把差别放大"
+            }
+          ],
+          "ladder": [
+            {
+              "id": "4.2-1",
+              "text": "长音渐强渐弱，音准不飘",
+              "target": null
+            },
+            {
+              "id": "4.2-2",
+              "text": "一句歌词里有一次明显对比",
+              "target": null
+            },
+            {
+              "id": "4.2-3",
+              "text": "录一段，对比前后差别",
+              "target": null
+            }
+          ]
+        },
+        {
+          "id": "4.3",
+          "title": "以情带声",
+          "goal": "用呼吸、停顿和表情传达情绪。",
+          "ready": true,
+          "misconception": "情绪不是靠加力气来的，而是靠想象和细节，比如一个停顿、一次呼吸。",
+          "videos": [
+            {
+              "id": "WxN4FkNohxo",
+              "title": "The ACTUAL Techniques for Singing with Emotion",
+              "lang": "英文"
+            },
+            {
+              "id": "_pzqzHw6-Ns",
+              "title": "How to Sing with EMOTION and FEELING - Secret Vocal Techniques used by Adele & Ed Sheeran",
+              "lang": "英文"
+            }
+          ],
+          "steps": [
+            {
+              "title": "只说这句话",
+              "body": "选一句你最有感觉的歌词，只说出来，感受情绪。"
+            },
+            {
+              "title": "用说话的语气唱",
+              "body": "保留刚才的情绪，唱一遍。"
+            },
+            {
+              "title": "加一处呼吸或停顿",
+              "body": "在句中加一次呼吸或停顿，表达情绪。"
+            }
+          ],
+          "troubleshooting": [
+            {
+              "symptom": "情绪做作",
+              "cause": "先加情绪再平静唱",
+              "fix": "先平静唱，再慢慢加"
+            },
+            {
+              "symptom": "声音和情绪脱节",
+              "cause": "没有想象这句话是对谁说的",
+              "fix": "先想象这句话是对一个人说的"
+            },
+            {
+              "symptom": "呼吸声太大",
+              "cause": "用力吸气",
+              "fix": "呼吸轻一点"
+            }
+          ],
+          "ladder": [
+            {
+              "id": "4.3-1",
+              "text": "能说出这句歌词在讲什么",
+              "target": null
+            },
+            {
+              "id": "4.3-2",
+              "text": "唱的时候有一处自然的呼吸或停顿",
+              "target": null
+            },
+            {
+              "id": "4.3-3",
+              "text": "录音里能听到情绪变化",
+              "target": null
+            }
+          ]
+        },
+        {
+          "id": "4.4",
+          "title": "麦克风",
+          "goal": "麦克风距离控制、近讲效应、避免喷麦。",
+          "ready": true,
+          "misconception": "麦克风不是离嘴越近越好。太近低频厚但容易喷麦，太远声音会薄。",
+          "videos": [
+            {
+              "id": "cnoDzNwFJlA",
+              "title": "Sing Like a Pro: Mic Distance is Key to Great Vocals",
+              "lang": "英文"
+            },
+            {
+              "id": "t0z_V5kJKXw",
+              "title": "How to Sing with a Recording Mic & Dealing with Proximity Effect from Vocals",
+              "lang": "英文"
+            }
+          ],
+          "steps": [
+            {
+              "title": "握麦",
+              "body": "麦头略斜对着嘴，避免直吹。"
+            },
+            {
+              "title": "用一句歌词试距离",
+              "body": "轻声时靠近，大声时后退。"
+            },
+            {
+              "title": "录一段听",
+              "body": "看有没有喷麦声，声音是否平稳。"
+            }
+          ],
+          "troubleshooting": [
+            {
+              "symptom": "喷麦的“噗”声",
+              "cause": "麦头正对嘴",
+              "fix": "麦头斜一点，或者后退"
+            },
+            {
+              "symptom": "声音薄",
+              "cause": "离得太远",
+              "fix": "近一点"
+            },
+            {
+              "symptom": "大声时破音",
+              "cause": "离得太近，音量太大",
+              "fix": "后退，或降低音量"
+            }
+          ],
+          "ladder": [
+            {
+              "id": "4.4-1",
+              "text": "轻声和大声都用了合适的距离",
+              "target": null
+            },
+            {
+              "id": "4.4-2",
+              "text": "录音没有喷麦声",
+              "target": null
+            },
+            {
+              "id": "4.4-3",
+              "text": "能说出自己用的距离",
+              "target": null
+            }
+          ]
+        },
+        {
+          "id": "4.5",
+          "title": "结业作品",
+          "goal": "完整录一首《说谎》，和入学时对比。",
+          "ready": true,
+          "misconception": "结业不是比谁唱得完美，而是看你每一课之后的变化。",
+          "videos": [
+            {
+              "id": "mn5JuYjpo5M",
+              "title": "How To Record a Cover Song: Step By Step Guide",
+              "lang": "英文"
+            },
+            {
+              "id": "gmPG86i5_og",
+              "title": "How To Record Vocals On Your Phone – Best Mic & Pro Setup Tips",
+              "lang": "英文"
+            }
+          ],
+          "steps": [
+            {
+              "title": "选定《说谎》",
+              "body": "用入学时的同一首歌，才好对比。"
+            },
+            {
+              "title": "安静环境录两遍",
+              "body": "用手机就行，最好录两遍，选一版。"
+            },
+            {
+              "title": "写下三处变化",
+              "body": "和 1.1 的录音、入学测试结果对比，写下三处变化。"
+            }
+          ],
+          "troubleshooting": [
+            {
+              "symptom": "录音紧张",
+              "cause": "没热身",
+              "fix": "先唱两遍热身再录"
+            },
+            {
+              "symptom": "不知道和什么比",
+              "cause": "没有基准",
+              "fix": "把入学时的录音和现在对比"
+            },
+            {
+              "symptom": "不满意",
+              "cause": "想一次做完美",
+              "fix": "结业作品允许再录，只留一版"
+            }
+          ],
+          "ladder": [
+            {
+              "id": "4.5-1",
+              "text": "从头到尾完整录下《说谎》",
+              "target": null
+            },
+            {
+              "id": "4.5-2",
+              "text": "写下三处变化",
+              "target": null
+            },
+            {
+              "id": "4.5-3",
+              "text": "把录音放进 assets/ 或网页里下载存档",
+              "target": null
+            }
+          ],
+          "optional": true
+        }
+      ],
+      pass: [
+        { id: "s4-1", text: "能说出一首歌的段落结构，每段有情绪词" },
+        { id: "s4-2", text: "强弱对比明显，音准不飘" },
+        { id: "s4-3", text: "以情带声，录音里能听到情绪" },
+        { id: "s4-4", text: "麦克风距离合适，没有喷麦" },
+        { id: "s4-5", text: "完整录完《说谎》，写下三处变化" }
+      ],
+      redlines: [
+        "录音时喉咙紧：先停，休息再录。",
+        "唱不上去的高音不要硬唱，回到第 2 阶段。"
       ]
     }
   ],
