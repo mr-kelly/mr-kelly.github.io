@@ -1,14 +1,17 @@
 /*
  * 流行演唱课程数据。
- * 真源在 Kelly 的 vault：~/Documents/invest/life/learn/singing/，这里是同步过来的交付版。
+ * 真源在 Kelly 的 vault：~/Documents/invest/life/learn/singing/（课程提纲.md、00-入学测试.md、各阶段教材），这里是同步过来的交付版。
  * 改课程内容先改 vault，再同步到这里，不要只改这一边。
+ *
+ * 课的 id 用 "阶段.序号"。ready: true 表示已备课（有完整教材），否则提纲上显示“待定”。
+ * 入学测试每个选项用 effects 给课打档：pass 已会（跳过）/ partial 半会（快速过）/ need 要学。
  */
 window.COURSE = {
   id: "singing",
   title: "流行演唱",
   subtitle: "从“高音一上去就变虚”，练到结实的混声",
   updated: "2026-10-04",
-  current: { stage: 1, lesson: 1 },
+  current: "1.1",
 
   diagnosis: {
     date: "2026-10-03",
@@ -22,18 +25,85 @@ window.COURSE = {
     ]
   },
 
+  placement: {
+    intro: "16 道题，大约 10 分钟。2 道计时实测要真的做一下，其余凭直觉选。每道题对应后面的课：已会的跳过，半会的快速过，要学的认真学。",
+    questions: [
+      { id: "q1", type: "timer", lessons: ["1.1"], title: "弹唇带音，一口气能撑几秒？",
+        how: "嘴唇放松，让气流把嘴唇吹得“噗噜噜”连续颤动，同时带一点轻轻的中低音。点开始，断了就点停。不会弹唇就点“吹不起来”。",
+        pass: 15, partial: 5 },
+      { id: "q2", type: "timer", lessons: ["1.2"], title: "S 音匀速吐气，能撑几秒？",
+        how: "吸一口气，发“嘶——”，像轮胎慢慢漏气，声音大小保持一样。点开始，气用完就点停。",
+        pass: 25, partial: 12 },
+      { id: "q3", type: "choice", title: "唱到副歌高音时，喉咙和脖子是什么感觉？", options: [
+        { text: "脖子青筋、喉咙发紧往上提，像在喊，唱两三首就干哑", effects: { "1.3": "need", "2.3": "need" } },
+        { text: "自动变弱变虚，变成漏气的假音，音量掉下来", effects: { "1.3": "partial", "2.3": "need" } },
+        { text: "能保持音量，脖子放松，声音结实喉咙不难受", effects: { "1.3": "pass", "2.3": "pass" } } ] },
+      { id: "q4", type: "choice", title: "连续唱 40–60 分钟后，嗓子怎么样？", options: [
+        { text: "高音上不去，喉咙有异物感、发炎感或发劈", effects: { "1.3": "need" } },
+        { text: "身体或气息有点累，但声带不痛，休息一下还能唱", effects: {} } ] },
+      { id: "q5", type: "choice", title: "试一下气泡音：用最低最松的声音发“咯咯咯……”（像老木门慢慢打开）", options: [
+        { text: "发不出来，或者喉咙很紧", effects: { "1.4": "need", "1.5": "need" } },
+        { text: "能发，但断断续续，撑不住", effects: { "1.4": "partial", "1.5": "need" } },
+        { text: "能放松地持续 5 秒以上", effects: { "1.4": "pass", "1.5": "need" } },
+        { text: "能持续，还能直接从气泡音接到一个结实的“啊”", effects: { "1.4": "pass", "1.5": "pass" } } ] },
+      { id: "q6", type: "choice", title: "跟伴奏唱歌时，音准和节奏怎么样？", options: [
+        { text: "常被说跑调，或者找不到什么时候开口", effects: { "1.6": "need" } },
+        { text: "基本没问题，不熟的转折偶尔飘一下", effects: { "1.6": "partial" } },
+        { text: "很好，能听出别人跑调和进错拍", effects: { "1.6": "pass" } } ] },
+      { id: "q7", type: "choice", title: "你能分清自己的真声和假声吗？", options: [
+        { text: "分不清", effects: { "2.1": "need" } },
+        { text: "大概知道，但控制不了什么时候用哪个", effects: { "2.1": "partial" } },
+        { text: "能随意切换", effects: { "2.1": "pass" } } ] },
+      { id: "q8", type: "choice", title: "用“呜——”从你最低的音滑到最高的音（像警报），中间发生了什么？", options: [
+        { text: "某个地方明显断开、破音，或者上不去", effects: { "2.2": "need", "2.4": "need" } },
+        { text: "能上去，但某个地方声音突然变虚变细", effects: { "2.2": "pass", "2.4": "need" } },
+        { text: "从低到高平滑，音量和音色基本一致", effects: { "2.2": "pass", "2.4": "pass" } } ] },
+      { id: "q9", type: "choice", title: "别人怎么形容你的声音？", options: [
+        { text: "鼻音重、有点扁", effects: { "2.5": "need" } },
+        { text: "有点闷，像含在喉咙里", effects: { "2.5": "need" } },
+        { text: "都没有，挺清楚的", effects: { "2.5": "pass" } } ] },
+      { id: "q10", type: "choice", title: "能用结实的大声（不是假音）唱到副歌最高音吗？", options: [
+        { text: "不能", effects: { "2.6": "need" } },
+        { text: "能，但喉咙很累", effects: { "2.6": "need" } },
+        { text: "能，而且不累", effects: { "2.6": "pass" } } ] },
+      { id: "q11", type: "choice", title: "唱歌时咬字怎么样？", options: [
+        { text: "常被说听不清唱的是什么", effects: { "3.1": "need", "3.2": "need" } },
+        { text: "偶尔含糊，快歌更明显", effects: { "3.1": "partial", "3.2": "partial" } },
+        { text: "清楚，而且有说话的语感", effects: { "3.1": "pass", "3.2": "pass" } } ] },
+      { id: "q12", type: "choice", title: "同一句里，能从气声（带气的轻声）切回实声吗？", options: [
+        { text: "不会用气声", effects: { "3.3": "need" } },
+        { text: "气声有，但一用就收不回来", effects: { "3.3": "partial" } },
+        { text: "收放自如", effects: { "3.3": "pass" } } ] },
+      { id: "q13", type: "choice", title: "长音的尾巴会有颤音吗？", options: [
+        { text: "没有，是直的", effects: { "3.4": "need" } },
+        { text: "有，但感觉是下巴或喉咙在抖", effects: { "3.4": "need" } },
+        { text: "有，自然的", effects: { "3.4": "pass" } } ] },
+      { id: "q14", type: "choice", title: "快速转音（比如林俊杰、邓紫棋那种一串音）？", options: [
+        { text: "跟不上", effects: { "3.5": "need" } },
+        { text: "放慢能唱准", effects: { "3.5": "partial" } },
+        { text: "原速能唱准", effects: { "3.5": "pass" } } ] },
+      { id: "q15", type: "choice", title: "唱一整首歌时，你会怎么处理？", options: [
+        { text: "从头到尾差不多一个力度", effects: { "4.1": "need", "4.2": "need", "4.3": "need" } },
+        { text: "有意识地主歌轻、副歌推上去", effects: { "4.1": "partial", "4.2": "partial", "4.3": "partial" } },
+        { text: "会设计每一段的情绪和强弱", effects: { "4.1": "pass", "4.2": "pass", "4.3": "pass" } } ] },
+      { id: "q16", type: "choice", title: "麦克风用得怎么样？", options: [
+        { text: "没怎么用过", effects: { "4.4": "need" } },
+        { text: "KTV 常用，但没什么讲究", effects: { "4.4": "partial" } },
+        { text: "会根据音量调整距离", effects: { "4.4": "pass" } } ] }
+    ]
+  },
+
   stages: [
     {
       n: 1,
-      title: "气息支撑 + 声带闭合唤醒",
+      title: "气息与发声基础",
       weeks: "3–4 周",
-      why: "高音变虚有两个根源：气流不稳，声带只能靠漏气撑住；声带闭不严，高音就滑进纯假声。这一阶段把“匀速的气”和“闭合的感觉”分别练出来，第 2 阶段再合成混声。",
-      skipped: "音准、节奏、视唱（已经会了）",
+      why: "匀速的气 + 放松的喉 + 唤醒声带闭合。高音变虚有两个根源：气流不稳，声带只能靠漏气撑住；声带闭不严，高音就滑进纯假声。",
       lessons: [
         {
-          n: 1,
+          id: "1.1",
           title: "弹唇（Lip Trill）",
-          status: "current",
+          ready: true,
           goal: "嘴唇完全放松，被匀速的气流吹得连续颤动，再带上声音。",
           misconception: "弹唇不是 buh buh 的爆破音（那是嘴唇主动在开合）。正确的是嘴唇不用力、被气流吹得“噗噜噜噜……”一串不断，像马打响鼻、小孩学摩托车。",
           videos: [
@@ -62,10 +132,11 @@ window.COURSE = {
             { id: "l5", text: "带音颤动 + 滑音跨过平时会变虚的音高也不断", target: 15 }
           ]
         },
-        { n: 2, title: "S 音练习", status: "locked", goal: "嘶——匀速吐气并计时，练气息匀速输出和腹部对抗（“支撑”的感觉）。" },
-        { n: 3, title: "叹气发声 + 打哈欠感", status: "locked", goal: "从高往低叹“哈——”，找低喉位、后咽壁打开、软腭抬起。" },
-        { n: 4, title: "气泡音（Vocal Fry）", status: "locked", goal: "最低最松的“咯咯咯”声，唤醒声带闭合，是第 2 阶段混声的地基。" },
-        { n: 5, title: "气泡音 → 实声", status: "locked", goal: "从气泡音直接接到一个轻的“啊”，把闭合感带进正常发声。" }
+        { id: "1.2", title: "S 音", goal: "嘶——匀速吐气计时，找腹部支撑的感觉。" },
+        { id: "1.3", title: "叹气发声与低喉位", goal: "从高往低叹“哈——”，打哈欠感，喉结不上提。" },
+        { id: "1.4", title: "气泡音", goal: "最低最松的“咯咯”声，唤醒声带闭合。" },
+        { id: "1.5", title: "气泡音接实声", goal: "从气泡音直接接到结实的“啊”，不漏气。" },
+        { id: "1.6", title: "音准与节奏", goal: "单音模唱、五声音阶、4/4 与 6/8 律动踩点。" }
       ],
       daily: [
         { text: "叹气放松：耸肩再放下 × 3，叹气 × 5", min: 1 },
@@ -85,9 +156,41 @@ window.COURSE = {
         "练的时候头晕：气吹太猛了，降低力度，中间正常呼吸几次。"
       ]
     },
-    { n: 2, title: "换声点与混声", weeks: "6–8 周", outline: "胸声/头声认知 → Nay/Mum 窄元音找混声 → 换声区平滑过渡 → Belting 入门 → 共鸣调配。主战场：副歌变虚就在这里解决。" },
-    { n: 3, title: "流行细分技巧", weeks: "4–6 周", outline: "咬字语感、气声加入/撤出、颤音、转音、（选修）撕裂音。气声已经有了，重点练能收能放。" },
-    { n: 4, title: "歌曲实战与舞台", weeks: "4 周", outline: "主歌/副歌/桥段处理、强弱对比、以情带声、麦克风距离。用练习曲做完整作品。" }
+    {
+      n: 2, title: "换声点与混声", weeks: "6–8 周",
+      why: "打通真假声，副歌不再变虚。这是主战场。",
+      lessons: [
+        { id: "2.1", title: "胸声与头声", goal: "分清两种发声：声带完全闭合 vs 边缘振动。" },
+        { id: "2.2", title: "找到换声点", goal: "滑音找出自己“翻、断、变虚”的那几个音。" },
+        { id: "2.3", title: "窄元音找混声", goal: "Nay Nay、Mum Mum，用窄元音挡住喉部代偿。" },
+        { id: "2.4", title: "换声区平滑过渡", goal: "胸声渐变到混声，跨换声点不断层。" },
+        { id: "2.5", title: "共鸣调配", goal: "口腔、咽腔、鼻腔的比例，不扁不闷。" },
+        { id: "2.6", title: "强混声（Belting）入门", goal: "安全地唱出结实的高位强音。" }
+      ]
+    },
+    {
+      n: 3, title: "流行演唱技巧", weeks: "4–6 周",
+      why: "摆脱晚会腔，唱出当代流行的味道。",
+      lessons: [
+        { id: "3.1", title: "咬字", goal: "字头清晰、字腹归韵、字尾干脆，有说话感。" },
+        { id: "3.2", title: "连音与断音", goal: "慢歌连贯、快歌律动。" },
+        { id: "3.3", title: "气声收放", goal: "同一句里气声与实声切换。" },
+        { id: "3.4", title: "颤音", goal: "气流驱动的自然颤音，不是下巴或喉头抖。" },
+        { id: "3.5", title: "滑音与转音", goal: "快速音阶跑动，音点准。" },
+        { id: "3.6", title: "撕裂音（选修）", goal: "安全的假声带介入。", optional: true }
+      ]
+    },
+    {
+      n: 4, title: "歌曲实战", weeks: "4 周",
+      why: "从练声走到作品。",
+      lessons: [
+        { id: "4.1", title: "歌曲结构拆解", goal: "主歌克制、副歌推进、桥段转折。" },
+        { id: "4.2", title: "强弱对比", goal: "渐强渐弱的精细控制。" },
+        { id: "4.3", title: "以情带声", goal: "呼吸声、叹息、表情传情绪。" },
+        { id: "4.4", title: "麦克风", goal: "距离控制、近讲效应、大音量避麦。" },
+        { id: "4.5", title: "结业作品", goal: "完整录一首《说谎》，和入学时对比。", optional: true }
+      ]
+    }
   ],
 
   songs: [

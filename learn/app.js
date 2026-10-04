@@ -1,7 +1,7 @@
 /*
  * /learn/ 课程页通用渲染器。读取 window.COURSE（各课程目录下的 course.js）。
- * 三个视图：上课（一步一屏的引导）/ 打卡（今日练习 + 日志）/ 路线（诊断、阶段、过关、曲目）。
- * 进度、计时成绩、练习日志只存在本机浏览器 localStorage，不上传。
+ * 四个视图：入学测试 / 提纲（全体系）/ 上课（一步一屏）/ 打卡（今日练习 + 日志）。
+ * 测试结果、进度、计时成绩、练习日志只存在本机浏览器 localStorage，不上传。
  */
 (function () {
   "use strict";
@@ -17,6 +17,7 @@
   state.daily = state.daily || {};
   state.log = state.log || [];
   state.step = state.step || 0;
+  state.test = state.test || { answers: {}, at: 0, done: false, date: "" };
 
   function load() {
     try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; }
@@ -38,38 +39,241 @@
   }
   function $(id) { return document.getElementById(id); }
 
-  var stage = C.stages.find(function (s) { return s.n === C.current.stage; });
-  var lesson = stage.lessons.find(function (l) { return l.n === C.current.lesson; });
-  function currentLevel() {
-    return lesson.ladder.find(function (x) { return !state.checks[x.id]; }) || lesson.ladder[lesson.ladder.length - 1];
-  }
+  var LESSONS = [];
+  C.stages.forEach(function (s) { s.lessons.forEach(function (l) { l.stage = s; LESSONS.push(l); }); });
+  function lessonById(id) { return LESSONS.find(function (l) { return l.id === id; }); }
+  var lesson = lessonById(C.current);
+  var stage = lesson.stage;
 
   $("updated").textContent = "更新于 " + C.updated;
 
-  /* ---------- 外框：标题 + 三个标签 ---------- */
+  /* =========================================================
+   * 入学测试判档
+   * ========================================================= */
+  var RANK = { pass: 0, partial: 1, need: 2 };
+  var GRADE_TEXT = { pass: "已会 · 跳过", partial: "半会 · 快速过", need: "要学" };
+  function grades() {
+    var g = {};
+    function put(id, v) { if (!(id in g) || RANK[v] > RANK[g[id]]) g[id] = v; }
+    C.placement.questions.forEach(function (q) {
+      var a = state.test.answers[q.id];
+      if (a === undefined) return;
+      if (q.type === "timer") {
+        var v = a >= q.pass ? "pass" : (a >= q.partial ? "partial" : "need");
+        q.lessons.forEach(function (id) { put(id, v); });
+      } else {
+        var eff = q.options[a].effects;
+        Object.keys(eff).forEach(function (id) { put(id, eff[id]); });
+      }
+    });
+    return g;
+  }
+  function startLesson(g) {
+    return LESSONS.find(function (l) { return !l.optional && g[l.id] !== "pass"; });
+  }
+
+  /* ---------- 外框 ---------- */
   root.innerHTML =
     '<section class="hero compact">' +
-      '<p class="eyebrow">' + esc(C.title) + " · 第 " + stage.n + " 阶段 · 第 " + lesson.n + " 课</p>" +
-      "<h1>" + esc(lesson.title) + "</h1>" +
+      '<p class="eyebrow">学习课程</p><h1>' + esc(C.title) + "</h1>" +
+      '<p class="lede">' + esc(C.subtitle) + "</p>" +
     "</section>" +
     '<nav class="tabs" role="tablist">' +
+      '<a href="#test" role="tab" data-view="test">入学测试</a>' +
+      '<a href="#syllabus" role="tab" data-view="syllabus">提纲</a>' +
       '<a href="#lesson" role="tab" data-view="lesson">上课</a>' +
       '<a href="#today" role="tab" data-view="today">打卡</a>' +
-      '<a href="#map" role="tab" data-view="map">路线</a>' +
     "</nav>" +
+    '<div class="view" id="view-test"></div>' +
+    '<div class="view" id="view-syllabus"></div>' +
     '<div class="view" id="view-lesson"></div>' +
-    '<div class="view" id="view-today"></div>' +
-    '<div class="view" id="view-map"></div>';
+    '<div class="view" id="view-today"></div>';
 
   function route() {
-    var v = (location.hash || "#lesson").slice(1);
+    stopTimer();
+    var v = location.hash.slice(1) || (state.test.done ? "lesson" : "test");
     if (!$("view-" + v)) v = "lesson";
     document.querySelectorAll(".view").forEach(function (el) { el.hidden = el.id !== "view-" + v; });
     document.querySelectorAll(".tabs a").forEach(function (a) { a.setAttribute("aria-selected", String(a.dataset.view === v)); });
-    if (v === "today") renderToday();
-    if (v === "map") renderMap();
+    ({ test: renderTest, syllabus: renderSyllabus, lesson: renderLesson, today: renderToday })[v]();
   }
   window.addEventListener("hashchange", route);
+
+  /* =========================================================
+   * 计时器（测试和上课共用）
+   * ========================================================= */
+  var T = { start: 0, raf: 0, target: 0, done: null };
+  function timerBlock(target, onDone) {
+    T.target = target; T.done = onDone;
+    var el = h('<div class="timer-core"><div class="ring" id="ring" style="--p:0"><div class="timer-face" id="timer-face">0.0</div></div>' +
+      '<button type="button" class="btn primary big" id="timer-btn">开始</button></div>');
+    el.querySelector("#timer-btn").addEventListener("click", toggleTimer);
+    return el;
+  }
+  function tick() {
+    var secs = (performance.now() - T.start) / 1000;
+    if (!$("timer-face")) { stopTimer(); return; }
+    $("timer-face").textContent = secs.toFixed(1);
+    $("ring").style.setProperty("--p", Math.min(1, secs / T.target));
+    T.raf = requestAnimationFrame(tick);
+  }
+  function stopTimer() {
+    if (!T.start) return 0;
+    cancelAnimationFrame(T.raf);
+    var secs = (performance.now() - T.start) / 1000;
+    T.start = 0;
+    return secs;
+  }
+  function toggleTimer() {
+    var btn = $("timer-btn");
+    if (!T.start) {
+      T.start = performance.now(); tick();
+      btn.textContent = "停"; btn.classList.add("running");
+      $("ring").classList.remove("win");
+      return;
+    }
+    var secs = stopTimer();
+    $("timer-face").textContent = secs.toFixed(1);
+    btn.textContent = "再来一次"; btn.classList.remove("running");
+    if (secs >= T.target) $("ring").classList.add("win");
+    T.done(secs);
+  }
+  document.addEventListener("keydown", function (e) {
+    if (e.code !== "Space" || !$("timer-btn") || /INPUT|TEXTAREA|SELECT|BUTTON/.test(e.target.tagName)) return;
+    var view = $("timer-btn").closest(".view");
+    if (view.hidden) return;
+    e.preventDefault(); toggleTimer();
+  });
+
+  /* =========================================================
+   * 入学测试：一题一屏
+   * ========================================================= */
+  var Q = C.placement.questions;
+  function renderTest() {
+    var el = $("view-test");
+    if (state.test.done) return renderResult(el);
+    if (!state.test.started) {
+      el.innerHTML = '<div class="stage-card intro"><p class="eyebrow">第 0 课</p><h2>入学测试</h2><p>' + esc(C.placement.intro) + "</p>" +
+        '<div class="grade-legend"><span class="badge g-pass">已会 · 跳过</span><span class="badge g-partial">半会 · 快速过</span><span class="badge g-need">要学</span></div>' +
+        '<button type="button" class="btn primary big" id="test-start">开始测试</button></div>';
+      $("test-start").addEventListener("click", function () { state.test.started = true; state.test.at = 0; save(); renderTest(); });
+      return;
+    }
+    var i = state.test.at, q = Q[i];
+    el.innerHTML =
+      '<div class="progress"><span style="width:' + (i / Q.length * 100) + '%"></span></div>' +
+      '<p class="muted q-count">第 ' + (i + 1) + " / " + Q.length + " 题</p>" +
+      '<div class="stage-card question"><h2>' + esc(q.title) + "</h2>" + (q.how ? '<p class="how">' + esc(q.how) + "</p>" : "") + '<div id="q-body"></div></div>' +
+      '<div class="step-nav"><button type="button" class="btn" id="q-prev">← 上一题</button>' +
+      '<button type="button" class="btn" id="q-next">' + (i === Q.length - 1 ? "看结果 →" : "下一题 →") + "</button></div>";
+    var body = $("q-body"), ans = state.test.answers[q.id];
+
+    if (q.type === "choice") {
+      body.append(h('<div class="options">' + q.options.map(function (o, j) {
+        return '<button type="button" class="option' + (ans === j ? " on" : "") + '" data-j="' + j + '"><span>' + "ABCD"[j] + "</span>" + esc(o.text) + "</button>";
+      }).join("") + "</div>"));
+      body.addEventListener("click", function (e) {
+        var b = e.target.closest(".option"); if (!b) return;
+        state.test.answers[q.id] = +b.dataset.j; save();
+        body.querySelectorAll(".option").forEach(function (x) { x.classList.toggle("on", x === b); });
+        setTimeout(nextQ, 250);
+      });
+    } else {
+      body.append(timerBlock(q.pass, function (secs) {
+        state.test.answers[q.id] = Math.round(secs * 10) / 10; save();
+        var v = secs >= q.pass ? "pass" : (secs >= q.partial ? "partial" : "need");
+        $("q-hint").innerHTML = "记下了：" + secs.toFixed(1) + ' 秒 <span class="badge g-' + v + '">' + GRADE_TEXT[v] + "</span>（已会 ≥ " + q.pass + " 秒，半会 ≥ " + q.partial + " 秒）。可以再测一次，按最后一次算。";
+      }));
+      body.append(h('<p class="muted" id="q-hint">' + (ans !== undefined ? "上次：" + ans + " 秒。" : "可以按空格开始 / 停止。") + "</p>"));
+      body.append(h('<button type="button" class="link" id="q-zero">我做不出来 / 吹不起来</button>'));
+      $("q-zero").addEventListener("click", function () { stopTimer(); state.test.answers[q.id] = 0; save(); nextQ(); });
+    }
+    $("q-prev").disabled = i === 0;
+    $("q-prev").addEventListener("click", function () { stopTimer(); state.test.at = i - 1; save(); renderTest(); });
+    $("q-next").addEventListener("click", nextQ);
+  }
+  function nextQ() {
+    stopTimer();
+    var q = Q[state.test.at];
+    if (state.test.answers[q.id] === undefined) { $("q-next").textContent = "先回答这题"; return; }
+    if (state.test.at === Q.length - 1) { state.test.done = true; state.test.date = today(); }
+    else state.test.at++;
+    save(); renderTest(); window.scrollTo(0, 0);
+  }
+  function renderResult(el) {
+    var g = grades(), start = startLesson(g);
+    var cnt = { pass: 0, partial: 0, need: 0 };
+    LESSONS.forEach(function (l) { if (!l.optional) cnt[g[l.id] || "need"]++; });
+    el.innerHTML =
+      '<div class="stage-card result"><p class="eyebrow">入学测试结果 · ' + esc(state.test.date) + "</p>" +
+        "<h2>建议从 " + (start ? esc(start.id) + " " + esc(start.title) : "第 4 阶段") + " 开始</h2>" +
+        '<div class="stats"><div><b>' + cnt.pass + '</b><span>已会 · 跳过</span></div><div><b>' + cnt.partial +
+        '</b><span>半会 · 快速过</span></div><div><b>' + cnt.need + "</b><span>要学</span></div></div>" +
+        (start && start.id !== C.current ? '<p class="callout">课程目前排在 ' + esc(C.current) + "，测试建议从 " + esc(start.id) + " 开始。把结果发给 Claude，课程会按这个调整。</p>" : "") +
+        '<p class="actions"><a class="btn primary" href="#syllabus">看完整提纲 →</a> ' +
+        '<button type="button" class="btn" id="copy-result">复制结果发给 Claude</button> ' +
+        '<button type="button" class="btn" id="retest">重新测试</button></p><p class="muted" id="copy-msg"></p></div>';
+    $("retest").addEventListener("click", function () {
+      if (!confirm("清掉这次的测试结果，重新做？")) return;
+      state.test = { answers: {}, at: 0, done: false, started: true }; save(); renderTest();
+    });
+    $("copy-result").addEventListener("click", function () {
+      var lines = ["### " + state.test.date + " · 入学测试（网页，" + Q.length + " 题）", ""];
+      Q.forEach(function (q, i) {
+        var a = state.test.answers[q.id];
+        lines.push((i + 1) + ". " + q.title + " → " + (q.type === "timer" ? a + " 秒" : "ABCD"[a] + " " + q.options[a].text));
+      });
+      lines.push("", "判档：" + LESSONS.filter(function (l) { return !l.optional; }).map(function (l) { return l.id + " " + ({ pass: "已会", partial: "半会", need: "要学" })[g[l.id] || "need"]; }).join("，"));
+      lines.push("建议起点：" + (start ? start.id + " " + start.title : "—"));
+      navigator.clipboard.writeText(lines.join("\n")).then(function () { $("copy-msg").textContent = "已复制，直接粘贴给 Claude。"; });
+    });
+  }
+
+  /* =========================================================
+   * 提纲：全体系
+   * ========================================================= */
+  function renderSyllabus() {
+    var el = $("view-syllabus");
+    var g = state.test.done ? grades() : {};
+    var start = state.test.done ? startLesson(g) : null;
+    el.innerHTML =
+      '<p class="muted">第 0 课入学测试 → 4 个阶段 ' + LESSONS.length + " 节课。<span class=\"badge ready\">已备课</span>的可以直接上，<span class=\"badge tbd\">待定</span>的轮到了再备课。</p>" +
+      '<ol class="syllabus">' +
+        '<li class="stage-block"><div class="stage-title"><span class="stage-n">0</span>入学测试</div>' +
+          '<a class="lesson-row' + (state.test.done ? "" : " is-current") + '" href="#test"><span class="lid">0</span><span class="lt">入学测试<small>' +
+          Q.length + ' 道题定起点</small></span><span class="badges">' + (state.test.done ? '<span class="badge g-pass">已完成 ' + esc(state.test.date) + "</span>" : '<span class="badge here">先做这个</span>') + "</span></a></li>" +
+        C.stages.map(function (s) {
+          return '<li class="stage-block"><div class="stage-title"><span class="stage-n">' + s.n + "</span>" + esc(s.title) +
+            '<span class="muted">' + esc(s.weeks) + "</span></div>" + '<p class="muted stage-why">' + esc(s.why) + "</p>" +
+            s.lessons.map(function (l) {
+              var gr = g[l.id];
+              var badges = (l.id === C.current ? '<span class="badge here">现在</span>' : "") +
+                (start && l.id === start.id && l.id !== C.current ? '<span class="badge here">测试建议起点</span>' : "") +
+                (l.optional ? '<span class="badge tbd">' + (l.id === "4.5" ? "结业" : "选修") + "</span>" : (gr ? '<span class="badge g-' + gr + '">' + GRADE_TEXT[gr] + "</span>" : "")) +
+                (l.ready ? '<span class="badge ready">已备课</span>' : '<span class="badge tbd">待定</span>');
+              var tag = l.ready ? "a" : "div";
+              return "<" + tag + ' class="lesson-row' + (l.id === C.current ? " is-current" : "") + (gr === "pass" ? " is-skip" : "") + '"' +
+                (l.ready ? ' href="#lesson"' : "") + '><span class="lid">' + esc(l.id) + '</span><span class="lt">' + esc(l.title) +
+                "<small>" + esc(l.goal) + '</small></span><span class="badges">' + badges + "</span></" + tag + ">";
+            }).join("") + "</li>";
+        }).join("") +
+      "</ol>" +
+      '<details class="panel"><summary>第 ' + stage.n + " 阶段过关标准</summary>" + (stage.pass
+        ? '<ul class="checks" id="pass">' + stage.pass.map(function (p) {
+            var on = !!state.checks[p.id];
+            return '<li class="' + (on ? "done" : "") + '"><label><input type="checkbox" data-id="' + p.id + '"' + (on ? " checked" : "") + "> " + esc(p.text) + "</label></li>";
+          }).join("") + '</ul><ul class="redlines">' + stage.redlines.map(function (r) { return "<li>" + esc(r) + "</li>"; }).join("") + "</ul>"
+        : "<p>待定</p>") + "</details>" +
+      '<details class="panel"><summary>初步摸底 <span class="muted">' + esc(C.diagnosis.date) + "</span></summary>" +
+        "<p>" + esc(C.diagnosis.summary) + '</p><div class="diag">' + C.diagnosis.items.map(function (d) {
+          return '<div class="diag-row tone-' + d.tone + '"><span class="diag-label">' + esc(d.label) + "</span><span>" + esc(d.finding) +
+            '<br><span class="muted">' + esc(d.note) + "</span></span></div>";
+        }).join("") + "</div></details>" +
+      '<details class="panel"><summary>练习曲</summary><ul class="songs">' + C.songs.map(function (s) {
+        return "<li><b>" + esc(s.stage) + "</b> " + s.items.map(esc).join("、") + '<br><span class="muted">' + esc(s.focus) + "</span></li>";
+      }).join("") + '</ul><p class="muted">' + esc(C.benchmark) + "</p></details>";
+    if ($("pass")) $("pass").addEventListener("change", function (e) { state.checks[e.target.dataset.id] = e.target.checked; save(); renderSyllabus(); });
+  }
 
   /* =========================================================
    * 上课：一步一屏
@@ -81,34 +285,37 @@
     { key: "rec", label: "录音" },
     { key: "done", label: "收尾" }
   ];
-  var V = $("view-lesson");
-  V.innerHTML =
-    '<ol class="stepper" id="stepper">' + STEPS.map(function (s, i) {
-      return '<li><button type="button" data-step="' + i + '"><span>' + (i + 1) + "</span>" + s.label + "</button></li>";
-    }).join("") + "</ol>" +
-    '<div class="stage-card" id="step-body"></div>' +
-    '<div class="step-nav"><button type="button" class="btn" id="prev">← 上一步</button>' +
-    '<button type="button" class="btn primary" id="next">下一步 →</button></div>';
-
-  $("stepper").addEventListener("click", function (e) {
-    var b = e.target.closest("button"); if (b) go(+b.dataset.step);
-  });
-  $("prev").addEventListener("click", function () { go(state.step - 1); });
-  $("next").addEventListener("click", function () { go(state.step + 1); });
-
+  function currentLevel() {
+    return lesson.ladder.find(function (x) { return !state.checks[x.id]; }) || lesson.ladder[lesson.ladder.length - 1];
+  }
+  function renderLesson() {
+    var V = $("view-lesson");
+    var head = '<p class="lesson-head"><span class="lid big">' + esc(lesson.id) + "</span>" + esc(lesson.title) +
+      ' <a href="#syllabus" class="muted">全部课程 →</a></p>';
+    if (!state.test.done) head += '<p class="callout">还没做入学测试。<a href="#test">先做测试</a>，确认要不要从这一课开始。</p>';
+    if (!lesson.ready) { V.innerHTML = head + '<div class="stage-card"><p>这一课还在备课（待定）。</p></div>'; return; }
+    V.innerHTML = head +
+      '<ol class="stepper" id="stepper">' + STEPS.map(function (s, i) {
+        return '<li><button type="button" data-step="' + i + '"><span>' + (i + 1) + "</span>" + s.label + "</button></li>";
+      }).join("") + "</ol>" +
+      '<div class="stage-card" id="step-body"></div>' +
+      '<div class="step-nav"><button type="button" class="btn" id="prev">← 上一步</button>' +
+      '<button type="button" class="btn primary" id="next">下一步 →</button></div>';
+    $("stepper").addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) go(+b.dataset.step); });
+    $("prev").addEventListener("click", function () { go(state.step - 1); });
+    $("next").addEventListener("click", function () { go(state.step + 1); });
+    go(state.step);
+  }
   function go(i) {
-    stopTimer(true);
+    stopTimer();
     state.step = Math.max(0, Math.min(STEPS.length - 1, i));
     save();
-    document.querySelectorAll("#stepper li").forEach(function (li, j) {
-      li.className = j === state.step ? "on" : (j < state.step ? "past" : "");
-    });
+    document.querySelectorAll("#stepper li").forEach(function (li, j) { li.className = j === state.step ? "on" : (j < state.step ? "past" : ""); });
     $("prev").style.visibility = state.step === 0 ? "hidden" : "visible";
     $("next").style.visibility = state.step === STEPS.length - 1 ? "hidden" : "visible";
     var body = $("step-body");
     body.innerHTML = "";
     STEP_RENDER[STEPS[state.step].key](body);
-    body.scrollIntoView({ block: "nearest" });
   }
 
   function videoCard(v, big) {
@@ -130,12 +337,9 @@
 
   var STEP_RENDER = {
     watch: function (el) {
-      el.append(
-        h('<p class="callout warn"><strong>先纠正：</strong>' + esc(lesson.misconception) + "</p>"),
-        videoCard(lesson.videos[0], true)
-      );
+      el.append(h('<p class="callout warn"><strong>先纠正：</strong>' + esc(lesson.misconception) + "</p>"), videoCard(lesson.videos[0], true));
       if (lesson.videos.length > 1) {
-        var more = h('<details class="more"><summary>看不懂？换一个讲法（' + (lesson.videos.length - 1) + " 个）</summary><div class=\"videos\"></div></details>");
+        var more = h('<details class="more"><summary>看不懂？换一个讲法（' + (lesson.videos.length - 1) + ' 个）</summary><div class="videos"></div></details>');
         lesson.videos.slice(1).forEach(function (v) { more.querySelector(".videos").append(videoCard(v)); });
         el.append(more);
       }
@@ -144,7 +348,7 @@
     do: function (el) {
       var i = 0;
       var card = h('<div class="flip"><p class="flip-n"></p><h3></h3><p class="flip-body"></p>' +
-        '<div class="flip-nav"><button type="button" class="btn" data-d="-1">上一条</button><button type="button" class="btn" data-d="1">做到了，下一条</button></div></div>');
+        '<div class="flip-nav"><button type="button" class="btn" data-d="-1">上一条</button><button type="button" class="btn" data-d="1"></button></div></div>');
       function show() {
         var s = lesson.steps[i];
         card.querySelector(".flip-n").textContent = (i + 1) + " / " + lesson.steps.length;
@@ -163,109 +367,59 @@
     },
 
     time: function (el) {
-      var lv = currentLevel();
-      var idx = lesson.ladder.indexOf(lv);
-      el.append(h(
-        '<div class="timer">' +
-          '<ol class="ladder-mini">' + lesson.ladder.map(function (x, j) {
-            return '<li class="' + (state.checks[x.id] ? "done" : (j === idx ? "on" : "")) + '" title="' + esc(x.text) + '">' + (j + 1) + "</li>";
-          }).join("") + "</ol>" +
-          '<p class="level">第 ' + (idx + 1) + " 级：" + esc(lv.text) + (lv.target ? "<b> ≥ " + lv.target + " 秒</b>" : "") + "</p>" +
-          (lv.target
-            ? '<div class="ring" id="ring" style="--p:0"><div class="timer-face" id="timer-face">0.0</div></div>' +
-              '<button type="button" class="btn primary big" id="timer-btn">开始</button>' +
-              '<p class="muted" id="timer-hint">吹到断气就点停，也可以按空格。' + (state.best[lv.id] ? "最好成绩 " + state.best[lv.id].toFixed(1) + " 秒。" : "") + "</p>"
-            : '<p>这一级没有秒数，做到了自己打勾。</p><button type="button" class="btn primary big" id="self-check">做到了 ✓</button>') +
-        "</div>"
-      ));
+      var lv = currentLevel(), idx = lesson.ladder.indexOf(lv);
+      var box = h('<div class="timer"><ol class="ladder-mini">' + lesson.ladder.map(function (x, j) {
+          return '<li class="' + (state.checks[x.id] ? "done" : (j === idx ? "on" : "")) + '" title="' + esc(x.text) + '">' + (j + 1) + "</li>";
+        }).join("") + "</ol>" +
+        '<p class="level">第 ' + (idx + 1) + " 级：" + esc(lv.text) + (lv.target ? "<b> ≥ " + lv.target + " 秒</b>" : "") + "</p></div>");
+      el.append(box);
       var tips = h('<details class="more" id="tips"><summary>卡住了怎么办</summary><ul class="tips">' + lesson.troubleshooting.map(function (t) {
         return "<li><strong>" + esc(t.symptom) + "</strong>：" + esc(t.cause) + "。→ " + esc(t.fix) + "</li>";
       }).join("") + "</ul></details>");
-      el.append(tips);
 
       if (!lv.target) {
+        box.append(h('<p>这一级没有秒数，做到了自己打勾。</p>'), h('<button type="button" class="btn primary big" id="self-check">做到了 ✓</button>'));
+        el.append(tips);
         $("self-check").addEventListener("click", function () { state.checks[lv.id] = true; save(); go(state.step); });
         return;
       }
-      $("timer-btn").addEventListener("click", function () { toggleTimer(lv); });
+      box.append(timerBlock(lv.target, function (secs) {
+        var msg = "这次 " + secs.toFixed(1) + " 秒。";
+        if (!state.best[lv.id] || secs > state.best[lv.id]) { state.best[lv.id] = secs; msg += " 新纪录！"; }
+        if (secs >= lv.target) {
+          state.checks[lv.id] = true; save();
+          $("timer-hint").innerHTML = esc(msg) + ' <strong class="win">达标！</strong> <button type="button" class="link" id="level-up">进下一级 →</button>';
+          $("level-up").addEventListener("click", function () { go(state.step); });
+        } else {
+          save();
+          $("timer-hint").textContent = msg + " 目标 " + lv.target + " 秒，再来。";
+          if (secs < lv.target / 2) $("tips").open = true;
+        }
+      }));
+      box.append(h('<p class="muted" id="timer-hint">吹到断气就点停，也可以按空格。' + (state.best[lv.id] ? "最好成绩 " + state.best[lv.id].toFixed(1) + " 秒。" : "") + "</p>"));
+      el.append(tips);
     },
 
     rec: function (el) {
-      el.append(h('<div class="recorder">' +
-        '<p>录一段当前这一级的练习，回放听听：颤动断没断、声音稳不稳。</p>' +
+      el.append(h('<div class="recorder"><p>录一段当前这一级的练习，回放听听：颤动断没断、声音稳不稳。</p>' +
         '<button type="button" class="btn primary big" id="rec-btn">● 开始录音</button>' +
         '<p class="muted" id="rec-status">录音只在本机浏览器里，不会上传。</p><div id="rec-list" class="rec-list"></div></div>'));
       setupRecorder();
     },
 
     done: function (el) {
-      var done = state.daily[today()] || {};
       var best = bestSummary();
-      el.append(h('<div class="wrap-up">' +
-        "<h3>今天练完了？记一笔</h3>" +
+      el.append(h('<div class="wrap-up"><h3>今天练完了？记一笔</h3>' +
         (best ? '<p class="muted">计时成绩会自动带上：' + esc(best) + "</p>" : "") +
         '<form class="log-form" id="quick-log">' +
-          '<input name="what" value="' + esc(lesson.title + " 第 " + (lesson.ladder.indexOf(currentLevel()) + 1) + " 级") + '" required>' +
+          '<input name="what" value="' + esc(lesson.id + " " + lesson.title + " 第 " + (lesson.ladder.indexOf(currentLevel()) + 1) + " 级") + '" required>' +
           '<input name="mins" type="number" min="1" placeholder="分钟" class="mins">' +
           '<input name="note" placeholder="体感 / 问题（可空）">' +
           '<button class="btn primary">记一笔</button></form>' +
-        '<p class="muted" id="quick-msg">' + (Object.keys(done).length ? "今天已经打过卡了。" : "") + "</p>" +
-        '<p><a href="#today">去看今日打卡和历史日志 →</a></p></div>'));
-      $("quick-log").addEventListener("submit", function (e) {
-        e.preventDefault();
-        addLog(e.target);
-        $("quick-msg").textContent = "记好了。明天见。";
-      });
+        '<p class="muted" id="quick-msg"></p><p><a href="#today">去看今日打卡和历史日志 →</a></p></div>'));
+      $("quick-log").addEventListener("submit", function (e) { e.preventDefault(); addLog(e.target); $("quick-msg").textContent = "记好了。明天见。"; });
     }
   };
-
-  /* ---------- 计时器 ---------- */
-  var tStart = 0, tRaf = 0, tLevel = null;
-  function tick() {
-    var secs = (performance.now() - tStart) / 1000;
-    var face = $("timer-face"), ring = $("ring");
-    if (!face) return;
-    face.textContent = secs.toFixed(1);
-    if (ring && tLevel.target) ring.style.setProperty("--p", Math.min(1, secs / tLevel.target));
-    tRaf = requestAnimationFrame(tick);
-  }
-  function stopTimer(silent) {
-    if (!tStart) return;
-    cancelAnimationFrame(tRaf);
-    var secs = (performance.now() - tStart) / 1000;
-    tStart = 0;
-    if (!silent) return secs;
-  }
-  function toggleTimer(lv) {
-    var btn = $("timer-btn");
-    if (!tStart) {
-      tLevel = lv; tStart = performance.now(); tick();
-      btn.textContent = "停"; btn.classList.add("running");
-      $("timer-hint").textContent = "吹……";
-      return;
-    }
-    var secs = stopTimer();
-    $("timer-face").textContent = secs.toFixed(1);
-    btn.textContent = "再来一次"; btn.classList.remove("running");
-    var msg = "这次 " + secs.toFixed(1) + " 秒。";
-    if (!state.best[lv.id] || secs > state.best[lv.id]) { state.best[lv.id] = secs; msg += " 新纪录！"; }
-    var hint = $("timer-hint");
-    if (secs >= lv.target) {
-      state.checks[lv.id] = true;
-      save();
-      hint.innerHTML = esc(msg) + ' <strong class="win">达标！</strong> <button type="button" class="link" id="level-up">进下一级 →</button>';
-      $("level-up").addEventListener("click", function () { go(state.step); });
-      $("ring").classList.add("win");
-    } else {
-      save();
-      hint.textContent = msg + " 目标 " + lv.target + " 秒，再来。";
-      if (secs < lv.target / 2) $("tips").open = true;
-    }
-  }
-  document.addEventListener("keydown", function (e) {
-    if (e.code !== "Space" || !$("timer-btn") || /INPUT|TEXTAREA|SELECT|BUTTON/.test(e.target.tagName)) return;
-    e.preventDefault(); $("timer-btn").click();
-  });
 
   /* ---------- 录音 ---------- */
   var recorder = null;
@@ -298,15 +452,13 @@
    * 打卡：今日练习 + 日志
    * ========================================================= */
   function bestSummary() {
-    return lesson.ladder.filter(function (x) { return state.best[x.id]; })
-      .map(function (x) { return "L" + (lesson.ladder.indexOf(x) + 1) + " " + state.best[x.id].toFixed(1) + "s"; }).join("，");
+    return lesson.ladder ? lesson.ladder.filter(function (x) { return state.best[x.id]; })
+      .map(function (x) { return "L" + (lesson.ladder.indexOf(x) + 1) + " " + state.best[x.id].toFixed(1) + "s"; }).join("，") : "";
   }
   function addLog(f) {
-    var note = f.note.value.trim();
-    var best = bestSummary();
+    var note = f.note.value.trim(), best = bestSummary();
     if (best) note = (note ? note + "；" : "") + "计时最好：" + best;
     state.log.push({ date: today(), what: f.what.value.trim(), mins: f.mins.value, note: note });
-    state.daily[today()] = state.daily[today()] || {};
     save();
   }
   function streak() {
@@ -322,12 +474,13 @@
   function renderToday() {
     var el = $("view-today");
     var done = state.daily[today()] || {};
-    var cnt = stage.daily.filter(function (_, i) { return done[i]; }).length;
+    var daily = stage.daily || [];
+    var cnt = daily.filter(function (_, i) { return done[i]; }).length;
     el.innerHTML =
       '<div class="stats"><div><b>' + streak() + '</b><span>连续天数</span></div><div><b>' + state.log.length +
-        '</b><span>练习记录</span></div><div><b>' + cnt + " / " + stage.daily.length + "</b><span>今天完成</span></div></div>" +
+        '</b><span>练习记录</span></div><div><b>' + cnt + " / " + daily.length + "</b><span>今天完成</span></div></div>" +
       "<h3>今天的练习 <small>" + today() + " · 10–15 分钟</small></h3>" +
-      '<ul class="checks" id="daily">' + stage.daily.map(function (d, i) {
+      '<ul class="checks" id="daily">' + daily.map(function (d, i) {
         return '<li class="' + (done[i] ? "done" : "") + '"><label><input type="checkbox" data-i="' + i + '"' + (done[i] ? " checked" : "") + "> " +
           esc(d.text) + '</label><span class="muted">' + d.min + "′</span></li>";
       }).join("") + "</ul>" +
@@ -336,7 +489,7 @@
         '<input name="mins" type="number" min="1" placeholder="分钟" class="mins"><input name="note" placeholder="体感 / 问题">' +
         '<button class="btn primary">记一笔</button></form>' +
       '<ul class="log">' + (state.log.slice().reverse().map(function (r) {
-        return "<li><span class=\"muted\">" + esc(r.date) + "</span> " + esc(r.what) + (r.mins ? " · " + esc(r.mins) + " 分钟" : "") +
+        return '<li><span class="muted">' + esc(r.date) + "</span> " + esc(r.what) + (r.mins ? " · " + esc(r.mins) + " 分钟" : "") +
           (r.note ? '<br><span class="muted">' + esc(r.note) + "</span>" : "") + "</li>";
       }).join("") || '<li class="muted">还没有记录。上完课在“收尾”那一步记一笔。</li>') + "</ul>" +
       (state.log.length ? '<p><button type="button" class="btn" id="log-copy">复制为 Markdown</button> <span class="muted" id="log-copy-msg">贴回 vault 的练习日志，或直接发给 Claude。</span></p>' : "");
@@ -354,40 +507,5 @@
     });
   }
 
-  /* =========================================================
-   * 路线：诊断、阶段、过关、曲目（都折叠）
-   * ========================================================= */
-  function renderMap() {
-    var el = $("view-map");
-    var passed = stage.pass.filter(function (p) { return state.checks[p.id]; }).length;
-    el.innerHTML =
-      '<ol class="roadmap">' + C.stages.map(function (s) {
-        var cls = s.n === stage.n ? "is-current" : (s.n < stage.n ? "is-done" : "is-later");
-        var inner = s.lessons
-          ? "<p>" + esc(s.why) + "</p><ul>" + s.lessons.map(function (l) {
-              return '<li class="lesson-' + l.status + '">' + (l.status === "current" ? "▶ " : "· ") + "第 " + l.n + " 课 " + esc(l.title) +
-                ' <span class="muted">' + esc(l.goal) + "</span></li>";
-            }).join("") + "</ul>"
-          : "<p>" + esc(s.outline) + "</p>";
-        return '<li class="' + cls + '"><details' + (s.n === stage.n ? " open" : "") + '><summary><span class="stage-n">' + s.n + "</span>" +
-          esc(s.title) + '<span class="muted">' + (s.n === stage.n ? "现在 · " : "") + esc(s.weeks) + "</span></summary>" + inner + "</details></li>";
-      }).join("") + "</ol>" +
-      '<details class="panel" open><summary>第 ' + stage.n + " 阶段过关标准 <span class=\"muted\">" + passed + " / " + stage.pass.length + "</span></summary>" +
-        '<ul class="checks" id="pass">' + stage.pass.map(function (p) {
-          var on = !!state.checks[p.id];
-          return '<li class="' + (on ? "done" : "") + '"><label><input type="checkbox" data-id="' + p.id + '"' + (on ? " checked" : "") + "> " + esc(p.text) + "</label></li>";
-        }).join("") + '</ul><ul class="redlines">' + stage.redlines.map(function (r) { return "<li>" + esc(r) + "</li>"; }).join("") + "</ul></details>" +
-      '<details class="panel"><summary>起点诊断 <span class="muted">' + esc(C.diagnosis.date) + "</span></summary>" +
-        "<p>" + esc(C.diagnosis.summary) + '</p><div class="diag">' + C.diagnosis.items.map(function (d) {
-          return '<div class="diag-row tone-' + d.tone + '"><span class="diag-label">' + esc(d.label) + "</span><span>" + esc(d.finding) +
-            '<br><span class="muted">' + esc(d.note) + "</span></span></div>";
-        }).join("") + "</div></details>" +
-      '<details class="panel"><summary>练习曲</summary><ul class="songs">' + C.songs.map(function (s) {
-        return "<li><b>" + esc(s.stage) + "</b> " + s.items.map(esc).join("、") + '<br><span class="muted">' + esc(s.focus) + "</span></li>";
-      }).join("") + '</ul><p class="muted">' + esc(C.benchmark) + "</p></details>";
-    $("pass").addEventListener("change", function (e) { state.checks[e.target.dataset.id] = e.target.checked; save(); renderMap(); });
-  }
-
-  go(state.step);
   route();
 })();
