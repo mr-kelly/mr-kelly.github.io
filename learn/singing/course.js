@@ -480,12 +480,410 @@ window.COURSE = {
       n: 2, title: "换声点与混声", weeks: "6–8 周",
       why: "打通真假声，副歌不再变虚。这是主战场。",
       lessons: [
-        { id: "2.1", title: "胸声与头声", goal: "分清两种发声：声带完全闭合 vs 边缘振动。" },
-        { id: "2.2", title: "找到换声点", goal: "滑音找出自己“翻、断、变虚”的那几个音。" },
-        { id: "2.3", title: "窄元音找混声", goal: "Nay Nay、Mum Mum，用窄元音挡住喉部代偿。" },
-        { id: "2.4", title: "换声区平滑过渡", goal: "胸声渐变到混声，跨换声点不断层。" },
-        { id: "2.5", title: "共鸣调配", goal: "口腔、咽腔、鼻腔的比例，不扁不闷。" },
-        { id: "2.6", title: "强混声（Belting）入门", goal: "安全地唱出结实的高位强音。" }
+        {
+          "id": "2.1",
+          "title": "胸声与头声",
+          "goal": "分清两种发声：胸声厚实，头声轻亮。目标是能分辨、能切换。",
+          "ready": true,
+          "misconception": "胸声和头声不是高低音的好坏之分，而是两种不同的发声方式。真正要练的是分得清、切得过去。",
+          "videos": [
+            {
+              "id": "OXP5i16nczE",
+              "title": "唱歌必学的三种声音！学会如何正确分别假声、头声、混声",
+              "lang": "中文"
+            },
+            {
+              "id": "LYXGOkS0JR4",
+              "title": "6 分钟教你学会头声！解决高音发虚，假声不丝滑",
+              "lang": "中文"
+            }
+          ],
+          "steps": [
+            {
+              "title": "找胸声",
+              "body": "发“啊”，从低音开始，手放胸口，感觉震动在胸口。"
+            },
+            {
+              "title": "找头声",
+              "body": "轻轻发“嘟”或“呜”，声音轻。手放头顶，感觉声音在头里。"
+            },
+            {
+              "title": "来回切换",
+              "body": "胸声“啊”，然后轻轻切到头声，感受声音从厚到薄。"
+            }
+          ],
+          "troubleshooting": [
+            {
+              "symptom": "胸声发出来很空",
+              "cause": "闭合不够",
+              "fix": "推一点点气，让声带合上"
+            },
+            {
+              "symptom": "头声变成漏气的“哈”",
+              "cause": "声音太虚",
+              "fix": "加一点点支撑，声音往前"
+            },
+            {
+              "symptom": "分不清两者",
+              "cause": "没有用身体感觉",
+              "fix": "手放胸口和头顶，哪边震动就是哪种"
+            }
+          ],
+          "ladder": [
+            {
+              "id": "2.1-1",
+              "text": "能分清胸声和头声（自己听得出来）",
+              "target": null
+            },
+            {
+              "id": "2.1-2",
+              "text": "能在同一个音上切换胸声和头声",
+              "target": null
+            }
+          ]
+        },
+        {
+          "id": "2.2",
+          "title": "找到换声点",
+          "goal": "用滑音找出自己“翻、断、变虚”的音，知道换声点在哪里。",
+          "ready": true,
+          "misconception": "换声点不是“坏音”，是每个人都有的音区转换位置。目标不是消灭它，而是让它平滑过渡。",
+          "videos": [
+            {
+              "id": "d4Sx-yIUcDE",
+              "title": "歌唱技巧教學「滑音」(韋霖老師歌唱教學)",
+              "lang": "中文"
+            },
+            {
+              "id": "LVFWdw8VI9U",
+              "title": "唱歌时如何转换真假声？",
+              "lang": "中文"
+            }
+          ],
+          "steps": [
+            {
+              "title": "从低滑到高",
+              "body": "发“嗯”，慢慢从低滑到高，像警报。"
+            },
+            {
+              "title": "听哪里变了",
+              "body": "留意声音突然变薄、变虚或破开的地方。"
+            },
+            {
+              "title": "来回滑",
+              "body": "在那个位置附近来回滑 3 次，记下大概的音名（用钢琴或手机看）。"
+            }
+          ],
+          "troubleshooting": [
+            {
+              "symptom": "滑不上去",
+              "cause": "滑得太快",
+              "fix": "放慢，一个音一个音走"
+            },
+            {
+              "symptom": "每次换声点的位置不一样",
+              "cause": "正常",
+              "fix": "用同一个元音，多练几次找稳定位置"
+            },
+            {
+              "symptom": "滑的时候喉咙紧",
+              "cause": "音量太大，下巴紧",
+              "fix": "降低音量，放松下巴"
+            }
+          ],
+          "ladder": [
+            {
+              "id": "2.2-1",
+              "text": "能从低滑到高，指出换声点的位置",
+              "target": null
+            },
+            {
+              "id": "2.2-2",
+              "text": "在换声点附近来回滑 3 次，声音稳定",
+              "target": null
+            },
+            {
+              "id": "2.2-3",
+              "text": "把换声点的音名写进练习日志",
+              "target": null
+            }
+          ]
+        },
+        {
+          "id": "2.3",
+          "title": "窄元音找混声",
+          "goal": "用 Nay、Mum 这类窄元音，找到混声的感觉。",
+          "ready": true,
+          "misconception": "混声不是把胸声和头声硬拼在一起，而是用窄元音和适当的共鸣把两者融在一起。窄元音让喉咙少代偿。",
+          "videos": [
+            {
+              "id": "FvP0U9o1NRs",
+              "title": "How I Learned to Sing in Mixed Voice with The Nay Exercise!",
+              "lang": "英文"
+            },
+            {
+              "id": "lCnW14uicPo",
+              "title": "Nay Nay Nay Vocal Exercise: Top Singing Exercises Part 4",
+              "lang": "英文"
+            }
+          ],
+          "steps": [
+            {
+              "title": "说“Nay”",
+              "body": "感受嘴角微微向两侧，上颚抬起。"
+            },
+            {
+              "title": "用 Nay 唱一个中音",
+              "body": "慢慢往上滑，保持 Nay 的感觉。"
+            },
+            {
+              "title": "加一点点力度",
+              "body": "不要喊。力度加在气上，不加在喉咙上。"
+            }
+          ],
+          "troubleshooting": [
+            {
+              "symptom": "声音变鼻子",
+              "cause": "嘴角拉得太紧",
+              "fix": "放松嘴角，让声音从口腔出去"
+            },
+            {
+              "symptom": "喉咙紧",
+              "cause": "音量太大",
+              "fix": "减小音量"
+            },
+            {
+              "symptom": "声音突然虚掉",
+              "cause": "闭合不够",
+              "fix": "回到 2.2 的滑音练习"
+            }
+          ],
+          "ladder": [
+            {
+              "id": "2.3-1",
+              "text": "Nay 中音能唱 10 秒不断",
+              "target": null
+            },
+            {
+              "id": "2.3-2",
+              "text": "用 Nay 从中音滑到换声点，不断气",
+              "target": null
+            },
+            {
+              "id": "2.3-3",
+              "text": "加一点力度，声音结实但不喊",
+              "target": null
+            }
+          ]
+        },
+        {
+          "id": "2.4",
+          "title": "换声区平滑过渡",
+          "goal": "从胸声渐变到混声，跨换声点不断层。",
+          "ready": true,
+          "misconception": "不要硬冲换声点。要提前把声音变薄、变轻，让声音在换声点之前就开始过渡。",
+          "videos": [
+            {
+              "id": "qn_LPVJHjTk",
+              "title": "Blending Registers Singing - 4 Exercises to Smooth Transition from Chest to Head Voice",
+              "lang": "英文"
+            },
+            {
+              "id": "p6naj0XrYTU",
+              "title": "Chest To Head Voice Transition - LIVE!",
+              "lang": "英文"
+            }
+          ],
+          "steps": [
+            {
+              "title": "选一个音阶",
+              "body": "用 Nay 或 Mum，从中音开始，慢慢往上。"
+            },
+            {
+              "title": "提前变轻",
+              "body": "在换声点前一两个音，把声音变轻一点。"
+            },
+            {
+              "title": "过换声点不停",
+              "body": "不换力度，让声音自然变化，不要停。"
+            }
+          ],
+          "troubleshooting": [
+            {
+              "symptom": "过换声点突然变大",
+              "cause": "没有提前变轻",
+              "fix": "提前一两个音开始变轻"
+            },
+            {
+              "symptom": "声音断掉",
+              "cause": "气不够",
+              "fix": "加一点支撑，不要猛推"
+            },
+            {
+              "symptom": "跨过后喉咙紧",
+              "cause": "下巴紧",
+              "fix": "放松下巴，声音往前走"
+            }
+          ],
+          "ladder": [
+            {
+              "id": "2.4-1",
+              "text": "用 Nay 跨换声点不断层（自己听）",
+              "target": null
+            },
+            {
+              "id": "2.4-2",
+              "text": "跨换声点时音量基本一致",
+              "target": null
+            },
+            {
+              "id": "2.4-3",
+              "text": "录一段，和 2.2 时的录音对比",
+              "target": null
+            }
+          ]
+        },
+        {
+          "id": "2.5",
+          "title": "共鸣调配",
+          "goal": "口腔、咽腔、鼻腔的比例，不扁不闷。",
+          "ready": true,
+          "misconception": "共鸣不是靠鼻子唱，也不是靠喉咙包住。鼻音太重会扁，咽腔关太紧会闷，要找平衡。",
+          "videos": [
+            {
+              "id": "O1AZSAXQEzs",
+              "title": "如何练习鼻腔共鸣？|唱歌技巧教学/nasal resonance",
+              "lang": "中文"
+            },
+            {
+              "id": "0hweSPOoNX4",
+              "title": "共鸣（四）｜口腔共鸣：咽腔、喉腔、口腔",
+              "lang": "中文"
+            }
+          ],
+          "steps": [
+            {
+              "title": "保持打开感",
+              "body": "把 1.3 的打哈欠感保持住。"
+            },
+            {
+              "title": "找鼻腔感",
+              "body": "发“嗯”，感觉鼻子在震动，但不是堵住。"
+            },
+            {
+              "title": "“嗯”变“啊”",
+              "body": "保持一点鼻腔的感觉，声音从嘴里出来。"
+            }
+          ],
+          "troubleshooting": [
+            {
+              "symptom": "鼻子堵住的感觉",
+              "cause": "“嗯”太用力",
+              "fix": "减少鼻腔感，声音放轻"
+            },
+            {
+              "symptom": "声音闷、含着",
+              "cause": "嘴张得不够，咽腔关紧",
+              "fix": "张大一点，打开咽腔"
+            },
+            {
+              "symptom": "声音太扁",
+              "cause": "鼻腔太多",
+              "fix": "减少鼻腔，加一点口腔打开"
+            }
+          ],
+          "ladder": [
+            {
+              "id": "2.5-1",
+              "text": "用“嗯”找到鼻腔感，且不堵住",
+              "target": null
+            },
+            {
+              "id": "2.5-2",
+              "text": "把“嗯”变成“啊”，声音圆润不扁",
+              "target": null
+            },
+            {
+              "id": "2.5-3",
+              "text": "唱一句歌词，清楚不闷",
+              "target": null
+            }
+          ]
+        },
+        {
+          "id": "2.6",
+          "title": "强混声（Belting）入门",
+          "goal": "安全地唱出结实的高位强音。",
+          "ready": true,
+          "misconception": "强混声不是喊出来的。它需要稳定的闭合和支撑。喉咙疼，说明方法不对，立刻停。",
+          "videos": [
+            {
+              "id": "0HxFb2MOwvw",
+              "title": "Learn how to belt safely",
+              "lang": "英文"
+            },
+            {
+              "id": "mBXuyb3f2iQ",
+              "title": "The Ultimate Guide To Belting - Beginner Singing Lesson",
+              "lang": "英文"
+            }
+          ],
+          "steps": [
+            {
+              "title": "先用 Nay 唱中高音",
+              "body": "保持混声的感觉，不用力。"
+            },
+            {
+              "title": "慢慢加一点力度",
+              "body": "力度加在气上，喉咙不能更紧。"
+            },
+            {
+              "title": "只练一个音",
+              "body": "每次不超过 10 秒，然后休息。"
+            }
+          ],
+          "troubleshooting": [
+            {
+              "symptom": "喉咙痛",
+              "cause": "用力过猛",
+              "fix": "立即停止，喝温水，几天不练强音"
+            },
+            {
+              "symptom": "声音变成喊",
+              "cause": "力度太大",
+              "fix": "减到七成力"
+            },
+            {
+              "symptom": "很难上去",
+              "cause": "硬冲换声点",
+              "fix": "先回到 2.4 练过渡，别硬冲"
+            }
+          ],
+          "ladder": [
+            {
+              "id": "2.6-1",
+              "text": "中高音用 Nay 加力度，声音结实不喊",
+              "target": null
+            },
+            {
+              "id": "2.6-2",
+              "text": "一个音持续 10 秒，喉咙不痛",
+              "target": null
+            }
+          ]
+        }
+      ],
+      pass: [
+        { id: "s2-1", text: "能分清胸声和头声，并在同一个音上切换" },
+        { id: "s2-2", text: "找到了自己的换声点，并写进练习日志" },
+        { id: "s2-3", text: "用 Nay 从中音滑到换声点不断气" },
+        { id: "s2-4", text: "跨换声点时音量基本一致，录音里听不到断层" },
+        { id: "s2-5", text: "不鼻、不闷，唱一句歌词清楚" },
+        { id: "s2-6", text: "中高音用 Nay 加力度，一个音 10 秒，喉咙不痛" }
+      ],
+      redlines: [
+        "喉咙疼（不是累）：当天停，喝温水，第二天只做 2.1 的轻声练习。",
+        "强音（2.6）练两周还是喉咙紧，找一位声乐老师看一次，不要自己硬练。"
       ]
     },
     {
