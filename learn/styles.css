@@ -332,3 +332,27 @@ a.lesson-row:hover { background: var(--bg2); text-decoration: none; }
 .term span { font-size: 14px; color: var(--muted); line-height: 1.7; }
 .btn.small { font-size: 13px; padding: 5px 12px; white-space: nowrap; }
 .term-demo { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: var(--kelly-radius-md); margin-top: 8px; }
+
+/* 留住学员：一句歌 + 完成页 */
+.gain { margin-top: 6px; color: var(--accent); font-weight: 500; }
+.actions.center { justify-content: center; margin-bottom: 8px; }
+.sing h3 { margin-top: 0; }
+.song-pick { display: grid; grid-template-columns: 1fr 2fr; gap: 10px; margin: 14px 0 6px; }
+.song-pick label { display: grid; gap: 4px; font-size: 13px; color: var(--muted); }
+.song-pick input { font: inherit; font-size: 15px; padding: 8px 10px; border: 1px solid var(--line); border-radius: var(--kelly-radius-sm); background: var(--bg); color: var(--text); }
+.song-line { font-family: var(--kelly-font-display); font-size: 18px; margin: 6px 0 10px; }
+.compare { margin-top: 18px; display: grid; gap: 8px; }
+.compare > div { display: flex; align-items: center; gap: 10px; }
+.compare span { width: 4em; font-size: 13px; color: var(--muted); }
+.compare audio { flex: 1; max-width: 380px; height: 36px; }
+.finish { text-align: center; }
+.finish h2 { font-size: 24px; margin-bottom: 16px; }
+.finish-badge { width: 56px; height: 56px; margin: 0 auto 8px; border-radius: 50%; background: var(--accent); color: #fff; display: grid; place-items: center; font-size: 28px; }
+.finish .stats { margin-bottom: 10px; }
+.finish .compare { justify-items: center; }
+.next-card { text-align: left; background: var(--accent-soft); border-radius: var(--kelly-radius-md); padding: 16px 18px; margin: 20px 0 14px; }
+.next-card h3 { margin: 4px 0 6px; font-size: 21px; }
+.next-card p:last-child { margin-top: 12px; }
+.finish details { text-align: left; }
+.done-mark { margin-left: auto; color: var(--accent); font-size: 12px; }
+@media (max-width: 640px) { .song-pick { grid-template-columns: 1fr; } }

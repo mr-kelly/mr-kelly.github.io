@@ -18,6 +18,9 @@
   state.log = state.log || [];
   state.step = state.step || 0;
   state.test = state.test || { answers: {}, at: 0, done: false, date: "" };
+  state.finished = state.finished || {};   // 课号 → 完成日期
+  state.song = state.song || (C.hookSong ? { name: C.hookSong.name, line: C.hookSong.line } : null);
+  var recs = {};                           // 本次打开页面里的录音：recs[课号] = { before, after }，不存盘
 
   function load() {
     try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; }
@@ -95,7 +98,8 @@
           s.lessons.map(function (l) {
             var gr = l.optional ? "opt" : (g[l.id] || "none");
             return '<a href="#lesson/' + l.id + '" class="tree-item' + (v === "lesson" && l.id === lid ? " on" : "") + (l.id === curLesson.id ? " now" : "") +
-              (l.ready ? "" : " tbd") + '"><span class="gdot g-' + gr + '"></span><span class="lid">' + l.id + "</span>" + esc(l.title) + "</a>";
+              (l.ready ? "" : " tbd") + '"><span class="gdot g-' + gr + '"></span><span class="lid">' + l.id + "</span>" + esc(l.title) +
+              (state.finished[l.id] ? '<span class="done-mark">✓</span>' : "") + "</a>";
           }).join("") + "</details>";
       }).join("") + "</div>" +
       '<p class="side-foot">课程更新于 ' + esc(C.updated) + "</p>";
@@ -186,7 +190,9 @@
       el.innerHTML = '<div class="stage-card intro"><p class="eyebrow">第 0 课</p><h2>入学测试</h2>' +
         '<p class="why-course">' + esc(C.why) + "</p><p>" + esc(C.placement.intro) + "</p>" +
         '<div class="grade-legend"><span class="badge g-pass">已会 · 跳过</span><span class="badge g-partial">半会 · 快速过</span><span class="badge g-need">要学</span></div>' +
-        '<button type="button" class="btn primary big" id="test-start">开始测试</button></div>';
+        '<p class="actions center"><button type="button" class="btn primary big" id="test-start">开始测试</button>' +
+        '<a class="btn big" href="#lesson/' + LESSONS[0].id + '">先试一课（' + ((C.lessonIntro || {})[LESSONS[0].id] || {}).mins + ' 分钟）</a></p>' +
+        '<p class="muted">零基础、或者想先感受一下的，建议先试一课，试完再回来测。</p></div>';
       $("test-start").addEventListener("click", function () { state.test.started = true; state.test.at = 0; save(); renderTest(); });
       return;
     }
@@ -333,11 +339,12 @@
    * 上课：一步一屏
    * ========================================================= */
   var STEPS = [
+    { key: "sing", label: "先唱一句" },
     { key: "watch", label: "看视频" },
     { key: "do", label: "跟着做" },
-    { key: "time", label: "计时" },
-    { key: "rec", label: "录音" },
-    { key: "done", label: "收尾" }
+    { key: "time", label: "练一练" },
+    { key: "apply", label: "用到歌里" },
+    { key: "done", label: "完成" }
   ];
   function currentLevel() {
     return lesson.ladder.find(function (x) { return !state.checks[x.id]; }) || lesson.ladder[lesson.ladder.length - 1];
@@ -355,8 +362,8 @@
       (prevL ? '<a href="#lesson/' + prevL.id + '">← ' + esc(prevL.id) + " " + esc(prevL.title) + "</a>" : "<span></span>") +
       (nextL ? '<a href="#lesson/' + nextL.id + '">' + esc(nextL.id) + " " + esc(nextL.title) + " →</a>" : "<span></span>") + "</div>";
     var intro = (C.lessonIntro || {})[lesson.id];
-    if (intro) head += '<div class="why-lesson"><p class="eyebrow">为什么学这一课</p><p>' + esc(intro.why) + "</p></div>";
-    if (!state.test.done && lesson.id === curLesson.id) head += '<p class="callout">还没做入学测试。<a href="#test">先做测试</a>，确认要不要从这一课开始。</p>';
+    if (intro) head += '<div class="why-lesson"><p class="eyebrow">为什么学这一课' + (intro.mins ? " · 约 " + intro.mins + " 分钟" : "") + "</p><p>" + esc(intro.why) + "</p>" +
+      (intro.gain ? '<p class="gain">学完你能：' + esc(intro.gain) + "</p>" : "") + "</div>";
     if (!lesson.ready) {
       V.innerHTML = head + '<div class="stage-card tbd-card"><p class="lede">' + esc(lesson.goal) + "</p>" +
         "<p class=\"muted\">这一课还没备课。轮到它的时候会补上视频、步骤和过关标准。" +
@@ -371,6 +378,7 @@
       '<div class="stage-card" id="step-body"></div>' +
       '<div class="step-nav"><button type="button" class="btn" id="prev">← 上一步</button>' +
       '<button type="button" class="btn primary" id="next">下一步 →</button></div>' + pager;
+    if (state.stepLesson !== lesson.id) { state.step = 0; state.stepLesson = lesson.id; save(); }
     $("stepper").addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) go(+b.dataset.step); });
     $("prev").addEventListener("click", function () { go(state.step - 1); });
     $("next").addEventListener("click", function () { go(state.step + 1); });
@@ -429,6 +437,34 @@
   }
 
   var STEP_RENDER = {
+    sing: function (el) {
+      if (!state.song) { go(state.step + 1); return; }
+      el.append(h('<div class="sing"><h3>先唱一句你喜欢的歌</h3>' +
+        '<p class="muted">每节课都用同一句歌开头和结尾。现在先录一遍，学完这课再录一遍，自己听差别。</p>' +
+        '<div class="song-pick"><label>歌名<input id="song-name" value="' + esc(state.song.name) + '"></label>' +
+        '<label>这一句<input id="song-line" value="' + esc(state.song.line) + '"></label></div></div>'));
+      ["song-name", "song-line"].forEach(function (k) {
+        $(k).addEventListener("change", function () { state.song = { name: $("song-name").value.trim(), line: $("song-line").value.trim() }; save(); });
+      });
+      el.append(recordBlock("按自己现在的样子唱就行，不用唱好。", function (url) {
+        (recs[lesson.id] = recs[lesson.id] || {}).before = url;
+      }));
+    },
+
+    apply: function (el) {
+      var intro = (C.lessonIntro || {})[lesson.id] || {};
+      var r = recs[lesson.id] || {};
+      el.append(h('<div class="sing"><h3>用到你的歌里</h3>' +
+        (state.song ? '<p class="song-line">《' + esc(state.song.name) + "》：" + esc(state.song.line) + "</p>" : "") +
+        "<p>" + esc(intro.apply || "用这一课学到的方法，再唱一遍你那句歌。") + "</p></div>"));
+      el.append(recordBlock("用刚学的方法再唱一遍，录下来。", function (url) {
+        (recs[lesson.id] = recs[lesson.id] || {}).after = url;
+        var c = el.querySelector(".compare-now");
+        if (c && r.before) c.hidden = false;
+      }));
+      if (r.before) el.append(h('<div class="compare compare-now"' + (r.after ? "" : " hidden") + '><p><b>开课前那一遍</b></p><audio controls src="' + r.before + '"></audio></div>'));
+    },
+
     watch: function (el) {
       el.append(h('<p class="callout warn"><strong>先纠正：</strong>' + esc(lesson.misconception) + "</p>"), videoCard(lesson.videos[0], true));
       if (lesson.videos.length > 1) {
@@ -494,32 +530,46 @@
       el.append(tips);
     },
 
-    rec: function (el) {
-      el.append(h('<div class="recorder"><p>录一段当前这一级的练习，回放听听：颤动断没断、声音稳不稳。</p>' +
-        '<button type="button" class="btn primary big" id="rec-btn">● 开始录音</button>' +
-        '<p class="muted" id="rec-status">录音只在本机浏览器里，不会上传。</p><div id="rec-list" class="rec-list"></div></div>'));
-      setupRecorder();
-    },
-
     done: function (el) {
-      var best = bestSummary();
-      el.append(h('<div class="wrap-up"><h3>今天练完了？记一笔</h3>' +
-        (best ? '<p class="muted">计时成绩会自动带上：' + esc(best) + "</p>" : "") +
-        '<form class="log-form" id="quick-log">' +
-          '<input name="what" value="' + esc(lesson.id + " " + lesson.title + " 第 " + (lesson.ladder.indexOf(currentLevel()) + 1) + " 级") + '" required>' +
-          '<input name="mins" type="number" min="1" placeholder="分钟" class="mins">' +
+      var intro = (C.lessonIntro || {})[lesson.id] || {};
+      var first = !state.finished[lesson.id];
+      state.finished[lesson.id] = today(); save();
+      renderSidebar("lesson", lesson.id);
+      var i = LESSONS.indexOf(lesson), nextL = LESSONS[i + 1];
+      var nextIntro = nextL ? (C.lessonIntro || {})[nextL.id] || {} : {};
+      var r = recs[lesson.id] || {};
+      var best = lesson.ladder.filter(function (x) { return state.best[x.id]; })
+        .map(function (x) { return "第 " + (lesson.ladder.indexOf(x) + 1) + " 级 " + state.best[x.id].toFixed(1) + " 秒"; });
+      var passed = lesson.ladder.filter(function (x) { return state.checks[x.id]; }).length;
+      el.append(h('<div class="finish">' +
+        '<p class="finish-badge">✓</p><h2>' + (first ? "完成第一次 " : "又练了一次 ") + esc(lesson.id) + " " + esc(lesson.title) + "</h2>" +
+        '<div class="stats"><div><b>' + passed + " / " + lesson.ladder.length + '</b><span>进阶完成</span></div><div><b>' + streak() +
+          '</b><span>连续天数</span></div><div><b>' + Object.keys(state.finished).length + "</b><span>上过的课</span></div></div>" +
+        (best.length ? '<p class="muted">计时最好：' + esc(best.join("，")) + "</p>" : "") +
+        (r.before && r.after ? '<div class="compare"><p><b>听听你的变化</b></p><div><span>开课前</span><audio controls src="' + r.before + '"></audio></div>' +
+          '<div><span>现在</span><audio controls src="' + r.after + '"></audio></div></div>' : "") +
+        (nextL ? '<div class="next-card"><p class="eyebrow">下一课 · 约 ' + (nextIntro.mins || 10) + " 分钟</p><h3>" + esc(nextL.id) + " " + esc(nextL.title) + "</h3>" +
+          (nextIntro.gain ? "<p>学完你能：" + esc(nextIntro.gain) + "</p>" : "") +
+          '<p><a class="btn primary big" href="#lesson/' + nextL.id + '">接着试下一课 →</a></p></div>' : "") +
+        (!state.test.done ? '<p class="callout">想知道自己该从哪一课开始？<a href="#test">做一下入学测试</a>，会给你打分、说出你的强项。</p>' : "") +
+        '<details class="more"><summary>记一笔练习日志</summary>' +
+          '<form class="log-form" id="quick-log">' +
+          '<input name="what" value="' + esc(lesson.id + " " + lesson.title) + '" required>' +
+          '<input name="mins" type="number" min="1" placeholder="分钟" class="mins" value="' + (intro.mins || "") + '">' +
           '<input name="note" placeholder="体感 / 问题（可空）">' +
-          '<button class="btn primary">记一笔</button></form>' +
-        '<p class="muted" id="quick-msg"></p><p><a href="#today">去看今日打卡和历史日志 →</a></p></div>'));
-      $("quick-log").addEventListener("submit", function (e) { e.preventDefault(); addLog(e.target); $("quick-msg").textContent = "记好了。明天见。"; });
+          '<button class="btn primary">记一笔</button></form><p class="muted" id="quick-msg"></p></details>' +
+      "</div>"));
+      $("quick-log").addEventListener("submit", function (e) { e.preventDefault(); addLog(e.target); $("quick-msg").textContent = "记好了。"; });
     }
   };
 
-  /* ---------- 录音 ---------- */
+  /* ---------- 录音（通用按钮）---------- */
   var recorder = null;
-  function setupRecorder() {
-    var btn = $("rec-btn"), status = $("rec-status");
-    if (!navigator.mediaDevices || !window.MediaRecorder) { btn.disabled = true; status.textContent = "这个浏览器不支持录音。"; return; }
+  function recordBlock(hint, onDone) {
+    var box = h('<div class="recorder"><button type="button" class="btn primary big rec-btn">● 开始录音</button>' +
+      '<p class="muted rec-status">' + esc(hint) + '</p><div class="rec-list"></div></div>');
+    var btn = box.querySelector(".rec-btn"), status = box.querySelector(".rec-status");
+    if (!navigator.mediaDevices || !window.MediaRecorder) { btn.disabled = true; status.textContent = "这个浏览器不支持录音，可以用手机自带录音代替。"; return box; }
     btn.addEventListener("click", function () {
       if (recorder && recorder.state === "recording") { recorder.stop(); return; }
       navigator.mediaDevices.getUserMedia({ audio: true }).then(function (stream) {
@@ -529,18 +579,20 @@
         recorder.onstop = function () {
           stream.getTracks().forEach(function (t) { t.stop(); });
           var url = URL.createObjectURL(new Blob(chunks, { type: recorder.mimeType }));
-          var list = $("rec-list"); if (!list) return;
-          list.prepend(h('<div class="rec-item"><span>' + new Date().toLocaleTimeString() + '</span><audio controls src="' + url + '"></audio>' +
-            '<a href="' + url + '" download="singing-' + today() + '.webm">下载</a></div>'));
-          btn.textContent = "● 再录一段"; btn.classList.remove("running");
-          status.textContent = "录好了。想留档就点下载，放进 vault 的 assets/。";
+          box.querySelector(".rec-list").innerHTML = '<div class="rec-item"><audio controls src="' + url + '"></audio>' +
+            '<a href="' + url + '" download="' + C.id + "-" + lesson.id + "-" + today() + '.webm">下载</a></div>';
+          btn.textContent = "● 重录"; btn.classList.remove("running");
+          status.textContent = "录好了。只存在这次打开的页面里，想留着就点下载。";
+          onDone(url);
         };
         recorder.start();
         btn.textContent = "■ 停止"; btn.classList.add("running");
         status.textContent = "录音中……";
       }).catch(function () { status.textContent = "没有拿到麦克风权限。"; });
     });
+    return box;
   }
+
 
   /* =========================================================
    * 打卡：今日练习 + 日志
@@ -560,7 +612,8 @@
     var n = 0, d = new Date();
     for (;;) {
       var k = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
-      var hit = state.log.some(function (r) { return r.date === k; }) || Object.values(state.daily[k] || {}).some(Boolean);
+      var hit = state.log.some(function (r) { return r.date === k; }) || Object.values(state.daily[k] || {}).some(Boolean) ||
+        Object.values(state.finished || {}).indexOf(k) >= 0;
       if (!hit) { if (n === 0 && k === today()) { d.setDate(d.getDate() - 1); continue; } break; }
       n++; d.setDate(d.getDate() - 1);
     }
