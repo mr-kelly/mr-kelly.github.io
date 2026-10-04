@@ -1,5 +1,7 @@
 # Learn
 
+> 做课的完整套路（内容结构、找视频、验证、发布）在 vault 的 `course-maker` skill：`~/Documents/invest/.agents/skills/course-maker/SKILL.md`。`course.js` 字段说明见该 skill 的 `references/course-js.md`。
+
 Kelly 的专项学习课程页（唱歌、篮球技术……），一门课一个子目录：`/learn/<skill>/`。
 
 ## 真源在 vault，不在这里

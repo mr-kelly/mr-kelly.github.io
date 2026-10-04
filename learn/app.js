@@ -318,14 +318,14 @@
             return '<li class="' + (on ? "done" : "") + '"><label><input type="checkbox" data-id="' + p.id + '"' + (on ? " checked" : "") + "> " + esc(p.text) + "</label></li>";
           }).join("") + '</ul><ul class="redlines">' + stage.redlines.map(function (r) { return "<li>" + esc(r) + "</li>"; }).join("") + "</ul>"
         : "<p>待定</p>") + "</details>" +
-      '<details class="panel"><summary>初步摸底 <span class="muted">' + esc(C.diagnosis.date) + "</span></summary>" +
+      (C.diagnosis ? '<details class="panel"><summary>初步摸底 <span class="muted">' + esc(C.diagnosis.date) + "</span></summary>" +
         "<p>" + esc(C.diagnosis.summary) + '</p><div class="diag">' + C.diagnosis.items.map(function (d) {
           return '<div class="diag-row tone-' + d.tone + '"><span class="diag-label">' + esc(d.label) + "</span><span>" + esc(d.finding) +
             '<br><span class="muted">' + esc(d.note) + "</span></span></div>";
-        }).join("") + "</div></details>" +
-      '<details class="panel"><summary>练习曲</summary><ul class="songs">' + C.songs.map(function (s) {
+        }).join("") + "</div></details>" : "") +
+      (C.songs ? '<details class="panel"><summary>' + esc(C.songsLabel || "练习曲") + "</summary>" + '<ul class="songs">' + C.songs.map(function (s) {
         return "<li><b>" + esc(s.stage) + "</b> " + s.items.map(esc).join("、") + '<br><span class="muted">' + esc(s.focus) + "</span></li>";
-      }).join("") + '</ul><p class="muted">' + esc(C.benchmark) + "</p></details>";
+      }).join("") + '</ul>' + (C.benchmark ? '<p class="muted">' + esc(C.benchmark) + "</p>" : "") + "</details>" : "");
     if ($("pass")) $("pass").addEventListener("change", function (e) { state.checks[e.target.dataset.id] = e.target.checked; save(); renderSyllabus(); });
   }
 
