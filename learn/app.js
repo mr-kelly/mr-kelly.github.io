@@ -405,7 +405,7 @@
     watch: function (el) {
       el.append(h('<p class="callout warn"><strong>先纠正：</strong>' + esc(lesson.misconception) + "</p>"), videoCard(lesson.videos[0], true));
       if (lesson.videos.length > 1) {
-        var more = h('<details class="more"><summary>看不懂？换一个讲法（' + (lesson.videos.length - 1) + ' 个）</summary><div class="videos"></div></details>');
+        var more = h('<div class="more"><p class="muted">还有 ' + (lesson.videos.length - 1) + ' 个讲法，看不懂就换一个：</p><div class="videos"></div></div>');
         lesson.videos.slice(1).forEach(function (v) { more.querySelector(".videos").append(videoCard(v)); });
         el.append(more);
       }
