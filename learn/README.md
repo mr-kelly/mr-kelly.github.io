@@ -4,10 +4,10 @@
 
 Kelly 的专项学习课程页（唱歌、篮球技术……），一门课一个子目录：`/learn/<skill>/`。
 
-## 真源在 vault，不在这里
+## 教材真源是这里的 course.js
 
-课程内容的唯一真源是 Kelly 的 Obsidian vault：`~/Documents/invest/life/learn/<skill>/`。这里只是交付用的网页版。
-**改内容先改 vault，再同步 `course.js`**，不要只改网站这边。
+教材（阶段、课程、视频、术语、测试题）的唯一真源是本目录的 `<skill>/course.js`。
+Kelly 的 vault `~/Documents/invest/life/learn/<skill>/` 里的提纲、术语表、阶段教材由 course-maker 的 `export_vault.js` 从它生成，不要手改；vault 只手写学习记录（测试记录、课堂记录、练习日志）。
 
 ## 结构
 
