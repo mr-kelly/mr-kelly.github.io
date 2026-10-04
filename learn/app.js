@@ -230,17 +230,38 @@
     state.test.at++;
     save(); renderTest(); window.scrollTo(0, 0);
   }
+  /* 给分：已会 100、半会 60、要学 20，按非选修课取平均。分数只用来鼓励和定起点，没有及格线。 */
+  var SCORE_W = { pass: 100, partial: 60, need: 20 };
+  function scoreOf(g) {
+    var core = LESSONS.filter(function (l) { return !l.optional; });
+    var sum = core.reduce(function (t, l) { return t + SCORE_W[g[l.id] || "need"]; }, 0);
+    return { value: Math.round(sum / core.length), core: core };
+  }
+  function levelOf(v) {
+    if (v >= 85) return { name: "底子很扎实", tip: "大部分基础你已经有了，不用从头练。把剩下的短板补上，就能直接进歌曲实战。" };
+    if (v >= 60) return { name: "有底子", tip: "你的音准、耐力或者声音控制已经有基础。跳过已会的课，从起点开始，进步会很快。" };
+    if (v >= 35) return { name: "在起步", tip: "你已经能发声，也能唱歌，缺的是气息和声带闭合这些技术。按顺序练，会比乱试快很多。" };
+    return { name: "从零开始", tip: "从零开始完全没问题，很多人都是这样起步的。别急，先把第一课的动作做对，比做多更重要。" };
+  }
   function renderResult(el) {
-    var g = grades(), start = startLesson(g);
+    var g = grades(), start = startLesson(g), sc = scoreOf(g);
     var cnt = { pass: 0, partial: 0, need: 0 };
-    LESSONS.forEach(function (l) { if (!l.optional) cnt[g[l.id] || "need"]++; });
+    sc.core.forEach(function (l) { cnt[g[l.id] || "need"]++; });
+    var lv = levelOf(sc.value);
+    var strengths = sc.core.filter(function (l) { return g[l.id] === "pass"; }).slice(0, 3);
+    var idx = start ? sc.core.indexOf(start) : -1;
+    var next = idx >= 0 ? sc.core.slice(idx + 1, idx + 3).filter(function (l) { return g[l.id] !== "pass"; }) : [];
     el.innerHTML =
       '<div class="stage-card result"><p class="eyebrow">入学测试结果 · ' + esc(state.test.date) + "</p>" +
-        "<h2>建议从 " + (start ? esc(start.id) + " " + esc(start.title) : "第 4 阶段") + " 开始</h2>" +
+        '<div class="score-row"><div class="score-ring" style="--p:' + sc.value / 100 + '"><div class="score-in"><b>' + sc.value + "</b><span>分</span></div></div>" +
+          '<div><h2>' + esc(lv.name) + "</h2><p>" + esc(lv.tip) + "</p></div></div>" +
+        '<div class="start-box"><p class="eyebrow">从这里开始</p><h3>' + (start ? esc(start.id) + " " + esc(start.title) : "第 4 阶段") + "</h3>" +
+          (next.length ? '<p class="muted">接下来是 ' + next.map(function (l) { return esc(l.id) + " " + esc(l.title); }).join("、") + "</p>" : "") +
+          '<p><a class="btn primary" href="#lesson/' + (start ? start.id : "4.5") + '">去上第一课 →</a></p></div>' +
+        (strengths.length ? '<p class="strengths"><b>你的强项：</b>' + strengths.map(function (l) { return esc(l.title); }).join("、") + "</p>" : "") +
         '<div class="stats"><div><b>' + cnt.pass + '</b><span>已会 · 跳过</span></div><div><b>' + cnt.partial +
         '</b><span>半会 · 快速过</span></div><div><b>' + cnt.need + "</b><span>要学</span></div></div>" +
-        (start && start.id !== C.current ? '<p class="callout">课程目前排在 ' + esc(C.current) + "，测试建议从 " + esc(start.id) + " 开始。把结果发给 Claude，课程会按这个调整。</p>" : "") +
-        '<p class="actions"><a class="btn primary" href="#syllabus">看完整提纲 →</a> ' +
+        '<p class="actions"><a class="btn" href="#syllabus">看完整提纲</a> ' +
         '<button type="button" class="btn" id="copy-result">复制结果发给 Claude</button> ' +
         '<button type="button" class="btn" id="retest">重新测试</button></p><p class="muted" id="copy-msg"></p></div>';
     $("retest").addEventListener("click", function () {
@@ -253,7 +274,8 @@
         var a = state.test.answers[q.id];
         lines.push((i + 1) + ". " + q.title + " → " + (q.type === "timer" ? a + " 秒" : "ABCD"[a] + " " + q.options[a].text));
       });
-      lines.push("", "判档：" + LESSONS.filter(function (l) { return !l.optional; }).map(function (l) { return l.id + " " + ({ pass: "已会", partial: "半会", need: "要学" })[g[l.id] || "need"]; }).join("，"));
+      lines.push("", "得分：" + sc.value + " 分（" + lv.name + "）");
+      lines.push("判档：" + sc.core.map(function (l) { return l.id + " " + ({ pass: "已会", partial: "半会", need: "要学" })[g[l.id] || "need"]; }).join("，"));
       lines.push("建议起点：" + (start ? start.id + " " + start.title : "—"));
       navigator.clipboard.writeText(lines.join("\n")).then(function () { $("copy-msg").textContent = "已复制，直接粘贴给 Claude。"; });
     });

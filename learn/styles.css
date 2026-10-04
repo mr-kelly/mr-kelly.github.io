@@ -305,3 +305,16 @@ a.lesson-row:hover { background: var(--bg2); text-decoration: none; }
   .bottombar a:hover { text-decoration: none; }
   .view-title { font-size: 24px; }
 }
+
+/* 测试结果：分数 */
+.score-row { display: flex; gap: 20px; align-items: center; margin: 8px 0 20px; flex-wrap: wrap; }
+.score-row p { color: var(--muted); margin-top: 4px; }
+.score-ring { --p: 0; width: 120px; height: 120px; flex: none; border-radius: 50%; padding: 10px; display: grid;
+  background: conic-gradient(var(--accent) calc(var(--p) * 360deg), var(--accent-soft) 0); }
+.score-in { background: var(--bg2); border-radius: 50%; display: grid; place-content: center; text-align: center; }
+.score-in b { font-family: var(--kelly-font-display); font-size: 38px; font-weight: 500; color: var(--accent); line-height: 1; }
+.score-in span { font-size: 13px; color: var(--muted); }
+.start-box { background: var(--accent-soft); border-radius: var(--kelly-radius-md); padding: 16px 18px; margin-bottom: 16px; }
+.start-box h3 { font-size: 22px; margin: 4px 0 6px; }
+.start-box .muted { margin-bottom: 10px; }
+.strengths { font-size: 15px; margin-bottom: 16px; }
