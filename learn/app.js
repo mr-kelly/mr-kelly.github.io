@@ -183,7 +183,8 @@
     var el = $("view-test");
     if (state.test.done) return renderResult(el);
     if (!state.test.started) {
-      el.innerHTML = '<div class="stage-card intro"><p class="eyebrow">第 0 课</p><h2>入学测试</h2><p>' + esc(C.placement.intro) + "</p>" +
+      el.innerHTML = '<div class="stage-card intro"><p class="eyebrow">第 0 课</p><h2>入学测试</h2>' +
+        '<p class="why-course">' + esc(C.why) + "</p><p>" + esc(C.placement.intro) + "</p>" +
         '<div class="grade-legend"><span class="badge g-pass">已会 · 跳过</span><span class="badge g-partial">半会 · 快速过</span><span class="badge g-need">要学</span></div>' +
         '<button type="button" class="btn primary big" id="test-start">开始测试</button></div>';
       $("test-start").addEventListener("click", function () { state.test.started = true; state.test.at = 0; save(); renderTest(); });
@@ -289,6 +290,7 @@
     var g = state.test.done ? grades() : {};
     var start = state.test.done ? startLesson(g) : null;
     el.innerHTML = '<h1 class="view-title">课程提纲</h1>' +
+      '<p class="why-course">' + esc(C.why) + "</p>" +
       '<p class="muted">第 0 课入学测试 → 4 个阶段 ' + LESSONS.length + " 节课。<span class=\"badge ready\">已备课</span>的可以直接上，<span class=\"badge tbd\">待定</span>的轮到了再备课。</p>" +
       '<ol class="syllabus">' +
         '<li class="stage-block"><div class="stage-title"><span class="stage-n">0</span>入学测试</div>' +
@@ -352,6 +354,8 @@
     var pager = '<div class="pager">' +
       (prevL ? '<a href="#lesson/' + prevL.id + '">← ' + esc(prevL.id) + " " + esc(prevL.title) + "</a>" : "<span></span>") +
       (nextL ? '<a href="#lesson/' + nextL.id + '">' + esc(nextL.id) + " " + esc(nextL.title) + " →</a>" : "<span></span>") + "</div>";
+    var intro = (C.lessonIntro || {})[lesson.id];
+    if (intro) head += '<div class="why-lesson"><p class="eyebrow">为什么学这一课</p><p>' + esc(intro.why) + "</p></div>";
     if (!state.test.done && lesson.id === curLesson.id) head += '<p class="callout">还没做入学测试。<a href="#test">先做测试</a>，确认要不要从这一课开始。</p>';
     if (!lesson.ready) {
       V.innerHTML = head + '<div class="stage-card tbd-card"><p class="lede">' + esc(lesson.goal) + "</p>" +
@@ -401,6 +405,29 @@
     return el;
   }
 
+  /* 名词解释：每个词配一个示范视频，点了才加载 */
+  function termsBlock() {
+    var keys = ((C.lessonIntro || {})[lesson.id] || {}).terms || [];
+    if (!keys.length || !C.glossary) return h("<div></div>");
+    var box = h('<section class="terms"><h3>先认识这几个词</h3><p class="muted">看不懂的词，点“看示范”听一下。</p></section>');
+    keys.forEach(function (k) {
+      var t = C.glossary[k]; if (!t) return;
+      var row = h('<div class="term"><div><b>' + esc(t.name) + "</b><span>" + esc(t.plain) + '</span></div>' +
+        '<button type="button" class="btn small">看示范 ▶</button></div>');
+      row.querySelector("button").addEventListener("click", function () {
+        var f = document.createElement("iframe");
+        f.src = "https://www.youtube-nocookie.com/embed/" + t.demo[0] + "?rel=0";
+        f.allow = "encrypted-media; picture-in-picture";
+        f.allowFullscreen = true;
+        f.title = t.demo[1];
+        f.className = "term-demo";
+        this.replaceWith(f);
+      });
+      box.append(row);
+    });
+    return box;
+  }
+
   var STEP_RENDER = {
     watch: function (el) {
       el.append(h('<p class="callout warn"><strong>先纠正：</strong>' + esc(lesson.misconception) + "</p>"), videoCard(lesson.videos[0], true));
@@ -409,6 +436,7 @@
         lesson.videos.slice(1).forEach(function (v) { more.querySelector(".videos").append(videoCard(v)); });
         el.append(more);
       }
+      el.append(termsBlock());
     },
 
     do: function (el) {

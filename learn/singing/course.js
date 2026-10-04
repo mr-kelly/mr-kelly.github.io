@@ -1658,3 +1658,65 @@ window.COURSE = {
   ],
   benchmark: "每个阶段开始和结束时，各录一遍《说谎》，前后对比最直观。"
 };
+
+/* ===== 引导层：为什么学 + 名词解释（每个名词都有示范视频）===== */
+window.COURSE.why = "很多人唱歌会遇到三件事：高音一上去就喊或变虚，唱几首歌嗓子就干，长句唱着唱着就断气。这门课不是先教你唱某一首歌，而是先教你用对身体：让气稳、让声带合拢、让声音在高低之间平滑过渡。学完你能唱得更久、更稳，高音不用挤，唱歌也更有自己的味道。";
+
+window.COURSE.glossary = {
+  lip:       { name: "弹唇", plain: "嘴唇放松，被气流吹得连续抖动，发出“噗噜噜”。它能看出你的气稳不稳。", demo: ["cRI5kZfMrpk", "【保姆级】手把手教你弹唇（打嘟嘟）"] },
+  breath:    { name: "气息", plain: "唱歌用的气。从肚子和胸口出来，要受控地慢慢放，不是一下子吹出去。", demo: ["Tg2lMFLClA0", "唱歌气不够？两个诀窍随时随地练气息"] },
+  support:   { name: "支撑", plain: "吸满气后，肚子不瘪下去，用腹部慢慢控制气出来的那种感觉。", demo: ["wMRPsBd5inM", "气息到底怎么练？解决练习气息时的误区"] },
+  larynx:    { name: "喉位", plain: "唱歌时喉咙的位置和松紧。太高、太紧，声音就会喊或挤。", demo: ["hYxph674XT4", "稳定的喉咙位置就能把歌唱好吗？【低喉位篇】"] },
+  open:      { name: "打开感", plain: "哈欠时后咽喉那一块自然打开的感觉。声音圆、不挤，就靠它。", demo: ["zLzUNxadGKA", "歌唱习作 6c：打哈欠 / 独立声门 / 放松唱歌"] },
+  sigh:      { name: "叹气发声", plain: "像叹气一样把声音“哈”出来，从高往低滑。它帮你找到放松的发声。", demo: ["zLzUNxadGKA", "歌唱习作 6c：打哈欠 / 独立声门 / 放松唱歌"] },
+  fry:       { name: "气泡音", plain: "最低、最松的“咯咯咯”，声带边缘轻轻合上，像老木门慢慢打开的声音。", demo: ["vLrjKuHLoKI", "Vocal Fry - 气泡音"] },
+  pitch:     { name: "音高", plain: "声音的高低。唱准，就是你发出的音高和旋律里那个音一样。", demo: ["AFbGwafCixo", "零基础学唱歌从哪开始？从音准开始，这六步按顺序来"] },
+  rhythm:    { name: "节奏", plain: "声音在拍子上的位置。开口和拍子对齐，就不抢拍、不拖拍。", demo: ["YG3uBe94rdg", "节奏对唱歌有多重要？如何练习节拍"] },
+  chest:     { name: "胸声", plain: "厚实、有胸腔共鸣感的声音，通常用在低音和中音。", demo: ["OXP5i16nczE", "唱歌必学的三种声音！学会如何正确分别假声、头声、混声"] },
+  head:      { name: "头声", plain: "轻、亮、靠头腔共鸣的声音，常用在高音。", demo: ["LYXGOkS0JR4", "6 分钟教你学会头声！解决高音发虚，假声不丝滑"] },
+  falsetto:  { name: "假声", plain: "很轻、像带着一点气的高音。它不是坏声音，问题是长时间只用它就会虚。", demo: ["OXP5i16nczE", "唱歌必学的三种声音！学会如何正确分别假声、头声、混声"] },
+  register:  { name: "声区", plain: "声音的几个区域：胸声区、混声区、头声区。每个区的发声感觉不一样。", demo: ["LVFWdw8VI9U", "唱歌时如何转换真假声？"] },
+  break:     { name: "换声点", plain: "从一个声区转到另一个声区的位置。很多人在这里会“翻、断、变虚”。每个人都有，要学的是让它过渡平滑。", demo: ["d4Sx-yIUcDE", "歌唱技巧教學「滑音」(韋霖老師歌唱教學)"] },
+  glide:     { name: "滑音", plain: "从一个音平滑地滑到另一个音，像警报声。用来找换声点最直接。", demo: ["d4Sx-yIUcDE", "歌唱技巧教學「滑音」(韋霖老師歌唱教學)"] },
+  mix:       { name: "混声", plain: "胸声和头声融在一起的声音：结实，又不喊。流行歌的高音大多靠它。", demo: ["ixPgpf4_EbA", "Mixed Voice Vocal Exercise Female | NYA TWANG"] },
+  nay:       { name: "窄元音（Nay）", plain: "像“Nay”“Mum”这种嘴形比较窄的音。它让喉咙少代偿，是找混声的好帮手。", demo: ["lCnW14uicPo", "Nay Nay Nay Vocal Exercise: Top Singing Exercises Part 4"] },
+  belt:      { name: "强混声（Belting）", plain: "高位、结实、有力的强音。它很有冲击力，但要稳住闭合和支撑，否则伤嗓子。", demo: ["0HxFb2MOwvw", "Learn how to belt safely"] },
+  resonance: { name: "共鸣", plain: "声音在口腔、咽腔、鼻腔里放大、变亮的感觉。调好它，声音更圆、更有质感。", demo: ["O1AZSAXQEzs", "如何练习鼻腔共鸣？|唱歌技巧教学"] },
+  diction:   { name: "咬字", plain: "把字唱清楚。字头清楚、字腹拉开、字尾收干脆，听的人才能听到歌词。", demo: ["zdkwgeAwC90", "【新手学唱歌】90%的人都会忽略的唱歌咬字的技巧"] },
+  legato:    { name: "连音", plain: "音与音之间连贯不断，像滑过去。慢歌常用。", demo: ["Z-r7I7gtT_U", "How to Sing Staccato to Legato - Jeff Alani Stanfill"] },
+  staccato:  { name: "断音", plain: "每个音短、清楚地切开。快歌的律动常用。", demo: ["Rf8cEBy_aQM", "Singing Staccato & Legato On One Breath"] },
+  breathy:   { name: "气声", plain: "带一点气的轻柔声音，像说悄悄话。要能加，也要能收回来。", demo: ["e2BE1N3FIAc", "How To Sing with a Breathy, Airy Tone"] },
+  vibrato:   { name: "颤音", plain: "长音上自然的小幅起伏，像海浪。它来自稳定的气，不是下巴抖。", demo: ["gXVVQ-5o5YE", "How to Sing With Vibrato - Singing Lesson"] },
+  runs:      { name: "转音（Runs & Riffs）", plain: "快速的一串音连在一起唱，流行歌里很常见的装饰。", demo: ["DT4jWTk36Vo", "How to MASTER Riffs & Runs"] },
+  grit:      { name: "撕裂音（Grit）", plain: "声音带一点沙哑的力量感。很有个性，但风险高，要在闭合稳了以后才碰。", demo: ["YGSnbHraAtQ", "How To Sing With Distortion and Rasp Or Grit"] },
+  proximity: { name: "近讲效应", plain: "麦克风离嘴越近，低音越厚。太近会喷麦，太远声音会薄。", demo: ["t0z_V5kJKXw", "How to Sing with a Recording Mic & Dealing with Proximity Effect from Vocals"] },
+  dynamics:  { name: "强弱", plain: "声音大小的变化。渐强是慢慢变大，渐弱是慢慢变小。", demo: ["kBgOa2DmsiA", "How to Sing with Dynamics"] },
+  structure: { name: "歌曲结构", plain: "一首歌的段落：主歌讲故事，副歌是记忆点，桥段是转折。", demo: ["JUszn04txes", "How Song Structure Works: Intro, Verse, Chorus, and Bridge"] },
+  emotion:   { name: "情绪", plain: "歌里想表达的感情。它靠想象和细节传出来，不是靠加力气。", demo: ["WxN4FkNohxo", "The ACTUAL Techniques for Singing with Emotion"] }
+};
+
+window.COURSE.lessonIntro = {
+  "1.1": { why: "你唱高音一上去就虚，根本原因是气没有稳住。弹唇是最快能看到自己气稳不稳的练习。学会它，后面所有练习的气都能稳下来。", terms: ["lip", "breath"] },
+  "1.2": { why: "很多人唱长句就断气，只能一句句换气，唱着唱着就乱了。S 音练的是把气一点点、匀速地放出去，练完长句不再慌。", terms: ["breath", "support"] },
+  "1.3": { why: "唱高音时喉咙发紧，多半是喉位太高。学会像哈欠那样的打开感，高音就不用挤，嗓子也不容易累。", terms: ["larynx", "open", "sigh"] },
+  "1.4": { why: "声带合不拢，高音就漏气。气泡音是最安全的合拢练习，是后面混声的地基。", terms: ["fry"] },
+  "1.5": { why: "气泡音只是练习，唱歌要用的是正常的声音。这一课把“合拢”的感觉带进你正常唱的声音里。", terms: ["fry", "breath"] },
+  "1.6": { why: "音准和节奏是唱歌最基本的功。你测试里表现不错的话，这一课只帮你确认，不会耽误进度。", terms: ["pitch", "rhythm"] },
+  "2.1": { why: "很多人分不清胸声和头声，于是高音只能硬挤或者虚掉。分清楚了，才知道该往哪边走。", terms: ["chest", "head", "falsetto"] },
+  "2.2": { why: "换声点是每个人都有的，不是你的问题。找到它，唱歌时才能有意识地过渡过去，而不是撞上去断掉。", terms: ["break", "glide", "register"] },
+  "2.3": { why: "混声是流行歌高音最常用的声音：结实，又不喊。窄元音是找混声最直接的办法。", terms: ["mix", "nay"] },
+  "2.4": { why: "副歌经常要从低音一路唱到高音。过渡平滑，听起来就不突兀，歌才好听。", terms: ["break", "register", "mix"] },
+  "2.5": { why: "同一个音，共鸣不同听起来差很多。学会调共鸣，声音会更圆、更有质感。", terms: ["resonance", "open"] },
+  "2.6": { why: "很多流行副歌需要有力的高音。强混声能让你安全地唱出有力量的高音，但它要求闭合和支撑都稳，所以放在最后。", terms: ["belt", "mix"] },
+  "3.1": { why: "同样的旋律，咬字清楚，听的人才能听懂歌词、有感觉。流行歌尤其依赖咬字。", terms: ["diction"] },
+  "3.2": { why: "慢歌需要连贯，快歌需要切分。只会一种唱法，歌会显得单调。", terms: ["legato", "staccato"] },
+  "3.3": { why: "气声能让你唱出亲密、悄悄话的感觉。但只会加还不够，要能收回来，否则就只是漏气。", terms: ["breathy", "breath"] },
+  "3.4": { why: "长音上的自然颤音让声音有生命力。不会颤音的长音听起来会比较平。", terms: ["vibrato", "breath"] },
+  "3.5": { why: "流行歌里有很多装饰音和转音。不练会，很多现成的歌你都跟不上。", terms: ["runs", "glide"] },
+  "3.6": { why: "沙感能让声音有个性，但风险也高。这是选修，等前面都稳了再考虑。", terms: ["grit", "fry"] },
+  "4.1": { why: "会唱音不等于会唱歌。知道每一段该怎么唱，歌才有层次。", terms: ["structure"] },
+  "4.2": { why: "强弱对比是让听的人有感觉的主要方法。没有对比，唱得再准也像在背谱。", terms: ["dynamics"] },
+  "4.3": { why: "情绪是打动人的部分，技巧是为情绪服务的。这一课把前面的技巧用在一首完整的歌里。", terms: ["emotion"] },
+  "4.4": { why: "同一个声音，麦克风距离不同，效果差很多。录音和现场都用得上。", terms: ["proximity"] },
+  "4.5": { why: "结业不是考试。录下这首歌，和你开始时的录音对比，你会看到自己真的变了。", terms: [] }
+};
