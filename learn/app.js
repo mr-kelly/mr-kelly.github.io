@@ -42,10 +42,10 @@
   var LESSONS = [];
   C.stages.forEach(function (s) { s.lessons.forEach(function (l) { l.stage = s; LESSONS.push(l); }); });
   function lessonById(id) { return LESSONS.find(function (l) { return l.id === id; }); }
-  var lesson = lessonById(C.current);
-  var stage = lesson.stage;
+  var curLesson = lessonById(C.current);
+  var lesson = curLesson;          // 正在看的课，跟着路由变
+  var stage = curLesson.stage;     // 打卡、过关标准跟当前课走
 
-  $("updated").textContent = "更新于 " + C.updated;
 
   /* =========================================================
    * 入学测试判档
@@ -72,18 +72,43 @@
     return LESSONS.find(function (l) { return !l.optional && g[l.id] !== "pass"; });
   }
 
-  /* ---------- 外框 ---------- */
+  /* ---------- 外框：左边栏 + 主区 + 手机底栏 ---------- */
+  var NAV = [
+    { v: "test", icon: "✎", label: "入学测试" },
+    { v: "syllabus", icon: "☰", label: "提纲" },
+    { v: "lesson", icon: "▶", label: "上课" },
+    { v: "today", icon: "✓", label: "打卡" }
+  ];
+  var side = $("sidebar"), bottom = $("bottombar");
+  function renderSidebar(v, lid) {
+    var g = state.test.done ? grades() : {};
+    side.innerHTML =
+      '<div class="side-head"><a class="side-back" href="/learn/">← 学习课程</a>' +
+        '<p class="side-title">' + esc(C.title) + '</p><p class="side-sub">现在：' + esc(curLesson.id) + " " + esc(curLesson.title) + "</p></div>" +
+      '<nav class="side-nav">' + NAV.map(function (n) {
+        return '<a href="#' + n.v + '" class="' + (n.v === v && !(v === "lesson" && lid !== curLesson.id) ? "on" : "") + '"><span class="ico">' + n.icon + "</span>" + n.label +
+          (n.v === "test" && !state.test.done ? '<span class="dot-new"></span>' : "") + "</a>";
+      }).join("") + "</nav>" +
+      '<div class="side-tree">' + C.stages.map(function (s) {
+        var open = s.lessons.some(function (l) { return l.id === lid || l.id === curLesson.id; });
+        return "<details" + (open ? " open" : "") + '><summary><span class="stage-n">' + s.n + "</span>" + esc(s.title) + "</summary>" +
+          s.lessons.map(function (l) {
+            var gr = l.optional ? "opt" : (g[l.id] || "none");
+            return '<a href="#lesson/' + l.id + '" class="tree-item' + (v === "lesson" && l.id === lid ? " on" : "") + (l.id === curLesson.id ? " now" : "") +
+              (l.ready ? "" : " tbd") + '"><span class="gdot g-' + gr + '"></span><span class="lid">' + l.id + "</span>" + esc(l.title) + "</a>";
+          }).join("") + "</details>";
+      }).join("") + "</div>" +
+      '<p class="side-foot">课程更新于 ' + esc(C.updated) + "</p>";
+    bottom.innerHTML = NAV.map(function (n) {
+      return '<a href="#' + n.v + '" class="' + (n.v === v ? "on" : "") + '"><span class="ico">' + n.icon + "</span>" + n.label + "</a>";
+    }).join("");
+  }
+  function closeDrawer() { document.body.classList.remove("drawer-open"); }
+  $("menu").addEventListener("click", function () { document.body.classList.toggle("drawer-open"); });
+  $("scrim").addEventListener("click", closeDrawer);
+  side.addEventListener("click", function (e) { if (e.target.closest("a")) closeDrawer(); });
+
   root.innerHTML =
-    '<section class="hero compact">' +
-      '<p class="eyebrow">学习课程</p><h1>' + esc(C.title) + "</h1>" +
-      '<p class="lede">' + esc(C.subtitle) + "</p>" +
-    "</section>" +
-    '<nav class="tabs" role="tablist">' +
-      '<a href="#test" role="tab" data-view="test">入学测试</a>' +
-      '<a href="#syllabus" role="tab" data-view="syllabus">提纲</a>' +
-      '<a href="#lesson" role="tab" data-view="lesson">上课</a>' +
-      '<a href="#today" role="tab" data-view="today">打卡</a>' +
-    "</nav>" +
     '<div class="view" id="view-test"></div>' +
     '<div class="view" id="view-syllabus"></div>' +
     '<div class="view" id="view-lesson"></div>' +
@@ -91,11 +116,16 @@
 
   function route() {
     stopTimer();
-    var v = location.hash.slice(1) || (state.test.done ? "lesson" : "test");
-    if (!$("view-" + v)) v = "lesson";
+    var parts = (location.hash.slice(1) || (state.test.done ? "lesson" : "test")).split("/");
+    var v = $("view-" + parts[0]) ? parts[0] : "lesson";
+    lesson = (v === "lesson" && lessonById(parts[1])) || curLesson;
     document.querySelectorAll(".view").forEach(function (el) { el.hidden = el.id !== "view-" + v; });
-    document.querySelectorAll(".tabs a").forEach(function (a) { a.setAttribute("aria-selected", String(a.dataset.view === v)); });
+    renderSidebar(v, lesson.id);
+    var nav = NAV.find(function (n) { return n.v === v; });
+    $("topbar-title").textContent = v === "lesson" ? lesson.id + " " + lesson.title : nav.label;
+    document.title = (v === "lesson" ? lesson.title : nav.label) + " · " + C.title;
     ({ test: renderTest, syllabus: renderSyllabus, lesson: renderLesson, today: renderToday })[v]();
+    $("main").scrollTop = 0; window.scrollTo(0, 0);
   }
   window.addEventListener("hashchange", route);
 
@@ -196,8 +226,8 @@
     stopTimer();
     var q = Q[state.test.at];
     if (state.test.answers[q.id] === undefined) { $("q-next").textContent = "先回答这题"; return; }
-    if (state.test.at === Q.length - 1) { state.test.done = true; state.test.date = today(); }
-    else state.test.at++;
+    if (state.test.at === Q.length - 1) { state.test.done = true; state.test.date = today(); save(); route(); return; }
+    state.test.at++;
     save(); renderTest(); window.scrollTo(0, 0);
   }
   function renderResult(el) {
@@ -215,7 +245,7 @@
         '<button type="button" class="btn" id="retest">重新测试</button></p><p class="muted" id="copy-msg"></p></div>';
     $("retest").addEventListener("click", function () {
       if (!confirm("清掉这次的测试结果，重新做？")) return;
-      state.test = { answers: {}, at: 0, done: false, started: true }; save(); renderTest();
+      state.test = { answers: {}, at: 0, done: false, started: true }; save(); route();
     });
     $("copy-result").addEventListener("click", function () {
       var lines = ["### " + state.test.date + " · 入学测试（网页，" + Q.length + " 题）", ""];
@@ -236,7 +266,7 @@
     var el = $("view-syllabus");
     var g = state.test.done ? grades() : {};
     var start = state.test.done ? startLesson(g) : null;
-    el.innerHTML =
+    el.innerHTML = '<h1 class="view-title">课程提纲</h1>' +
       '<p class="muted">第 0 课入学测试 → 4 个阶段 ' + LESSONS.length + " 节课。<span class=\"badge ready\">已备课</span>的可以直接上，<span class=\"badge tbd\">待定</span>的轮到了再备课。</p>" +
       '<ol class="syllabus">' +
         '<li class="stage-block"><div class="stage-title"><span class="stage-n">0</span>入学测试</div>' +
@@ -251,9 +281,9 @@
                 (start && l.id === start.id && l.id !== C.current ? '<span class="badge here">测试建议起点</span>' : "") +
                 (l.optional ? '<span class="badge tbd">' + (l.id === "4.5" ? "结业" : "选修") + "</span>" : (gr ? '<span class="badge g-' + gr + '">' + GRADE_TEXT[gr] + "</span>" : "")) +
                 (l.ready ? '<span class="badge ready">已备课</span>' : '<span class="badge tbd">待定</span>');
-              var tag = l.ready ? "a" : "div";
+              var tag = "a";
               return "<" + tag + ' class="lesson-row' + (l.id === C.current ? " is-current" : "") + (gr === "pass" ? " is-skip" : "") + '"' +
-                (l.ready ? ' href="#lesson"' : "") + '><span class="lid">' + esc(l.id) + '</span><span class="lt">' + esc(l.title) +
+                ' href="#lesson/' + l.id + '"' + '><span class="lid">' + esc(l.id) + '</span><span class="lt">' + esc(l.title) +
                 "<small>" + esc(l.goal) + '</small></span><span class="badges">' + badges + "</span></" + tag + ">";
             }).join("") + "</li>";
         }).join("") +
@@ -290,17 +320,31 @@
   }
   function renderLesson() {
     var V = $("view-lesson");
-    var head = '<p class="lesson-head"><span class="lid big">' + esc(lesson.id) + "</span>" + esc(lesson.title) +
-      ' <a href="#syllabus" class="muted">全部课程 →</a></p>';
-    if (!state.test.done) head += '<p class="callout">还没做入学测试。<a href="#test">先做测试</a>，确认要不要从这一课开始。</p>';
-    if (!lesson.ready) { V.innerHTML = head + '<div class="stage-card"><p>这一课还在备课（待定）。</p></div>'; return; }
+    var i = LESSONS.indexOf(lesson), prevL = LESSONS[i - 1], nextL = LESSONS[i + 1];
+    var gr = state.test.done ? grades()[lesson.id] : null;
+    var head = '<div class="lesson-head"><p class="eyebrow">第 ' + lesson.stage.n + " 阶段 · " + esc(lesson.stage.title) + "</p>" +
+      '<h1><span class="lid big">' + esc(lesson.id) + "</span>" + esc(lesson.title) + "</h1>" +
+      '<p class="badges left">' + (lesson.id === curLesson.id ? '<span class="badge here">现在</span>' : "") +
+        (gr ? '<span class="badge g-' + gr + '">' + GRADE_TEXT[gr] + "</span>" : "") +
+        (lesson.ready ? '<span class="badge ready">已备课</span>' : '<span class="badge tbd">待定</span>') + "</p></div>";
+    var pager = '<div class="pager">' +
+      (prevL ? '<a href="#lesson/' + prevL.id + '">← ' + esc(prevL.id) + " " + esc(prevL.title) + "</a>" : "<span></span>") +
+      (nextL ? '<a href="#lesson/' + nextL.id + '">' + esc(nextL.id) + " " + esc(nextL.title) + " →</a>" : "<span></span>") + "</div>";
+    if (!state.test.done && lesson.id === curLesson.id) head += '<p class="callout">还没做入学测试。<a href="#test">先做测试</a>，确认要不要从这一课开始。</p>';
+    if (!lesson.ready) {
+      V.innerHTML = head + '<div class="stage-card tbd-card"><p class="lede">' + esc(lesson.goal) + "</p>" +
+        "<p class=\"muted\">这一课还没备课。轮到它的时候会补上视频、步骤和过关标准。" +
+        (gr === "pass" ? "入学测试判你已会，可以跳过。" : "") + "</p>" +
+        (lesson.id !== curLesson.id ? '<p><a class="btn" href="#lesson">回到现在这一课 →</a></p>' : "") + "</div>" + pager;
+      return;
+    }
     V.innerHTML = head +
       '<ol class="stepper" id="stepper">' + STEPS.map(function (s, i) {
         return '<li><button type="button" data-step="' + i + '"><span>' + (i + 1) + "</span>" + s.label + "</button></li>";
       }).join("") + "</ol>" +
       '<div class="stage-card" id="step-body"></div>' +
       '<div class="step-nav"><button type="button" class="btn" id="prev">← 上一步</button>' +
-      '<button type="button" class="btn primary" id="next">下一步 →</button></div>';
+      '<button type="button" class="btn primary" id="next">下一步 →</button></div>' + pager;
     $("stepper").addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) go(+b.dataset.step); });
     $("prev").addEventListener("click", function () { go(state.step - 1); });
     $("next").addEventListener("click", function () { go(state.step + 1); });
@@ -452,8 +496,9 @@
    * 打卡：今日练习 + 日志
    * ========================================================= */
   function bestSummary() {
-    return lesson.ladder ? lesson.ladder.filter(function (x) { return state.best[x.id]; })
-      .map(function (x) { return "L" + (lesson.ladder.indexOf(x) + 1) + " " + state.best[x.id].toFixed(1) + "s"; }).join("，") : "";
+    var L = curLesson;
+    return L.ladder ? L.ladder.filter(function (x) { return state.best[x.id]; })
+      .map(function (x) { return "L" + (L.ladder.indexOf(x) + 1) + " " + state.best[x.id].toFixed(1) + "s"; }).join("，") : "";
   }
   function addLog(f) {
     var note = f.note.value.trim(), best = bestSummary();
@@ -476,7 +521,7 @@
     var done = state.daily[today()] || {};
     var daily = stage.daily || [];
     var cnt = daily.filter(function (_, i) { return done[i]; }).length;
-    el.innerHTML =
+    el.innerHTML = '<h1 class="view-title">打卡</h1>' +
       '<div class="stats"><div><b>' + streak() + '</b><span>连续天数</span></div><div><b>' + state.log.length +
         '</b><span>练习记录</span></div><div><b>' + cnt + " / " + daily.length + "</b><span>今天完成</span></div></div>" +
       "<h3>今天的练习 <small>" + today() + " · 10–15 分钟</small></h3>" +

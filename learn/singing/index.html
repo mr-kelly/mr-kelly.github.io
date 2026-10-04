@@ -2,27 +2,33 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>流行演唱 · Kelly 的学习课程</title>
-  <meta name="description" content="Kelly 的流行演唱自学课程：阶段路线图、视频教学、计时器和录音，边学边练。">
+  <meta name="description" content="Kelly 的流行演唱自学课程：入学测试、全体系提纲、视频教学、计时器和录音，边学边练。">
   <meta name="author" content="Kelly Peilin Chan">
   <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#f1f0ea">
   <link rel="icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/learn/styles.css?v=20261004-3">
-  <script defer src="/learn/singing/course.js?v=20261004-3"></script>
-  <script defer src="/learn/app.js?v=20261004-3"></script>
+  <link rel="stylesheet" href="/learn/styles.css?v=20261004-4">
+  <script defer src="/learn/singing/course.js?v=20261004-4"></script>
+  <script defer src="/learn/app.js?v=20261004-4"></script>
 </head>
-<body>
+<body class="app-body">
 <a class="skip-link" href="#main">跳到正文</a>
-<header class="site-header">
-  <div class="shell header-inner">
-    <a class="back-link" href="/learn/">← 学习课程</a>
-    <span class="header-meta" id="updated"></span>
+<div class="app">
+  <aside class="sidebar" id="sidebar" aria-label="课程导航"></aside>
+  <div class="scrim" id="scrim"></div>
+  <div class="app-main">
+    <header class="topbar">
+      <button type="button" class="menu-btn" id="menu" aria-label="打开目录">☰</button>
+      <span class="topbar-title" id="topbar-title"></span>
+    </header>
+    <main id="main" class="app-content">
+      <noscript><p>这个页面需要 JavaScript 来显示课程内容。</p></noscript>
+      <div id="course"></div>
+    </main>
   </div>
-</header>
-<main id="main" class="shell">
-  <noscript><p>这个页面需要 JavaScript 来显示课程内容。</p></noscript>
-  <div id="course"></div>
-</main>
+  <nav class="bottombar" id="bottombar" aria-label="主导航"></nav>
+</div>
 </body>
 </html>
