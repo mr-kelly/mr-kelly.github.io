@@ -537,7 +537,9 @@
         return '<li><span class="muted">' + esc(r.date) + "</span> " + esc(r.what) + (r.mins ? " · " + esc(r.mins) + " 分钟" : "") +
           (r.note ? '<br><span class="muted">' + esc(r.note) + "</span>" : "") + "</li>";
       }).join("") || '<li class="muted">还没有记录。上完课在“收尾”那一步记一笔。</li>') + "</ul>" +
-      (state.log.length ? '<p><button type="button" class="btn" id="log-copy">复制为 Markdown</button> <span class="muted" id="log-copy-msg">贴回 vault 的练习日志，或直接发给 Claude。</span></p>' : "");
+      (state.log.length ? '<p><button type="button" class="btn" id="log-copy">复制为 Markdown</button> <span class="muted" id="log-copy-msg">贴回 vault 的练习日志，或直接发给 Claude。</span></p>' : "") +
+      '<h3>备份</h3><p class="muted">进度只存在这个浏览器里。换设备或清缓存前先导出一份 JSON 文件。</p>' +
+      '<p><button type="button" class="btn" id="export-json">导出 JSON 备份</button></p>';
 
     $("daily").addEventListener("change", function (e) {
       var t = today();
@@ -546,6 +548,15 @@
       save(); renderToday();
     });
     $("log-form").addEventListener("submit", function (e) { e.preventDefault(); addLog(e.target); renderToday(); });
+    $("export-json").addEventListener("click", function () {
+      var data = { course: C.id, exported: new Date().toISOString(), state: state };
+      var blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "singing-backup-" + today() + ".json";
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+    });
     if ($("log-copy")) $("log-copy").addEventListener("click", function () {
       var md = state.log.map(function (r) { return "| " + r.date + " | " + r.what + " | " + (r.mins ? r.mins + "min" : "") + " | " + (r.note || "") + " |"; }).join("\n");
       navigator.clipboard.writeText(md).then(function () { $("log-copy-msg").textContent = "已复制 " + state.log.length + " 行。"; });
