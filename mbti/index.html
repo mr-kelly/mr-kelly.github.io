@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +7,8 @@
 <meta name="description" content="基于公开发表的 OEJTS 1.2 量表（Eric Jorgenson, 2015）的免费 MBTI 风格性格测试。32 道双极对照题，中英文双语，即时给出 16 型人格结果与四维百分比。不注册，数据不离开浏览器。">
 <meta name="keywords" content="MBTI,MBTI测试,16型人格,性格测试,OEJTS,personality test,Myers-Briggs alternative,INFP,INTJ">
 <link rel="canonical" href="https://kellychan.im/mbti/" id="canonical">
-<link rel="alternate" hreflang="zh-CN" href="https://kellychan.im/mbti/">
-<link rel="alternate" hreflang="en" href="https://kellychan.im/mbti/?lang=en">
+<link rel="alternate" hreflang="en" href="https://kellychan.im/mbti/">
+<link rel="alternate" hreflang="zh-CN" href="https://kellychan.im/mbti/?lang=zh">
 <link rel="alternate" hreflang="x-default" href="https://kellychan.im/mbti/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="MBTI 性格测试 · MBTI Personality Test — OEJTS 1.2">
@@ -837,7 +837,7 @@ function applyLang(lang, push) {
   document.querySelectorAll(".lang-switch button").forEach(b => {
     b.setAttribute("aria-pressed", String(b.dataset.lang === LANG));
   });
-  const canon = "https://kellychan.im/mbti/" + (LANG === "en" ? "?lang=en" : "");
+  const canon = "https://kellychan.im/mbti/" + (LANG === "zh" ? "?lang=zh" : "");
   $("canonical").setAttribute("href", canon);
 
   buildGrid($("type-grid-intro"));
@@ -848,7 +848,7 @@ function applyLang(lang, push) {
   if (window.__lastCode) renderType(window.__lastCode, window.__lastRes);
 
   if (push) {
-    const url = location.pathname + (LANG === "en" ? "?lang=en" : "") + location.hash;
+    const url = location.pathname + (LANG === "zh" ? "?lang=zh" : "") + location.hash;
     try { history.replaceState(null, "", url); } catch (e) {}
     try { localStorage.setItem("mbti-lang", LANG); } catch (e) {}
   }
@@ -875,7 +875,7 @@ function copyResult() {
     });
   }
   text += "\nOEJTS 1.2 (Eric Jorgenson, 2015, CC BY-NC-SA 4.0)\n" +
-          T.copyTail + location.origin + location.pathname + (LANG === "en" ? "?lang=en" : "");
+          T.copyTail + location.origin + location.pathname + (LANG === "zh" ? "?lang=zh" : "");
 
   const done = () => toast(T.copied);
   if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -910,13 +910,13 @@ document.addEventListener("keydown", e => {
   if (e.key === "ArrowLeft" && cur > 0) { cur--; renderQuestion(); }
 });
 
-/* 初始语言：URL 参数 > 本地记忆 > 浏览器语言 */
+/* 初始语言：URL 参数 > 本地记忆 > 默认英文 */
 (function initLang() {
   const param = new URLSearchParams(location.search).get("lang");
   let lang = null;
   if (param === "en" || param === "zh") lang = param;
   if (!lang) { try { lang = localStorage.getItem("mbti-lang"); } catch (e) {} }
-  if (!lang) lang = (navigator.language || "").toLowerCase().indexOf("zh") === 0 ? "zh" : "en";
+  if (!lang) lang = "en";
   applyLang(lang, false);
 })();
 
