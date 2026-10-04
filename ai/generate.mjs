@@ -27,7 +27,7 @@ const pages = {
     serviceIntro: "可以从培训、Vibe Coding 工作坊或项目陪跑开始，也可以引入 CAIO Office 持续带队，或直接落地 Agent、AI 资产中枢与企业品牌小程序。以下为客户参考报价。",
     insightsLabel: "观点文章",
     insightsTitle: "先看方法，再决定需要什么服务",
-    insightsIntro: "六篇长文分别从 FDE 岗位真相、企业 AI 落地、研发团队改造、Agents 公司管理、交付验收和服务即软件切入，讲清问题为什么发生、应该怎样推进。",
+    insightsIntro: "七篇长文分别从 FDE 岗位真相、企业 AI 落地、研发团队改造、Agents 公司管理、交付验收、服务即软件和 Agent 协作切入，讲清问题为什么发生、应该怎样推进。",
     insightsCta: "阅读全文",
     insightsItems: [
       ["企业做 AI，最缺的不是工具，而是一个把结果逼出来的人", "从“AI 落地断层”拆解目标、执行、验收和资产沉淀，适合正在推动公司级 AI 转型的管理者。", "企业 AI · CAIO", "/articles/enterprise-ai-needs-caio-and-fde.html"],
@@ -35,7 +35,8 @@ const pages = {
       ["你越努力学 AI，越可能一直做那个超级打工人", "从“超级打工人陷阱”解释为什么工具越多反而越忙，以及怎样用岗位、资料、流程和验收真正把工作交出去。", "Agents 公司 · 管理", "/articles/stop-learning-ai-start-managing-it.html"],
       ["AI 研发的下一道瓶颈：不是做不过来，而是验不过来", "用五个问答讲清多 Agent、PRD、产品会议、仓库地图与人工验收怎样配合。", "研发转型 · 交付验收", "/articles/ai-rd-next-bottleneck-acceptance.html"],
       ["FDE究竟每天在做什么？我拆解了北上广深34份真实JD", "从 34 份真实招聘信息拆解 FDE 的三种工作日、四种岗位原型和完整责任边界。", "企业 AI · FDE", "/articles/what-fde-does-34-job-descriptions.html"],
-      ["下一家万亿美元公司，卖的不是工具，是把活干完", "会用 AI 的人离业务很远，有业务的人追不上工具。断掉的不是工具，是中间没有人负责把它接到业务上。", "企业 AI · 服务即软件", "/articles/services-the-new-software.html"]
+      ["下一家万亿美元公司，卖的不是工具，是把活干完", "会用 AI 的人离业务很远，有业务的人追不上工具。断掉的不是工具，是中间没有人负责把它接到业务上。", "企业 AI · 服务即软件", "/articles/services-the-new-software.html"],
+      ["Agent 越用越多，为什么改好的那一版反而越来越难找？", "卡住你的不是技术，是没人教过你怎么跟 Agent 协作。五句该对它说的话，一次任务五步走完。", "Vibe Coding · 协作", "/articles/agent-collaboration-blind-spot.html"]
     ],
     headers: ["类别", "服务", "核心交付", "形式 / 时长", "服务报价"],
     mobileLabels: ["类别", "服务", "交付", "形式", "报价"],
@@ -232,7 +233,7 @@ const pages = {
     serviceIntro: "Begin with training, a Vibe Coding workshop, or project coaching; bring in a CAIO Office to lead weekly execution; or deploy an Agent, AI asset hub, or branded mini-program. Prices below are for reference.",
     insightsLabel: "Insights · Chinese",
     insightsTitle: "Read the method before choosing the service",
-    insightsIntro: "Six Chinese long-form essays cover the FDE role, enterprise AI deployment, AI-native R&D transformation, managing an Agents company, acceptance, and services as the new software.",
+    insightsIntro: "Seven Chinese long-form essays cover the FDE role, enterprise AI deployment, AI-native R&D transformation, managing an Agents company, acceptance, services as the new software, and working with coding agents.",
     insightsCta: "Read article",
     insightsItems: [
       ["Enterprise AI needs someone who drives the result", "A practical diagnosis of the gap between AI strategy, weekly execution, acceptance, and reusable company assets.", "Enterprise AI · CAIO", "/articles/enterprise-ai-needs-caio-and-fde.html"],
@@ -240,7 +241,8 @@ const pages = {
       ["Why learning more AI can keep you trapped as a super-worker", "A Chinese essay on moving from tool learning to managing AI through roles, context, workflow, and acceptance.", "Agents company · Management", "/articles/stop-learning-ai-start-managing-it.html"],
       ["The next bottleneck in AI-native R&D is acceptance", "A Chinese Q&A on multi-Agent design, PRDs, product meetings, repository maps, and human sign-off.", "AI-Native R&D · Acceptance", "/articles/ai-rd-next-bottleneck-acceptance.html"],
       ["What does an FDE actually do every day?", "A Chinese analysis of 34 real job descriptions across Beijing, Shanghai, Guangzhou, and Shenzhen.", "Enterprise AI · FDE", "/articles/what-fde-does-34-job-descriptions.html"],
-      ["The next $1T company sells the work, not the tool", "The people fluent in AI sit far from the business; the people who own the business cannot keep pace with the tools. What is missing is anyone accountable for the outcome.", "Enterprise AI · Service-as-Software", "/articles/services-the-new-software.html"]
+      ["The next $1T company sells the work, not the tool", "The people fluent in AI sit far from the business; the people who own the business cannot keep pace with the tools. What is missing is anyone accountable for the outcome.", "Enterprise AI · Service-as-Software", "/articles/services-the-new-software.html"],
+      ["Why the version you liked keeps getting harder to find", "A Chinese primer for non-engineers running coding agents: the blocker is not Git, it is how you work with the agent.", "Vibe Coding · Collaboration", "/articles/agent-collaboration-blind-spot.html"]
     ],
     headers: ["Type", "Service", "Core delivery", "Format / duration", "Price"],
     mobileLabels: ["Type", "Service", "Delivery", "Format", "Price"],
@@ -437,7 +439,7 @@ const pages = {
     serviceIntro: "可以從培訓、Vibe Coding 工作坊或項目陪跑開始，也可以引入 CAIO Office 持續帶隊，或直接落地 Agent、AI 資產中樞與企業品牌小程式。以下為客戶參考報價。",
     insightsLabel: "觀點文章 · 中文",
     insightsTitle: "先看方法，再決定需要什麼服務",
-    insightsIntro: "六篇長文分別從 FDE 崗位真相、企業 AI 落地、研發團隊改造、Agents 公司管理、交付驗收和服務即軟件切入，講清問題為什麼發生、應該怎樣推進。",
+    insightsIntro: "七篇長文分別從 FDE 崗位真相、企業 AI 落地、研發團隊改造、Agents 公司管理、交付驗收、服務即軟件和 Agent 協作切入，講清問題為什麼發生、應該怎樣推進。",
     insightsCta: "閱讀全文",
     insightsItems: [
       ["企業做 AI，最缺的不是工具，而是一個把結果逼出來的人", "從「AI 落地斷層」拆解目標、執行、驗收和資產沉澱，適合正在推動公司級 AI 轉型的管理者。", "企業 AI · CAIO", "/articles/enterprise-ai-needs-caio-and-fde.html"],
@@ -445,7 +447,8 @@ const pages = {
       ["你越努力學 AI，越可能一直做那個超級打工人", "從「超級打工人陷阱」解釋為什麼工具越多反而越忙，以及怎樣用崗位、資料、流程和驗收真正把工作交出去。", "Agents 公司 · 管理", "/articles/stop-learning-ai-start-managing-it.html"],
       ["AI 研發的下一道瓶頸：不是做不過來，而是驗不過來", "用五個問答講清多 Agent、PRD、產品會議、程式碼倉庫地圖與人工驗收怎樣配合。", "研發轉型 · 交付驗收", "/articles/ai-rd-next-bottleneck-acceptance.html"],
       ["FDE究竟每天在做什麼？我拆解了北上廣深34份真實JD", "從 34 份真實招聘資訊拆解 FDE 的三種工作日、四種崗位原型和完整責任邊界。", "企業 AI · FDE", "/articles/what-fde-does-34-job-descriptions.html"],
-      ["下一家萬億美元公司，賣的不是工具，是把活幹完", "會用 AI 的人離業務很遠，有業務的人追不上工具。斷掉的不是工具，是中間沒有人負責把它接到業務上。", "企業 AI · 服務即軟件", "/articles/services-the-new-software.html"]
+      ["下一家萬億美元公司，賣的不是工具，是把活幹完", "會用 AI 的人離業務很遠，有業務的人追不上工具。斷掉的不是工具，是中間沒有人負責把它接到業務上。", "企業 AI · 服務即軟件", "/articles/services-the-new-software.html"],
+      ["Agent 越用越多，為什麼改好的那一版反而越來越難找？", "卡住你的不是技術，是沒人教過你怎麼跟 Agent 協作。五句該對它說的話，一次任務五步走完。", "Vibe Coding · 協作", "/articles/agent-collaboration-blind-spot.html"]
     ],
     headers: ["類別", "服務", "核心交付", "形式 / 時長", "服務報價"],
     mobileLabels: ["類別", "服務", "交付", "形式", "報價"],
