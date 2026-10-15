@@ -7,6 +7,10 @@ description: Kelly 陈霈霖关于企业 AI 落地、研发 AI 原生转型，�
 
 关于企业 AI 落地、研发 AI 原生转型，以及怎样管理一支 AI 工作队。
 
+## [团队落地 AI，为什么要先把 Agent 和 Skill 减下来？](./why-teams-should-start-with-fewer-agents-and-skills.html)
+
+你按岗位配置 Agent，让团队不断提交 Skill，遇到跨人的任务仍要自己汇总。问题不在数量不够，而在资料、授权和验收没接起来。这篇讲如何从一项任务算出够用的配置。
+
 ## [研发里最稀缺的，不是写代码的人，是定规矩的人](./ai-rd-rule-makers.html)
 
 你给团队配了 AI 编程工具，代码确实快了，返工和线上问题却没有少。问题通常不在 AI 不够强，而在流程仍是为人写代码设计的。这篇讲怎样给 AI 定规矩，以及前 30 天怎么走。
