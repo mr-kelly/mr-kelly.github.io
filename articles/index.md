@@ -9,7 +9,7 @@ description: Kelly 陈霈霖关于企业 AI 落地、研发 AI 原生转型，�
 
 ## [团队落地 AI，为什么要先把 Agent 和 Skill 减下来？](./why-teams-should-start-with-fewer-agents-and-skills.html)
 
-你按岗位配置 Agent，让团队不断提交 Skill，遇到跨人的任务仍要自己汇总。问题不在数量不够，而在资料、授权和验收没接起来。这篇讲如何从一项任务算出够用的配置。
+你按岗位配 Agent、不断增加 Skill，使用者却找不到该调用哪一个，跨人的任务仍要自己汇总。问题不在数量少，而在入口、资料和验收没有接起来。这篇讲如何从一项任务算出够用配置。
 
 ## [研发里最稀缺的，不是写代码的人，是定规矩的人](./ai-rd-rule-makers.html)
 
