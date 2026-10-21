@@ -7,6 +7,10 @@ description: Kelly 陈霈霖关于企业 AI 落地、研发 AI 原生转型，�
 
 关于企业 AI 落地、研发 AI 原生转型，以及怎样管理一支 AI 工作队。
 
+## [现在还在写 PRD 的产品经理，都是小可爱](./still-writing-prd.html)
+
+你把需求整理成文档，让 AI 一项项照着做，功能还是漏、位置还是错。问题通常不在文档写得不够细，而在你让 AI 停在了文档那一步。这篇讲下一个需求可以怎样换个做法。
+
 ## [团队落地 AI，为什么要先把 Agent 和 Skill 减下来？](./why-teams-should-start-with-fewer-agents-and-skills.html)
 
 你按岗位配 Agent、不断增加 Skill，使用者却找不到该调用哪一个，跨人的任务仍要自己汇总。问题不在数量少，而在入口、资料和验收没有接起来。这篇讲如何从一项任务算出够用配置。

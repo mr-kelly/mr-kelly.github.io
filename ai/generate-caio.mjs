@@ -75,40 +75,43 @@ const relatedContent = {
   "zh-CN": {
     label: "延伸阅读",
     title: "从观点文章继续理解 CAIO Office 的价值",
-    intro: "五篇长文分别讲企业 AI 落地、Agent 与 Skill 配置、FDE 岗位、研发团队改造和给 AI 定规矩。先看问题与方法，再判断从哪条服务路径切入。",
+    intro: "六篇长文分别讲企业 AI 落地、Agent 与 Skill 配置、FDE 岗位、研发团队改造、给 AI 定规矩和告别 PRD。先看问题与方法，再判断从哪条服务路径切入。",
     cta: "阅读全文",
     items: [
       ["企业做 AI，最缺的不是工具，而是一个把结果逼出来的人", "企业 AI · CAIO", "/articles/enterprise-ai-needs-caio-and-fde.html"],
       ["团队落地 AI，为什么要先把 Agent 和 Skill 减下来？", "企业 AI · 团队协作", "/articles/why-teams-should-start-with-fewer-agents-and-skills.html"],
       ["FDE究竟每天在做什么？我拆解了北上广深34份真实JD", "企业 AI · FDE", "/articles/what-fde-does-34-job-descriptions.html"],
       ["研发团队越招越多，产品为什么还是做不快？", "研发 AI 原生转型 · AI Coding", "/articles/ai-native-rd-team-optimization.html"],
-      ["研发里最稀缺的，不是写代码的人，是定规矩的人", "研发 AI 原生转型 · AI 规则", "/articles/ai-rd-rule-makers.html"]
+      ["研发里最稀缺的，不是写代码的人，是定规矩的人", "研发 AI 原生转型 · AI 规则", "/articles/ai-rd-rule-makers.html"],
+      ["现在还在写 PRD 的产品经理，都是小可爱", "研发 AI 原生转型 · 产品需求", "/articles/still-writing-prd.html"]
     ]
   },
   en: {
     label: "Insights · Chinese",
     title: "Explore the thinking behind the CAIO Office offer",
-    intro: "Five Chinese essays cover enterprise AI deployment, Agent and Skill design, the FDE role, AI-native R&D, and setting rules for AI before you choose an engagement track.",
+    intro: "Six Chinese essays cover enterprise AI deployment, Agent and Skill design, the FDE role, AI-native R&D, setting rules for AI, and moving past the PRD before you choose an engagement track.",
     cta: "Read article",
     items: [
       ["Enterprise AI needs someone who drives the result", "Enterprise AI · CAIO", "/articles/enterprise-ai-needs-caio-and-fde.html"],
       ["Why teams should start with fewer Agents and Skills", "Enterprise AI · Teamwork", "/articles/why-teams-should-start-with-fewer-agents-and-skills.html"],
       ["What does an FDE actually do every day?", "Enterprise AI · FDE", "/articles/what-fde-does-34-job-descriptions.html"],
       ["Why a larger R&D team still may not ship faster", "AI-Native R&D Transformation · AI Coding", "/articles/ai-native-rd-team-optimization.html"],
-      ["The scarcest people in R&D now write the rules, not the code", "AI-Native R&D Transformation · Rules", "/articles/ai-rd-rule-makers.html"]
+      ["The scarcest people in R&D now write the rules, not the code", "AI-Native R&D Transformation · Rules", "/articles/ai-rd-rule-makers.html"],
+      ["Product managers still writing PRDs are missing the shift", "AI-Native R&D Transformation · Requirements", "/articles/still-writing-prd.html"]
     ]
   },
   "zh-HK": {
     label: "延伸閱讀 · 中文",
     title: "從觀點文章繼續理解 CAIO Office 的價值",
-    intro: "五篇長文分別講企業 AI 落地、Agent 與 Skill 配置、FDE 崗位、研發團隊改造和給 AI 定規矩。先看問題與方法，再判斷從哪條服務路徑切入。",
+    intro: "六篇長文分別講企業 AI 落地、Agent 與 Skill 配置、FDE 崗位、研發團隊改造、給 AI 定規矩和告別 PRD。先看問題與方法，再判斷從哪條服務路徑切入。",
     cta: "閱讀全文",
     items: [
       ["企業做 AI，最缺的不是工具，而是一個把結果逼出來的人", "企業 AI · CAIO", "/articles/enterprise-ai-needs-caio-and-fde.html"],
       ["團隊落地 AI，為什麼要先把 Agent 和 Skill 減下來？", "企業 AI · 團隊協作", "/articles/why-teams-should-start-with-fewer-agents-and-skills.html"],
       ["FDE究竟每天在做什麼？我拆解了北上廣深34份真實JD", "企業 AI · FDE", "/articles/what-fde-does-34-job-descriptions.html"],
       ["研發團隊越招越多，產品為什麼還是做不快？", "研發 AI 原生轉型 · AI Coding", "/articles/ai-native-rd-team-optimization.html"],
-      ["研發裡最稀缺的，不是寫程式碼的人，是定規矩的人", "研發 AI 原生轉型 · AI 規則", "/articles/ai-rd-rule-makers.html"]
+      ["研發裡最稀缺的，不是寫程式碼的人，是定規矩的人", "研發 AI 原生轉型 · AI 規則", "/articles/ai-rd-rule-makers.html"],
+      ["現在還在寫 PRD 的產品經理，都是小可愛", "研發 AI 原生轉型 · 產品需求", "/articles/still-writing-prd.html"]
     ]
   }
 };
