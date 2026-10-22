@@ -89,6 +89,8 @@ h4 { font-family: var(--kelly-font-display); font-weight: 500; letter-spacing: 0
 h1 { margin: 0; font-size: 50px; line-height: 1.2; }
 .subtitle { max-width: 680px; margin: 18px 0 0; color: var(--kelly-muted-text); font-size: 20px; line-height: 1.6; }
 .article-meta { margin: 24px 0 0; color: var(--kelly-rust-text); font-size: 13px; }
+.lang-switch { margin: 10px 0 0; font-size: 14px; }
+.lang-switch a { color: var(--kelly-rust-text); text-underline-offset: 3px; }
 
 .article-body { padding-top: 52px; padding-bottom: 88px; }
 .article-body > :first-child { margin-top: 0; }

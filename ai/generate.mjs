@@ -39,7 +39,7 @@ const pages = {
       ["下一家万亿美元公司，卖的不是工具，是把活干完", "会用 AI 的人离业务很远，有业务的人追不上工具。断掉的不是工具，是中间没有人负责把它接到业务上。", "企业 AI · 服务即软件", "/articles/services-the-new-software.html"],
       ["Agent 越用越多，为什么改好的那一版反而越来越难找？", "卡住你的不是技术，是没人教过你怎么跟 Agent 协作。五句该对它说的话，一次任务五步走完。", "Vibe Coding · 协作", "/articles/agent-collaboration-blind-spot.html"],
       ["研发里最稀缺的，不是写代码的人，是定规矩的人", "AI 已经够强，缺的是规矩：三份文档定需求，三级规则管执行，评估集和发布关卡管结果。", "研发转型 · AI 规则", "/articles/ai-rd-rule-makers.html"],
-      ["现在还在写 PRD 的产品经理，都是小可爱", "策划从最前面挪到最后一分钟：AI 串起策划、设计、研发和测试，产品经理只做验收和品味反馈。", "研发转型 · 产品需求", "/articles/still-writing-prd.html"]
+      ["现在还在写 PRD 的产品经理，都是小可爱", "PRD 只是业务和技术之间的翻译件。AI 两边都懂，产品经理不必再写 PRD，只做验收和品味反馈。", "研发转型 · 产品需求", "/articles/still-writing-prd.html"]
     ],
     headers: ["类别", "服务", "核心交付", "形式 / 时长", "服务报价"],
     mobileLabels: ["类别", "服务", "交付", "形式", "报价"],
@@ -248,7 +248,7 @@ const pages = {
       ["The next $1T company sells the work, not the tool", "The people fluent in AI sit far from the business; the people who own the business cannot keep pace with the tools. What is missing is anyone accountable for the outcome.", "Enterprise AI · Service-as-Software", "/articles/services-the-new-software.html"],
       ["Why the version you liked keeps getting harder to find", "A Chinese primer for non-engineers running coding agents: the blocker is not Git, it is how you work with the agent.", "Vibe Coding · Collaboration", "/articles/agent-collaboration-blind-spot.html"],
       ["The scarcest people in R&D now write the rules, not the code", "A Chinese essay on governing AI coding: three documents for intent, three layers of rules for execution, and evals plus release gates for results.", "AI-Native R&D · Rules", "/articles/ai-rd-rule-makers.html"],
-      ["Product managers still writing PRDs are missing the shift", "A Chinese essay on moving product planning to the end: AI chains planning, design, build and test; PMs accept the result and give taste feedback.", "AI-Native R&D · Requirements", "/articles/still-writing-prd.html"]
+      ["Product managers still writing PRDs are adorable", "A Chinese essay on why the PRD was only ever a translation between business and engineering, and why AI makes it unnecessary.", "AI-Native R&D · Requirements", "/articles/still-writing-prd.html"]
     ],
     headers: ["Type", "Service", "Core delivery", "Format / duration", "Price"],
     mobileLabels: ["Type", "Service", "Delivery", "Format", "Price"],
@@ -457,7 +457,7 @@ const pages = {
       ["下一家萬億美元公司，賣的不是工具，是把活幹完", "會用 AI 的人離業務很遠，有業務的人追不上工具。斷掉的不是工具，是中間沒有人負責把它接到業務上。", "企業 AI · 服務即軟件", "/articles/services-the-new-software.html"],
       ["Agent 越用越多，為什麼改好的那一版反而越來越難找？", "卡住你的不是技術，是沒人教過你怎麼跟 Agent 協作。五句該對它說的話，一次任務五步走完。", "Vibe Coding · 協作", "/articles/agent-collaboration-blind-spot.html"],
       ["研發裡最稀缺的，不是寫程式碼的人，是定規矩的人", "AI 已經夠強，缺的是規矩：三份文件定需求，三級規則管執行，評估集和發佈關卡管結果。", "研發轉型 · AI 規則", "/articles/ai-rd-rule-makers.html"],
-      ["現在還在寫 PRD 的產品經理，都是小可愛", "策劃從最前面挪到最後一分鐘：AI 串起策劃、設計、研發和測試，產品經理只做驗收和品味回饋。", "研發轉型 · 產品需求", "/articles/still-writing-prd.html"]
+      ["現在還在寫 PRD 的產品經理，都是小可愛", "PRD 只是業務和技術之間的翻譯件。AI 兩邊都懂，產品經理不必再寫 PRD，只做驗收和品味回饋。", "研發轉型 · 產品需求", "/articles/still-writing-prd.html"]
     ],
     headers: ["類別", "服務", "核心交付", "形式 / 時長", "服務報價"],
     mobileLabels: ["類別", "服務", "交付", "形式", "報價"],

@@ -1,6 +1,7 @@
 ---
 layout: article
 page_kind: index
+translation: /articles/en/
 title: 文章
 description: Kelly 陈霈霖关于企业 AI 落地、研发 AI 原生转型，以及怎样管理一支 AI 工作队的长文。
 ---
@@ -9,7 +10,7 @@ description: Kelly 陈霈霖关于企业 AI 落地、研发 AI 原生转型，�
 
 ## [现在还在写 PRD 的产品经理，都是小可爱](./still-writing-prd.html)
 
-你把需求整理成文档，让 AI 一项项照着做，功能还是漏、位置还是错。问题通常不在文档写得不够细，而在你让 AI 停在了文档那一步。这篇讲下一个需求可以怎样换个做法。
+你把需求写成文档，让 AI 一项项照着做，功能还是漏、位置还是错。问题不在文档写得不够细，而在它根本不需要你来写：它只是业务和技术之间的翻译件。这篇讲没有它之后怎么干活。
 
 ## [团队落地 AI，为什么要先把 Agent 和 Skill 减下来？](./why-teams-should-start-with-fewer-agents-and-skills.html)
 
