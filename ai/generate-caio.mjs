@@ -87,17 +87,17 @@ const relatedContent = {
     ]
   },
   en: {
-    label: "Insights · Chinese",
+    label: "Insights",
     title: "Explore the thinking behind the CAIO Office offer",
-    intro: "Six Chinese essays cover enterprise AI deployment, Agent and Skill design, the FDE role, AI-native R&D, setting rules for AI, and moving past the PRD before you choose an engagement track.",
+    intro: "Six essays cover enterprise AI deployment, Agent and Skill design, the FDE role, AI-native R&D, setting rules for AI, and moving past the PRD before you choose an engagement track.",
     cta: "Read article",
     items: [
-      ["Enterprise AI needs someone who drives the result", "Enterprise AI · CAIO", "/articles/enterprise-ai-needs-caio-and-fde.html"],
-      ["Why teams should start with fewer Agents and Skills", "Enterprise AI · Teamwork", "/articles/why-teams-should-start-with-fewer-agents-and-skills.html"],
+      ["Enterprise AI needs someone who drives the result", "Enterprise AI · CAIO", "/articles/en/enterprise-ai-needs-caio-and-fde.html"],
+      ["Why teams should start with fewer Agents and Skills", "Enterprise AI · Teamwork", "/articles/en/why-teams-should-start-with-fewer-agents-and-skills.html"],
       ["What does an FDE actually do every day?", "Enterprise AI · FDE", "/articles/what-fde-does-34-job-descriptions.html"],
-      ["Why a larger R&D team still may not ship faster", "AI-Native R&D Transformation · AI Coding", "/articles/ai-native-rd-team-optimization.html"],
+      ["Why a larger R&D team still may not ship faster", "AI-Native R&D Transformation · AI Coding", "/articles/en/ai-native-rd-team-optimization.html"],
       ["The scarcest people in R&D now write the rules, not the code", "AI-Native R&D Transformation · Rules", "/articles/ai-rd-rule-makers.html"],
-      ["Product managers still writing PRDs are adorable", "AI-Native R&D Transformation · Requirements", "/articles/still-writing-prd.html"]
+      ["Product managers still writing PRDs are adorable", "AI-Native R&D Transformation · Requirements", "/articles/en/still-writing-prd.html"]
     ]
   },
   "zh-HK": {

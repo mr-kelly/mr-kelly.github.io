@@ -11,6 +11,7 @@ created_on: 2026-10-09
 digest: Skill 的数量不是能力，实际被调用并完成任务才是。入口越来越多，使用率未必上升；先用真实任务检验入口、资料和验收。
 cover_title: 先减 Agent 和 Skill
 cover_subtitle: 再把任务真正交出去
+translation: /articles/en/why-teams-should-start-with-fewer-agents-and-skills.html
 ---
 
 > **Kelly 陈霈霖**｜喜茶创始 CTO 兼董事会成员，维格 Vika / AITable 创始人，Buda AI 创始人。带过 150 人团队，主导 3 万人零售企业数字化转型；Vika 服务 100 万用户与 1.5 万家企业组织，获 IDG 资本、天图资本、五源资本、靖亚资本、高瓴创投投资，累计融资数千万美元。了解我：[个人简介](https://kellychan.im/resume/zh-cn/)｜[企业 AI 服务](https://kellychan.im/ai/)｜[CAIO Office](https://kellychan.im/ai/caio/)

@@ -11,6 +11,7 @@ created_on: 2026-09-02
 digest: 企业买了模型、上了培训、做了 Demo，业务为什么还是没变？真正缺的，往往是把目标、执行和验收串起来的人。
 cover_title: 企业做 AI，最缺的不是工具
 cover_subtitle: 而是一个把结果逼出来的人
+translation: /articles/en/enterprise-ai-needs-caio-and-fde.html
 ---
 
 > **Kelly 陈霈霖**｜喜茶创始 CTO 兼董事会成员，维格 Vika / AITable 创始人，Buda AI 创始人。带过 150 人团队，主导 3 万人零售企业数字化转型；Vika 服务 100 万用户与 1.5 万家企业组织，获 IDG 资本、天图资本、五源资本、靖亚资本、高瓴创投投资，累计融资数千万美元。了解我：[个人简介](https://kellychan.im/resume/zh-cn/)｜[企业 AI 服务](https://kellychan.im/ai/)｜[CAIO Office](https://kellychan.im/ai/caio/)
@@ -312,9 +313,9 @@ Buda AI、Busabase、Vika、AITable、MoonRouter 等工具，只在它们适合�
 
 ## 七、为什么这件事由我来做？
 
-我做过软件工程师，做过喜茶创始 CTO；也连续创办了维格 Vika / AITable——国内最早一批多维表格产品之一，腾讯、百度、南方电网、Shein、米哈游都在用它做数字化转型——以及 Buda，一个面向企业级的 Agent Harness 产品。
+我做过软件工程师，也在一家零售企业做过创始 CTO；也连续创办了维格 Vika / AITable——国内最早一批多维表格产品之一，腾讯、百度、南方电网、Shein、米哈游都在用它做数字化转型——以及 Buda，一个面向企业级的 Agent Harness 产品。
 
-我带过 150 人以上的产品、研发与数字运营团队；也做过喜茶的 PMO（项目管理办公室负责人），横向协调全公司所有部门，把 3 万人零售企业的数字化转型拆成任务，逼着每个团队拿结果；还做过服务百万用户和 1.5 万家企业组织的软件平台。
+我带过 150 人以上的产品、研发与数字运营团队；也在那家公司做过 PMO（项目管理办公室负责人），横向协调全公司所有部门，把 3 万人零售企业的数字化转型拆成任务，逼着每个团队拿结果；还做过服务百万用户和 1.5 万家企业组织的软件平台。
 
 这些经历让我越来越确定一件事：
 
