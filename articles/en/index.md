@@ -9,6 +9,10 @@ translation: /articles/
 
 Essays on enterprise AI deployment, AI-native R&D, and how to manage a team of AI agents. Each one is the English edition of a Chinese original.
 
+## [Why your agents won't work, and why you should stop building your company's own agent](./why-your-agents-wont-work.html)
+
+You've rolled out agents and added skills, yet you keep hiring and the results still don't show. The problem usually isn't too few agents; it's that your company's knowledge is locked inside each one. Here are the seven findings from two years of doing this, and three things to do when you get back.
+
 ## [Product managers still writing PRDs are adorable](./still-writing-prd.html)
 
 You turn requirements into a document and have AI follow it item by item, yet features still go missing or land in the wrong place. The problem isn't that the document lacks detail; it's that you never needed to write it. It was only ever a translation between business and engineering. Here's how to work without it.

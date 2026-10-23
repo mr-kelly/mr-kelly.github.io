@@ -27,7 +27,7 @@ const pages = {
     serviceIntro: "可以从培训、Vibe Coding 工作坊或项目陪跑开始，也可以引入 CAIO Office 持续带队，或直接落地 Agent、AI 资产中枢与企业品牌小程序。以下为客户参考报价。",
     insightsLabel: "观点文章",
     insightsTitle: "先看方法，再决定需要什么服务",
-    insightsIntro: "十篇长文从企业 AI 落地、Agent 与 Skill 配置、研发团队改造、产品需求、交付验收及协作规则等角度，讲清问题为什么发生、应该怎样推进。",
+    insightsIntro: "十一篇长文从企业 AI 落地、Agent 为什么不管用、Agent 与 Skill 配置、研发团队改造、产品需求、交付验收及协作规则等角度，讲清问题为什么发生、应该怎样推进。",
     insightsCta: "阅读全文",
     insightsItems: [
       ["企业做 AI，最缺的不是工具，而是一个把结果逼出来的人", "从“AI 落地断层”拆解目标、执行、验收和资产沉淀，适合正在推动公司级 AI 转型的管理者。", "企业 AI · CAIO", "/articles/enterprise-ai-needs-caio-and-fde.html"],
@@ -39,7 +39,8 @@ const pages = {
       ["下一家万亿美元公司，卖的不是工具，是把活干完", "会用 AI 的人离业务很远，有业务的人追不上工具。断掉的不是工具，是中间没有人负责把它接到业务上。", "企业 AI · 服务即软件", "/articles/services-the-new-software.html"],
       ["Agent 越用越多，为什么改好的那一版反而越来越难找？", "卡住你的不是技术，是没人教过你怎么跟 Agent 协作。五句该对它说的话，一次任务五步走完。", "Vibe Coding · 协作", "/articles/agent-collaboration-blind-spot.html"],
       ["研发里最稀缺的，不是写代码的人，是定规矩的人", "AI 已经够强，缺的是规矩：三份文档定需求，三级规则管执行，评估集和发布关卡管结果。", "研发转型 · AI 规则", "/articles/ai-rd-rule-makers.html"],
-      ["现在还在写 PRD 的产品经理，都是小可爱", "PRD 只是业务和技术之间的翻译件。AI 两边都懂，产品经理不必再写 PRD，只做验收和品味反馈。", "研发转型 · 产品需求", "/articles/still-writing-prd.html"]
+      ["现在还在写 PRD 的产品经理，都是小可爱", "PRD 只是业务和技术之间的翻译件。AI 两边都懂，产品经理不必再写 PRD，只做验收和品味反馈。", "研发转型 · 产品需求", "/articles/still-writing-prd.html"],
+      ["你的 Agent 为什么不管用？别再造公司自己的 Agent 了", "Agent 越多，人招得越多。Agent 不带记忆，公司带；Context 交给 AI，品味留给人。", "企业 AI · Agent 落地", "/articles/why-your-agents-wont-work.html"]
     ],
     headers: ["类别", "服务", "核心交付", "形式 / 时长", "服务报价"],
     mobileLabels: ["类别", "服务", "交付", "形式", "报价"],
@@ -236,7 +237,7 @@ const pages = {
     serviceIntro: "Begin with training, a Vibe Coding workshop, or project coaching; bring in a CAIO Office to lead weekly execution; or deploy an Agent, AI asset hub, or branded mini-program. Prices below are for reference.",
     insightsLabel: "Insights",
     insightsTitle: "Read the method before choosing the service",
-    insightsIntro: "Ten essays cover enterprise AI deployment, Agent and Skill design, AI-native R&D, product requirements, delivery acceptance, and practical collaboration rules.",
+    insightsIntro: "Eleven essays cover enterprise AI deployment, why agents don't work, Agent and Skill design, AI-native R&D, product requirements, delivery acceptance, and practical collaboration rules.",
     insightsCta: "Read article",
     insightsItems: [
       ["Enterprise AI needs someone who drives the result", "A practical diagnosis of the gap between AI strategy, weekly execution, acceptance, and reusable company assets.", "Enterprise AI · CAIO", "/articles/en/enterprise-ai-needs-caio-and-fde.html"],
@@ -248,7 +249,8 @@ const pages = {
       ["The next $1T company sells the work, not the tool", "The people fluent in AI sit far from the business; the people who own the business cannot keep pace with the tools. What is missing is anyone accountable for the outcome.", "Enterprise AI · Service-as-Software", "/articles/en/services-the-new-software.html"],
       ["Why the version you liked keeps getting harder to find", "A Chinese primer for non-engineers running coding agents: the blocker is not Git, it is how you work with the agent.", "Vibe Coding · Collaboration", "/articles/agent-collaboration-blind-spot.html"],
       ["The scarcest people in R&D now write the rules, not the code", "A Chinese essay on governing AI coding: three documents for intent, three layers of rules for execution, and evals plus release gates for results.", "AI-Native R&D · Rules", "/articles/ai-rd-rule-makers.html"],
-      ["Product managers still writing PRDs are adorable", "Why the PRD was only ever a translation between business and engineering, and why AI makes it unnecessary.", "AI-Native R&D · Requirements", "/articles/en/still-writing-prd.html"]
+      ["Product managers still writing PRDs are adorable", "Why the PRD was only ever a translation between business and engineering, and why AI makes it unnecessary.", "AI-Native R&D · Requirements", "/articles/en/still-writing-prd.html"],
+      ["Why your agents won't work", "Seven findings from two years of deploying agents: memory belongs to the company, split agents only by access, keep taste with people.", "Enterprise AI · Agents", "/articles/en/why-your-agents-wont-work.html"]
     ],
     headers: ["Type", "Service", "Core delivery", "Format / duration", "Price"],
     mobileLabels: ["Type", "Service", "Delivery", "Format", "Price"],
@@ -445,7 +447,7 @@ const pages = {
     serviceIntro: "可以從培訓、Vibe Coding 工作坊或項目陪跑開始，也可以引入 CAIO Office 持續帶隊，或直接落地 Agent、AI 資產中樞與企業品牌小程式。以下為客戶參考報價。",
     insightsLabel: "觀點文章 · 中文",
     insightsTitle: "先看方法，再決定需要什麼服務",
-    insightsIntro: "十篇長文從企業 AI 落地、Agent 與 Skill 配置、研發團隊改造、產品需求、交付驗收及協作規則等角度，講清問題為什麼發生、應該怎樣推進。",
+    insightsIntro: "十一篇長文從企業 AI 落地、Agent 為什麼不管用、Agent 與 Skill 配置、研發團隊改造、產品需求、交付驗收及協作規則等角度，講清問題為什麼發生、應該怎樣推進。",
     insightsCta: "閱讀全文",
     insightsItems: [
       ["企業做 AI，最缺的不是工具，而是一個把結果逼出來的人", "從「AI 落地斷層」拆解目標、執行、驗收和資產沉澱，適合正在推動公司級 AI 轉型的管理者。", "企業 AI · CAIO", "/articles/enterprise-ai-needs-caio-and-fde.html"],
@@ -457,7 +459,8 @@ const pages = {
       ["下一家萬億美元公司，賣的不是工具，是把活幹完", "會用 AI 的人離業務很遠，有業務的人追不上工具。斷掉的不是工具，是中間沒有人負責把它接到業務上。", "企業 AI · 服務即軟件", "/articles/services-the-new-software.html"],
       ["Agent 越用越多，為什麼改好的那一版反而越來越難找？", "卡住你的不是技術，是沒人教過你怎麼跟 Agent 協作。五句該對它說的話，一次任務五步走完。", "Vibe Coding · 協作", "/articles/agent-collaboration-blind-spot.html"],
       ["研發裡最稀缺的，不是寫程式碼的人，是定規矩的人", "AI 已經夠強，缺的是規矩：三份文件定需求，三級規則管執行，評估集和發佈關卡管結果。", "研發轉型 · AI 規則", "/articles/ai-rd-rule-makers.html"],
-      ["現在還在寫 PRD 的產品經理，都是小可愛", "PRD 只是業務和技術之間的翻譯件。AI 兩邊都懂，產品經理不必再寫 PRD，只做驗收和品味回饋。", "研發轉型 · 產品需求", "/articles/still-writing-prd.html"]
+      ["現在還在寫 PRD 的產品經理，都是小可愛", "PRD 只是業務和技術之間的翻譯件。AI 兩邊都懂，產品經理不必再寫 PRD，只做驗收和品味回饋。", "研發轉型 · 產品需求", "/articles/still-writing-prd.html"],
+      ["你的 Agent 為什麼不管用？別再造公司自己的 Agent 了", "Agent 越多，人招得越多。Agent 不帶記憶，公司帶；Context 交給 AI，品味留給人。", "企業 AI · Agent 落地", "/articles/why-your-agents-wont-work.html"]
     ],
     headers: ["類別", "服務", "核心交付", "形式 / 時長", "服務報價"],
     mobileLabels: ["類別", "服務", "交付", "形式", "報價"],
