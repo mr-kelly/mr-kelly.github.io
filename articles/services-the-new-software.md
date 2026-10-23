@@ -11,6 +11,7 @@ created_on: 2026-09-21
 digest: 会用 AI 的人离业务很远，有业务的人追不上工具。断掉的不是工具，是中间没有人负责把它接到业务上。红杉那篇《Services：The New Software》，讲的就是谁来接。
 cover_title: 卖的不是工具，是把活干完
 cover_subtitle: 红杉写给创业者，买方更该读
+translation: /articles/en/services-the-new-software.html
 ---
 
 > **Kelly 陈霈霖**｜喜茶创始 CTO 兼董事会成员，维格 Vika / AITable 创始人。带过 150 人团队，主导 3 万人零售企业数字化转型；Vika 服务 100 万用户与 1.5 万家企业组织，获 IDG 资本、天图资本、五源资本、靖亚资本、高瓴创投投资，累计融资数千万美元。了解我：[个人简介](https://kellychan.im/resume/zh-cn/)｜[企业 AI 服务](https://kellychan.im/ai/)｜[CAIO Office](https://kellychan.im/ai/caio/)

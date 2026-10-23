@@ -17,6 +17,18 @@ You turn requirements into a document and have AI follow it item by item, yet fe
 
 You assign an Agent to every role and keep adding Skills, yet people can't tell which one to call, and work that spans several people still has to be pulled together by hand. The problem isn't that there are too few; it's that the entry points, the information and acceptance were never connected. Here's how to work out a setup that's just enough, starting from one task.
 
+## [The next trillion-dollar company sells the work, not the tool](./services-the-new-software.html)
+
+The people around you who use AI keep getting better, yet they sit far from the business; the people who own the business can't keep up with the tools. What's broken isn't the tools. It's that nobody in the middle is responsible for connecting them to the business. This piece is about who should pick up that layer.
+
+## [What does an FDE actually do all day? I took apart 34 real job descriptions from Beijing, Shanghai, Guangzhou and Shenzhen](./what-fde-does-34-job-descriptions.html)
+
+You might think an FDE just deploys models, but 34 real job descriptions show that 94% start by finding the business problem and 91% also build things themselves. Why does this role look like a mix of presales, product, engineering and implementation? This piece is about what companies really want this person to own.
+
+## [The next bottleneck in AI R&D isn't building the work. It's accepting it.](./ai-rd-next-bottleneck-acceptance.html)
+
+AI writes code faster and faster, so why is R&D still not fast? The real bottleneck is moving from executing tasks to understanding requirements, delivery evidence and human acceptance. This essay uses five questions and answers to explain multiple Agents, PRDs, product meetings, repository maps and how acceptance works.
+
 ## [The harder you study AI, the longer you stay a super-worker](./stop-learning-ai-start-managing-it.html)
 
 You bought the courses, saved hundreds of prompts and cycled through a round of tools, and you still haven't got your time back. AI stopped lacking capability a while ago; what's missing is whether you dare hand one job over completely. This piece covers how to hand over your first job in week one, and what counts as done.

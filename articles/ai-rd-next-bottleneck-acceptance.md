@@ -10,6 +10,7 @@ created_on: 2026-09-11
 digest: AI 写代码越来越快，新的瓶颈却出现在验收端。多 Agent 怎么搭、PRD 怎么写、产品会议怎么开、仓库怎么梳理？五个问答讲清 AI 原生研发真正需要升级的管理能力。
 cover_title: AI 研发的下一道瓶颈
 cover_subtitle: 不是做不过来，而是验不过来
+translation: /articles/en/ai-rd-next-bottleneck-acceptance.html
 ---
 
 > **Kelly 陈霈霖**｜喜茶创始 CTO 兼董事会成员，维格 Vika / AITable 创始人，Buda AI 创始人。带过 150 人团队，主导 3 万人零售企业数字化转型；Vika 服务 100 万用户与 1.5 万家企业组织，获 IDG 资本、天图资本、五源资本、靖亚资本、高瓴创投投资，累计融资数千万美元。了解我：[个人简介](https://kellychan.im/resume/zh-cn/)｜[企业 AI 服务](https://kellychan.im/ai/)｜[CAIO Office](https://kellychan.im/ai/caio/)
