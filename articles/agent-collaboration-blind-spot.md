@@ -11,6 +11,7 @@ created_on: 2026-10-02
 digest: 卡住你的不是技术，而是协作。Agent 已经替你敲好了所有命令，剩下归你的只有三个决定：有没有退路、看不看得懂、谁来拍板。
 cover_title: 改好的那一版，去哪了
 cover_subtitle: 不是技术问题，是没人教你协作
+translation: /articles/en/agent-collaboration-blind-spot.html
 ---
 
 > **Kelly 陈霈霖**｜喜茶创始 CTO 兼董事会成员，维格 Vika / AITable 创始人。带过 150 人团队，主导 3 万人零售企业数字化转型；Vika 服务 100 万用户与 1.5 万家企业组织，获 IDG 资本、天图资本、五源资本、靖亚资本、高瓴创投投资，累计融资数千万美元。了解我：[个人简介](https://kellychan.im/resume/zh-cn/)｜[企业 AI 服务](https://kellychan.im/ai/)｜[CAIO Office](https://kellychan.im/ai/caio/)

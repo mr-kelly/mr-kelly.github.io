@@ -21,6 +21,14 @@ You turn requirements into a document and have AI follow it item by item, yet fe
 
 You assign an Agent to every role and keep adding Skills, yet people can't tell which one to call, and work that spans several people still has to be pulled together by hand. The problem isn't that there are too few; it's that the entry points, the information and acceptance were never connected. Here's how to work out a setup that's just enough, starting from one task.
 
+## [The scarcest people in R&D now write the rules, not the code](./ai-rd-rule-makers.html)
+
+You gave your team AI coding tools, and code really did get faster, yet rework and production issues haven't gone down. The problem usually isn't that AI isn't strong enough; it's that the process was still designed for people writing code. This essay covers how to set rules for AI, and how to spend the first 30 days.
+
+## [You're using Agents more and more, so why is the good version getting harder to find?](./agent-collaboration-blind-spot.html)
+
+You have the Agent make change after change and click Allow at every step, yet in the end you can't say which version is the right one. The problem usually isn't that you don't understand the tech; it's that no one ever taught you how to work with it. Here are five things you should say to it.
+
 ## [The next trillion-dollar company sells the work, not the tool](./services-the-new-software.html)
 
 The people around you who use AI keep getting better, yet they sit far from the business; the people who own the business can't keep up with the tools. What's broken isn't the tools. It's that nobody in the middle is responsible for connecting them to the business. This piece is about who should pick up that layer.

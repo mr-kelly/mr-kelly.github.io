@@ -11,6 +11,7 @@ created_on: 2026-10-05
 digest: AI 已经足够强，缺的不是更强的模型，而是规矩：三份文档定需求，三级规则管执行，评估集和发布关卡管结果。人从动手的那个，变成定规矩和验收的那个。
 cover_title: 缺的不是写代码的人
 cover_subtitle: 是给 AI 定规矩的人
+translation: /articles/en/ai-rd-rule-makers.html
 ---
 
 > **Kelly 陈霈霖**｜喜茶创始 CTO 兼董事会成员，维格 Vika / AITable 创始人，Buda AI 创始人。带过 150 人团队，主导 3 万人零售企业数字化转型；Vika 服务 100 万用户与 1.5 万家企业组织，获 IDG 资本、天图资本、五源资本、靖亚资本、高瓴创投投资，累计融资数千万美元。了解我：[个人简介](https://kellychan.im/resume/zh-cn/)｜[企业 AI 服务](https://kellychan.im/ai/)｜[CAIO Office](https://kellychan.im/ai/caio/)
