@@ -24,7 +24,7 @@ I don't think you need me to argue whether to do AI anymore. **The question is n
 
 In this essay, I'm going to use just one picture.
 
-If you want the high-resolution version, scan the code at the end. By the end you'll see that everything I say here is on this map.
+If you'd like the high-resolution version, message me on LinkedIn or X (@kellypeilinchan). By the end you'll see that everything I say here is on this map.
 
 Here's how to read it. Top left: the five approaches I've gone through in two years. Below that: three questions people often ask. The big table in the middle is today's main act, seven findings. To the right of the table and below it: what to do about each finding. The bottom row: results, and three things you can do when you get back.
 
@@ -394,13 +394,11 @@ People judge: an agent's change first becomes a change request, and it only coun
 
 Report-first: daily and weekly reports go into tables and docs, with one place to read and one place to approve.
 
-## Scan to connect with us
+## Stay in touch
 
-![Map 2, block 4: scan to reach us](/articles/images/why-your-agents-wont-work/en/map-2-b4.webp)
+![Map 2, block 4: stay in touch](/articles/images/why-your-agents-wont-work/en/map-2-b4.webp)
 
-![Scan to add us on WeCom](/articles/images/why-your-agents-wont-work/en/qr.webp)
-
-Scan to add us on WeCom. Reply “大图” (Chinese for “big map”) and we'll send you the high-resolution version of the full map.
+You can find me on [LinkedIn](https://www.linkedin.com/in/kellypeilinchan/) and [X](https://x.com/kellypeilinchan) as @kellypeilinchan, and on [GitHub](https://github.com/mr-kelly) as @mr-kelly. Message me there for the high-resolution map.
 
 And tell us the one to three jobs you'd most like to hand to AI; we'll build them for you with Busabase.
 
