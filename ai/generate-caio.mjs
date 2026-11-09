@@ -75,9 +75,10 @@ const relatedContent = {
   "zh-CN": {
     label: "延伸阅读",
     title: "从观点文章继续理解 CAIO Office 的价值",
-    intro: "七篇长文分别讲企业 AI 落地、Agent 为什么不管用、Agent 与 Skill 配置、FDE 岗位、研发团队改造、给 AI 定规矩和告别 PRD。先看问题与方法，再判断从哪条服务路径切入。",
+    intro: "八篇长文分别讲技术史与 Agent、企业 AI 落地、Agent 为什么不管用、Agent 与 Skill 配置、FDE 岗位、研发团队改造、给 AI 定规矩和告别 PRD。先看问题与方法，再判断从哪条服务路径切入。",
     cta: "阅读全文",
     items: [
+      ["历史总是惊人地相似：Agent 时代，我们还在围着旧转轴工作", "技术史 · Agent", "/articles/agent-revolution-old-factory.html"],
       ["企业做 AI，最缺的不是工具，而是一个把结果逼出来的人", "企业 AI · CAIO", "/articles/enterprise-ai-needs-caio-and-fde.html"],
       ["团队落地 AI，为什么要先把 Agent 和 Skill 减下来？", "企业 AI · 团队协作", "/articles/why-teams-should-start-with-fewer-agents-and-skills.html"],
       ["FDE究竟每天在做什么？我拆解了北上广深34份真实JD", "企业 AI · FDE", "/articles/what-fde-does-34-job-descriptions.html"],
@@ -90,9 +91,10 @@ const relatedContent = {
   en: {
     label: "Insights",
     title: "Explore the thinking behind the CAIO Office offer",
-    intro: "Seven essays cover enterprise AI deployment, why agents don't work, Agent and Skill design, the FDE role, AI-native R&D, setting rules for AI, and moving past the PRD before you choose an engagement track.",
+    intro: "Eight essays cover technology history and agents, enterprise AI deployment, why agents don't work, Agent and Skill design, the FDE role, AI-native R&D, setting rules for AI, and moving past the PRD before you choose an engagement track.",
     cta: "Read article",
     items: [
+      ["History Rhymes: In the Age of Agents, We Still Work Around the Old Drive Shaft", "Technology history · Agents", "/articles/en/agent-revolution-old-factory.html"],
       ["Enterprise AI needs someone who drives the result", "Enterprise AI · CAIO", "/articles/en/enterprise-ai-needs-caio-and-fde.html"],
       ["Why teams should start with fewer Agents and Skills", "Enterprise AI · Teamwork", "/articles/en/why-teams-should-start-with-fewer-agents-and-skills.html"],
       ["What does an FDE actually do every day?", "Enterprise AI · FDE", "/articles/en/what-fde-does-34-job-descriptions.html"],
@@ -105,9 +107,10 @@ const relatedContent = {
   "zh-HK": {
     label: "延伸閱讀 · 中文",
     title: "從觀點文章繼續理解 CAIO Office 的價值",
-    intro: "七篇長文分別講企業 AI 落地、Agent 為什麼不管用、Agent 與 Skill 配置、FDE 崗位、研發團隊改造、給 AI 定規矩和告別 PRD。先看問題與方法，再判斷從哪條服務路徑切入。",
+    intro: "八篇長文分別講技術史與 Agent、企業 AI 落地、Agent 為什麼不管用、Agent 與 Skill 配置、FDE 崗位、研發團隊改造、給 AI 定規矩和告別 PRD。先看問題與方法，再判斷從哪條服務路徑切入。",
     cta: "閱讀全文",
     items: [
+      ["歷史總是驚人地相似：Agent 時代，我們還在圍著舊轉軸工作", "技術史 · Agent", "/articles/agent-revolution-old-factory.html"],
       ["企業做 AI，最缺的不是工具，而是一個把結果逼出來的人", "企業 AI · CAIO", "/articles/enterprise-ai-needs-caio-and-fde.html"],
       ["團隊落地 AI，為什麼要先把 Agent 和 Skill 減下來？", "企業 AI · 團隊協作", "/articles/why-teams-should-start-with-fewer-agents-and-skills.html"],
       ["FDE究竟每天在做什麼？我拆解了北上廣深34份真實JD", "企業 AI · FDE", "/articles/what-fde-does-34-job-descriptions.html"],

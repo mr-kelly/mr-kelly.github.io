@@ -9,6 +9,10 @@ translation: /articles/
 
 Essays on enterprise AI deployment, AI-native R&D, and how to manage a team of AI agents. Each one is the English edition of a Chinese original.
 
+## [History Rhymes: In the Age of Agents, We Still Work Around the Old Drive Shaft](./agent-revolution-old-factory.html)
+
+You might expect stronger models to change work automatically. Early electrified factories tell a different story: the machinery had changed, but the production system still belonged to the past. This essay explores what earlier technological revolutions reveal about today's agents, and which changes deserve our attention.
+
 ## [Why your agents won't work, and why you should stop building your company's own agent](./why-your-agents-wont-work.html)
 
 You've rolled out agents and added skills, yet you keep hiring and the results still don't show. The problem usually isn't too few agents; it's that your company's knowledge is locked inside each one. Here are the seven findings from two years of doing this, and three things to do when you get back.

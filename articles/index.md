@@ -8,6 +8,10 @@ description: Kelly 陈霈霖关于企业 AI 落地、研发 AI 原生转型，�
 
 关于企业 AI 落地、研发 AI 原生转型，以及怎样管理一支 AI 工作队。
 
+## [历史总是惊人地相似：Agent 时代，我们还在围着旧转轴工作](./agent-revolution-old-factory.html)
+
+你以为模型越来越强，工作就会自然改变，早期电气化工厂却留下了另一种答案：机器已经换代，生产方式仍停在过去。这篇讲历次技术革命如何照见今天的 Agent，以及真正值得观察的变化。
+
 ## [你的 Agent 为什么不管用？别再造公司自己的 Agent 了](./why-your-agents-wont-work.html)
 
 你上了 Agent、配了 Skill，人却越招越多，效果还是看不见。问题不在 Agent 不够多，而在公司的知识锁在了一个个 Agent 里。这篇讲七个发现，和回去就能做的三件事。
