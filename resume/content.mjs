@@ -109,32 +109,18 @@ export const DOCS = {
     "experience": {
       "title": "Experience",
       "roles": [
-        {
-          "time": "May 2026 - Present",
-          "place": "Hong Kong · San Francisco",
-          "title": "Founder",
-          "company": "<a href=\"https://buda.im\">Buda AI</a> · <a href=\"https://busabase.com\">Busabase</a> · <a href=\"https://sandock.ai\">Sandock</a>",
-          "lead": "Building “Agents as a Company”: coordinated AI employees that execute real work while people retain direction, taste and critical judgment.",
-          "bullets": [
-            "Personally operating a 30+ Agent model across engineering, operations, marketing, sales and administration, translating business goals into roles, tasks, owners and acceptance outcomes.",
-            "Shipped the product family that runs it: <a href=\"https://buda.im\">Buda</a> (the Agent workspace), <a href=\"https://busabase.com\">Busabase</a> (the database and workspace where Agents turn work into reusable data, docs, skills, and apps), <a href=\"https://sandock.ai\">Sandock</a> (long-running sandboxes for coding agents) and <a href=\"https://moonrouter.dev\">MoonRouter</a> (unified model gateway).",
-            "Designed the full operating loop for parallel Agent execution, context handoffs, tool use, human review and iterative retrospectives.",
-            "Applying the Agent operating model to media, e-commerce, consulting and manufacturing workflows."
-          ]
-        },
-        {
+                {
           "time": "Aug 2019 - Present",
           "place": "China · International",
           "title": "Founder & CEO",
-          "company": "<a href=\"https://vika.cn\">Vika</a> · <a href=\"https://aitable.ai\">AITable</a>",
-          "lead": "Founded Vika, an API-first enterprise data productivity platform, and launched AITable as its international AI product.",
+          "company": "Vika AI",
+          "lead": "One company, two product phases: from an enterprise data platform to the infrastructure AI agents run on.",
           "bullets": [
-            "Reached 1M+ users and served 15,000+ organizations across 28+ countries, including teams at Tencent, Baidu and China Southern Power Grid.",
-            "Built a visual database, APIs and no-code platform for project operations, CRM, AI applications and 1,000+ business scenarios, now serving as a structured data and workflow layer for Agents.",
-            "Raised tens of millions of US dollars in total, including consecutive <a href=\"https://36kr.com/p/1108346695280647\" rel=\"external noopener\">Pre-A and Pre-A+ rounds</a> exceeding US$10 million, led by Eminence Ventures and Hillhouse Ventures with 5Y Capital participating.",
-            "Backed by IDG Capital, Tiantu Capital, 5Y Capital (formerly Morningside), Eminence Ventures (Jingya Capital) and Hillhouse Capital."
+            "Phase 1 - Vika / AITable / APITable: founded Vika, an API-first enterprise data productivity platform; AITable is its international AI product and APITable its open-source foundation (15K+ stars). Reached 1M+ users and served 15,000+ organizations across 28+ countries, including teams at Tencent, Baidu and China Southern Power Grid.",
+            "Phase 2 - Bika / Busabase / Buda (current): the agent-era product line. Bika was the AI organizer; Busabase is the database and workspace where Agents turn work into reusable data, docs, skills and apps; Buda is the Agent workspace. Personally operating a 30+ Agent model across engineering, operations, marketing, sales and administration, with Sandock (long-running sandboxes for coding agents) and MoonRouter (unified model gateway) as supporting infrastructure.",
+            "Raised tens of millions of US dollars in total, including consecutive Pre-A and Pre-A+ rounds exceeding US$10 million, led by Eminence Ventures and Hillhouse Ventures with 5Y Capital participating; backed by IDG Capital, Tiantu Capital, 5Y Capital (formerly Morningside), Eminence Ventures (Jingya Capital) and Hillhouse Capital.",
           ]
-        },
+        },,
         {
           "time": "Jun 2017 - Jul 2019",
           "place": "2 years 2 months",
@@ -436,32 +422,18 @@ export const DOCS = {
     "experience": {
       "title": "工作经历",
       "roles": [
-        {
-          "time": "2026.05 - 至今",
-          "place": "香港 · San Francisco",
-          "title": "创始人",
-          "company": "<a href=\"https://buda.im\">Buda AI</a> · <a href=\"https://busabase.com\">Busabase</a> · <a href=\"https://sandock.ai\">Sandock</a>",
-          "lead": "围绕“Agents as a Company”构建 AI 原生公司：人类负责方向、品位和关键判断，协同 AI 数字员工负责具体执行。",
-          "bullets": [
-            "亲自运营覆盖研发、运营、市场、销售与行政的 30+ Agents 模式，将业务目标拆成角色、任务、负责人和验收结果。",
-            "发布支撑这套模式的产品矩阵：<a href=\"https://buda.im\">Buda</a>（Agent 工作空间）、<a href=\"https://busabase.com\">Busabase</a>（面向 Agent 的数据库与工作空间，将 Agent 产出沉淀为可复用的数据、文档、技能与应用）、<a href=\"https://sandock.ai\">Sandock</a>（面向编程 Agent 的长时沙箱）与 <a href=\"https://moonrouter.dev\">MoonRouter</a>（统一模型网关）。",
-            "设计多 Agent 并行、上下文交接、工具调用、人工审核与复盘迭代的完整工作闭环。",
-            "将 Agent 工作方式落地到自媒体、电商、咨询和制造等行业。"
-          ]
-        },
-        {
+                {
           "time": "2019.08 - 至今",
           "place": "中国 · 国际市场",
           "title": "创始人兼 CEO",
-          "company": "<a href=\"https://vika.cn\">维格 Vika</a> · <a href=\"https://aitable.ai\">AITable</a>",
-          "lead": "创立面向 API 的企业数据生产力平台维格 Vika，并推出其国际版 AI 产品 AITable。",
+          "company": "Vika AI",
+          "lead": "一家公司，两个产品阶段：从企业数据平台，到 AI Agent 的基础设施。",
           "bullets": [
-            "服务 100 万+ 用户、28+ 国家和地区的 1.5 万+ 企业组织，包括腾讯、百度、南方电网等企业团队。",
-            "构建可视化数据库、API 与无代码平台，支持项目管理、CRM、AI 应用及 1000+ 企业场景，并成为 Agent 的结构化数据与工作流底座。",
-            "累计完成数千万美元融资，其中包括由靖亚资本、高瓴创投领投、五源资本参与的 <a href=\"https://36kr.com/p/1108346695280647\" rel=\"external noopener\">Pre-A 与 Pre-A+ 两轮超千万美元融资</a>。",
-            "获得 IDG 资本、天图资本、五源资本（原晨兴）、靖亚资本和高瓴创投投资。"
+            "第一阶段 - Vika / AITable / APITable：创立面向 API 的企业数据生产力平台维格 Vika；AITable 是其国际版 AI 产品，APITable 是其开源底座（15K+ stars）。服务 100 万+ 用户、28+ 国家和地区的 1.5 万+ 企业组织，包括腾讯、百度、南方电网等企业团队。",
+            "第二阶段 - Bika / Busabase / Buda（当前）：Agent 时代的产品线。Bika 是 AI organizer 先行产品；Busabase 是面向 Agent 的数据库与工作空间，将 Agent 产出沉淀为可复用的数据、文档、技能与应用；Buda 是 Agent 工作空间。亲自运营覆盖研发、运营、市场、销售与行政的 30+ Agents 模式，Sandock（编程 Agent 长时沙箱）与 MoonRouter（统一模型网关）为支撑基础设施。",
+            "累计完成数千万美元融资，其中包括由靖亚资本、高瓴创投领投、五源资本参与的 Pre-A 与 Pre-A+ 两轮超千万美元融资；获得 IDG 资本、天图资本、五源资本（原晨兴）、靖亚资本和高瓴创投投资。",
           ]
-        },
+        },,
         {
           "time": "2017.06 - 2019.07",
           "place": "2 年 2 个月",
@@ -763,32 +735,18 @@ export const DOCS = {
     "experience": {
       "title": "工作經歷",
       "roles": [
-        {
-          "time": "2026.05 - 現在",
-          "place": "香港 · San Francisco",
-          "title": "創辦人",
-          "company": "<a href=\"https://buda.im\">Buda AI</a> · <a href=\"https://busabase.com\">Busabase</a> · <a href=\"https://sandock.ai\">Sandock</a>",
-          "lead": "圍繞「Agents as a Company」建立 AI 原生公司：人類負責方向、品味及關鍵判斷，協同 AI 數碼員工負責具體執行。",
-          "bullets": [
-            "親自營運涵蓋研發、營運、市場、銷售與行政的 30+ Agents 模式，將業務目標拆成角色、任務、負責人和驗收結果。",
-            "發佈支撐這套模式的產品矩陣：<a href=\"https://buda.im\">Buda</a>（Agent 工作空間）、<a href=\"https://busabase.com\">Busabase</a>（面向 Agent 的資料庫與工作空間，將 Agent 產出沉澱為可重用的資料、文件、技能與應用）、<a href=\"https://sandock.ai\">Sandock</a>（面向編程 Agent 的長時沙箱）與 <a href=\"https://moonrouter.dev\">MoonRouter</a>（統一模型網關）。",
-            "設計多 Agent 並行、上下文交接、工具調用、人工審核與複盤迭代的完整工作閉環。",
-            "將 Agent 工作方式落地到自媒體、電商、顧問及製造等行業。"
-          ]
-        },
-        {
+                {
           "time": "2019.08 - 現在",
           "place": "中國 · 國際市場",
           "title": "創辦人兼 CEO",
-          "company": "<a href=\"https://vika.cn\">維格 Vika</a> · <a href=\"https://aitable.ai\">AITable</a>",
-          "lead": "創立面向 API 的企業數據生產力平台維格 Vika，並推出其國際版 AI 產品 AITable。",
+          "company": "Vika AI",
+          "lead": "一家公司，兩個產品階段：從企業數據平台，到 AI Agent 的基礎設施。",
           "bullets": [
-            "服務 100 萬+ 用戶、28+ 國家和地區的 1.5 萬+ 企業組織，包括騰訊、百度、南方電網等企業團隊。",
-            "建立可視化數據庫、API 與無代碼平台，支援項目管理、CRM、AI 應用及 1,000+ 企業場景，並成為 Agent 的結構化數據與工作流程底座。",
-            "累計完成數千萬美元融資，其中包括由靖亞資本、高瓴創投領投、五源資本參與的 <a href=\"https://36kr.com/p/1108346695280647\" rel=\"external noopener\">Pre-A 與 Pre-A+ 兩輪超千萬美元融資</a>。",
-            "獲 IDG 資本、天圖資本、五源資本（原晨興）、靖亞資本及高瓴創投投資。"
+            "第一階段 - Vika / AITable / APITable：創立面向 API 的企業數據生產力平台維格 Vika；AITable 是其國際版 AI 產品，APITable 是其開源底座（15K+ stars）。服務 100 萬+ 用戶、28+ 國家和地區的 1.5 萬+ 企業組織，包括騰訊、百度、南方電網等企業團隊。",
+            "第二階段 - Bika / Busabase / Buda（當前）：Agent 時代的產品線。Bika 是 AI organizer 先行產品；Busabase 是面向 Agent 的資料庫與工作空間，將 Agent 產出沉澱為可重用的資料、文件、技能與應用；Buda 是 Agent 工作空間。親自營運涵蓋研發、營運、市場、銷售與行政的 30+ Agents 模式，Sandock（編程 Agent 長時沙箱）與 MoonRouter（統一模型網關）為支撐基礎設施。",
+            "累計完成數千萬美元融資，其中包括由靖亞資本、高瓴創投領投、五源資本參與的 Pre-A 與 Pre-A+ 兩輪超千萬美元融資；獲 IDG 資本、天圖資本、五源資本（原晨興）、靖亞資本及高瓴創投投資。",
           ]
-        },
+        },,
         {
           "time": "2017.06 - 2019.07",
           "place": "2 年 2 個月",
@@ -1107,32 +1065,18 @@ export const DOCS = {
     "experience": {
       "title": "Experience",
       "roles": [
-        {
-          "time": "May 2026 - Present",
-          "place": "Hong Kong · San Francisco",
-          "title": "Founder",
-          "company": "<a href=\"https://buda.im\">Buda AI</a> · <a href=\"https://busabase.com\">Busabase</a> · <a href=\"https://sandock.ai\">Sandock</a>",
-          "lead": "Building “Agents as a Company”: coordinated AI employees that execute real work while people retain direction, taste and critical judgment.",
-          "bullets": [
-            "Personally operating a 30+ Agent model across engineering, operations, marketing, sales and administration, translating business goals into roles, tasks, owners and acceptance outcomes.",
-            "Shipped the product family that runs it: <a href=\"https://buda.im\">Buda</a> (the Agent workspace), <a href=\"https://busabase.com\">Busabase</a> (the database and workspace where Agents turn work into reusable data, docs, skills, and apps), <a href=\"https://sandock.ai\">Sandock</a> (long-running sandboxes for coding agents) and <a href=\"https://moonrouter.dev\">MoonRouter</a> (unified model gateway).",
-            "Designed the full operating loop for parallel Agent execution, context handoffs, tool use, human review and iterative retrospectives.",
-            "Applying the Agent operating model to media, e-commerce, consulting and manufacturing workflows."
-          ]
-        },
-        {
+                {
           "time": "Aug 2019 - Present",
           "place": "China · International",
           "title": "Founder & CEO",
-          "company": "<a href=\"https://vika.cn\">Vika</a> · <a href=\"https://aitable.ai\">AITable</a>",
-          "lead": "Founded Vika, an API-first enterprise data productivity platform, and launched AITable as its international AI product.",
+          "company": "Vika AI",
+          "lead": "One company, two product phases: from an enterprise data platform to the infrastructure AI agents run on.",
           "bullets": [
-            "Reached 1M+ users and served 15,000+ organizations across 28+ countries, including teams at Tencent, Baidu and China Southern Power Grid.",
-            "Built a visual database, APIs and no-code platform for project operations, CRM, AI applications and 1,000+ business scenarios, now serving as a structured data and workflow layer for Agents.",
-            "Raised tens of millions of US dollars in total, including consecutive <a href=\"https://36kr.com/p/1108346695280647\" rel=\"external noopener\">Pre-A and Pre-A+ rounds</a> exceeding US$10 million, led by Eminence Ventures and Hillhouse Ventures with 5Y Capital participating.",
-            "Backed by IDG Capital, Tiantu Capital, 5Y Capital (formerly Morningside), Eminence Ventures (Jingya Capital) and Hillhouse Capital."
+            "Phase 1 - Vika / AITable / APITable: founded Vika, an API-first enterprise data productivity platform; AITable is its international AI product and APITable its open-source foundation (15K+ stars). Reached 1M+ users and served 15,000+ organizations across 28+ countries, including teams at Tencent, Baidu and China Southern Power Grid.",
+            "Phase 2 - Bika / Busabase / Buda (current): the agent-era product line. Bika was the AI organizer; Busabase is the database and workspace where Agents turn work into reusable data, docs, skills and apps; Buda is the Agent workspace. Personally operating a 30+ Agent model across engineering, operations, marketing, sales and administration, with Sandock (long-running sandboxes for coding agents) and MoonRouter (unified model gateway) as supporting infrastructure.",
+            "Raised tens of millions of US dollars in total, including consecutive Pre-A and Pre-A+ rounds exceeding US$10 million, led by Eminence Ventures and Hillhouse Ventures with 5Y Capital participating; backed by IDG Capital, Tiantu Capital, 5Y Capital (formerly Morningside), Eminence Ventures (Jingya Capital) and Hillhouse Capital.",
           ]
-        },
+        },,
         {
           "time": "Jun 2017 - Jul 2019",
           "place": "2 years 2 months",
@@ -1451,32 +1395,18 @@ export const DOCS = {
     "experience": {
       "title": "工作经历",
       "roles": [
-        {
-          "time": "2026.05 - 至今",
-          "place": "香港 · San Francisco",
-          "title": "创始人",
-          "company": "<a href=\"https://buda.im\">Buda AI</a> · <a href=\"https://busabase.com\">Busabase</a> · <a href=\"https://sandock.ai\">Sandock</a>",
-          "lead": "围绕“Agents as a Company”构建 AI 原生公司：人类负责方向、品位和关键判断，协同 AI 数字员工负责具体执行。",
-          "bullets": [
-            "亲自运营覆盖研发、运营、市场、销售与行政的 30+ Agents 模式，将业务目标拆成角色、任务、负责人和验收结果。",
-            "发布支撑这套模式的产品矩阵：<a href=\"https://buda.im\">Buda</a>（Agent 工作空间）、<a href=\"https://busabase.com\">Busabase</a>（面向 Agent 的数据库与工作空间，将 Agent 产出沉淀为可复用的数据、文档、技能与应用）、<a href=\"https://sandock.ai\">Sandock</a>（面向编程 Agent 的长时沙箱）与 <a href=\"https://moonrouter.dev\">MoonRouter</a>（统一模型网关）。",
-            "设计多 Agent 并行、上下文交接、工具调用、人工审核与复盘迭代的完整工作闭环。",
-            "将 Agent 工作方式落地到自媒体、电商、咨询和制造等行业。"
-          ]
-        },
-        {
+                {
           "time": "2019.08 - 至今",
           "place": "中国 · 国际市场",
           "title": "创始人兼 CEO",
-          "company": "<a href=\"https://vika.cn\">维格 Vika</a> · <a href=\"https://aitable.ai\">AITable</a>",
-          "lead": "创立面向 API 的企业数据生产力平台维格 Vika，并推出其国际版 AI 产品 AITable。",
+          "company": "Vika AI",
+          "lead": "一家公司，两个产品阶段：从企业数据平台，到 AI Agent 的基础设施。",
           "bullets": [
-            "服务 100 万+ 用户、28+ 国家和地区的 1.5 万+ 企业组织，包括腾讯、百度、南方电网等企业团队。",
-            "构建可视化数据库、API 与无代码平台，支持项目管理、CRM、AI 应用及 1000+ 企业场景，并成为 Agent 的结构化数据与工作流底座。",
-            "累计完成数千万美元融资，其中包括由靖亚资本、高瓴创投领投、五源资本参与的 <a href=\"https://36kr.com/p/1108346695280647\" rel=\"external noopener\">Pre-A 与 Pre-A+ 两轮超千万美元融资</a>。",
-            "获得 IDG 资本、天图资本、五源资本（原晨兴）、靖亚资本和高瓴创投投资。"
+            "第一阶段 - Vika / AITable / APITable：创立面向 API 的企业数据生产力平台维格 Vika；AITable 是其国际版 AI 产品，APITable 是其开源底座（15K+ stars）。服务 100 万+ 用户、28+ 国家和地区的 1.5 万+ 企业组织，包括腾讯、百度、南方电网等企业团队。",
+            "第二阶段 - Bika / Busabase / Buda（当前）：Agent 时代的产品线。Bika 是 AI organizer 先行产品；Busabase 是面向 Agent 的数据库与工作空间，将 Agent 产出沉淀为可复用的数据、文档、技能与应用；Buda 是 Agent 工作空间。亲自运营覆盖研发、运营、市场、销售与行政的 30+ Agents 模式，Sandock（编程 Agent 长时沙箱）与 MoonRouter（统一模型网关）为支撑基础设施。",
+            "累计完成数千万美元融资，其中包括由靖亚资本、高瓴创投领投、五源资本参与的 Pre-A 与 Pre-A+ 两轮超千万美元融资；获得 IDG 资本、天图资本、五源资本（原晨兴）、靖亚资本和高瓴创投投资。",
           ]
-        },
+        },,
         {
           "time": "2017.06 - 2019.07",
           "place": "2 年 2 个月",
@@ -1795,32 +1725,18 @@ export const DOCS = {
     "experience": {
       "title": "工作經歷",
       "roles": [
-        {
-          "time": "2026.05 - 現在",
-          "place": "香港 · San Francisco",
-          "title": "創辦人",
-          "company": "<a href=\"https://buda.im\">Buda AI</a> · <a href=\"https://busabase.com\">Busabase</a> · <a href=\"https://sandock.ai\">Sandock</a>",
-          "lead": "圍繞「Agents as a Company」建立 AI 原生公司：人類負責方向、品味及關鍵判斷，協同 AI 數碼員工負責具體執行。",
-          "bullets": [
-            "親自營運涵蓋研發、營運、市場、銷售與行政的 30+ Agents 模式，將業務目標拆成角色、任務、負責人和驗收結果。",
-            "發佈支撐這套模式的產品矩陣：<a href=\"https://buda.im\">Buda</a>（Agent 工作空間）、<a href=\"https://busabase.com\">Busabase</a>（面向 Agent 的資料庫與工作空間，將 Agent 產出沉澱為可重用的資料、文件、技能與應用）、<a href=\"https://sandock.ai\">Sandock</a>（面向編程 Agent 的長時沙箱）與 <a href=\"https://moonrouter.dev\">MoonRouter</a>（統一模型網關）。",
-            "設計多 Agent 並行、上下文交接、工具調用、人工審核與複盤迭代的完整工作閉環。",
-            "將 Agent 工作方式落地到自媒體、電商、顧問及製造等行業。"
-          ]
-        },
-        {
+                {
           "time": "2019.08 - 現在",
           "place": "中國 · 國際市場",
           "title": "創辦人兼 CEO",
-          "company": "<a href=\"https://vika.cn\">維格 Vika</a> · <a href=\"https://aitable.ai\">AITable</a>",
-          "lead": "創立面向 API 的企業數據生產力平台維格 Vika，並推出其國際版 AI 產品 AITable。",
+          "company": "Vika AI",
+          "lead": "一家公司，兩個產品階段：從企業數據平台，到 AI Agent 的基礎設施。",
           "bullets": [
-            "服務 100 萬+ 用戶、28+ 國家和地區的 1.5 萬+ 企業組織，包括騰訊、百度、南方電網等企業團隊。",
-            "建立可視化數據庫、API 與無代碼平台，支援項目管理、CRM、AI 應用及 1,000+ 企業場景，並成為 Agent 的結構化數據與工作流程底座。",
-            "累計完成數千萬美元融資，其中包括由靖亞資本、高瓴創投領投、五源資本參與的 <a href=\"https://36kr.com/p/1108346695280647\" rel=\"external noopener\">Pre-A 與 Pre-A+ 兩輪超千萬美元融資</a>。",
-            "獲 IDG 資本、天圖資本、五源資本（原晨興）、靖亞資本及高瓴創投投資。"
+            "第一階段 - Vika / AITable / APITable：創立面向 API 的企業數據生產力平台維格 Vika；AITable 是其國際版 AI 產品，APITable 是其開源底座（15K+ stars）。服務 100 萬+ 用戶、28+ 國家和地區的 1.5 萬+ 企業組織，包括騰訊、百度、南方電網等企業團隊。",
+            "第二階段 - Bika / Busabase / Buda（當前）：Agent 時代的產品線。Bika 是 AI organizer 先行產品；Busabase 是面向 Agent 的資料庫與工作空間，將 Agent 產出沉澱為可重用的資料、文件、技能與應用；Buda 是 Agent 工作空間。親自營運涵蓋研發、營運、市場、銷售與行政的 30+ Agents 模式，Sandock（編程 Agent 長時沙箱）與 MoonRouter（統一模型網關）為支撐基礎設施。",
+            "累計完成數千萬美元融資，其中包括由靖亞資本、高瓴創投領投、五源資本參與的 Pre-A 與 Pre-A+ 兩輪超千萬美元融資；獲 IDG 資本、天圖資本、五源資本（原晨興）、靖亞資本及高瓴創投投資。",
           ]
-        },
+        },,
         {
           "time": "2017.06 - 2019.07",
           "place": "2 年 2 個月",
