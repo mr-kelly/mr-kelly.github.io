@@ -250,6 +250,10 @@ export const DOCS = {
       "title": "Education",
       "groups": [
         {
+          "h3": "Cheung Kong Graduate School of Business (CKGSB)",
+          "p": "Executive MBA (EMBA) · 2026-2028 (expected)"
+        },
+        {
           "h3": "Beijing Normal University",
           "p": "Bachelor's degree in Finance · 2008-2012"
         }
@@ -563,6 +567,10 @@ export const DOCS = {
       "title": "教育经历",
       "groups": [
         {
+          "h3": "长江商学院",
+          "p": "EMBA（高级管理人员工商管理硕士） · 2026-2028（预计）"
+        },
+        {
           "h3": "北京师范大学",
           "p": "金融学学士 · 2008-2012"
         }
@@ -875,6 +883,10 @@ export const DOCS = {
     "education": {
       "title": "教育經歷",
       "groups": [
+        {
+          "h3": "長江商學院",
+          "p": "EMBA（高級管理人員工商管理碩士） · 2026-2028（預計）"
+        },
         {
           "h3": "北京師範大學",
           "p": "金融學學士 · 2008-2012"
@@ -1206,6 +1218,10 @@ export const DOCS = {
       "title": "Education",
       "groups": [
         {
+          "h3": "Cheung Kong Graduate School of Business (CKGSB)",
+          "p": "Executive MBA (EMBA) · 2026-2028 (expected)"
+        },
+        {
           "h3": "Beijing Normal University",
           "p": "Bachelor's degree in Finance · 2008-2012"
         }
@@ -1536,6 +1552,10 @@ export const DOCS = {
       "title": "教育经历",
       "groups": [
         {
+          "h3": "长江商学院",
+          "p": "EMBA（高级管理人员工商管理硕士） · 2026-2028（预计）"
+        },
+        {
           "h3": "北京师范大学",
           "p": "金融学学士 · 2008-2012"
         }
@@ -1865,6 +1885,10 @@ export const DOCS = {
     "education": {
       "title": "教育經歷",
       "groups": [
+        {
+          "h3": "長江商學院",
+          "p": "EMBA（高級管理人員工商管理碩士） · 2026-2028（預計）"
+        },
         {
           "h3": "北京師範大學",
           "p": "金融學學士 · 2008-2012"
