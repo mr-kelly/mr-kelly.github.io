@@ -276,6 +276,18 @@ export const DOCS = {
           "p": "Talks, original event photographs, company milestones and sourced reporting"
         },
         {
+          "link": "href=\"/events/#ai-agent-summit-hong-kong-2026\">AI Agent Summit Hong Kong: Why your AI agents never make it to production",
+          "p": "Keynote at AsiaWorld-Expo, co-hosted by Buda.im, on moving agents from demos into real company work"
+        },
+        {
+          "link": "href=\"/events/#busabase-product-hunt-number-one\">Product Hunt: Busabase is #1 Product of the Day",
+          "p": "Kelly's own open-source base for agents topped the daily leaderboard with 340+ upvotes"
+        },
+        {
+          "link": "href=\"/events/#api-claws-by-buda-product-hunt-launch\">Product Hunt: API Claws by Buda launches",
+          "p": "Buda's developer Agent API: hosted agents with Drive memory, model routing and a managed runtime"
+        },
+        {
           "link": "href=\"/events/#china-daily-lobster-fever-cools\">China Daily Hong Kong: ‘Raising lobsters fever’ cools as security fears mount",
           "p": "Case study on managing dozens of autonomous agents after a 40% team reduction, and pushback on the “one-person company” narrative"
         },
@@ -593,6 +605,18 @@ export const DOCS = {
           "p": "演讲、本人发布的活动照片、公司里程碑及有来源的第三方报道"
         },
         {
+          "link": "href=\"/events/zh-cn/#ai-agent-summit-hong-kong-2026\">AI Agent Summit 香港站：为什么你的 AI Agents 无法落地",
+          "p": "亚洲国际博览馆主题演讲，Buda.im 为联合主办方，讲智能体如何从演示走进真实公司运营"
+        },
+        {
+          "link": "href=\"/events/zh-cn/#busabase-product-hunt-number-one\">Product Hunt：Busabase 获当日第一名",
+          "p": "陈霈霖自己的开源智能体底座登顶当日榜，获 340+ 票"
+        },
+        {
+          "link": "href=\"/events/zh-cn/#api-claws-by-buda-product-hunt-launch\">Product Hunt：API Claws by Buda 发布",
+          "p": "Buda 的开发者 Agent API：带 Drive 记忆、模型路由与托管运行时的云端智能体"
+        },
+        {
           "link": "href=\"/events/zh-cn/#china-daily-lobster-fever-cools\">香港中国日报：“养龙虾热”降温，安全隐忧升温",
           "p": "报道团队缩减 40% 后管理数十个自主智能体的监督负担，以及对“一人公司”说法的质疑"
         },
@@ -908,6 +932,18 @@ export const DOCS = {
         {
           "link": "href=\"/events/zh-hk/\">完整活動與媒體檔案",
           "p": "演講、本人發佈的活動照片、公司里程碑及有來源的第三方報道"
+        },
+        {
+          "link": "href=\"/events/zh-hk/#ai-agent-summit-hong-kong-2026\">AI Agent Summit 香港站：為什麼你的 AI Agents 無法落地",
+          "p": "亞洲國際博覽館主題演講，Buda.im 為聯合主辦方，講智能體如何從演示走進真實公司營運"
+        },
+        {
+          "link": "href=\"/events/zh-hk/#busabase-product-hunt-number-one\">Product Hunt：Busabase 獲當日第一名",
+          "p": "陳霈霖自己的開源智能體底座登頂當日榜，獲 340+ 票"
+        },
+        {
+          "link": "href=\"/events/zh-hk/#api-claws-by-buda-product-hunt-launch\">Product Hunt：API Claws by Buda 發佈",
+          "p": "Buda 的開發者 Agent API：帶 Drive 記憶、模型路由與託管運行時的雲端智能體"
         },
         {
           "link": "href=\"/events/zh-hk/#china-daily-lobster-fever-cools\">香港中國日報：「養龍蝦熱」降溫，安全隱憂升溫",
@@ -1244,6 +1280,18 @@ export const DOCS = {
           "p": "Talks, original event photographs, company milestones and sourced reporting"
         },
         {
+          "link": "href=\"/events/#ai-agent-summit-hong-kong-2026\">AI Agent Summit Hong Kong: Why your AI agents never make it to production",
+          "p": "Keynote at AsiaWorld-Expo, co-hosted by Buda.im, on moving agents from demos into real company work"
+        },
+        {
+          "link": "href=\"/events/#busabase-product-hunt-number-one\">Product Hunt: Busabase is #1 Product of the Day",
+          "p": "Kelly's own open-source base for agents topped the daily leaderboard with 340+ upvotes"
+        },
+        {
+          "link": "href=\"/events/#api-claws-by-buda-product-hunt-launch\">Product Hunt: API Claws by Buda launches",
+          "p": "Buda's developer Agent API: hosted agents with Drive memory, model routing and a managed runtime"
+        },
+        {
           "link": "href=\"/events/#china-daily-lobster-fever-cools\">China Daily Hong Kong: ‘Raising lobsters fever’ cools as security fears mount",
           "p": "Case study on managing dozens of autonomous agents after a 40% team reduction, and pushback on the “one-person company” narrative"
         },
@@ -1578,6 +1626,18 @@ export const DOCS = {
           "p": "演讲、本人发布的活动照片、公司里程碑及有来源的第三方报道"
         },
         {
+          "link": "href=\"/events/zh-cn/#ai-agent-summit-hong-kong-2026\">AI Agent Summit 香港站：为什么你的 AI Agents 无法落地",
+          "p": "亚洲国际博览馆主题演讲，Buda.im 为联合主办方，讲智能体如何从演示走进真实公司运营"
+        },
+        {
+          "link": "href=\"/events/zh-cn/#busabase-product-hunt-number-one\">Product Hunt：Busabase 获当日第一名",
+          "p": "陈霈霖自己的开源智能体底座登顶当日榜，获 340+ 票"
+        },
+        {
+          "link": "href=\"/events/zh-cn/#api-claws-by-buda-product-hunt-launch\">Product Hunt：API Claws by Buda 发布",
+          "p": "Buda 的开发者 Agent API：带 Drive 记忆、模型路由与托管运行时的云端智能体"
+        },
+        {
           "link": "href=\"/events/zh-cn/#china-daily-lobster-fever-cools\">香港中国日报：“养龙虾热”降温，安全隐忧升温",
           "p": "报道团队缩减 40% 后管理数十个自主智能体的监督负担，以及对“一人公司”说法的质疑"
         },
@@ -1910,6 +1970,18 @@ export const DOCS = {
         {
           "link": "href=\"/events/zh-hk/\">完整活動與媒體檔案",
           "p": "演講、本人發佈的活動照片、公司里程碑及有來源的第三方報道"
+        },
+        {
+          "link": "href=\"/events/zh-hk/#ai-agent-summit-hong-kong-2026\">AI Agent Summit 香港站：為什麼你的 AI Agents 無法落地",
+          "p": "亞洲國際博覽館主題演講，Buda.im 為聯合主辦方，講智能體如何從演示走進真實公司營運"
+        },
+        {
+          "link": "href=\"/events/zh-hk/#busabase-product-hunt-number-one\">Product Hunt：Busabase 獲當日第一名",
+          "p": "陳霈霖自己的開源智能體底座登頂當日榜，獲 340+ 票"
+        },
+        {
+          "link": "href=\"/events/zh-hk/#api-claws-by-buda-product-hunt-launch\">Product Hunt：API Claws by Buda 發佈",
+          "p": "Buda 的開發者 Agent API：帶 Drive 記憶、模型路由與託管運行時的雲端智能體"
         },
         {
           "link": "href=\"/events/zh-hk/#china-daily-lobster-fever-cools\">香港中國日報：「養龍蝦熱」降溫，安全隱憂升溫",
