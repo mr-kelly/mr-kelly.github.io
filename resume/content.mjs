@@ -276,6 +276,10 @@ export const DOCS = {
           "p": "Talks, original event photographs, company milestones and sourced reporting"
         },
         {
+          "link": "href=\"/events/#with-dhh-omarchy-tencent\">X: DHH posts his photo with the Omarchy authors at Tencent",
+          "p": "397K views on DHH's post from Tencent Binhai Tower, where Kelly and Mark Shan met the creator of Omarchy and Rails"
+        },
+        {
           "link": "href=\"/events/#ai-agent-summit-hong-kong-2026\">AI Agent Summit Hong Kong: Why your AI agents never make it to production",
           "p": "Keynote at AsiaWorld-Expo, co-hosted by Buda.im, on moving agents from demos into real company work"
         },
@@ -605,6 +609,10 @@ export const DOCS = {
           "p": "演讲、本人发布的活动照片、公司里程碑及有来源的第三方报道"
         },
         {
+          "link": "href=\"/events/zh-cn/#with-dhh-omarchy-tencent\">X：DHH 发布与 Omarchy 两位作者在腾讯的合影",
+          "p": "在深圳腾讯滨海大厦与 Omarchy 及 Rails 创始人 DHH 会面，DHH 的帖子获 39.7 万浏览"
+        },
+        {
           "link": "href=\"/events/zh-cn/#ai-agent-summit-hong-kong-2026\">AI Agent Summit 香港站：为什么你的 AI Agents 无法落地",
           "p": "亚洲国际博览馆主题演讲，Buda.im 为联合主办方，讲智能体如何从演示走进真实公司运营"
         },
@@ -932,6 +940,10 @@ export const DOCS = {
         {
           "link": "href=\"/events/zh-hk/\">完整活動與媒體檔案",
           "p": "演講、本人發佈的活動照片、公司里程碑及有來源的第三方報道"
+        },
+        {
+          "link": "href=\"/events/zh-hk/#with-dhh-omarchy-tencent\">X：DHH 發佈與 Omarchy 兩位作者在騰訊的合影",
+          "p": "在深圳騰訊濱海大廈與 Omarchy 及 Rails 創始人 DHH 會面，DHH 的帖子獲 39.7 萬瀏覽"
         },
         {
           "link": "href=\"/events/zh-hk/#ai-agent-summit-hong-kong-2026\">AI Agent Summit 香港站：為什麼你的 AI Agents 無法落地",
@@ -1280,6 +1292,10 @@ export const DOCS = {
           "p": "Talks, original event photographs, company milestones and sourced reporting"
         },
         {
+          "link": "href=\"/events/#with-dhh-omarchy-tencent\">X: DHH posts his photo with the Omarchy authors at Tencent",
+          "p": "397K views on DHH's post from Tencent Binhai Tower, where Kelly and Mark Shan met the creator of Omarchy and Rails"
+        },
+        {
           "link": "href=\"/events/#ai-agent-summit-hong-kong-2026\">AI Agent Summit Hong Kong: Why your AI agents never make it to production",
           "p": "Keynote at AsiaWorld-Expo, co-hosted by Buda.im, on moving agents from demos into real company work"
         },
@@ -1626,6 +1642,10 @@ export const DOCS = {
           "p": "演讲、本人发布的活动照片、公司里程碑及有来源的第三方报道"
         },
         {
+          "link": "href=\"/events/zh-cn/#with-dhh-omarchy-tencent\">X：DHH 发布与 Omarchy 两位作者在腾讯的合影",
+          "p": "在深圳腾讯滨海大厦与 Omarchy 及 Rails 创始人 DHH 会面，DHH 的帖子获 39.7 万浏览"
+        },
+        {
           "link": "href=\"/events/zh-cn/#ai-agent-summit-hong-kong-2026\">AI Agent Summit 香港站：为什么你的 AI Agents 无法落地",
           "p": "亚洲国际博览馆主题演讲，Buda.im 为联合主办方，讲智能体如何从演示走进真实公司运营"
         },
@@ -1970,6 +1990,10 @@ export const DOCS = {
         {
           "link": "href=\"/events/zh-hk/\">完整活動與媒體檔案",
           "p": "演講、本人發佈的活動照片、公司里程碑及有來源的第三方報道"
+        },
+        {
+          "link": "href=\"/events/zh-hk/#with-dhh-omarchy-tencent\">X：DHH 發佈與 Omarchy 兩位作者在騰訊的合影",
+          "p": "在深圳騰訊濱海大廈與 Omarchy 及 Rails 創始人 DHH 會面，DHH 的帖子獲 39.7 萬瀏覽"
         },
         {
           "link": "href=\"/events/zh-hk/#ai-agent-summit-hong-kong-2026\">AI Agent Summit 香港站：為什麼你的 AI Agents 無法落地",
