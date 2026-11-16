@@ -58,6 +58,7 @@ ${d.practice.steps.map((s) => `        <article><span>${s.n}</span><h3>${s.h3}</
       </div>
       <p class="agent-environment"><strong>${d.practice.envNowLabel}</strong><span>${d.practice.envNow}</span></p>
       <p class="agent-environment agent-environment-was"><strong>${d.practice.envWasLabel}</strong><span>${d.practice.envWas}</span></p>
+      ${d.practice.langLabel ? `<p class="agent-environment"><strong>${d.practice.langLabel}</strong><span>${d.practice.langList}</span></p>` : ""}
     </div>
   </section>
 `;
