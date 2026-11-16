@@ -104,7 +104,7 @@ export const DOCS = {
       "envNowLabel": "Daily operating environment",
       "envNow": "Buda · Paseo · Codex · Claude Code · opencode · pi — mixed per task",
       "langLabel": "Programming languages — hands-on since 2011, 15+ years coding",
-      "langList": "C# 14 yrs · SQL 14 yrs · JavaScript 12 yrs · Python 11 yrs · Go 10 yrs · TypeScript 7 yrs · Java 7 yrs · Lua 7 yrs · C/C++ 7 yrs · PHP 4 yrs · Rust (2026–)",
+      "langList": "C# 14 yrs · SQL 14 yrs · JavaScript 12 yrs · Python 11 yrs · Go 10 yrs · TypeScript 7 yrs · Java 15 yrs · Lua 7 yrs · C/C++ 7 yrs · PHP 4 yrs · Rust (2026–)",
       "envWasLabel": "How it got here",
       "envWas": "It started with AI as an assistant inside an IDE (Kiro, GitHub Copilot). Then as an employee. Now as a company of them — with the human sitting where a board sits."
     },
@@ -439,7 +439,7 @@ export const DOCS = {
       "envNowLabel": "日常实战环境",
       "envNow": "Buda · Paseo · Codex · Claude Code · opencode · pi coding agent，按任务混用",
       "langLabel": "编程语言——2011 年至今亲手在写，写代码 15 年+",
-      "langList": "C# 14 年 · SQL 14 年 · JavaScript 12 年 · Python 11 年 · Go 10 年 · TypeScript 7 年 · Java 7 年 · Lua 7 年 · C/C++ 7 年 · PHP 4 年 · Rust（2026 起）",
+      "langList": "C# 14 年 · SQL 14 年 · JavaScript 12 年 · Python 11 年 · Go 10 年 · TypeScript 7 年 · Java 15 年 · Lua 7 年 · C/C++ 7 年 · PHP 4 年 · Rust（2026 起）",
       "envWasLabel": "工具栈怎么变的",
       "envWas": "最早在 IDE 里把 AI 当助手（Kiro、GitHub Copilot），后来当员工，现在当一家公司的员工——人该坐的位置是董事会。"
     },
@@ -774,7 +774,7 @@ export const DOCS = {
       "envNowLabel": "日常實戰環境",
       "envNow": "Buda · Paseo · Codex · Claude Code · opencode · pi coding agent，按任務混用",
       "langLabel": "程式語言——2011 年至今親手在寫，寫程式 15 年+",
-      "langList": "C# 14 年 · SQL 14 年 · JavaScript 12 年 · Python 11 年 · Go 10 年 · TypeScript 7 年 · Java 7 年 · Lua 7 年 · C/C++ 7 年 · PHP 4 年 · Rust（2026 起）",
+      "langList": "C# 14 年 · SQL 14 年 · JavaScript 12 年 · Python 11 年 · Go 10 年 · TypeScript 7 年 · Java 15 年 · Lua 7 年 · C/C++ 7 年 · PHP 4 年 · Rust（2026 起）",
       "envWasLabel": "工具棧怎麼變的",
       "envWas": "最早在 IDE 裡把 AI 當助手（Kiro、GitHub Copilot），後來當員工，現在當一家公司的員工——人該坐的位置是董事會。"
     },
@@ -1126,7 +1126,7 @@ export const DOCS = {
       "envNowLabel": "Daily operating environment",
       "envNow": "Buda · Paseo · Codex · Claude Code · opencode · pi — mixed per task",
       "langLabel": "Programming languages — hands-on since 2011, 15+ years coding",
-      "langList": "C# 14 yrs · SQL 14 yrs · JavaScript 12 yrs · Python 11 yrs · Go 10 yrs · TypeScript 7 yrs · Java 7 yrs · Lua 7 yrs · C/C++ 7 yrs · PHP 4 yrs · Rust (2026–)",
+      "langList": "C# 14 yrs · SQL 14 yrs · JavaScript 12 yrs · Python 11 yrs · Go 10 yrs · TypeScript 7 yrs · Java 15 yrs · Lua 7 yrs · C/C++ 7 yrs · PHP 4 yrs · Rust (2026–)",
       "envWasLabel": "How it got here",
       "envWas": "It started with AI as an assistant inside an IDE (Kiro, GitHub Copilot). Then as an employee. Now as a company of them — with the human sitting where a board sits."
     },
@@ -1478,7 +1478,7 @@ export const DOCS = {
       "envNowLabel": "日常实战环境",
       "envNow": "Buda · Paseo · Codex · Claude Code · opencode · pi coding agent，按任务混用",
       "langLabel": "编程语言——2011 年至今亲手在写，写代码 15 年+",
-      "langList": "C# 14 年 · SQL 14 年 · JavaScript 12 年 · Python 11 年 · Go 10 年 · TypeScript 7 年 · Java 7 年 · Lua 7 年 · C/C++ 7 年 · PHP 4 年 · Rust（2026 起）",
+      "langList": "C# 14 年 · SQL 14 年 · JavaScript 12 年 · Python 11 年 · Go 10 年 · TypeScript 7 年 · Java 15 年 · Lua 7 年 · C/C++ 7 年 · PHP 4 年 · Rust（2026 起）",
       "envWasLabel": "工具栈怎么变的",
       "envWas": "最早在 IDE 里把 AI 当助手（Kiro、GitHub Copilot），后来当员工，现在当一家公司的员工——人该坐的位置是董事会。"
     },
@@ -1830,7 +1830,7 @@ export const DOCS = {
       "envNowLabel": "日常實戰環境",
       "envNow": "Buda · Paseo · Codex · Claude Code · opencode · pi coding agent，按任務混用",
       "langLabel": "程式語言——2011 年至今親手在寫，寫程式 15 年+",
-      "langList": "C# 14 年 · SQL 14 年 · JavaScript 12 年 · Python 11 年 · Go 10 年 · TypeScript 7 年 · Java 7 年 · Lua 7 年 · C/C++ 7 年 · PHP 4 年 · Rust（2026 起）",
+      "langList": "C# 14 年 · SQL 14 年 · JavaScript 12 年 · Python 11 年 · Go 10 年 · TypeScript 7 年 · Java 15 年 · Lua 7 年 · C/C++ 7 年 · PHP 4 年 · Rust（2026 起）",
       "envWasLabel": "工具棧怎麼變的",
       "envWas": "最早在 IDE 裡把 AI 當助手（Kiro、GitHub Copilot），後來當員工，現在當一家公司的員工——人該坐的位置是董事會。"
     },
